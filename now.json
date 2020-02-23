@@ -1,7 +1,9 @@
 {
 	"version": 2,
-	"name": "Colin Rumball Portfolio Website",
 	"alias": "portfolio.colinrumball.com",
+	"env": {
+		"CR_FRONTEND_ENDPOINT": "@cr_frontend_endpoint"
+	},
 	"builds": [
 		{
 			"src": "/public/**",

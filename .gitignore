@@ -3,7 +3,6 @@
 /android
 /plugins
 /out
-/www
 /config
 /node_modules
 /server/generated
@@ -91,3 +90,5 @@ typings/
 .env.production
 debugNow.json
 deployableNow.json
+
+.now
