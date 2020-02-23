@@ -22,7 +22,7 @@ const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
       <StyledRecentWorkSection>
          <h2>Recent Work</h2>
          <RecentWork
-            href="/TLP"
+            href="/tlp"
             year="2020"
             title="The Loneliness Project"
             description="Sharing stories and starting a conversation about loneliness. Become part of our
