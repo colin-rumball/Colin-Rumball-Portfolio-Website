@@ -174,7 +174,7 @@ const RecentWork: React.FC<RecentWorkProps> = ({
    onClick
 }) => {
    return (
-      <Link href={href} prefetch={true}>
+      <Link href={href}>
          <StyledRecentWork backgroundColor={backgroundColor} imageSrc={imageSrc} onClick={onClick}>
             <section className="info">
                <h4 className="year">{year}</h4>

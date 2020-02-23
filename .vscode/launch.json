@@ -17,24 +17,22 @@
          "request": "launch",
          "name": "Launch Debug Server",
          "protocol": "inspector",
-         "args": ["${workspaceRoot}/server/index.ts", "-P", "config/tsconfig.json"],
+         "args": ["${workspaceRoot}/server/index.ts", "-P", "tsconfig.scripts.json"],
          "cwd": "${workspaceRoot}",
          "envFile": "${workspaceFolder}/.env",
          "runtimeArgs": ["-r", "ts-node/register"],
-         "internalConsoleOptions": "openOnSessionStart",
-         "preLaunchTask": "FixTSConfig"
+         "internalConsoleOptions": "openOnSessionStart"
       },
       {
          "type": "node",
          "request": "launch",
          "name": "Debug Current File",
          "protocol": "inspector",
-         "args": ["${relativeFile}", "-P", "config/tsconfig.json"],
+         "args": ["${relativeFile}", "-P", "tsconfig.scripts.json"],
          "cwd": "${workspaceRoot}",
          "envFile": "${workspaceFolder}/.env",
          "runtimeArgs": ["-r", "ts-node/register"],
-         "internalConsoleOptions": "openOnSessionStart",
-         "preLaunchTask": "FixTSConfig"
+         "internalConsoleOptions": "openOnSessionStart"
       }
    ]
 }

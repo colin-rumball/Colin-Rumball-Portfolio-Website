@@ -39,6 +39,11 @@ export interface Colors {
    DARK_GREY: string;
    LIGHT_GREEN: string;
    GREEN: string;
+   DARK_GREEN: string;
+   Tan: string;
+   LightBlue: string;
+   Blue: string;
+   DarkBlue: string;
 }
 
 export interface Layers {

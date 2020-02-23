@@ -28,7 +28,7 @@ const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
             description="Sharing stories and starting a conversation about loneliness. Become part of our
                community of people who are not as alone as they think."
             techList={[Tech.REACT, Tech.NEXTJS, Tech.GRAPHQL, Tech.NODEJS]}
-            imageSrc="static/TLP.png"
+            imageSrc="public/TLP.png"
             imageAlt="The Loneliness Project"
             backgroundColor="#2D936C"
          />

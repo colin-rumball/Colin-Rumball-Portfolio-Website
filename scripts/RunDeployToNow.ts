@@ -4,7 +4,6 @@ import { STAGE } from "./scriptUtils/Constants";
 import ConvertToStage from "./scriptUtils/ConvertToStage";
 import DeployToNow from "./scriptUtils/DeployToNow";
 import CreateEnvFile from "./scriptUtils/CreateEnvFile";
-import AddEnvToNow from "./scriptUtils/AddEnvToNow";
 import CleanUpNowDeployment from "./scriptUtils/CleanUpNowDeployment";
 
 const runDeployment = async (target: STAGE) => {
@@ -16,15 +15,12 @@ const runDeployment = async (target: STAGE) => {
    }
 
    try {
-      // await AddEnvToNow(target);
       await DeployToNow(target);
       await CleanUpNowDeployment();
    } catch (error) {
       console.error(`DeployToNow encountered an error: ${error}.`);
    }
 };
-
-// Script code
 
 if (argv.target) {
    const target: STAGE = ConvertToStage(argv.target as string);

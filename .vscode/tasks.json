@@ -6,14 +6,14 @@
          "command": "ts-node",
          "args": [
             "-P",
-            "${workspaceFolder}/config/tsconfig.json",
+            "${workspaceFolder}/tsconfig.scripts.json",
             "${workspaceFolder}/scripts/RunCreateEnv.ts",
             "--target=Development",
             "--debug=true"
          ],
          "type": "shell",
          "options": {
-            "statusbar": {"hide": true}
+            "statusbar": { "hide": true }
          }
       },
       {
@@ -21,7 +21,7 @@
          "command": "ts-node",
          "args": [
             "-P",
-            "${workspaceFolder}/config/tsconfig.json",
+            "${workspaceFolder}/tsconfig.scripts.json",
             "${workspaceFolder}/scripts/RunCreateEnv.ts",
             "--target=Development",
             "--debug=true",
@@ -29,7 +29,7 @@
          ],
          "type": "shell",
          "options": {
-            "statusbar": {"hide": true}
+            "statusbar": { "hide": true }
          }
       },
       {
@@ -37,26 +37,13 @@
          "command": "ts-node",
          "args": [
             "-P",
-            "${workspaceFolder}/config/tsconfig.json",
+            "${workspaceFolder}/tsconfig.scripts.json",
             "${workspaceFolder}/scripts/RunCreateEnv.ts",
             "--target=Test"
          ],
          "type": "shell",
          "options": {
-            "statusbar": {"hide": true}
-         }
-      },
-      {
-         "label": "FixTSConfig",
-         "command": "ts-node",
-         "args": [
-            "-P",
-            "${workspaceFolder}/config/tsconfig.json",
-            "${workspaceFolder}/scripts/RunFixTSConfig.ts"
-         ],
-         "type": "shell",
-         "options": {
-            "statusbar": {"hide": true}
+            "statusbar": { "hide": true }
          }
       },
       {
@@ -74,7 +61,7 @@
          "type": "shell",
          "command": "npm",
          "args": ["run", "now:dev"],
-         "dependsOn": ["CreateLocalDebugEnv"],
+         "dependsOn": [""],
          "promptOnClose": true,
          "dependsOrder": "sequence",
          "problemMatcher": []

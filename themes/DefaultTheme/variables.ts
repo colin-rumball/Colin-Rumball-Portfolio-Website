@@ -39,8 +39,8 @@ export const SPACING: Spacing = {
 
 export const BORDER_RADIUS: BorderRadius = {
    WEAK: "5px",
-   MEDIUM: "20px",
-   STRONG: "35px"
+   MEDIUM: "10px",
+   STRONG: "25px"
 };
 
 export const COLORS: Colors = {
@@ -48,7 +48,12 @@ export const COLORS: Colors = {
    GREY: "#555555",
    DARK_GREY: "#222222",
    LIGHT_GREEN: "#1cc949",
-   GREEN: "#159436"
+   GREEN: "#159436",
+   DARK_GREEN: "#159436",
+   Tan: "#e8d8b6",
+   LightBlue: "#27405e",
+   Blue: "#1F324C",
+   DarkBlue: "#0B1928"
 };
 
 export const LAYERS: Layers = {

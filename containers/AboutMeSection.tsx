@@ -39,7 +39,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
          <section className="initial-info">
             <img
                className="van-image"
-               src="static/van.png"
+               src="public/van.png"
                alt="Photo of Colin Rumball sitting on a wicked van"
             />
             <article>
@@ -47,7 +47,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                <p>
                   I've been passionate about software development since I was in high school and
                   found an outlet of that passion in game development. I went to school for game
-                  development and after working at Gameloft for 5 years became captivated by the
+                  development and after working in the games industry became captivated by the
                   creativity and challenge of web development.
                </p>
             </article>

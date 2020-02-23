@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect } from "react";
 function withTheme<T>(Component: React.FC, theme: ThemeEnum) {
    return (props: T) => {
       const { setTheme } = useThemeContext();
-      useLayoutEffect(() => {
+      useEffect(() => {
          setTheme(theme);
          return () => {
             setTheme(ThemeEnum.DEFAULT);

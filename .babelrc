@@ -1,5 +1,5 @@
 {
-   "presets": ["next/babel", "@babel/preset-env", "@babel/preset-react"],
+   "presets": ["next/babel", "@babel/preset-react"],
    "env": {
       "development": {
          "plugins": [
@@ -30,6 +30,7 @@
       ["@babel/plugin-proposal-class-properties", {}, "class-properties"],
       ["@babel/plugin-proposal-object-rest-spread", {}, "object-rest-spread"],
       ["@babel/plugin-proposal-optional-chaining", {}, "optional-chaining"],
-      ["@babel/plugin-proposal-nullish-coalescing-operator", {}, "nullish-operator"]
+      ["@babel/plugin-proposal-nullish-coalescing-operator", {}, "nullish-operator"],
+      ["@babel/plugin-transform-runtime", {}, "transform-runtime"]
    ]
 }
