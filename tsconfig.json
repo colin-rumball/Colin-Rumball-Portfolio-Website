@@ -1,23 +1,35 @@
 {
-   "compilerOptions": {
-      "baseUrl": "./",
-      "target": "es5",
-      "jsx": "preserve",
-      "rootDir": "./",
-      "esModuleInterop": true,
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "allowJs": false,
-      "skipLibCheck": true,
-      "strict": false,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "downlevelIteration": true,
-      "alwaysStrict": false,
-      "module": "esnext"
-   },
-   "exclude": ["scripts/**/*", "node_modules"],
-   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "scripts/RunDeployToNow.cjs"]
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "jsx": "preserve",
+    "rootDir": "./",
+    "esModuleInterop": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "alwaysStrict": false,
+    "module": "esnext"
+  },
+  "exclude": [
+    "scripts/**/*",
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "scripts/RunDeployToNow.cjs"
+  ]
 }

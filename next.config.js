@@ -8,10 +8,4 @@ const config = {
    env: {}
 };
 
-for (const key in process.env) {
-   if (key.substring(0, 10) !== "SECRET_PD_" && key.substring(0, 3) === "PD_") {
-      config.env[key] = process.env[key];
-   }
-}
-
 module.exports = withPlugins([[withSourceMaps], [withImages]], config);

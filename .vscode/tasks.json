@@ -2,21 +2,6 @@
    "version": "2.0.0",
    "tasks": [
       {
-         "label": "CreateNowDevEnv",
-         "command": "ts-node",
-         "args": [
-            "-P",
-            "${workspaceFolder}/tsconfig.scripts.json",
-            "${workspaceFolder}/scripts/RunCreateEnv.ts",
-            "--target=Development",
-            "--debug=true"
-         ],
-         "type": "shell",
-         "options": {
-            "statusbar": { "hide": true }
-         }
-      },
-      {
          "label": "CreateLocalDebugEnv",
          "command": "ts-node",
          "args": [

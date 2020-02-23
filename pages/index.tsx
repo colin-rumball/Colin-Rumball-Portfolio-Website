@@ -6,23 +6,14 @@ import RecentWorkSection from "../containers/RecentWorkSection";
 
 const StyledHomePage = styled.div``;
 
-const HomePage = ({ endpoint }) => {
+const HomePage = () => {
    return (
       <StyledHomePage>
          <PageMain>
-            <div>endpoint: {endpoint}</div>
             <IntroSection />
             <RecentWorkSection />
          </PageMain>
       </StyledHomePage>
    );
 };
-
-HomePage.getInitialProps = () => {
-   if (typeof process !== "undefined") {
-      return { endpoint: process.env.CR_FRONTEND_ENDPOINT };
-   }
-   return {};
-};
-
 export default HomePage;

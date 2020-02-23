@@ -7,9 +7,9 @@
 	},
 	"main": "/pages/index.js",
 	"scripts": {
+		"dev": "now dev",
 		"now:cert": "now certs issue colinrumball.com",
 		"now:alias": "now alias",
-		"now:dev": "now dev --local-config=./debugNow.json",
 		"test:all": "dotenv-load jest -i",
 		"now:deploy": "ts-node -P tsconfig.scripts.json scripts/RunDeployToNow.ts"
 	},
@@ -73,7 +73,6 @@
 		"now": "^17.0.4",
 		"prompt-list": "^3.2.0",
 		"recursive-readdir": "^2.2.2",
-		"sharp": "^0.24.1",
 		"tinify": "^1.6.0-beta.2",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.8.2",

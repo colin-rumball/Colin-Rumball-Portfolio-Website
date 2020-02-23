@@ -1,8 +1,9 @@
 {
 	"version": 2,
 	"alias": "portfolio.colinrumball.com",
-	"env": {
-		"CR_FRONTEND_ENDPOINT": "@cr_frontend_endpoint"
+	"env": {},
+	"build": {
+		"env": {}
 	},
 	"builds": [
 		{

@@ -32,7 +32,8 @@
          "cwd": "${workspaceRoot}",
          "envFile": "${workspaceFolder}/.env",
          "runtimeArgs": ["-r", "ts-node/register"],
-         "internalConsoleOptions": "openOnSessionStart"
+         "internalConsoleOptions": "openOnSessionStart",
+         "preLaunchTask": "FixTSConfig"
       }
    ]
 }
