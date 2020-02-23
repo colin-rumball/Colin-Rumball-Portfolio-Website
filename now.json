@@ -1,6 +1,5 @@
 {
 	"version": 2,
-	"alias": "portfolio.colinrumball.com",
 	"env": {},
 	"build": {
 		"env": {}
