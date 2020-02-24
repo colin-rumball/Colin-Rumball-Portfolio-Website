@@ -16,4 +16,5 @@ const HomePage = () => {
       </StyledHomePage>
    );
 };
+
 export default HomePage;

@@ -45,7 +45,7 @@
          "label": "Run Now Dev",
          "type": "shell",
          "command": "npm",
-         "args": ["run", "now:dev"],
+         "args": ["run", "dev"],
          "dependsOn": [""],
          "promptOnClose": true,
          "dependsOrder": "sequence",
