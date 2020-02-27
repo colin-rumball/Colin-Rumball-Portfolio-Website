@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import IntroSection from "../containers/IntroSection";
-import PageMain from "../containers/PageMain";
+import PageMainContent from "../containers/PageMainContent";
 import RecentWorkSection from "../containers/RecentWorkSection";
 
 const StyledHomePage = styled.div``;
@@ -9,10 +9,10 @@ const StyledHomePage = styled.div``;
 const HomePage = () => {
    return (
       <StyledHomePage>
-         <PageMain>
+         <PageMainContent>
             <IntroSection />
             <RecentWorkSection />
-         </PageMain>
+         </PageMainContent>
       </StyledHomePage>
    );
 };

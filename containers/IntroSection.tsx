@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
-import Button from "../components/base/Button";
+import Button from "../components/basic/Buttons/Button";
 import SocialLinks from "../components/SocialLinks";
 
 interface StyledIntroSectionProps {}

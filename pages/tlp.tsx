@@ -1,12 +1,20 @@
-import React, { Props, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import PageMain from "../containers/PageMain";
-import { ThemeEnum, useThemeContext } from "../contexts/ThemeContext";
-import { ThemeContainer } from "../themes/definitions/Theme";
+import Picture from "../components/basic/Pictures/Picture";
+import FeaturedVideo from "../components/content/FeaturedVideo";
+import ResposiveSection from "../components/basic/Sections/ResposiveSection";
+import PageMainContent from "../containers/PageMainContent";
+import { ThemeEnum } from "../contexts/ThemeContext";
 import withTheme from "../helpers/withTheme";
-import Card from "../components/base/Card";
-import TechStack from "../containers/TechStack";
-import List from "../components/base/List";
+import FeaturedContentStyle from "../styles/FeaturedContentStyle";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
+import { FiLink, FiGithub } from "react-icons/fi";
+import MobilePicture from "../components/basic/Pictures/MobilePicture";
+import List from "../components/basic/List";
+import FullWidthSection from "../components/basic/Sections/FullWidthSection";
+import ImageCarousel from "../components/ImageCarousel";
+import BorderedPicture from "../components/basic/Pictures/BorderedPicture";
 
 interface StyledtlpProps {}
 
@@ -14,75 +22,186 @@ const Styledtlp = styled.div<StyledtlpProps>`
    min-height: 100vh;
    background-image: ${({ theme }: ThemeContainer) => theme.GENERAL.BACKGROUND_IMAGE};
    background-attachment: fixed;
-   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.Tan};
-   text-align: center;
+   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
 
-   .main-video {
-      max-width: 100%;
-   }
-
-   p.description {
-      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
-   }
-
-   section.mobile-images {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-
-      max-width: 100%;
-
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
-         flex-wrap: nowrap;
+   section {
+      p.description {
+         flex-basis: 33%;
+         font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
       }
+
+      article.external-links {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-evenly;
+         align-items: center;
+
+         flex-basis: 18%;
+
+         height: 100%;
+         min-height: 130px;
+         max-height: 180px;
+      }
+
+      article.mobile-images {
+         /* display: flex;
+         justify-content: space-evenly;
+         flex-wrap: nowrap; */
+         flex-basis: 55%;
+         max-width: 55%;
+
+         z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+      }
+
+      article.tech-and-features {
+         display: flex;
+         flex-direction: column;
+         flex-basis: 35%;
+
+         padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+
+         z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+
+         .tech-stack {
+            padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+            width: 100%;
+         }
+
+         .dev-features {
+            padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+            flex-grow: 1;
+         }
+      }
+   }
+
+   div.lower-background {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 600px;
+
+      margin: 0;
+
+      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_BLUE};
+      z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.MID_GROUND};
    }
 `;
 
 const tlp: React.FC = ({}) => {
    return (
       <Styledtlp>
-         <PageMain>
-            <h1>The Loneliness Project</h1>
-            <Card>
-               <video className="main-video" autoPlay loop muted playsInline>
-                  <source src="public/tlp-main.mp4" type="video/mp4" />
-               </video>
-            </Card>
-            <p className="description">
-               At The Loneliness Project, we believe that stories have power—the power to heal both
-               listener and teller, and to show us that we aren’t ever truly alone. Stories are
-               powerful tools for building empathy and growing kindness. Those shared on the site
-               are deeply personal yet profoundly universal.
-            </p>
-            <section className="mobile-images">
-               <Card>
-                  <img src="public/tlp-mobile-1.png" />
-               </Card>
-               <Card>
-                  <img src="public/tlp-mobile-2.png" />
-               </Card>
-               <Card>
-                  <img src="public/tlp-mobile-3.png" />
-               </Card>
-            </section>
-            <p className="description">
-               The Loneliness Project is a passion project started by my dear friend Marissa Korda.
-               It began small and found fast success receiving thousands of stories and counting.
-               Marissa wished to move the site to have more control over its development and to fix
-               several quality of life issues. The original site was built using plain old HTML, JS,
-               and CSS so I took on the task of rebuilding the original site from the ground up
-               using modern technologies.
-            </p>
-            <TechStack></TechStack>
-            <h3>Features</h3>
-            <ul>
-               <li>Written in modern React, only functional components with hooks.</li>
-               <li>Server-side rendering using Next.js.</li>
-               <li>Custom webpack setup, without create-react-app or similar.</li>
-               <li>Authentication with JWTs to secure private routes and api endpoints.</li>
-               <li>GraphQL backend built and managed using Prisma.</li>
-            </ul>
-         </PageMain>
+         <PageMainContent>
+            <FeaturedVideo src="public/videos/tlp-main.mp4" />
+            <ResposiveSection>
+               <p className="description">
+                  At The Loneliness Project, we believe that stories have power—the power to heal
+                  both listener and teller, and to show us that we aren’t ever truly alone. Stories
+                  are powerful tools for building empathy and growing kindness. Those shared on the
+                  site are deeply personal yet profoundly universal.
+               </p>
+               <p className="description">
+                  The Loneliness Project is a passion project started by my dear friend Marissa
+                  Korda. It began small and found fast success receiving thousands of stories and
+                  counting. Marissa wished to move the site to have more control over its
+                  development and to fix several quality of life issues. The original site was built
+                  using plain old HTML, JS, and CSS so I took on the task of rebuilding the original
+                  site from the ground up using modern technologies.
+               </p>
+               <article className="external-links">
+                  <ExternalLinkButton href="https://thelonelinessproject.org">
+                     <FiLink /> VISIT WEBSITE
+                  </ExternalLinkButton>
+                  <ExternalLinkButton href="https://github.com/colin-rumball/The-Loneliness-Project">
+                     <FiGithub /> SEE ON GITHUB
+                  </ExternalLinkButton>
+               </article>
+            </ResposiveSection>
+
+            <ResposiveSection style={{ justifyContent: "space-between" }}>
+               <BorderedPicture
+                  style={{ flexBasis: "48%" }}
+                  pictureProps={{
+                     src: require("public/images/TLP/tlp-about-horizontal.png"),
+                     webp: require("public/images/TLP/tlp-about-horizontal.png?webp")
+                  }}
+               />
+               <BorderedPicture
+                  style={{ flexBasis: "48%" }}
+                  pictureProps={{
+                     src: require("public/images/TLP/tlp-story-horizontal.png"),
+                     webp: require("public/images/TLP/tlp-story-horizontal.png?webp")
+                  }}
+               />
+            </ResposiveSection>
+
+            <FullWidthSection>
+               <ResposiveSection>
+                  <article className="mobile-images">
+                     <ImageCarousel>
+                        <MobilePicture
+                           pictureProps={{
+                              src: require("public/images/TLP/tlp-dashboard.png"),
+                              webp: require("public/images/TLP/tlp-dashboard.png?webp")
+                           }}
+                        />
+                        <MobilePicture
+                           pictureProps={{
+                              src: require("public/images/TLP/tlp-edit-apartment.png"),
+                              webp: require("public/images/TLP/tlp-edit-apartment.png?webp")
+                           }}
+                        />
+                        <MobilePicture
+                           pictureProps={{
+                              src: require("public/images/TLP/tlp-login.png"),
+                              webp: require("public/images/TLP/tlp-login.png?webp")
+                           }}
+                        />
+                     </ImageCarousel>
+                  </article>
+                  {/* <article className="mobile-images">
+                     <MobilePicture
+                        style={{ flexBasis: "20%" }}
+                        pictureProps={{
+                           src: require("public/tlp-mobile-1.png"),
+                           webp: require("public/tlp-mobile-1.png?webp")
+                        }}
+                     />
+                     <MobilePicture
+                        style={{ flexBasis: "20%" }}
+                        pictureProps={{
+                           src: require("public/tlp-mobile-2.png"),
+                           webp: require("public/tlp-mobile-2.png?webp")
+                        }}
+                     />
+                     <MobilePicture
+                        style={{ flexBasis: "20%" }}
+                        pictureProps={{
+                           src: require("public/tlp-mobile-3.png"),
+                           webp: require("public/tlp-mobile-3.png?webp")
+                        }}
+                     />
+                  </article> */}
+                  <article className="tech-and-features">
+                     <Picture
+                        className="tech-stack"
+                        src={require("public/tech.png")}
+                        webp={require("public/tech.png?webp")}
+                     />
+                     <List
+                        className="dev-features"
+                        title="DEVELOPMENT FEATURES"
+                        items={[
+                           "Written in modern React, using only functional components with hooks.",
+                           "Server-side rendering using Next.js.",
+                           "Custom webpack setup, without create-react-app or similar.",
+                           "Authentication with JWTs to secure private routes and api endpoints.",
+                           "GraphQL backend built and managed using Prisma."
+                        ]}
+                     />
+                  </article>
+               </ResposiveSection>
+            </FullWidthSection>
+         </PageMainContent>
       </Styledtlp>
    );
 };

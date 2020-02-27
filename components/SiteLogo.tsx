@@ -10,6 +10,7 @@ const StyledSiteLogo = styled.a<StyledSiteLogoProps>`
    display: flex;
    align-items: center;
 
+   letter-spacing: 1px;
    font-family: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_FAMILIES.SECONDARY};
    color: ${({ theme }: ThemeContainer) => theme.GENERAL.LOGO_COLOR.DEFAULT};
    cursor: pointer;
@@ -26,7 +27,7 @@ const SiteLogoDefaultProps: SiteLogoProps = {};
 const SiteLogo: React.FC<SiteLogoProps> = ({}) => {
    return (
       <Link href="/">
-         <StyledSiteLogo>CRUMBALL</StyledSiteLogo>
+         <StyledSiteLogo>C.RUMBALL</StyledSiteLogo>
       </Link>
    );
 };

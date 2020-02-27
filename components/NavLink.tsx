@@ -7,7 +7,7 @@ import { ThemeContainer } from "../themes/definitions/Theme";
 interface StyledNavLinkProps {}
 
 const StyledNavLink = styled.li<StyledNavLinkProps>`
-   margin-left: 2vw;
+   margin-left: 4vw;
 
    a.inner-navlink {
       color: ${({ theme }: ThemeContainer) => theme.GENERAL.NAV_ITEMS_COLOR.DEFAULT};

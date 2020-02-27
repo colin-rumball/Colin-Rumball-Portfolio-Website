@@ -37,11 +37,6 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
    return (
       <StyledAboutMeSection>
          <section className="initial-info">
-            <img
-               className="van-image"
-               src="public/van.png"
-               alt="Photo of Colin Rumball sitting on a wicked van"
-            />
             <article>
                <h2>About Me</h2>
                <p>
@@ -61,8 +56,8 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   finding that perfect stack. 🥞
                </p>
                <p>
-                  Besides web and games I enjoy climbing mountains, doing yoga, tinckering with
-                  tech, camping, and travelling with my wife.
+                  Besides web and games I enjoy climbing mountains, doing yoga, tinkering with tech,
+                  camping, and travelling with my wife.
                </p>
             </article>
          </section>

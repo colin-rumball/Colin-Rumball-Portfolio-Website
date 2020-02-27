@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
 import { MaxScreenConstraints } from "../styles/BaseStyles";
 
 interface StyledPageMainProps {}
@@ -10,12 +9,8 @@ const StyledPageMain = styled.main<StyledPageMainProps>`
    padding-top: 80px;
 `;
 
-interface PageMainProps {}
-
-const PageMainDefaultProps: PageMainProps = {};
-
-const PageMain: React.FC<PageMainProps> = ({ children }) => {
+const PageMainContent: React.FC = ({ children }) => {
    return <StyledPageMain>{children}</StyledPageMain>;
 };
 
-export default withDefaultProps<PageMainProps>(PageMain, PageMainDefaultProps);
+export default PageMainContent;

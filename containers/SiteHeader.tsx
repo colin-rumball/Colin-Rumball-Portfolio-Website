@@ -27,8 +27,8 @@ const StyledSiteHeader = styled.header<StyledSiteHeaderProps>`
       justify-content: space-between;
       align-items: center;
 
-      height: 32px;
-      padding: 16px 0;
+      height: 30px;
+      padding: 15px 0;
    }
 `;
 

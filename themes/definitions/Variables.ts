@@ -40,10 +40,10 @@ export interface Colors {
    LIGHT_GREEN: string;
    GREEN: string;
    DARK_GREEN: string;
-   Tan: string;
-   LightBlue: string;
-   Blue: string;
-   DarkBlue: string;
+   TAN: string;
+   LIGHT_BLUE: string;
+   BLUE: string;
+   DARK_BLUE: string;
 }
 
 export interface Layers {

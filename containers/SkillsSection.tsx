@@ -1,7 +1,7 @@
 import React, { Props } from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
-import List from "../components/base/List";
+import List from "../components/basic/List";
 
 interface StyledSkillsSectionProps {}
 

@@ -36,13 +36,23 @@ class MyDocument extends Document {
                <meta name="keywords" content="Colin Rumball Web Developer Full Stack" />
                <meta name="author" content="Colin Rumball" />
                <link
-                  href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap"
+                  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600&display=swap"
                   rel="stylesheet"
                />
                <link
                   href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
                   rel="stylesheet"
                ></link>
+               <link
+                  rel="stylesheet"
+                  type="text/css"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+               />
+               <link
+                  rel="stylesheet"
+                  type="text/css"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+               />
                <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
             </Head>
             <body>

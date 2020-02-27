@@ -1,7 +1,6 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import { FiGithub } from "react-icons/fi";
-import { AiOutlineLinkedin } from "react-icons/ai";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 
@@ -17,7 +16,7 @@ const StyledSocialLinks = styled.ul<StyledSocialLinksProps>`
    height: 100%;
 
    li {
-      margin-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+      margin-left: 4vw;
       padding-top: 6px;
 
       a.social-link {
@@ -55,7 +54,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({}) => {
                rel="noopener noreferrer"
                target="_blank"
             >
-               <AiOutlineLinkedin />
+               <FiLinkedin />
             </a>
          </li>
       </StyledSocialLinks>

@@ -11,7 +11,7 @@ import Variables, {
 export const BREAK_POINTS: BreakPoints = {
    SMALL: "440px",
    MEDIUM: "768px",
-   LARGE: "900px"
+   LARGE: "980px"
 };
 
 export const FONT_SIZES: FontSizes = {
@@ -24,7 +24,7 @@ export const FONT_SIZES: FontSizes = {
 };
 
 export const FONT_FAMILIES: FontFamilies = {
-   PRIMARY: "'Montserrat', sans-serif",
+   PRIMARY: "'Roboto', sans-serif",
    SECONDARY: "'Raleway', sans-serif;"
 };
 
@@ -50,17 +50,17 @@ export const COLORS: Colors = {
    LIGHT_GREEN: "#1cc949",
    GREEN: "#159436",
    DARK_GREEN: "#159436",
-   Tan: "#e8d8b6",
-   LightBlue: "#27405e",
-   Blue: "#1F324C",
-   DarkBlue: "#0B1928"
+   TAN: "#e8d8b6",
+   LIGHT_BLUE: "#27405e",
+   BLUE: "#1F324C",
+   DARK_BLUE: "#0B1928"
 };
 
 export const LAYERS: Layers = {
    MODAL: 60,
    ON_TOP: 40,
-   FOREGROUND: 20,
-   MID_GROUND: 10,
+   FOREGROUND: 3,
+   MID_GROUND: 2,
    BACKGROUND: 1
 };
 

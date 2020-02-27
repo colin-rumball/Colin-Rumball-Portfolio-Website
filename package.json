@@ -1,7 +1,7 @@
 {
 	"name": "Colin-Rumball-Portfolio-Website",
 	"version": "0.0.1",
-	"description": "",
+	"description": "The web development portfolio website for Colin Rumball.",
 	"engines": {
 		"node": "12.x"
 	},
@@ -30,6 +30,7 @@
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-icons": "^3.9.0",
+		"react-slick": "^0.25.2",
 		"request": "^2.88.2",
 		"styled-components": "^4.4.1",
 		"yup": "^0.27.0"
@@ -66,8 +67,13 @@
 		"dotenv-load": "^2.0.0",
 		"env-cmd": "^9.0.3",
 		"glob": "^7.1.6",
+		"image-trace-loader": "^1.0.2",
+		"imagemin-gifsicle": "^7.0.0",
+		"imagemin-mozjpeg": "^8.0.0",
+		"imagemin-optipng": "^7.1.0",
 		"jest": "^24.9.0",
 		"ncp": "^2.0.0",
+		"next-optimized-images": "^2.5.5",
 		"node-sass": "^4.13.1",
 		"node-static": "^0.7.11",
 		"normalize.css": "^8.0.1",
@@ -77,6 +83,7 @@
 		"tinify": "^1.6.0-beta.2",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.8.2",
+		"webp-loader": "^0.6.0",
 		"yargs": "^13.3.0"
 	},
 	"keywords": [],

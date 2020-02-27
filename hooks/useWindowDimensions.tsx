@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from "react";
 
 const useWindowDimensions = () => {
    const [windowDimensions, setWindowDimensions] = useState({
-      width: typeof window == "undefined" ? 900 : window.innerWidth,
+      width: typeof window == "undefined" ? 980 : window.innerWidth,
       height: typeof window == "undefined" ? 1600 : window.innerHeight
    });
    const onWindowResized = useCallback(() => {

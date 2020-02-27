@@ -1,7 +1,7 @@
 import React, { Props } from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
-import PageMain from "../containers/PageMain";
+import PageMainContent from "../containers/PageMainContent";
 import AboutMeSection from "../containers/AboutMeSection";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import SkillsSection from "../containers/SkillsSection";
@@ -25,10 +25,10 @@ const AboutPageDefaultProps: AboutPageProps = {};
 const AboutPage: React.FC<AboutPageProps> = ({}) => {
    return (
       <StyledAboutPage>
-         <PageMain>
+         <PageMainContent>
             <AboutMeSection />
             <SkillsSection />
-         </PageMain>
+         </PageMainContent>
       </StyledAboutPage>
    );
 };

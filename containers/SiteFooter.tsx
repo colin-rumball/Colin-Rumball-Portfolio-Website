@@ -8,21 +8,26 @@ import { MaxScreenConstraints } from "../styles/BaseStyles";
 interface StyledSiteFooterProps {}
 
 const StyledSiteFooter = styled.footer<StyledSiteFooterProps>`
-   ${MaxScreenConstraints};
    display: flex;
    flex-direction: row;
-   justify-content: flex-end;
+   justify-content: center;
    align-items: center;
 
-   margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+   /* margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L}; */
 
-   height: 40px;
+	margin: 0;
+	padding: 0;
 
-   border-top-color: ${({ theme }: ThemeContainer) => theme.GENERAL.FOOTER_LINKS_COLOR.DEFAULT};
-   border-top-style: solid;
-   border-top-width: 1px;
+	width: 100%;
+   height: 60px;
+
+	font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+	letter-spacing: 1px;
+	color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
+
+	background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
 `;
 
 interface SiteFooterProps extends Props<any> {}
@@ -30,11 +35,7 @@ interface SiteFooterProps extends Props<any> {}
 const SiteFooterDefaultProps: SiteFooterProps = {};
 
 const SiteFooter: React.FC<SiteFooterProps> = ({}) => {
-   return (
-      <StyledSiteFooter>
-         <SocialLinks />
-      </StyledSiteFooter>
-   );
+   return <StyledSiteFooter>COPYRIGHT &copy; COLIN RUMBALL 2020</StyledSiteFooter>;
 };
 
 export default withDefaultProps<SiteFooterProps>(SiteFooter, SiteFooterDefaultProps);
