@@ -26,7 +26,7 @@ const AboutPage: React.FC<AboutPageProps> = ({}) => {
    return (
       <StyledAboutPage>
          <PageMainContent>
-            <AboutMeSection />
+            {/* <AboutMeSection /> */}
             <SkillsSection />
          </PageMainContent>
       </StyledAboutPage>
