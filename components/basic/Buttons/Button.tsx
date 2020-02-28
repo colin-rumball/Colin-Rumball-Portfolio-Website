@@ -1,10 +1,19 @@
 import React, { Props } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import withDefaultProps from "../../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
 import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 
-interface StyledButtonProps {}
+enum ButtonSize {
+   DYNAMIC,
+   SMALL,
+   MEDIUM,
+   LARGE
+}
+
+interface StyledButtonProps {
+   size: ButtonSize;
+}
 
 const StyledButton = styled.button<StyledButtonProps>`
    position: relative;
@@ -12,16 +21,12 @@ const StyledButton = styled.button<StyledButtonProps>`
 
    background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
 
-   /* border-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREEN};
-   border-style: solid;
-   border-width: 2px; */
    border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG};
 
-	padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-	padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+   padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
    padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
    padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-
 
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
    font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
@@ -37,12 +42,17 @@ const StyledButton = styled.button<StyledButtonProps>`
    }
 `;
 
-export interface ButtonProps extends ComponentBaseProps {}
+export interface ButtonProps extends ComponentBaseProps {
+   size?: ButtonSize;
+   secondary?: boolean;
+}
 
-const ButtonDefaultProps: ButtonProps = {};
+const ButtonDefaultProps: ButtonProps = {
+   size: ButtonSize.DYNAMIC
+};
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
-   return <StyledButton>{children}</StyledButton>;
+const Button: React.FC<ButtonProps> = ({ size, secondary, children }) => {
+   return <StyledButton size={size}>{children}</StyledButton>;
 };
 
 export default withComponentBase<ButtonProps>(Button, ButtonDefaultProps);

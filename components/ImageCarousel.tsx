@@ -2,21 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import withComponentBase, { ComponentBaseProps } from "../helpers/withComponentBase";
-import Picture from "./basic/Pictures/Picture";
 import { ThemeContainer } from "../themes/definitions/Theme";
 
 interface StyledImageCarouselProps {}
 
 const StyledImageCarousel = styled(Slider)<StyledImageCarouselProps>`
+   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
    padding-bottom: 50px;
+   border: 2px solid;
+   border-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
+   border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG};
+
+   .slick-list {
+      background: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
+      border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG}
+         ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG} 0 0;
+   }
 
    .slick-slide {
-      transition: transform 0.4s ease-out;
+      transition: transform 0.4s ease-out, opacity 0.35s ease-out, filter 0.3s ease-out;
       transform: scale(0.9);
+      opacity: 0.7;
+      filter: blur(2px);
    }
 
    .slick-center {
       transform: scale(1);
+      opacity: 1;
+      filter: blur(0px);
    }
 
    ul.slick-dots {
@@ -46,7 +59,7 @@ const StyledImageCarousel = styled(Slider)<StyledImageCarouselProps>`
             button {
                &::before {
                   opacity: 1;
-                  color: #f0b817;
+                  color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
                   transform: scale(1);
                }
             }
