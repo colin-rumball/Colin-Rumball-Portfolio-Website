@@ -5,6 +5,8 @@ import SiteHeader from "../containers/SiteHeader";
 import SiteFooter from "../containers/SiteFooter";
 import { ThemeContextProvider } from "../contexts/ThemeContext";
 import GlobalStyles from "../components/GlobalStyles";
+import { ModalSystemProvider } from "../contexts/ModalContext/ModalSystem";
+import ModalViewer from "../components/modals/ModalViewer/ModalViewer";
 
 class MyApp extends App {
    render() {
@@ -16,9 +18,12 @@ class MyApp extends App {
             </Head>
             <ThemeContextProvider>
                <GlobalStyles />
-               <SiteHeader />
-               <Component {...pageProps} key={router.route} />
-               <SiteFooter />
+               <ModalSystemProvider>
+                  <SiteHeader />
+                  <Component {...pageProps} key={router.route} />
+                  <SiteFooter />
+                  <ModalViewer />
+               </ModalSystemProvider>
             </ThemeContextProvider>
          </>
       );

@@ -6,15 +6,14 @@ import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PageMainContent from "../containers/PageMainContent";
 import { ThemeEnum } from "../contexts/ThemeContext";
 import withTheme from "../helpers/withTheme";
-import FeaturedContentStyle from "../styles/FeaturedContentStyle";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FiLink, FiGithub } from "react-icons/fi";
-import MobilePicture from "../components/basic/Pictures/MobilePicture";
 import List from "../components/basic/List";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ImageCarousel from "../components/ImageCarousel";
-import BorderedPicture from "../components/basic/Pictures/BorderedPicture";
+import useModalSystemHelper from "../hooks/useModalSystemHelper";
+import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 
 interface StyledtlpProps {}
 
@@ -44,13 +43,13 @@ const Styledtlp = styled.div<StyledtlpProps>`
       }
 
       article.mobile-images {
-         /* display: flex;
-         justify-content: space-evenly;
-         flex-wrap: nowrap; */
          flex-basis: 55%;
-         max-width: 55%;
 
          z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            max-width: 55%;
+         }
       }
 
       article.tech-and-features {
@@ -88,6 +87,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
 `;
 
 const tlp: React.FC = ({}) => {
+   const { pushModal } = useModalSystemHelper();
    return (
       <Styledtlp>
          <PageMainContent>
@@ -118,14 +118,18 @@ const tlp: React.FC = ({}) => {
             </ResposiveSection>
 
             <ResposiveSection style={{ justifyContent: "space-between" }}>
-               <BorderedPicture
+               <EnhancedPicture
+                  opensLightbox
+                  showBorder
                   style={{ flexBasis: "48%" }}
                   pictureProps={{
                      src: require("public/images/TLP/tlp-about-horizontal.png"),
                      webp: require("public/images/TLP/tlp-about-horizontal.png?webp")
                   }}
                />
-               <BorderedPicture
+               <EnhancedPicture
+                  opensLightbox
+                  showBorder
                   style={{ flexBasis: "48%" }}
                   pictureProps={{
                      src: require("public/images/TLP/tlp-story-horizontal.png"),
@@ -135,22 +139,22 @@ const tlp: React.FC = ({}) => {
             </ResposiveSection>
 
             <FullWidthSection>
-               <ResposiveSection>
+               <ResposiveSection style={{ justifyContent: "space-between" }}>
                   <article className="mobile-images">
                      <ImageCarousel>
-                        <MobilePicture
+                        <EnhancedPicture
                            pictureProps={{
                               src: require("public/images/TLP/tlp-dashboard.png"),
                               webp: require("public/images/TLP/tlp-dashboard.png?webp")
                            }}
                         />
-                        <MobilePicture
+                        <EnhancedPicture
                            pictureProps={{
                               src: require("public/images/TLP/tlp-edit-apartment.png"),
                               webp: require("public/images/TLP/tlp-edit-apartment.png?webp")
                            }}
                         />
-                        <MobilePicture
+                        <EnhancedPicture
                            pictureProps={{
                               src: require("public/images/TLP/tlp-login.png"),
                               webp: require("public/images/TLP/tlp-login.png?webp")
@@ -158,29 +162,6 @@ const tlp: React.FC = ({}) => {
                         />
                      </ImageCarousel>
                   </article>
-                  {/* <article className="mobile-images">
-                     <MobilePicture
-                        style={{ flexBasis: "20%" }}
-                        pictureProps={{
-                           src: require("public/tlp-mobile-1.png"),
-                           webp: require("public/tlp-mobile-1.png?webp")
-                        }}
-                     />
-                     <MobilePicture
-                        style={{ flexBasis: "20%" }}
-                        pictureProps={{
-                           src: require("public/tlp-mobile-2.png"),
-                           webp: require("public/tlp-mobile-2.png?webp")
-                        }}
-                     />
-                     <MobilePicture
-                        style={{ flexBasis: "20%" }}
-                        pictureProps={{
-                           src: require("public/tlp-mobile-3.png"),
-                           webp: require("public/tlp-mobile-3.png?webp")
-                        }}
-                     />
-                  </article> */}
                   <article className="tech-and-features">
                      <Picture
                         className="tech-stack"

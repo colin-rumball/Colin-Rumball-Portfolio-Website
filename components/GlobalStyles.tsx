@@ -13,6 +13,10 @@ const GlobalStyles = createGlobalStyle`
 		background-color: ${({ theme }: ThemeContainer) => theme.GENERAL.SITE_BACKGROUND_COLOR};
 
 		overflow-x: hidden;
+
+		.modal-open {
+			overflow: hidden;
+		}
 	}
 
 	body {
