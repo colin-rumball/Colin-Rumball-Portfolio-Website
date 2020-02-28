@@ -1,4 +1,4 @@
-export interface MultiColor {
+export type ComponentStateColor = {
    DEFAULT: string;
    HOVER: string;
-}
+};
