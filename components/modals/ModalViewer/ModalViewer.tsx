@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
 import ModalOverlay from "./ModalOverlay";
 import CloseIcon from "./CloseIcon";
 import { ModalSystemState } from "../../../contexts/ModalContext/actions/common";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 const PopIn = keyframes`
 	0% {
@@ -80,4 +81,4 @@ const ModalViewer: React.FC<ModalViewerProps> = ({}) => {
    );
 };
 
-export default withComponentBase<ModalViewerProps>(ModalViewer, ModalViewerDefaultProps);
+export default withDefaultProps<ModalViewerProps>(ModalViewer, ModalViewerDefaultProps);

@@ -1,8 +1,10 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import withDefaultProps from "../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import FeaturedContentStyle from "../../styles/FeaturedContentStyle";
+import { string } from "yargs";
+import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
 
 interface StyledFeaturedVideoProps {}
 
@@ -10,7 +12,7 @@ const StyledFeaturedVideo = styled.video<StyledFeaturedVideoProps>`
    ${FeaturedContentStyle};
 `;
 
-interface FeaturedVideoProps extends Props<any> {
+interface FeaturedVideoProps extends ComponentBaseProps {
    src: string;
    srcType?: string;
 }

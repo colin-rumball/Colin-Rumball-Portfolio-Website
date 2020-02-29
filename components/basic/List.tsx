@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeContainer } from "../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
 
 interface StyledListProps {}
 
@@ -41,4 +42,4 @@ const List: React.FC<ListProps> = ({ title, items, className, style }) => {
    );
 };
 
-export default withComponentBase<ListProps>(List, ListDefaultProps);
+export default withDefaultProps<ListProps>(List, ListDefaultProps);

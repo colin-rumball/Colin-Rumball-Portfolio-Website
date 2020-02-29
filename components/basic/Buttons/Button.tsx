@@ -1,10 +1,14 @@
-import React, { Props } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import withDefaultProps from "../../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import {
+   SecondaryButtonStyle,
+   PrimaryButtonStyle
+} from "../../../styles/componentStyles/ButtonStyles";
 
-enum ButtonSize {
+export enum ButtonSize {
    DYNAMIC,
    SMALL,
    MEDIUM,
@@ -13,9 +17,11 @@ enum ButtonSize {
 
 interface StyledButtonProps {
    size: ButtonSize;
+   secondary?: boolean;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
+   ${props => (props.secondary ? SecondaryButtonStyle : PrimaryButtonStyle)};
    position: relative;
    cursor: pointer;
 
@@ -23,10 +29,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 
    border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG};
 
-   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-   padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-   padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+   padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
 
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
    font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
@@ -52,7 +55,11 @@ const ButtonDefaultProps: ButtonProps = {
 };
 
 const Button: React.FC<ButtonProps> = ({ size, secondary, children }) => {
-   return <StyledButton size={size}>{children}</StyledButton>;
+   return (
+      <StyledButton size={size} secondary={secondary}>
+         {children}
+      </StyledButton>
+   );
 };
 
-export default withComponentBase<ButtonProps>(Button, ButtonDefaultProps);
+export default withDefaultProps<ButtonProps>(Button, ButtonDefaultProps);

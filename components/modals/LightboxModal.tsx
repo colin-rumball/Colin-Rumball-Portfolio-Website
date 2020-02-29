@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
 
 interface StyledLightboxModalProps {}
 
@@ -14,4 +15,4 @@ const LightboxModal: React.FC<LightboxModalProps> = ({}) => {
    return <StyledLightboxModal></StyledLightboxModal>;
 };
 
-export default withComponentBase<LightboxModalProps>(LightboxModal, LightboxModalDefaultProps);
+export default withDefaultProps<LightboxModalProps>(LightboxModal, LightboxModalDefaultProps);

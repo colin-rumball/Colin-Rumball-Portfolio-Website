@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
-import withComponentBase, { ComponentBaseProps } from "../helpers/withComponentBase";
 import { ThemeContainer } from "../themes/definitions/Theme";
+import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../helpers/withDefaultProps";
 
 interface StyledImageCarouselProps {}
 
@@ -91,4 +92,4 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ className, style, childre
    );
 };
 
-export default withComponentBase<ImageCarouselProps>(ImageCarousel, ImageCarouselDefaultProps);
+export default withDefaultProps<ImageCarouselProps>(ImageCarousel, ImageCarouselDefaultProps);

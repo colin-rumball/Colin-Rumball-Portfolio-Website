@@ -14,6 +14,7 @@ import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ImageCarousel from "../components/ImageCarousel";
 import useModalSystemHelper from "../hooks/useModalSystemHelper";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
+import { ButtonSize } from "../components/basic/Buttons/Button";
 
 interface StyledtlpProps {}
 
@@ -31,7 +32,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
 
       article.external-links {
          display: flex;
-         flex-direction: column;
+         flex-direction: row;
          justify-content: space-evenly;
          align-items: center;
 
@@ -40,6 +41,10 @@ const Styledtlp = styled.div<StyledtlpProps>`
          height: 100%;
          min-height: 130px;
          max-height: 180px;
+
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            flex-direction: column;
+         }
       }
 
       article.mobile-images {
@@ -108,7 +113,10 @@ const tlp: React.FC = ({}) => {
                   site from the ground up using modern technologies.
                </p>
                <article className="external-links">
-                  <ExternalLinkButton href="https://thelonelinessproject.org">
+                  <ExternalLinkButton
+                     buttonProps={{ size: ButtonSize.SMALL }}
+                     href="https://thelonelinessproject.org"
+                  >
                      <FiLink /> VISIT WEBSITE
                   </ExternalLinkButton>
                   <ExternalLinkButton href="https://github.com/colin-rumball/The-Loneliness-Project">

@@ -1,8 +1,8 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import withDefaultProps from "../../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledResposiveSectionProps {}
 
@@ -35,7 +35,7 @@ const ResposiveSection: React.FC<ResposiveSectionProps> = ({ className, style, c
    );
 };
 
-export default withComponentBase<ResposiveSectionProps>(
+export default withDefaultProps<ResposiveSectionProps>(
    ResposiveSection,
    ResposiveSectionDefaultProps
 );

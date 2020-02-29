@@ -1,8 +1,10 @@
 import { defaultsDeep } from "lodash";
 import { useMemo } from "react";
+import { formatWithValidation } from "next/dist/next-server/lib/utils";
+import GetComponentDisplayName from "./utils/GetComponentDisplayName";
 
 function withDefaultProps<T>(Component: React.FC, defaultProps: T) {
-   return (props: T) => {
+   const withDefaultProps = (props: T) => {
       const propsWithDefaults = useMemo(() => {
          const combinedProps = defaultsDeep({}, props, defaultProps);
 
@@ -16,19 +18,12 @@ function withDefaultProps<T>(Component: React.FC, defaultProps: T) {
          return combinedProps;
       }, [defaultProps, props]);
 
-      // DEBUG statements
-      // if (propsWithDefaults.debug) {
-      //    console.debug(`========== withDefaultProps ==========`);
-      //    console.debug(`${Component.displayName} rendering with props:`);
-      //    console.debug(propsWithDefaults);
-      //    console.debug(`original props:`);
-      //    console.debug(props);
-      //    console.debug(`default props:`);
-      //    console.debug(defaultProps);
-      //    console.debug(`========== ================ ==========`);
-      // }
       return <Component {...propsWithDefaults} />;
    };
+
+   withDefaultProps.displayName = `withDefaultProps(${GetComponentDisplayName(Component)})`;
+
+   return withDefaultProps;
 }
 
 export default withDefaultProps;

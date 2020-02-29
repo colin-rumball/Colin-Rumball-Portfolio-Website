@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 import Picture, { PictureProps, PictureDefaultProps } from "./Picture";
 import FeaturedContentStyle from "../../../styles/FeaturedContentStyle";
 import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledEnhancedPictureProps {
    showBorder?: boolean;
@@ -62,7 +63,4 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
    );
 };
 
-export default withComponentBase<EnhancedPictureProps>(
-   EnhancedPicture,
-   EnhancedPictureDefaultProps
-);
+export default withDefaultProps<EnhancedPictureProps>(EnhancedPicture, EnhancedPictureDefaultProps);

@@ -1,8 +1,8 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 import Button, { ButtonProps } from "./Button";
-import { ThemeContainer } from "../../../themes/definitions/Theme";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledExternalLinkButtonProps {}
 
@@ -37,7 +37,7 @@ const ExternalLinkButton: React.FC<ExternalLinkButtonProps> = ({
    );
 };
 
-export default withComponentBase<ExternalLinkButtonProps>(
+export default withDefaultProps<ExternalLinkButtonProps>(
    ExternalLinkButton,
    ExternalLinkButtonDefaultProps
 );

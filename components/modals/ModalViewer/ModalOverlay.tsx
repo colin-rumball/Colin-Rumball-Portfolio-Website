@@ -1,7 +1,8 @@
 import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledModalOverlayProps {}
 
@@ -26,4 +27,4 @@ const ModalOverlay: React.FC<ModalOverlayProps> = ({ onClick, children }) => {
    return <StyledModalOverlay onClick={onClick}>{children}</StyledModalOverlay>;
 };
 
-export default withComponentBase<ModalOverlayProps>(ModalOverlay, ModalOverlayDefaultProps);
+export default withDefaultProps<ModalOverlayProps>(ModalOverlay, ModalOverlayDefaultProps);

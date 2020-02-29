@@ -2,7 +2,8 @@ import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { AiOutlineClose } from "react-icons/ai";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledCloseIconProps {}
 
@@ -38,4 +39,4 @@ const CloseIcon: React.FC<CloseIconProps> = ({ onClick }) => {
    return <StyledCloseIcon onClick={onClick} />;
 };
 
-export default withComponentBase<CloseIconProps>(CloseIcon, CloseIconDefaultProps);
+export default withDefaultProps<CloseIconProps>(CloseIcon, CloseIconDefaultProps);

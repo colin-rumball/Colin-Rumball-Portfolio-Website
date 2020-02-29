@@ -1,9 +1,10 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 import Button, { ButtonProps } from "./Button";
 import Link from "next/link";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledLinkButtonProps {}
 
@@ -34,4 +35,4 @@ const LinkButton: React.FC<LinkButtonProps> = ({
    );
 };
 
-export default withComponentBase<LinkButtonProps>(LinkButton, LinkButtonDefaultProps);
+export default withDefaultProps<LinkButtonProps>(LinkButton, LinkButtonDefaultProps);

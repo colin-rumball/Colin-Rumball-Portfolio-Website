@@ -1,6 +1,7 @@
 import React, { useMemo, MouseEventHandler } from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledPictureProps {}
 
@@ -39,4 +40,4 @@ const Picture: React.FC<PictureProps> = ({ src, className, style, srcType, webp,
    );
 };
 
-export default withComponentBase<PictureProps>(Picture, PictureDefaultProps);
+export default withDefaultProps<PictureProps>(Picture, PictureDefaultProps);

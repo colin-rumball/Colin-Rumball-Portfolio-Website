@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
 import { MaxScreenConstraints } from "../../../styles/BaseStyles";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledFullWidthSectionProps {}
 
@@ -35,7 +36,7 @@ const FullWidthSection: React.FC<FullWidthSectionProps> = ({ children }) => {
    );
 };
 
-export default withComponentBase<FullWidthSectionProps>(
+export default withDefaultProps<FullWidthSectionProps>(
    FullWidthSection,
    FullWidthSectionDefaultProps
 );

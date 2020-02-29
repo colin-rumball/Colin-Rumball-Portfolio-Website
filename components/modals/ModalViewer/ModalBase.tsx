@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
-import withComponentBase, { ComponentBaseProps } from "../../../helpers/withComponentBase";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledModalBaseProps {}
 
@@ -45,4 +46,4 @@ const ModalBase: React.FC<ModalBaseProps> = ({ children }) => {
    );
 };
 
-export default withComponentBase<ModalBaseProps>(ModalBase, ModalBaseDefaultProps);
+export default withDefaultProps<ModalBaseProps>(ModalBase, ModalBaseDefaultProps);
