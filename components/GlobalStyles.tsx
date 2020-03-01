@@ -10,7 +10,6 @@ const GlobalStyles = createGlobalStyle`
 		font-display: swap;
 
 		min-height: 100vh;
-		background-color: ${({ theme }: ThemeContainer) => theme.GENERAL.SITE_BACKGROUND_COLOR};
 
 		overflow-x: hidden;
 

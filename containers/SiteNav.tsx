@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import NavLink from "../components/NavLink";
-import SocialLinks from "../components/SocialLinks";
+import SocialLinks from "./SocialLinks";
+import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 
 interface StyledSiteNavProps {}
 
@@ -19,18 +20,23 @@ const StyledSiteNav = styled.nav<StyledSiteNavProps>`
    }
 `;
 
-interface SiteNavProps {}
+interface SiteNavProps extends ComponentBaseProps {
+   linksClassName?: string;
+}
 
 const SiteNavDefaultProps: SiteNavProps = {};
 
-const SiteNav: React.FC<SiteNavProps> = props => {
-   const {} = { ...SiteNavDefaultProps, ...props };
+const SiteNav: React.FC<SiteNavProps> = ({ className, linksClassName }) => {
    return (
-      <StyledSiteNav>
+      <StyledSiteNav className={className}>
          <ul>
-            <NavLink href="/blog">ARTICLES</NavLink>
-            <NavLink href="/about">ABOUT</NavLink>
-            <SocialLinks />
+            <NavLink href="/blog" className={linksClassName}>
+               ARTICLES
+            </NavLink>
+            <NavLink href="/about" className={linksClassName}>
+               ABOUT
+            </NavLink>
+            <SocialLinks linksClassName={linksClassName} />
          </ul>
       </StyledSiteNav>
    );

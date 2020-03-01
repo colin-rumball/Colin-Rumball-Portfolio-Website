@@ -16,10 +16,20 @@ const StyledSiteHeader = styled.header<StyledSiteHeaderProps>`
    width: 100%;
    z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.ON_TOP};
 
-   background-color: ${({ theme, showBackground }: ThemeContainer) =>
-      showBackground ? theme.GENERAL.HEADER_COLOR : "rgba(0,0,0,0)"};
+   .background {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
 
-   transition: background-color ease-in-out 0.35s;
+      opacity: ${props => (props.showBackground ? 1 : 0)};
+
+      background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.SITE_HEADER.BACKGROUND};
+
+      transition: opacity ease-in-out 0.35s;
+      z-index: -1;
+   }
 
    .header-contents {
       ${MaxScreenConstraints};
@@ -29,6 +39,23 @@ const StyledSiteHeader = styled.header<StyledSiteHeaderProps>`
 
       height: 30px;
       padding: 15px 0;
+      z-index: 1;
+
+      *.header-contents-item {
+         cursor: pointer;
+         color: ${({ theme, showBackground }: ThemeContainer) =>
+            showBackground
+               ? theme.COMPONENTS.SITE_HEADER.SCROLLED_TEXT_COLOR.DEFAULT
+               : theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.DEFAULT};
+
+         transition: color 0.2s ease-out;
+         &:hover {
+            color: ${({ theme, showBackground }: ThemeContainer) =>
+               showBackground
+                  ? theme.COMPONENTS.SITE_HEADER.SCROLLED_TEXT_COLOR.ALTERNATE
+                  : theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.ALTERNATE};
+         }
+      }
    }
 `;
 
@@ -61,9 +88,10 @@ const SiteHeader: React.FC<SiteHeaderProps> = ({}) => {
 
    return (
       <StyledSiteHeader showBackground={showBackground}>
+         <div className="background" />
          <div className="header-contents">
-            <SiteLogo />
-            <SiteNav />
+            <SiteLogo className={"header-contents-item"} />
+            <SiteNav linksClassName={"header-contents-item"} />
          </div>
       </StyledSiteHeader>
    );

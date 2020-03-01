@@ -2,8 +2,6 @@ import React, { Props } from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
-import SocialLinks from "../components/SocialLinks";
-import { MaxScreenConstraints } from "../styles/BaseStyles";
 
 interface StyledSiteFooterProps {}
 
@@ -13,21 +11,17 @@ const StyledSiteFooter = styled.footer<StyledSiteFooterProps>`
    justify-content: center;
    align-items: center;
 
-   /* margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L}; */
+   margin: 0;
+   padding: 0;
 
-	margin: 0;
-	padding: 0;
-
-	width: 100%;
+   width: 100%;
    height: 60px;
 
-	font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-	letter-spacing: 1px;
-	color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
+   font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+   letter-spacing: 1px;
+   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
 
-	background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
+   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BLACK};
 `;
 
 interface SiteFooterProps extends Props<any> {}
