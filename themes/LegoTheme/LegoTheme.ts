@@ -1,21 +1,19 @@
 import Theme from "../definitions/Theme";
 import BaseTheme from "../BaseTheme/BaseTheme";
 import Variables from "../definitions/Variables";
-import TLPThemeComponents from "./TLPThemeComponents";
+import LegoThemeComponents from "./LegoThemeComponents";
 
-const TLPTheme = (baseTheme: Theme): Theme => {
+const LegoTheme = (baseTheme: Theme): Theme => {
    const VARIABLES: Variables = {
       ...baseTheme.VARIABLES,
       COLORS: {
          ...BaseTheme.VARIABLES.COLORS,
          PRIMARY: {
-            BASE: "#e8d8b6",
-            LIGHT: "#FFFDE8"
+            BASE: "#F0B817",
+            LIGHT: "#FFF174"
          },
          SECONDARY: {
-            BASE: "#1F324C",
-            LIGHT: "#27405e",
-            DARK: "#0B1928"
+            BASE: "#513479"
          }
       }
    };
@@ -23,8 +21,8 @@ const TLPTheme = (baseTheme: Theme): Theme => {
    return {
       ...baseTheme,
       VARIABLES,
-      COMPONENTS: TLPThemeComponents(VARIABLES)
+      COMPONENTS: LegoThemeComponents(VARIABLES)
    };
 };
 
-export default TLPTheme;
+export default LegoTheme;

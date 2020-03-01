@@ -1,3 +1,5 @@
+import { CommonColor, MultiColor } from "./common";
+
 export interface BreakPoints {
    SMALL: string;
    MEDIUM: string;
@@ -34,16 +36,13 @@ export interface BorderRadius {
 }
 
 export interface Colors {
-   LIGHT_GREY: string;
-   GREY: string;
-   DARK_GREY: string;
-   LIGHT_GREEN: string;
-   GREEN: string;
-   DARK_GREEN: string;
-   TAN: string;
-   LIGHT_BLUE: string;
-   BLUE: string;
-   DARK_BLUE: string;
+   PRIMARY?: CommonColor;
+   SECONDARY?: CommonColor;
+   TERTIARY?: CommonColor;
+   CONTRAST?: CommonColor;
+   NEUTRALS: CommonColor;
+   // ACCENT?: MultiColor;
+   GRADIENTS?: MultiColor;
 }
 
 export interface Layers {
