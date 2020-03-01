@@ -37,8 +37,8 @@ const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
                community of people who are not as alone as they think."
             techList={[Tech.REACT, Tech.NEXTJS, Tech.GRAPHQL, Tech.NODEJS]}
             pictureProps={{
-               src: require("public/images/tlp/TLP.png"),
-               webp: require("public/images/tlp/TLP.png?webp")
+               src: require("public/images/the-loneliness-project/TLP.png"),
+               webp: require("public/images/the-loneliness-project/TLP.png?webp")
             }}
             theme={TLPTheme}
          />

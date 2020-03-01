@@ -5,7 +5,7 @@ export default (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
-      BACKGROUND: 'url("public/images/tlp/stars.png")'
+      BACKGROUND: 'url("public/images/the-loneliness-project/stars.png")'
    };
 
    const BUTTON: Button = {

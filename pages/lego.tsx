@@ -140,20 +140,20 @@ const lego: React.FC = ({}) => {
                <ImageCarousel>
                   <EnhancedPicture
                      pictureProps={{
-                        src: require("public/images/tlp/tlp-dashboard.png"),
-                        webp: require("public/images/tlp/tlp-dashboard.png?webp")
+                        src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
+                        webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
                      }}
                   />
                   <EnhancedPicture
                      pictureProps={{
-                        src: require("public/images/tlp/tlp-edit-apartment.png"),
-                        webp: require("public/images/tlp/tlp-edit-apartment.png?webp")
+                        src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
+                        webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
                      }}
                   />
                   <EnhancedPicture
                      pictureProps={{
-                        src: require("public/images/tlp/tlp-login.png"),
-                        webp: require("public/images/tlp/tlp-login.png?webp")
+                        src: require("public/images/the-loneliness-project/tlp-login.png"),
+                        webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
                      }}
                   />
                </ImageCarousel>
