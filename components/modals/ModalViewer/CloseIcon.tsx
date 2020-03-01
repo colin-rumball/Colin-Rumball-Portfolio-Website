@@ -14,11 +14,11 @@ const StyledCloseIcon = styled(AiOutlineClose)<StyledCloseIconProps>`
 
    font-size: 20px;
    opacity: 0.9;
-   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.LIGHT_GREY};
+   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.LIGHT};
    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 
    &:hover {
-      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
+      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
       opacity: 1;
       transform: scale(1.1);
       cursor: pointer;

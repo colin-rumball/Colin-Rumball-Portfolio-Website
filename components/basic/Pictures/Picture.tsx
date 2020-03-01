@@ -15,6 +15,7 @@ const StyledPicture = styled.img<StyledPictureProps>`
 
 export interface PictureProps extends ComponentBaseProps {
    src: any;
+   alt?: string;
    webp?: any;
    srcType?: string;
    onClick?: MouseEventHandler<any>;
@@ -22,10 +23,19 @@ export interface PictureProps extends ComponentBaseProps {
 
 export const PictureDefaultProps: PictureProps = {
    src: "#",
+   alt: "default picture",
    srcType: "image/png"
 };
 
-const Picture: React.FC<PictureProps> = ({ src, className, style, srcType, webp, onClick }) => {
+const Picture: React.FC<PictureProps> = ({
+   src,
+   alt,
+   className,
+   style,
+   srcType,
+   webp,
+   onClick
+}) => {
    const compiledSrc = useMemo(() => {
       if (typeof src === "string") return src;
       if (typeof src === "object" && src.hasOwnProperty("default")) return src.default;
@@ -35,7 +45,13 @@ const Picture: React.FC<PictureProps> = ({ src, className, style, srcType, webp,
       <picture>
          {webp && typeof webp === "string" && <source srcSet={webp} type="image/webp" />}
          <source srcSet={compiledSrc} type={srcType} />
-         <StyledPicture style={style} className={className} src={compiledSrc} onClick={onClick} />
+         <StyledPicture
+            style={style}
+            className={className}
+            src={compiledSrc}
+            alt={alt}
+            onClick={onClick}
+         />
       </picture>
    );
 };

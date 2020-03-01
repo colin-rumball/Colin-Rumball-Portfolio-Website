@@ -1,6 +1,6 @@
 import React, { Props } from "react";
 import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
 
 interface StyledNextJSIconProps {}
 

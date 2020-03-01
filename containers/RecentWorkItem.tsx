@@ -1,20 +1,25 @@
-import React, { Props, MouseEventHandler } from "react";
-import styled from "styled-components";
+import React, { Props, MouseEventHandler, FC } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { DiReact, DiNodejsSmall } from "react-icons/di";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import NextJSIcon from "./NextJSIcon";
-import GraphqlIcon from "./icons/GraphqlIcon";
+import Theme, { ThemeContainer } from "../themes/definitions/Theme";
+import NextJSIcon from "../components/icons/NextJSIcon";
+import GraphqlIcon from "../components/icons/GraphqlIcon";
 import Link from "next/link";
+import BaseTheme from "../themes/BaseTheme/BaseTheme";
+import { PictureProps } from "../components/basic/Pictures/Picture";
+import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
+import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
 
-interface StyledRecentWorkProps {
-   backgroundColor: string;
-   imageSrc: string;
-}
+interface StyledRecentWorkProps {} /* background-image: ${props => `url(${props.imageSrc})`};
+background-attachment: fixed;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center; */
 
 const StyledRecentWork = styled.a<StyledRecentWorkProps>`
-   display: flex;
    position: relative;
+   display: flex;
 
    max-width: 100%;
 
@@ -22,36 +27,18 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.18);
    cursor: pointer;
-   margin: ${({ theme }: ThemeContainer) => `${theme.VARIABLES.SPACING.S} auto`};
+   margin: ${({ theme }: ThemeContainer) => `${theme.VARIABLES.SPACING.L} auto`};
 
    transition: transform 0.24s cubic-bezier(0.18, 0.89, 0.4, 1.03), box-shadow 0.2s ease-in;
-
-   background-image: ${props => `url(${props.imageSrc})`};
-   background-attachment: fixed;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
+   background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
 
    &:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
    }
 
-   @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-      &::after {
-         content: "";
-         background-color: rgba(40, 40, 40, 0.6);
-         top: 0;
-         left: 0;
-         bottom: 0;
-         right: 0;
-         position: absolute;
-      }
-   }
-
-   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-      background-color: ${props => props.backgroundColor};
-      background-image: none;
+   .overlayed-background {
+      ${OverlayedBackgroundStyle}
    }
 
    .info {
@@ -93,25 +80,22 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
    }
 
    .work-image-container {
-      display: flex;
+      position: relative;
       align-items: center;
       padding: 0;
       overflow: hidden;
 
       flex: 1;
       padding: ${({ theme }: ThemeContainer) => `${theme.VARIABLES.SPACING.XXL} 0`};
+      padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
 
       display: none;
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      opacity: 0.4;
+      pointer-events: none;
+
+      z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
 
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         display: block;
-         position: relative;
+         display: flex;
          opacity: 1;
       }
 
@@ -145,10 +129,8 @@ interface RecentWorkProps extends Props<any> {
    description?: string;
    techList: Tech[];
    href: string;
-   imageSrc: string;
-   imageAlt: string;
-   backgroundColor: string;
-   onClick?: MouseEventHandler<any>;
+   pictureProps: PictureProps;
+   theme: (theme: Theme) => Theme;
 }
 
 const RecentWorkDefaultProps: RecentWorkProps = {
@@ -157,43 +139,43 @@ const RecentWorkDefaultProps: RecentWorkProps = {
    description: "Web Developer",
    techList: [Tech.REACT, Tech.NEXTJS, Tech.GRAPHQL, Tech.NODEJS],
    href: "#",
-   imageSrc: "/",
-   imageAlt: "no image",
-   backgroundColor: "#222"
+   pictureProps: { src: "/#" },
+   theme: () => BaseTheme
 };
 
-const RecentWork: React.FC<RecentWorkProps> = ({
+const RecentWorkItem: React.FC<RecentWorkProps> = ({
    year,
    title,
    description,
    href,
-   imageSrc,
-   imageAlt,
    techList,
-   backgroundColor,
-   onClick
+   pictureProps,
+   theme
 }) => {
    return (
-      <Link href={href}>
-         <StyledRecentWork backgroundColor={backgroundColor} imageSrc={imageSrc} onClick={onClick}>
-            <section className="info">
-               <h4 className="year">{year}</h4>
-               <h1 className="title">{title}</h1>
-               <p className="description">{description}</p>
-               <div className="tech-list">
-                  {techList.map(t => (
-                     <div className="tech-item" key={t}>
-                        {techMap[t]}
-                     </div>
-                  ))}
+      <ThemeProvider theme={theme}>
+         <Link href={href}>
+            <StyledRecentWork>
+               <div className="overlayed-background" />
+               <section className="info">
+                  <h4 className="year">{year}</h4>
+                  <h1 className="title">{title}</h1>
+                  <p className="description">{description}</p>
+                  <div className="tech-list">
+                     {techList.map(t => (
+                        <div className="tech-item" key={t}>
+                           {techMap[t]}
+                        </div>
+                     ))}
+                  </div>
+               </section>
+               <div className="work-image-container">
+                  <EnhancedPicture showBorder pictureProps={pictureProps} />
                </div>
-            </section>
-            <div className="work-image-container">
-               <img className="work-image" src={imageSrc} alt={imageAlt} />
-            </div>
-         </StyledRecentWork>
-      </Link>
+            </StyledRecentWork>
+         </Link>
+      </ThemeProvider>
    );
 };
 
-export default withDefaultProps<RecentWorkProps>(RecentWork, RecentWorkDefaultProps);
+export default withDefaultProps<RecentWorkProps>(RecentWorkItem, RecentWorkDefaultProps);

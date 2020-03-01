@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
 import IntroSection from "../containers/IntroSection";
 import PageMainContent from "../containers/PageMainContent";
 import RecentWorkSection from "../containers/RecentWorkSection";
+import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import asPage from "../helpers/asPage";
 
 const StyledHomePage = styled.div``;
 
@@ -17,4 +20,4 @@ const HomePage = () => {
    );
 };
 
-export default HomePage;
+export default asPage(HomePage, DefaultTheme);

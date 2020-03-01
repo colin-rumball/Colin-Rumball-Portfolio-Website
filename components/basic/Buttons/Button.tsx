@@ -1,12 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import withDefaultProps from "../../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
-import {
-   SecondaryButtonStyle,
-   PrimaryButtonStyle
-} from "../../../styles/componentStyles/ButtonStyles";
 
 export enum ButtonSize {
    DYNAMIC,
@@ -15,48 +11,78 @@ export enum ButtonSize {
    LARGE
 }
 
-interface StyledButtonProps {
-   size: ButtonSize;
+export interface StyledButtonProps {
+   buttonSize: ButtonSize;
    secondary?: boolean;
 }
 
+export const PrimaryButtonStyle = css<StyledButtonProps>``;
+
+export const SecondaryButtonStyle = css<StyledButtonProps>``;
+
 const StyledButton = styled.button<StyledButtonProps>`
    ${props => (props.secondary ? SecondaryButtonStyle : PrimaryButtonStyle)};
+
+   ${({ buttonSize, theme }: ThemeContainer) => {
+      switch (buttonSize) {
+         case ButtonSize.SMALL:
+            return {
+               width: "120px"
+            };
+         case ButtonSize.MEDIUM:
+            return {
+               width: "160px"
+            };
+         case ButtonSize.LARGE:
+            return {
+               width: "200px"
+            };
+      }
+   }};
+
    position: relative;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+
    cursor: pointer;
 
-   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
+   background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.BACKGROUND.DEFAULT};
 
    border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG};
 
    padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
 
-   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
+   color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.FONT_COLOR.DEFAULT};
    font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
    font-weight: 600;
    letter-spacing: 1px;
-   white-space: nowrap;
 
    transition: background-color 0.15s ease-in, color 0.15s ease-in, color 0.2s ease-in;
 
    &:hover {
-      color: #fff;
-      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.BLUE};
+      color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.FONT_COLOR.ALTERNATE};
+      background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.BACKGROUND.ALTERNATE};
    }
 `;
 
 export interface ButtonProps extends ComponentBaseProps {
-   size?: ButtonSize;
+   buttonSize?: ButtonSize;
    secondary?: boolean;
 }
 
 const ButtonDefaultProps: ButtonProps = {
-   size: ButtonSize.DYNAMIC
+   buttonSize: ButtonSize.DYNAMIC
 };
 
-const Button: React.FC<ButtonProps> = ({ size, secondary, children }) => {
+const Button: React.FC<ButtonProps> = ({ buttonSize, secondary, children, style, className }) => {
    return (
-      <StyledButton size={size} secondary={secondary}>
+      <StyledButton
+         buttonSize={buttonSize}
+         secondary={secondary}
+         style={style}
+         className={className}
+      >
          {children}
       </StyledButton>
    );

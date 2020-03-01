@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 import Picture, { PictureProps, PictureDefaultProps } from "./Picture";
-import FeaturedContentStyle from "../../../styles/FeaturedContentStyle";
+import BorderedContentStyle from "../../../styles/BorderedContentStyle";
 import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
@@ -18,7 +18,7 @@ const StyledEnhancedPicture = styled.figure<StyledEnhancedPictureProps>`
    }
 
    img.enhanced-picture-inner {
-      ${props => (props.showBorder ? FeaturedContentStyle : null)};
+      ${props => (props.showBorder ? BorderedContentStyle : null)};
    }
 `;
 

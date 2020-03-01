@@ -3,6 +3,7 @@ import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import Link from "next/link";
 import { ThemeContainer } from "../themes/definitions/Theme";
+import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 
 interface StyledSiteLogoProps {}
 
@@ -12,22 +13,23 @@ const StyledSiteLogo = styled.a<StyledSiteLogoProps>`
 
    letter-spacing: 1px;
    font-family: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_FAMILIES.SECONDARY};
-   color: ${({ theme }: ThemeContainer) => theme.GENERAL.LOGO_COLOR.DEFAULT};
+   color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.DEFAULT};
    cursor: pointer;
 
    &:hover {
-      color: ${({ theme }: ThemeContainer) => theme.GENERAL.LOGO_COLOR.HOVER};
+      color: ${({ theme }: ThemeContainer) =>
+         theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.ALTERNATE};
    }
 `;
 
-interface SiteLogoProps extends Props<any> {}
+interface SiteLogoProps extends ComponentBaseProps {}
 
 const SiteLogoDefaultProps: SiteLogoProps = {};
 
-const SiteLogo: React.FC<SiteLogoProps> = ({}) => {
+const SiteLogo: React.FC<SiteLogoProps> = ({ className }) => {
    return (
       <Link href="/">
-         <StyledSiteLogo>C.RUMBALL</StyledSiteLogo>
+         <StyledSiteLogo className={className}>C.RUMBALL</StyledSiteLogo>
       </Link>
    );
 };
