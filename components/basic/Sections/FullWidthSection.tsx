@@ -17,7 +17,7 @@ const StyledFullWidthSection = styled.div<StyledFullWidthSectionProps>`
    margin-right: -50vw;
 
    padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
-   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_BLUE};
+   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.DARK};
 
    .section-contents {
       ${MaxScreenConstraints};

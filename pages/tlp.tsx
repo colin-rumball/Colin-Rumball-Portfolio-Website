@@ -1,11 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Picture from "../components/basic/Pictures/Picture";
 import FeaturedVideo from "../components/content/FeaturedVideo";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PageMainContent from "../containers/PageMainContent";
-import { ThemeEnum } from "../contexts/ThemeContext";
-import withTheme from "../helpers/withTheme";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FiLink, FiGithub } from "react-icons/fi";
@@ -15,14 +13,16 @@ import ImageCarousel from "../components/ImageCarousel";
 import useModalSystemHelper from "../hooks/useModalSystemHelper";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ButtonSize } from "../components/basic/Buttons/Button";
+import TLPTheme from "../themes/TLPTheme/TLPTheme";
+import asPage from "../helpers/asPage";
 
 interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
    min-height: 100vh;
-   background-image: ${({ theme }: ThemeContainer) => theme.GENERAL.BACKGROUND_IMAGE};
+   background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    background-attachment: fixed;
-   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
+   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
 
    section {
       p.description {
@@ -86,13 +86,12 @@ const Styledtlp = styled.div<StyledtlpProps>`
 
       margin: 0;
 
-      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_BLUE};
+      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.BASE};
       z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.MID_GROUND};
    }
 `;
 
 const tlp: React.FC = ({}) => {
-   const { pushModal } = useModalSystemHelper();
    return (
       <Styledtlp>
          <PageMainContent>
@@ -114,12 +113,15 @@ const tlp: React.FC = ({}) => {
                </p>
                <article className="external-links">
                   <ExternalLinkButton
-                     buttonProps={{ size: ButtonSize.SMALL }}
+                     buttonProps={{ buttonSize: ButtonSize.MEDIUM }}
                      href="https://thelonelinessproject.org"
                   >
                      <FiLink /> VISIT WEBSITE
                   </ExternalLinkButton>
-                  <ExternalLinkButton href="https://github.com/colin-rumball/The-Loneliness-Project">
+                  <ExternalLinkButton
+                     buttonProps={{ buttonSize: ButtonSize.MEDIUM }}
+                     href="https://github.com/colin-rumball/The-Loneliness-Project"
+                  >
                      <FiGithub /> SEE ON GITHUB
                   </ExternalLinkButton>
                </article>
@@ -131,8 +133,8 @@ const tlp: React.FC = ({}) => {
                   showBorder
                   style={{ flexBasis: "48%" }}
                   pictureProps={{
-                     src: require("public/images/TLP/tlp-about-horizontal.png"),
-                     webp: require("public/images/TLP/tlp-about-horizontal.png?webp")
+                     src: require("public/images/tlp/tlp-about-horizontal.png"),
+                     webp: require("public/images/tlp/tlp-about-horizontal.png?webp")
                   }}
                />
                <EnhancedPicture
@@ -140,8 +142,8 @@ const tlp: React.FC = ({}) => {
                   showBorder
                   style={{ flexBasis: "48%" }}
                   pictureProps={{
-                     src: require("public/images/TLP/tlp-story-horizontal.png"),
-                     webp: require("public/images/TLP/tlp-story-horizontal.png?webp")
+                     src: require("public/images/tlp/tlp-story-horizontal.png"),
+                     webp: require("public/images/tlp/tlp-story-horizontal.png?webp")
                   }}
                />
             </ResposiveSection>
@@ -152,20 +154,20 @@ const tlp: React.FC = ({}) => {
                      <ImageCarousel>
                         <EnhancedPicture
                            pictureProps={{
-                              src: require("public/images/TLP/tlp-dashboard.png"),
-                              webp: require("public/images/TLP/tlp-dashboard.png?webp")
+                              src: require("public/images/tlp/tlp-dashboard.png"),
+                              webp: require("public/images/tlp/tlp-dashboard.png?webp")
                            }}
                         />
                         <EnhancedPicture
                            pictureProps={{
-                              src: require("public/images/TLP/tlp-edit-apartment.png"),
-                              webp: require("public/images/TLP/tlp-edit-apartment.png?webp")
+                              src: require("public/images/tlp/tlp-edit-apartment.png"),
+                              webp: require("public/images/tlp/tlp-edit-apartment.png?webp")
                            }}
                         />
                         <EnhancedPicture
                            pictureProps={{
-                              src: require("public/images/TLP/tlp-login.png"),
-                              webp: require("public/images/TLP/tlp-login.png?webp")
+                              src: require("public/images/tlp/tlp-login.png"),
+                              webp: require("public/images/tlp/tlp-login.png?webp")
                            }}
                         />
                      </ImageCarousel>
@@ -195,4 +197,4 @@ const tlp: React.FC = ({}) => {
    );
 };
 
-export default withTheme(tlp, ThemeEnum.TLP);
+export default asPage(tlp, TLPTheme);

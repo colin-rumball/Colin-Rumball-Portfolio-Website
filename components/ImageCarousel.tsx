@@ -8,14 +8,14 @@ import withDefaultProps from "../helpers/withDefaultProps";
 interface StyledImageCarouselProps {}
 
 const StyledImageCarousel = styled(Slider)<StyledImageCarouselProps>`
-   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
+   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.BASE};
    padding-bottom: 50px;
    border: 2px solid;
-   border-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
+   border-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
    border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG};
 
    .slick-list {
-      background: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.DARK_GREY};
+      background: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.BASE};
       border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG}
          ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.STRONG} 0 0;
    }
@@ -60,7 +60,7 @@ const StyledImageCarousel = styled(Slider)<StyledImageCarouselProps>`
             button {
                &::before {
                   opacity: 1;
-                  color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.TAN};
+                  color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
                   transform: scale(1);
                }
             }
