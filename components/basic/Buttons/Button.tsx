@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, ThemeProvider } from "styled-components";
+import theme from "styled-theming";
 import withDefaultProps from "../../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
@@ -77,14 +78,16 @@ const ButtonDefaultProps: ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({ buttonSize, secondary, children, style, className }) => {
    return (
-      <StyledButton
-         buttonSize={buttonSize}
-         secondary={secondary}
-         style={style}
-         className={className}
-      >
-         {children}
-      </StyledButton>
+      <ThemeProvider theme={{ theme: "default" }}>
+         <StyledButton
+            buttonSize={buttonSize}
+            secondary={secondary}
+            style={style}
+            className={className}
+         >
+            {children}
+         </StyledButton>
+      </ThemeProvider>
    );
 };
 

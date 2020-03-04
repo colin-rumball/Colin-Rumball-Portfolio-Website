@@ -13,11 +13,11 @@ const StyledSocialLinks = styled.ul<StyledSocialLinksProps>`
    align-content: center;
    list-style-type: none;
    margin: 0;
+   padding: 0;
 
    height: 100%;
 
    li {
-      margin-left: 4vw;
       padding-top: 6px;
 
       a.social-link {

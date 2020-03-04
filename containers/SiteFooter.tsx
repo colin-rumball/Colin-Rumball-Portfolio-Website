@@ -14,7 +14,7 @@ const StyledSiteFooter = styled.footer<StyledSiteFooterProps>`
    margin: 0;
    padding: 0;
 
-   width: 100%;
+   width: 100vw;
    height: 60px;
 
    font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};

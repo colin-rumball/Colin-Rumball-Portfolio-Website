@@ -12,6 +12,10 @@ const StyledLinkButton = styled(Link)<StyledLinkButtonProps>``;
 
 interface LinkButtonProps extends ComponentBaseProps {
    href: string;
+   linkProps?: React.DetailedHTMLProps<
+      React.AnchorHTMLAttributes<HTMLAnchorElement>,
+      HTMLAnchorElement
+   >;
    buttonProps?: ButtonProps;
 }
 
@@ -21,14 +25,14 @@ const LinkButtonDefaultProps: LinkButtonProps = {
 
 const LinkButton: React.FC<LinkButtonProps> = ({
    href,
+   linkProps,
    buttonProps,
    children,
-   className,
    style
 }) => {
    return (
       <StyledLinkButton href={href}>
-         <a style={style} className={className}>
+         <a style={style} {...linkProps}>
             <Button {...buttonProps}>{children}</Button>
          </a>
       </StyledLinkButton>

@@ -7,7 +7,7 @@ interface StyledPageMainProps {}
 
 const StyledPageMain = styled.main<StyledPageMainProps>`
    ${MaxScreenConstraints};
-   padding-top: 80px;
+   /* padding-top: 60px; */
 `;
 
 interface PageMainContentProps extends ComponentBaseProps {}

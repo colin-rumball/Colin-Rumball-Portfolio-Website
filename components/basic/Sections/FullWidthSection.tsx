@@ -7,7 +7,7 @@ import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledFullWidthSectionProps {}
 
-const StyledFullWidthSection = styled.div<StyledFullWidthSectionProps>`
+const StyledFullWidthSection = styled.section<StyledFullWidthSectionProps>`
    position: relative;
    width: 100vw;
 
@@ -15,23 +15,16 @@ const StyledFullWidthSection = styled.div<StyledFullWidthSectionProps>`
    right: 50%;
    margin-left: -50vw;
    margin-right: -50vw;
-
-   padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
-   background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.DARK};
-
-   .section-contents {
-      ${MaxScreenConstraints};
-   }
 `;
 
 interface FullWidthSectionProps extends ComponentBaseProps {}
 
 const FullWidthSectionDefaultProps: FullWidthSectionProps = {};
 
-const FullWidthSection: React.FC<FullWidthSectionProps> = ({ children }) => {
+const FullWidthSection: React.FC<FullWidthSectionProps> = ({ children, className, style }) => {
    return (
-      <StyledFullWidthSection>
-         <div className="section-contents">{children}</div>
+      <StyledFullWidthSection className={className} style={style}>
+         {children}
       </StyledFullWidthSection>
    );
 };

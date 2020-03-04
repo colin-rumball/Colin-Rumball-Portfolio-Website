@@ -19,19 +19,12 @@ const ExternalLinkButtonDefaultProps: ExternalLinkButtonProps = {
 
 const ExternalLinkButton: React.FC<ExternalLinkButtonProps> = ({
    href,
-   className,
    style,
    buttonProps,
    children
 }) => {
    return (
-      <StyledExternalLinkButton
-         className={className}
-         style={style}
-         href={href}
-         rel="noopener noreferrer"
-         target="_blank"
-      >
+      <StyledExternalLinkButton style={style} href={href} rel="noopener noreferrer" target="_blank">
          <Button {...buttonProps}>{children}</Button>
       </StyledExternalLinkButton>
    );

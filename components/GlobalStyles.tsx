@@ -4,10 +4,11 @@ import { ThemeContainer } from "../themes/definitions/Theme";
 const GlobalStyles = createGlobalStyle`
 	html {
 		font-size: 18px;
-		font-family: "Montserrat", sans-serif;
+		font-family: "Roboto", sans-serif;
 		scroll-behavior: smooth;
 		webkit-font-smoothing: antialiased;
 		font-display: swap;
+		color: #555555;
 
 		min-height: 100vh;
 
