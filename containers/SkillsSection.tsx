@@ -1,7 +1,6 @@
 import React, { Props, useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
-import List from "../components/basic/List";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import Theme, { ThemeContainer } from "../themes/definitions/Theme";
 import { MaxScreenConstraints } from "../styles/BaseStyles";
@@ -60,6 +59,7 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
 
          li {
             flex-basis: 50%;
+            padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
       }
 

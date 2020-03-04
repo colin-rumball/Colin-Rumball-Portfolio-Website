@@ -105,7 +105,7 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
                justify-content: space-evenly;
                padding: 0;
                width: 100%;
-               margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+               margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
 
                li {
                   margin: 0;
