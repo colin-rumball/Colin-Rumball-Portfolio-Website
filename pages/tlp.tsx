@@ -19,7 +19,7 @@ import asPage from "../helpers/asPage";
 interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
-   min-height: 100vh;
+   min-height: calc(100vh - 60px);
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    background-attachment: fixed;
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};

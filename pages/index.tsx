@@ -7,7 +7,9 @@ import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import asPage from "../helpers/asPage";
 
-const StyledHomePage = styled.div``;
+const StyledHomePage = styled.div`
+   min-height: calc(100vh - 60px);
+`;
 
 const HomePage = () => {
    return (

@@ -24,7 +24,7 @@ interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
    position: relative;
-   min-height: 100vh;
+   min-height: calc(100vh - 60px);
    background-image: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
@@ -162,5 +162,10 @@ const lego: React.FC = ({}) => {
       </Styledtlp>
    );
 };
+
+// • Worked closely with game designers and UI & UX designers to bring wireframes, flows & mockups to fully functional interactivity, responsive for multiple device resolutions, and localization-ready for over 12 languages.
+// • Created sequencing and scripting tools to allow non-developers to customize game parameters and independently modify game subsystems.
+// • Contributed to systems architecture planning meetings for complex gameplay problems with colleagues.
+// • Worked on developing Lego Legacy: Heroes Unboxed from inception to launch, over a period of 3 years.
 
 export default asPage(lego, LegoTheme);

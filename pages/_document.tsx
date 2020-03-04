@@ -43,7 +43,9 @@ class MyDocument extends Document {
                   href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
                   rel="stylesheet"
                ></link>
-               <link
+               <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css" />
+               <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+               {/* <link
                   rel="stylesheet"
                   type="text/css"
                   href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
@@ -52,7 +54,7 @@ class MyDocument extends Document {
                   rel="stylesheet"
                   type="text/css"
                   href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-               />
+               /> */}
                <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
             </Head>
             <body>
