@@ -16,3 +16,8 @@ export const MaxScreenConstraints = css`
       width: 90vw;
    }
 `;
+
+export const PageStyling = css`
+   position: relative;
+   min-height: calc(100vh - 120px);
+`;

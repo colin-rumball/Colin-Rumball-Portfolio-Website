@@ -10,6 +10,7 @@ interface StyledSkillsSectionProps {}
 
 const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
    width: 100%;
+   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       display: flex;

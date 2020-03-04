@@ -2,7 +2,6 @@ import React, { Props } from "react";
 import styled from "styled-components";
 import Button, { ButtonProps } from "./Button";
 import Link from "next/link";
-import { ThemeContainer } from "../../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
 
@@ -31,11 +30,11 @@ const LinkButton: React.FC<LinkButtonProps> = ({
    style
 }) => {
    return (
-      <StyledLinkButton href={href}>
+      <Link href={href}>
          <a style={style} {...linkProps}>
             <Button {...buttonProps}>{children}</Button>
          </a>
-      </StyledLinkButton>
+      </Link>
    );
 };
 
