@@ -18,6 +18,7 @@ export const FONT_SIZES: FontSizes = {
    XS: "0.5rem",
    S: "0.8rem",
    M: "1rem",
+   ML: "1.15rem",
    L: "1.5rem",
    XL: "2.0rem",
    XXL: "2.5rem"
@@ -52,7 +53,12 @@ export const COLORS: Colors = {
       GREY: "#7F7F7F",
       LIGHT: "#AAAAAA",
       WHITE: "#D3D3D3"
-   }
+   },
+   GRADIENTS: [
+      "linear-gradient(90deg, #00DE8E 20.31%, #00B6A0 80.17%)",
+      "linear-gradient(90deg, #00A6DA 20.31%, #4600DA 80.17%)",
+      "linear-gradient(90deg, #FB0069 20.31%, #DE4300 80.17%)"
+   ]
 };
 
 export const LAYERS: Layers = {

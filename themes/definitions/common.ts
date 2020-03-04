@@ -14,4 +14,4 @@ type ThemedColor = {
 
 export type CommonColor = ThemedColor;
 
-export type MultiColor = Array<string> & Function;
+export type MultiColor = Array<string>;

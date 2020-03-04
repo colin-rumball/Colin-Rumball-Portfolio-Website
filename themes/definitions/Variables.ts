@@ -10,6 +10,7 @@ export interface FontSizes {
    XS: string;
    S: string;
    M: string;
+   ML: string;
    L: string;
    XL: string;
    XXL: string;
@@ -38,8 +39,8 @@ export interface BorderRadius {
 export interface Colors {
    PRIMARY?: CommonColor;
    SECONDARY?: CommonColor;
-   TERTIARY?: CommonColor;
-   CONTRAST?: CommonColor;
+   // TERTIARY?: CommonColor;
+   // CONTRAST?: CommonColor;
    NEUTRALS: CommonColor;
    // ACCENT?: MultiColor;
    GRADIENTS?: MultiColor;

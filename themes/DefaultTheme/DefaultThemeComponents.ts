@@ -15,8 +15,7 @@ export default (VARIABLES: Variables): Components => {
 
    const SITE_HEADER: SiteHeader = {
       BACKGROUND: `linear-gradient(90deg, ${COLORS.PRIMARY.BASE} 20.31%, ${COLORS.PRIMARY.DARK} 80.17%)`,
-      DEFAULT_TEXT_COLOR: { DEFAULT: COLORS.PRIMARY.BASE, ALTERNATE: "#00FFFF" },
-      SCROLLED_TEXT_COLOR: { DEFAULT: "#fff", ALTERNATE: "#00FFFF" }
+      TEXT_COLOR: { DEFAULT: "#fff", ALTERNATE: "#00FFFF" }
    };
 
    return {

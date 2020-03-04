@@ -12,8 +12,7 @@ export interface Button {
 
 export interface SiteHeader {
    BACKGROUND: string;
-   DEFAULT_TEXT_COLOR: ComponentStateColor;
-   SCROLLED_TEXT_COLOR: ComponentStateColor;
+   TEXT_COLOR: ComponentStateColor;
 }
 
 interface Components {
