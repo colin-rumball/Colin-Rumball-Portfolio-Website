@@ -11,14 +11,14 @@ const StyledSiteLogo = styled.a<StyledSiteLogoProps>`
    display: flex;
    align-items: center;
 
-   letter-spacing: 1px;
+   letter-spacing: 2px;
    font-family: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_FAMILIES.SECONDARY};
-   color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.DEFAULT};
+   color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.SITE_HEADER.TEXT_COLOR.DEFAULT};
    cursor: pointer;
+   font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.ML};
 
    &:hover {
-      color: ${({ theme }: ThemeContainer) =>
-         theme.COMPONENTS.SITE_HEADER.DEFAULT_TEXT_COLOR.ALTERNATE};
+      color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.SITE_HEADER.TEXT_COLOR.ALTERNATE};
    }
 `;
 
