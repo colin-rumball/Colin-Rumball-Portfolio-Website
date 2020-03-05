@@ -19,13 +19,13 @@ import { FaGooglePlay } from "react-icons/fa";
 import LegoTheme from "../themes/LegoTheme/LegoTheme";
 import asPage from "../helpers/asPage";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
+import { PageStyling } from "../styles/BaseStyles";
 
 interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
-   position: relative;
-   min-height: calc(100vh - 60px);
-   background-image: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
+   ${PageStyling};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
 
@@ -54,27 +54,30 @@ const Styledtlp = styled.div<StyledtlpProps>`
       }
    }
 
-   section {
+   section.middle-elements {
+      justify-content: space-evenly;
+
       article.description {
-         flex-basis: 40%;
+         flex-basis: 48%;
+
          p.description-text {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
          }
+
+         article.external-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+
+            min-height: 80px;
+            max-height: 180px;
+            flex-basis: 20%;
+         }
       }
 
-      article.external-links {
-         display: flex;
-         flex-direction: row;
-         justify-content: space-evenly;
-         align-items: center;
-
-         flex-basis: 20%;
-
-         min-height: 130px;
-
-         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-            flex-direction: column;
-         }
+      article.duties {
+         flex-basis: 46%;
       }
    }
 `;
@@ -92,7 +95,7 @@ const lego: React.FC = ({}) => {
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                ></iframe>
             </div>
-            <ResposiveSection>
+            <ResposiveSection className="middle-elements">
                <article className="description">
                   <p className="description-text">
                      Assemble strategic teams based on 40 years of your favorite LEGO themes. Travel
@@ -105,39 +108,40 @@ const lego: React.FC = ({}) => {
                      feature Piptown’s heroes building their most powerful sets right on the
                      battlefield!
                   </p>
+                  <article className="external-links">
+                     <ExternalLinkButton
+                        href="https://apps.apple.com/ca/app/lego-legacy-heroes-unboxed/id1393157487"
+                        buttonProps={{
+                           buttonSize: ButtonSize.MEDIUM,
+                           style: { whiteSpace: "nowrap" }
+                        }}
+                     >
+                        <AiOutlineApple /> APP STORE
+                     </ExternalLinkButton>
+                     <ExternalLinkButton
+                        href="https://play.google.com/store/apps/details?id=com.gameloft.anmp.lego.heroes"
+                        buttonProps={{
+                           buttonSize: ButtonSize.MEDIUM,
+                           style: { whiteSpace: "nowrap" }
+                        }}
+                     >
+                        <FaGooglePlay /> GOOGLE PLAY
+                     </ExternalLinkButton>
+                  </article>
                </article>
-               <article className="external-links">
-                  <ExternalLinkButton
-                     href="https://apps.apple.com/ca/app/lego-legacy-heroes-unboxed/id1393157487"
-                     buttonProps={{
-                        buttonSize: ButtonSize.MEDIUM,
-                        style: { whiteSpace: "nowrap" }
-                     }}
-                  >
-                     <AiOutlineApple /> APP STORE
-                  </ExternalLinkButton>
-                  <ExternalLinkButton
-                     href="https://play.google.com/store/apps/details?id=com.gameloft.anmp.lego.heroes"
-                     buttonProps={{
-                        buttonSize: ButtonSize.MEDIUM,
-                        style: { whiteSpace: "nowrap" }
-                     }}
-                  >
-                     <FaGooglePlay /> GOOGLE PLAY
-                  </ExternalLinkButton>
-                  <ExternalLinkButton
-                     href="https://www.microsoft.com/en-us/p/lego-legacy-heroes-unboxed/9n8k8g736394"
-                     buttonProps={{
-                        buttonSize: ButtonSize.MEDIUM,
-                        style: { whiteSpace: "nowrap" }
-                     }}
-                  >
-                     <AiOutlineAppstore /> WINDOWS STORE
-                  </ExternalLinkButton>
+               <article className="duties">
+                  <List
+                     items={[
+                        "Worked closely with game designers and UI & UX designers to bring wireframes, flows & mockups to fully functional interactivity, responsive for multiple device resolutions, and localization-ready for over 9 languages.",
+                        "Created sequencing and scripting tools to allow non-developers to customize game parameters and independently modify game subsystems.",
+                        "Contributed to systems architecture planning meetings for complex gameplay problems with colleagues.",
+                        "Worked on developing Lego Legacy: Heroes Unboxed from inception to launch, over a period of 3 years."
+                     ]}
+                  ></List>
                </article>
             </ResposiveSection>
             <FullWidthSection>
-               <ImageCarousel>
+               {/* <ImageCarousel>
                   <EnhancedPicture
                      pictureProps={{
                         src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
@@ -156,7 +160,7 @@ const lego: React.FC = ({}) => {
                         webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
                      }}
                   />
-               </ImageCarousel>
+               </ImageCarousel> */}
             </FullWidthSection>
          </PageMainContent>
       </Styledtlp>

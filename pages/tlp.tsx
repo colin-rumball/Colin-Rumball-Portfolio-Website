@@ -15,16 +15,18 @@ import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ButtonSize } from "../components/basic/Buttons/Button";
 import TLPTheme from "../themes/TLPTheme/TLPTheme";
 import asPage from "../helpers/asPage";
+import { MaxScreenConstraints, PageStyling } from "../styles/BaseStyles";
 
 interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
-   min-height: calc(100vh - 60px);
+   ${PageStyling};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    background-attachment: fixed;
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
 
-   section {
+   section.upper-section {
       p.description {
          flex-basis: 33%;
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
@@ -36,58 +38,69 @@ const Styledtlp = styled.div<StyledtlpProps>`
          justify-content: space-evenly;
          align-items: center;
 
-         flex-basis: 18%;
-
          height: 100%;
-         min-height: 130px;
-         max-height: 180px;
+         min-height: 0;
+
+         padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
 
          @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             flex-direction: column;
-         }
-      }
-
-      article.mobile-images {
-         flex-basis: 55%;
-
-         z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
-
-         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-            max-width: 55%;
-         }
-      }
-
-      article.tech-and-features {
-         display: flex;
-         flex-direction: column;
-         flex-basis: 35%;
-
-         padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
-
-         z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
-
-         .tech-stack {
-            padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
-            width: 100%;
-         }
-
-         .dev-features {
-            padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-            flex-grow: 1;
+            min-height: 130px;
+            max-height: 180px;
+            flex-basis: 19%;
          }
       }
    }
 
-   div.lower-background {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 600px;
+   section.lightbox-images {
+      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+   }
 
-      margin: 0;
+   section.feature-section {
+      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.DARK};
 
-      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.BASE};
-      z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.MID_GROUND};
+      section.lower-info {
+         ${MaxScreenConstraints}
+
+         article.mobile-images {
+            order: 1;
+            flex-basis: 55%;
+
+            z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+
+            @media (min-width: ${({ theme }: ThemeContainer) =>
+                  theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+               max-width: 55%;
+               order: 0;
+            }
+         }
+
+         article.tech-and-features {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 35%;
+            order: 0;
+
+            padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+
+            z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+
+            @media (min-width: ${({ theme }: ThemeContainer) =>
+                  theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+               order: 1;
+            }
+
+            .tech-stack {
+               padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+               width: 100%;
+            }
+
+            .dev-features {
+               padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+               flex-grow: 1;
+            }
+         }
+      }
    }
 `;
 
@@ -96,7 +109,7 @@ const tlp: React.FC = ({}) => {
       <Styledtlp>
          <PageMainContent>
             <FeaturedVideo src="public/videos/tlp-main.mp4" />
-            <ResposiveSection>
+            <ResposiveSection className="upper-section">
                <p className="description">
                   At The Loneliness Project, we believe that stories have power—the power to heal
                   both listener and teller, and to show us that we aren’t ever truly alone. Stories
@@ -113,13 +126,19 @@ const tlp: React.FC = ({}) => {
                </p>
                <article className="external-links">
                   <ExternalLinkButton
-                     buttonProps={{ buttonSize: ButtonSize.MEDIUM }}
+                     buttonProps={{
+                        buttonSize: ButtonSize.MEDIUM,
+                        style: { whiteSpace: "nowrap" }
+                     }}
                      href="https://thelonelinessproject.org"
                   >
                      <FiLink /> VISIT WEBSITE
                   </ExternalLinkButton>
                   <ExternalLinkButton
-                     buttonProps={{ buttonSize: ButtonSize.MEDIUM }}
+                     buttonProps={{
+                        buttonSize: ButtonSize.MEDIUM,
+                        style: { whiteSpace: "nowrap" }
+                     }}
                      href="https://github.com/colin-rumball/The-Loneliness-Project"
                   >
                      <FiGithub /> SEE ON GITHUB
@@ -127,7 +146,10 @@ const tlp: React.FC = ({}) => {
                </article>
             </ResposiveSection>
 
-            <ResposiveSection style={{ justifyContent: "space-between" }}>
+            <ResposiveSection
+               className="lightbox-images"
+               style={{ justifyContent: "space-between" }}
+            >
                <EnhancedPicture
                   opensLightbox
                   showBorder
@@ -148,10 +170,10 @@ const tlp: React.FC = ({}) => {
                />
             </ResposiveSection>
 
-            <FullWidthSection>
-               <ResposiveSection style={{ justifyContent: "space-between" }}>
+            <FullWidthSection className="feature-section">
+               <ResposiveSection className="lower-info" style={{ justifyContent: "space-between" }}>
                   <article className="mobile-images">
-                     <ImageCarousel>
+                     {/* <ImageCarousel>
                         <EnhancedPicture
                            pictureProps={{
                               src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
@@ -170,7 +192,7 @@ const tlp: React.FC = ({}) => {
                               webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
                            }}
                         />
-                     </ImageCarousel>
+                     </ImageCarousel> */}
                   </article>
                   <article className="tech-and-features">
                      <Picture

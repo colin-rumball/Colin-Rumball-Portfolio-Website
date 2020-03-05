@@ -21,12 +21,13 @@ import asPage from "../helpers/asPage";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
 import UnoTheme from "../themes/UnoTheme/UnoTheme";
 import PictureCarousel from "../components/PictureCarousel";
+import { PageStyling } from "../styles/BaseStyles";
 
 interface StyledtlpProps {}
 
 const Styledtlp = styled.div<StyledtlpProps>`
-   position: relative;
-   min-height: calc(100vh - 60px);
+   ${PageStyling};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
    background-size: cover;
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};

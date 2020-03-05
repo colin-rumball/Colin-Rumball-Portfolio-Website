@@ -10,7 +10,8 @@ const TLPTheme = (baseTheme: Theme): Theme => {
          ...BaseTheme.VARIABLES.COLORS,
          PRIMARY: {
             BASE: "#e8d8b6",
-            LIGHT: "#FFFDE8"
+            LIGHT: "#FFFDE8",
+            WHITE: "#fffef5"
          },
          SECONDARY: {
             BASE: "#1F324C",
