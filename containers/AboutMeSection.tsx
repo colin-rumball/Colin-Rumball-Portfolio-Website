@@ -167,12 +167,11 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                </p>
             </article>
             <article className="buttons">
-               <ExternalLinkButton
-                  href="mailto:colin.rumball@gmail.com"
-                  buttonProps={{ buttonSize: ButtonSize.MEDIUM, className: "about-button" }}
-               >
-                  <FaRegEnvelope className="button-icon" /> SAY HELLO
-               </ExternalLinkButton>
+               <a href="mailto:colin.rumball@gmail.com">
+                  <Button buttonSize={ButtonSize.MEDIUM} className="about-button">
+                     <FaRegEnvelope className="button-icon" /> SAY HELLO
+                  </Button>
+               </a>
                <LinkButton
                   href="public/ColinRumball_Resume2018.pdf"
                   linkProps={{ target: "_blank" }}

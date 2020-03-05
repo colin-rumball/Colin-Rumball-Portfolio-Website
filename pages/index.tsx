@@ -6,9 +6,11 @@ import RecentWorkSection from "../containers/RecentWorkSection";
 import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import asPage from "../helpers/asPage";
+import { PageStyling } from "../styles/BaseStyles";
 
 const StyledHomePage = styled.div`
-   min-height: calc(100vh - 60px);
+   ${PageStyling};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
 `;
 
 const HomePage = () => {

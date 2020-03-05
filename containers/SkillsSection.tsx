@@ -59,7 +59,11 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
 
          li {
             flex-basis: 50%;
-            padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+
+            @media (min-width: ${({ theme }: ThemeContainer) =>
+                  theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+               padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+            }
          }
       }
 

@@ -7,6 +7,8 @@ import SocialLinks from "./SocialLinks";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import { FaRegEnvelope } from "react-icons/fa";
 import Picture from "../components/basic/Pictures/Picture";
+import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
+import LinkButton from "../components/basic/Buttons/LinkButton";
 
 interface StyledIntroSectionProps {}
 
@@ -14,14 +16,19 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
    position: relative;
    display: flex;
    flex-direction: column;
+   align-items: center;
 
    width: 100%;
 
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       flex-direction: row;
       justify-content: space-between;
+   }
+
+   img.desk-image {
+      flex-basis: 45%;
    }
 
    article.introduction {
@@ -29,6 +36,7 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
       flex-direction: column;
       /* justify-content: space-between; */
       flex-basis: 43%;
+      order: 2;
 
       h1.welcome-message {
          color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
@@ -39,7 +47,7 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
       }
 
       h3.job-title {
-         color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.GREY};
+         color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.L};
          font-weight: 500;
       }
@@ -65,27 +73,24 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
 
       div.footer {
          display: flex;
+         justify-content: space-between;
          align-items: center;
 
          padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+
+         .social-links {
+            li {
+               margin-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+               margin-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
+            }
+         }
+      }
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         order: -1;
       }
    }
-
-   img.desk-image {
-      flex-basis: 45%;
-   }
 `;
-
-/* div.links {
-            a.social-link {
-               font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.L};
-               color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREY};
-
-               &:hover {
-                  color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.GREEN};
-               }
-            }
-         } */
 
 interface IntroSectionProps extends ComponentBaseProps {}
 
@@ -112,13 +117,13 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                </p>
             </article>
             <div className="footer">
-               <a target="_blank" rel="noopener noreferrer" href="mailto:colin.rumball@gmail.com">
+               <a href="mailto:colin.rumball@gmail.com">
                   <Button buttonSize={ButtonSize.MEDIUM}>
                      <FaRegEnvelope style={{ fontSize: "18px" }} />
                      SAY HELLO
                   </Button>
                </a>
-               <SocialLinks />
+               <SocialLinks className="social-links" />
             </div>
          </article>
          <Picture

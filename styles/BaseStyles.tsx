@@ -7,6 +7,10 @@ export const MaxScreenConstraints = css`
    width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.SMALL};
    max-width: 91vw;
 
+   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.SMALL}) {
+      width: 95vw;
+   }
+
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       width: 90vw;
    }

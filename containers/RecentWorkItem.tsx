@@ -7,7 +7,7 @@ import NextJSIcon from "../components/icons/NextJSIcon";
 import GraphqlIcon from "../components/icons/GraphqlIcon";
 import Link from "next/link";
 import BaseTheme from "../themes/BaseTheme/BaseTheme";
-import { PictureProps } from "../components/basic/Pictures/Picture";
+import Picture, { PictureProps } from "../components/basic/Pictures/Picture";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
 
@@ -57,6 +57,9 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
       .year {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			opacity: 0.65;
       }
 
       .title {
@@ -64,7 +67,7 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.L};
       }
 
-      .description {
+      .quote {
          flex: 1;
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
       }
@@ -87,7 +90,7 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
       flex: 1;
       padding: ${({ theme }: ThemeContainer) => `${theme.VARIABLES.SPACING.XXL} 0`};
-      padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+      /* padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S}; */
 
       display: none;
       pointer-events: none;
@@ -100,8 +103,7 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
       }
 
       .work-image {
-         max-width: 100%;
-         border-radius: 3px;
+         /* border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.WEAK}; */
          box-shadow: 0px 3.5px 21px rgba(0, 0, 0, 0.2);
          margin: 0;
          vertical-align: middle;
@@ -125,31 +127,34 @@ const techMap = {
 
 interface RecentWorkProps extends Props<any> {
    year: string;
+   workType: string;
    title: string;
-   description?: string;
+   quote?: string;
    techList: Tech[];
    href: string;
-   pictureProps: PictureProps;
+   innerPictureProps: PictureProps;
    theme: (theme: Theme) => Theme;
 }
 
 const RecentWorkDefaultProps: RecentWorkProps = {
    year: "1992",
+   workType: "PERSON",
    title: "Colin Rumball",
-   description: "Web Developer",
-   techList: [Tech.REACT, Tech.NEXTJS, Tech.GRAPHQL, Tech.NODEJS],
+   quote: "Web Developer",
+   techList: [],
    href: "#",
-   pictureProps: { src: "/#" },
+   innerPictureProps: { src: "/#", className: "" },
    theme: () => BaseTheme
 };
 
 const RecentWorkItem: React.FC<RecentWorkProps> = ({
    year,
+   workType,
    title,
-   description,
+   quote,
    href,
    techList,
-   pictureProps,
+   innerPictureProps,
    theme
 }) => {
    return (
@@ -158,9 +163,11 @@ const RecentWorkItem: React.FC<RecentWorkProps> = ({
             <StyledRecentWork>
                <div className="overlayed-background" />
                <section className="info">
-                  <h4 className="year">{year}</h4>
+                  <h4 className="year">
+                     {workType} | {year}
+                  </h4>
                   <h1 className="title">{title}</h1>
-                  <p className="description">{description}</p>
+                  <p className="quote">"{quote}"</p>
                   <div className="tech-list">
                      {techList.map(t => (
                         <div className="tech-item" key={t}>
@@ -170,7 +177,11 @@ const RecentWorkItem: React.FC<RecentWorkProps> = ({
                   </div>
                </section>
                <div className="work-image-container">
-                  <EnhancedPicture showBorder pictureProps={pictureProps} />
+                  <Picture
+                     {...innerPictureProps}
+                     style={innerPictureProps.style}
+                     className={`${innerPictureProps.className} work-image`}
+                  />
                </div>
             </StyledRecentWork>
          </Link>
