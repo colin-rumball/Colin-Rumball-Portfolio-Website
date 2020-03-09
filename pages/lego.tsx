@@ -9,7 +9,6 @@ import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FiLink, FiGithub } from "react-icons/fi";
 import List from "../components/basic/List";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import ImageCarousel from "../components/ImageCarousel";
 import useModalSystemHelper from "../hooks/useModalSystemHelper";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ButtonSize } from "../components/basic/Buttons/Button";
@@ -20,6 +19,7 @@ import LegoTheme from "../themes/LegoTheme/LegoTheme";
 import asPage from "../helpers/asPage";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
 import { PageStyling } from "../styles/BaseStyles";
+import PictureCarousel from "../components/PictureCarousel";
 
 interface StyledtlpProps {}
 
@@ -141,26 +141,28 @@ const lego: React.FC = ({}) => {
                </article>
             </ResposiveSection>
             <FullWidthSection>
-               {/* <ImageCarousel>
+               <PictureCarousel>
                   <EnhancedPicture
+                     showInMobile
                      pictureProps={{
-                        src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
-                        webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
+                        src: require("public/images/lego/lego.png"),
+                        webp: require("public/images/lego/lego.png?webp")
                      }}
                   />
                   <EnhancedPicture
                      pictureProps={{
-                        src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
-                        webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
+                        src: require("public/images/lego/lego.png"),
+                        webp: require("public/images/lego/lego.png?webp")
                      }}
                   />
                   <EnhancedPicture
+                     showInMobile
                      pictureProps={{
-                        src: require("public/images/the-loneliness-project/tlp-login.png"),
-                        webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
+                        src: require("public/images/lego/lego.png"),
+                        webp: require("public/images/lego/lego.png?webp")
                      }}
                   />
-               </ImageCarousel> */}
+               </PictureCarousel>
             </FullWidthSection>
          </PageMainContent>
       </Styledtlp>

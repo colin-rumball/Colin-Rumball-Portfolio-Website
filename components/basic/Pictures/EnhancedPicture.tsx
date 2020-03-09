@@ -23,9 +23,28 @@ const StyledEnhancedPicture = styled.figure<StyledEnhancedPictureProps>`
       cursor: ${props => (props.onClick ? "pointer" : "auto")};
    }
 
-   img.enhanced-picture-inner {
-      ${props => (props.showBorder ? BorderedContentStyle : null)};
-      ${props => (props.showInMobile ? WithPhoneMask : null)};
+   .enhanced-picture-container {
+      display: flex;
+      justify-content: center;
+
+      img.enhanced-picture-inner {
+         max-width: 563px;
+         mask-repeat: no-repeat;
+         mask-position: center;
+         ${props => (props.showBorder ? BorderedContentStyle : null)};
+         ${props => (props.showInMobile ? WithPhoneMask : null)};
+      }
+   }
+
+   .mobile-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
    }
 `;
 
@@ -69,14 +88,16 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
          <Picture
             {...pictureProps}
             onClick={opensLightbox ? onClickHandler : null}
-            className={`enhanced-picture-inner ${pictureProps.className}`}
+            className="enhanced-picture-container"
+            imgClassName={`enhanced-picture-inner ${pictureProps.className}`}
          />
          {showInMobile && (
-            <Picture
-               style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }}
-               src={require("public/images/uno/border.png")}
-               webp={require("public/images/uno/border.png?webp")}
-            />
+            <div className="mobile-container">
+               <Picture
+                  src={require("public/images/uno/border.png")}
+                  webp={require("public/images/uno/border.png?webp")}
+               />
+            </div>
          )}
       </StyledEnhancedPicture>
    );

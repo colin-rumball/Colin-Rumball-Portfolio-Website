@@ -15,6 +15,7 @@ const StyledPicture = styled.img<StyledPictureProps>`
 
 export interface PictureProps extends ComponentBaseProps {
    src: any;
+   imgClassName?: string;
    alt?: string;
    webp?: any;
    srcType?: string;
@@ -31,6 +32,7 @@ const Picture: React.FC<PictureProps> = ({
    src,
    alt,
    className,
+   imgClassName,
    style,
    srcType,
    webp,
@@ -42,12 +44,12 @@ const Picture: React.FC<PictureProps> = ({
    }, [src]);
 
    return (
-      <picture>
+      <picture className={className}>
          {webp && typeof webp === "string" && <source srcSet={webp} type="image/webp" />}
          <source srcSet={compiledSrc} type={srcType} />
          <StyledPicture
             style={style}
-            className={className}
+            className={imgClassName}
             src={compiledSrc}
             alt={alt}
             onClick={onClick}

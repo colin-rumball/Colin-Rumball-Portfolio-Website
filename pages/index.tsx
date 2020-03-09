@@ -7,6 +7,8 @@ import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import asPage from "../helpers/asPage";
 import { PageStyling } from "../styles/BaseStyles";
+import PictureCarousel from "../components/PictureCarousel";
+import Picture from "../components/basic/Pictures/Picture";
 
 const StyledHomePage = styled.div`
    ${PageStyling};
