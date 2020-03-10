@@ -27,7 +27,7 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
       justify-content: space-between;
    }
 
-   img.desk-image {
+   picture.desk-image {
       flex-basis: 45%;
    }
 
@@ -100,7 +100,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
    return (
       <StyledIntroSection>
          <article className="introduction">
-            <h1 className="welcome-message">Hey, I'm Colin,</h1>
+            <h1 className="welcome-message">Hey, I'm Colin</h1>
             <h3 className="job-title">
                Full Stack Web Developer & Developer Experience Enthusiast
             </h3>
@@ -118,8 +118,10 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
             </article>
             <div className="footer">
                <a href="mailto:colin.rumball@gmail.com">
-                  <Button buttonSize={ButtonSize.MEDIUM}>
-                     <FaRegEnvelope style={{ fontSize: "18px" }} />
+                  <Button
+                     icon={<FaRegEnvelope style={{ fontSize: "18px" }} />}
+                     buttonSize={ButtonSize.MEDIUM}
+                  >
                      SAY HELLO
                   </Button>
                </a>

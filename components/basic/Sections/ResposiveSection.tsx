@@ -9,7 +9,7 @@ interface StyledResposiveSectionProps {}
 const StyledResposiveSection = styled.section<StyledResposiveSectionProps>`
    display: flex;
    flex-direction: column;
-   padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L} 0;
+   margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L} 0;
    max-width: 100%;
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {

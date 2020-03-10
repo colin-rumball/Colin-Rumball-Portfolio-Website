@@ -14,7 +14,7 @@ export default (VARIABLES: Variables): Components => {
    };
 
    const SITE_HEADER: SiteHeader = {
-      BACKGROUND: `linear-gradient(90deg, #00C0DA 20.31%, #4600DA 80.17%)`,
+      BACKGROUND: `linear-gradient(90deg, #009AF0 20.31%, #4900DA 80.17%)`,
       TEXT_COLOR: { DEFAULT: "#fff", ALTERNATE: "#00F0FF" }
    };
 

@@ -26,7 +26,7 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
             color: #fff;
             letter-spacing: 1px;
             font-weight: 500;
-            font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
+            font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
             padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
          }
       }

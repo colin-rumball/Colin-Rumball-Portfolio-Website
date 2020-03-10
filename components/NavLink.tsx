@@ -20,7 +20,7 @@ const StyledNavLink = styled.li<StyledNavLinkProps>`
             : theme.COMPONENTS.SITE_HEADER.TEXT_COLOR.DEFAULT};
       transition: color 0.25s ease-in-out;
       letter-spacing: 0.16em;
-      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
       font-weight: 500;
 
       &:hover {

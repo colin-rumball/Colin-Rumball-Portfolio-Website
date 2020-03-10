@@ -19,7 +19,7 @@ export const FONT_SIZES: FontSizes = {
    S: "0.8rem",
    M: "1rem",
    ML: "1.15rem",
-   L: "1.5rem",
+   L: "1.2rem",
    XL: "2.0rem",
    XXL: "2.5rem"
 };

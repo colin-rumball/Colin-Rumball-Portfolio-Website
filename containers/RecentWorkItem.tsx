@@ -39,6 +39,7 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
    .overlayed-background {
       ${OverlayedBackgroundStyle}
+		border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.WEAK};
    }
 
    .info {
@@ -46,14 +47,21 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
       flex-direction: column;
       justify-content: space-evenly;
       color: #fff;
-      padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+      padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
       padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
-      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-      padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+      padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
       min-height: 100%;
       width: 400px;
 
       z-index: 33;
+
+		@media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+			padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+			padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+			padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+			padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+		}
 
       .year {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
