@@ -9,14 +9,11 @@ import withDefaultProps from "../../../helpers/withDefaultProps";
 interface StyledEnhancedPictureProps {
    showBorder?: boolean;
    showInMobile?: boolean;
+   mobileOrientation?: "horizontal" | "vertical";
 }
 
-const WithPhoneMask = css`
-   mask-image: url("public/images/uno/mask.png");
-   mask-size: contain;
-`;
-
 const StyledEnhancedPicture = styled.figure<StyledEnhancedPictureProps>`
+   position: relative;
    margin: 0;
 
    &:hover {
@@ -28,11 +25,18 @@ const StyledEnhancedPicture = styled.figure<StyledEnhancedPictureProps>`
       justify-content: center;
 
       img.enhanced-picture-inner {
-         max-width: 563px;
+         /* max-width: ${props => (props.mobileOrientation === "horizontal" ? "563px" : "318px")};
+         max-height: ${props => (props.mobileOrientation === "horizontal" ? "318px" : "563px")}; */
          mask-repeat: no-repeat;
          mask-position: center;
          ${props => (props.showBorder ? BorderedContentStyle : null)};
-         ${props => (props.showInMobile ? WithPhoneMask : null)};
+         mask-image: ${props =>
+            props.showInMobile
+               ? props.mobileOrientation === "horizontal"
+                  ? `url("public/images/common/horizontal-mobile-mask.png")`
+                  : `url("public/images/common/vertical-mobile-mask.png")`
+               : "none"};
+         mask-size: contain;
       }
    }
 
@@ -52,15 +56,26 @@ interface EnhancedPictureProps extends ComponentBaseProps {
    pictureProps: PictureProps;
    showBorder?: boolean;
    showInMobile?: boolean;
+   mobileOrientation?: "horizontal" | "vertical";
    opensLightbox?: boolean;
 }
 
 const EnhancedPictureDefaultProps: EnhancedPictureProps = {
-   pictureProps: { ...PictureDefaultProps }
+   pictureProps: { ...PictureDefaultProps },
+   mobileOrientation: "horizontal"
 };
 
 const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
-   const { debug, className, style, showBorder, showInMobile, opensLightbox, pictureProps } = props;
+   const {
+      debug,
+      className,
+      style,
+      showBorder,
+      showInMobile,
+      mobileOrientation,
+      opensLightbox,
+      pictureProps
+   } = props;
    const { pushModal } = useModalSystemHelper();
 
    const onClickHandler = useCallback(
@@ -82,6 +97,7 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
       <StyledEnhancedPicture
          showBorder={showBorder}
          showInMobile={showInMobile}
+         mobileOrientation={mobileOrientation}
          className={className}
          style={style}
       >
@@ -93,10 +109,14 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
          />
          {showInMobile && (
             <div className="mobile-container">
-               <Picture
-                  src={require("public/images/uno/border.png")}
-                  webp={require("public/images/uno/border.png?webp")}
-               />
+               {mobileOrientation === "horizontal" ? (
+                  <Picture
+                     src={require("public/images/common/horizontal-mobile-border.png")}
+                     webp={require("public/images/common/horizontal-mobile-border.png?webp")}
+                  />
+               ) : (
+                  <img src="public/images/common/vertical-mobile-border.png" />
+               )}
             </div>
          )}
       </StyledEnhancedPicture>

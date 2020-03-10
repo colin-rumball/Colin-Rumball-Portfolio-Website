@@ -44,16 +44,10 @@ const Picture: React.FC<PictureProps> = ({
    }, [src]);
 
    return (
-      <picture className={className}>
+      <picture className={className} style={style}>
          {webp && typeof webp === "string" && <source srcSet={webp} type="image/webp" />}
          <source srcSet={compiledSrc} type={srcType} />
-         <StyledPicture
-            style={style}
-            className={imgClassName}
-            src={compiledSrc}
-            alt={alt}
-            onClick={onClick}
-         />
+         <StyledPicture className={imgClassName} src={compiledSrc} alt={alt} onClick={onClick} />
       </picture>
    );
 };

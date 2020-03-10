@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../helpers/withDefaultProps";
@@ -12,12 +13,15 @@ const StyledList = styled.ul<StyledListProps>`
    list-style-type: none;
 
    h4.list-title {
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
    }
 
    li.list-item {
       font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+      padding-left: 1em;
+      text-indent: -1em;
    }
 `;
 
@@ -35,7 +39,7 @@ const List: React.FC<ListProps> = ({ title, items, className, style }) => {
          {items &&
             items.map(i => (
                <li key={i} className="list-item">
-                  > {i}
+                  <MdKeyboardArrowRight style={{ marginBottom: "-2px" }} /> {i}
                </li>
             ))}
       </StyledList>

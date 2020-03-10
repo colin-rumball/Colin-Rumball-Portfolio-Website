@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled, { css, ThemeProvider } from "styled-components";
 import theme from "styled-theming";
 import withDefaultProps from "../../../helpers/withDefaultProps";
@@ -28,11 +28,11 @@ const StyledButton = styled.button<StyledButtonProps>`
       switch (buttonSize) {
          case ButtonSize.SMALL:
             return {
-               width: "120px"
+               width: "160px"
             };
          case ButtonSize.MEDIUM:
             return {
-               width: "160px"
+               width: "180px"
             };
          case ButtonSize.LARGE:
             return {
@@ -43,7 +43,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 
    position: relative;
    display: flex;
-   justify-content: space-evenly;
+   justify-content: space-between;
    align-items: center;
 
    cursor: pointer;
@@ -61,6 +61,17 @@ const StyledButton = styled.button<StyledButtonProps>`
 
    transition: background-color 0.15s ease-in, color 0.15s ease-in, color 0.2s ease-in;
 
+   .button-icon {
+      padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
+      font-size: 1.2em;
+      line-height: 1em;
+   }
+
+   .button-children {
+      flex: 1;
+      text-align: center;
+   }
+
    &:hover {
       color: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.FONT_COLOR.ALTERNATE};
       background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.BUTTON.BACKGROUND.ALTERNATE};
@@ -70,13 +81,21 @@ const StyledButton = styled.button<StyledButtonProps>`
 export interface ButtonProps extends ComponentBaseProps {
    buttonSize?: ButtonSize;
    secondary?: boolean;
+   icon?: ReactElement;
 }
 
 const ButtonDefaultProps: ButtonProps = {
    buttonSize: ButtonSize.DYNAMIC
 };
 
-const Button: React.FC<ButtonProps> = ({ buttonSize, secondary, children, style, className }) => {
+const Button: React.FC<ButtonProps> = ({
+   icon,
+   buttonSize,
+   secondary,
+   children,
+   style,
+   className
+}) => {
    return (
       <ThemeProvider theme={{ theme: "default" }}>
          <StyledButton
@@ -85,7 +104,8 @@ const Button: React.FC<ButtonProps> = ({ buttonSize, secondary, children, style,
             style={style}
             className={className}
          >
-            {children}
+            {icon && <div className="button-icon">{icon}</div>}
+            <div className="button-children">{children}</div>
          </StyledButton>
       </ThemeProvider>
    );
