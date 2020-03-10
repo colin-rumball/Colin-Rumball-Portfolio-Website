@@ -142,25 +142,17 @@ const lego: React.FC = ({}) => {
             </ResposiveSection>
             <FullWidthSection>
                <PictureCarousel>
-                  <EnhancedPicture
-                     showInMobile
-                     pictureProps={{
-                        src: require("public/images/lego/lego.png"),
-                        webp: require("public/images/lego/lego.png?webp")
-                     }}
+                  <Picture
+                     src={require("public/images/lego/lego.png")}
+                     webp={require("public/images/lego/lego.png?webp")}
                   />
-                  <EnhancedPicture
-                     pictureProps={{
-                        src: require("public/images/lego/lego.png"),
-                        webp: require("public/images/lego/lego.png?webp")
-                     }}
+                  <Picture
+                     src={require("public/images/lego/lego.png")}
+                     webp={require("public/images/lego/lego.png?webp")}
                   />
-                  <EnhancedPicture
-                     showInMobile
-                     pictureProps={{
-                        src: require("public/images/lego/lego.png"),
-                        webp: require("public/images/lego/lego.png?webp")
-                     }}
+                  <Picture
+                     src={require("public/images/lego/lego.png")}
+                     webp={require("public/images/lego/lego.png?webp")}
                   />
                </PictureCarousel>
             </FullWidthSection>
@@ -168,10 +160,5 @@ const lego: React.FC = ({}) => {
       </Styledtlp>
    );
 };
-
-// • Worked closely with game designers and UI & UX designers to bring wireframes, flows & mockups to fully functional interactivity, responsive for multiple device resolutions, and localization-ready for over 12 languages.
-// • Created sequencing and scripting tools to allow non-developers to customize game parameters and independently modify game subsystems.
-// • Contributed to systems architecture planning meetings for complex gameplay problems with colleagues.
-// • Worked on developing Lego Legacy: Heroes Unboxed from inception to launch, over a period of 3 years.
 
 export default asPage(lego, LegoTheme);

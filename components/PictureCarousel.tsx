@@ -63,8 +63,6 @@ interface PictureCarouselProps extends ComponentBaseProps {}
 const PictureCarouselDefaultProps: PictureCarouselProps = {};
 
 const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, children }) => {
-   const { width, height } = useWindowDimensions();
-
    const params = useMemo(
       () => ({
          pagination: {
@@ -82,7 +80,7 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
             }
          }
       }),
-      [width, height]
+      []
    );
 
    return (

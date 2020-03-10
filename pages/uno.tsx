@@ -9,7 +9,6 @@ import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FiLink, FiGithub } from "react-icons/fi";
 import List from "../components/basic/List";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import ImageCarousel from "../components/ImageCarousel";
 import useModalSystemHelper from "../hooks/useModalSystemHelper";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ButtonSize } from "../components/basic/Buttons/Button";

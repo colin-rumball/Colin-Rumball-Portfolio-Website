@@ -9,13 +9,13 @@ import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FiLink, FiGithub } from "react-icons/fi";
 import List from "../components/basic/List";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import ImageCarousel from "../components/ImageCarousel";
 import useModalSystemHelper from "../hooks/useModalSystemHelper";
 import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ButtonSize } from "../components/basic/Buttons/Button";
 import TLPTheme from "../themes/TLPTheme/TLPTheme";
 import asPage from "../helpers/asPage";
 import { MaxScreenConstraints, PageStyling } from "../styles/BaseStyles";
+import PictureCarousel from "../components/PictureCarousel";
 
 interface StyledtlpProps {}
 
@@ -47,31 +47,50 @@ const Styledtlp = styled.div<StyledtlpProps>`
             flex-direction: column;
             min-height: 130px;
             max-height: 180px;
-            flex-basis: 19%;
+            flex-basis: 25%;
          }
       }
    }
 
    section.lightbox-images {
-      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+
+      picture {
+         @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         }
+      }
    }
 
    section.feature-section {
-      background-color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.SECONDARY.DARK};
+      background-color: ${({ theme }: ThemeContainer) =>
+         `${theme.VARIABLES.COLORS.SECONDARY.DARK}C0`};
 
       section.lower-info {
          ${MaxScreenConstraints}
 
          article.mobile-images {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: nowrap;
+            align-items: center;
+
             order: 1;
-            flex-basis: 55%;
+            flex-basis: 65%;
 
             z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
 
+            padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+
             @media (min-width: ${({ theme }: ThemeContainer) =>
                   theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-               max-width: 55%;
+               max-width: 65%;
                order: 0;
+               padding: 0;
+            }
+
+            .inner-image {
+               max-width: 30%;
             }
          }
 
@@ -90,13 +109,18 @@ const Styledtlp = styled.div<StyledtlpProps>`
                order: 1;
             }
 
+            .title {
+               letter-spacing: 2px;
+               font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+            }
+
             .tech-stack {
                padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
                width: 100%;
             }
 
             .dev-features {
-               padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+               padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
                flex-grow: 1;
             }
          }
@@ -127,21 +151,23 @@ const tlp: React.FC = ({}) => {
                <article className="external-links">
                   <ExternalLinkButton
                      buttonProps={{
-                        buttonSize: ButtonSize.MEDIUM,
+                        icon: <FiLink />,
+                        buttonSize: ButtonSize.LARGE,
                         style: { whiteSpace: "nowrap" }
                      }}
                      href="https://thelonelinessproject.org"
                   >
-                     <FiLink /> VISIT WEBSITE
+                     VISIT WEBSITE
                   </ExternalLinkButton>
                   <ExternalLinkButton
                      buttonProps={{
-                        buttonSize: ButtonSize.MEDIUM,
+                        icon: <FiGithub />,
+                        buttonSize: ButtonSize.LARGE,
                         style: { whiteSpace: "nowrap" }
                      }}
                      href="https://github.com/colin-rumball/The-Loneliness-Project"
                   >
-                     <FiGithub /> SEE ON GITHUB
+                     SEE ON GITHUB
                   </ExternalLinkButton>
                </article>
             </ResposiveSection>
@@ -173,28 +199,36 @@ const tlp: React.FC = ({}) => {
             <FullWidthSection className="feature-section">
                <ResposiveSection className="lower-info" style={{ justifyContent: "space-between" }}>
                   <article className="mobile-images">
-                     {/* <ImageCarousel>
-                        <EnhancedPicture
-                           pictureProps={{
-                              src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
-                              webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
-                           }}
-                        />
-                        <EnhancedPicture
-                           pictureProps={{
-                              src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
-                              webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
-                           }}
-                        />
-                        <EnhancedPicture
-                           pictureProps={{
-                              src: require("public/images/the-loneliness-project/tlp-login.png"),
-                              webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
-                           }}
-                        />
-                     </ImageCarousel> */}
+                     <EnhancedPicture
+                        opensLightbox
+                        showBorder
+                        className="inner-image"
+                        pictureProps={{
+                           src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
+                        }}
+                     />
+                     <EnhancedPicture
+                        opensLightbox
+                        showBorder
+                        className="inner-image"
+                        pictureProps={{
+                           src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
+                        }}
+                     />
+                     <EnhancedPicture
+                        opensLightbox
+                        showBorder
+                        className="inner-image"
+                        pictureProps={{
+                           src: require("public/images/the-loneliness-project/tlp-login.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
+                        }}
+                     />
                   </article>
                   <article className="tech-and-features">
+                     <h4 className="title">DEVELOPMENT FEATURES</h4>
                      <Picture
                         className="tech-stack"
                         src={require("public/tech.png")}
@@ -202,7 +236,6 @@ const tlp: React.FC = ({}) => {
                      />
                      <List
                         className="dev-features"
-                        title="DEVELOPMENT FEATURES"
                         items={[
                            "Written in modern React, using only functional components with hooks.",
                            "Server-side rendering using Next.js.",
