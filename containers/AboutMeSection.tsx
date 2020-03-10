@@ -56,6 +56,24 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
          }
       }
 
+      .social-links {
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 50%;
+         display: flex;
+         justify-content: flex-end;
+
+         li {
+            margin-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+            padding: 0;
+         }
+
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            display: none;
+         }
+      }
+
       article.description {
          p {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
@@ -68,8 +86,8 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
             width: 60%;
             padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
             padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-            padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
-            padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+            padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+            padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
             min-width: 520px;
             background: #fff;
             box-shadow: 0px 0px 10px #a4e2cc;
@@ -83,10 +101,6 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
          width: 100%;
          margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
 
-         .button-icon {
-            font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
-         }
-
          .social-links {
             display: none;
          }
@@ -98,18 +112,6 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
 
             .about-button {
                margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
-            }
-
-            .social-links {
-               display: flex;
-               justify-content: space-evenly;
-               padding: 0;
-               width: 100%;
-               margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
-
-               li {
-                  margin: 0;
-               }
             }
          }
       }
@@ -140,13 +142,14 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
       <StyledAboutMeSection>
          <FullWidthSection className="about-image">
             <Picture
-               className="inner-image"
+               imgClassName="inner-image"
                src={require("public/images/about/van.png")}
                webp={require("public/images/about/van.png?webp")}
             />
          </FullWidthSection>
          <section className="info">
             <h1 className="title">ABOUT COLIN</h1>
+            <SocialLinks className="social-links" linksClassName="social-link" />
             <article className="description">
                <p>
                   I've been passionate about software development since high school, and being a
@@ -168,18 +171,25 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
             </article>
             <article className="buttons">
                <a href="mailto:colin.rumball@gmail.com">
-                  <Button buttonSize={ButtonSize.MEDIUM} className="about-button">
-                     <FaRegEnvelope className="button-icon" /> SAY HELLO
+                  <Button
+                     icon={<FaRegEnvelope />}
+                     buttonSize={ButtonSize.MEDIUM}
+                     className="about-button"
+                  >
+                     SAY HELLO
                   </Button>
                </a>
                <LinkButton
                   href="public/ColinRumball_Resume2018.pdf"
                   linkProps={{ target: "_blank" }}
-                  buttonProps={{ buttonSize: ButtonSize.MEDIUM, className: "about-button" }}
+                  buttonProps={{
+                     icon: <FiFileText />,
+                     buttonSize: ButtonSize.MEDIUM,
+                     className: "about-button"
+                  }}
                >
-                  <FiFileText className="button-icon" /> RESUME
+                  RESUME
                </LinkButton>
-               <SocialLinks className="social-links" linksClassName="social-link" />
             </article>
          </section>
       </StyledAboutMeSection>
