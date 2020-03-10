@@ -17,6 +17,18 @@ const config = {
 };
 
 module.exports = withPlugins(
-   [[withSourceMaps], [withBundleAnalyzer], [optimizedImages, { optimizeImagesInDev: true }]],
+   [
+      [withSourceMaps],
+      [withBundleAnalyzer],
+      [
+         optimizedImages,
+         {
+            optimizeImagesInDev: true,
+            webp: {
+               lossless: true
+            }
+         }
+      ]
+   ],
    config
 );
