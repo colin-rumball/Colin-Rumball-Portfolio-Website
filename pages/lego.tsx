@@ -71,6 +71,12 @@ const Styledtlp = styled.main<StyledtlpProps>`
          }
       }
    }
+
+   section.carousel {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+   }
 `;
 
 const lego: React.FC = ({}) => {
@@ -145,7 +151,7 @@ const lego: React.FC = ({}) => {
                   </List>
                </article>
             </ResposiveSection>
-            <FullWidthSection>
+            <FullWidthSection className="carousel">
                <PictureCarousel>
                   <Picture
                      src={require("public/images/lego/lego.png")}

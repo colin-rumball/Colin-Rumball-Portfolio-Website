@@ -10,8 +10,6 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 interface StyledPictureCarouselProps {}
 
 const StyledPictureCarousel = styled.div<StyledPictureCarouselProps>`
-   padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L} 0;
-
    .swiper-slide {
       transition: transform 0.4s ease-out, opacity 0.35s ease-out, filter 0.3s ease-out;
       transform: scale(0.95);

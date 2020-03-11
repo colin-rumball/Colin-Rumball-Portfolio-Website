@@ -1,27 +1,30 @@
 import React, { Props } from "react";
-import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import Picture from "../components/basic/Pictures/Picture";
-import Button, { ButtonSize } from "../components/basic/Buttons/Button";
-import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import { FaRegEnvelope } from "react-icons/fa";
-import { GoFile } from "react-icons/go";
-import SocialLinks from "./SocialLinks";
-import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import { FiFileText } from "react-icons/fi";
-import LinkButton from "../components/basic/Buttons/LinkButton";
+import styled from "styled-components";
+import Button, { ButtonSize } from "../../components/basic/Buttons/Button";
+import LinkButton from "../../components/basic/Buttons/LinkButton";
+import Picture from "../../components/basic/Pictures/Picture";
+import FullWidthSection from "../../components/basic/Sections/FullWidthSection";
+import Section from "../../components/Section";
+import withDefaultProps from "../../helpers/withDefaultProps";
+import { ThemeContainer } from "../../themes/definitions/Theme";
+import SocialLinks from "../SocialLinks";
 
 interface StyledAboutMeSectionProps {}
 
-const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
-   position: relative;
+const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
    display: flex;
    flex-direction: column;
+   margin: 0;
+
+   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+   }
 
    section.about-image {
-      margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
          flex-basis: 75%;
          position: relative;
@@ -123,13 +126,6 @@ const StyledAboutMeSection = styled.div<StyledAboutMeSectionProps>`
          flex-direction: column;
          margin: 0;
       }
-   }
-
-   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-      min-height: 495px;
    }
 `;
 

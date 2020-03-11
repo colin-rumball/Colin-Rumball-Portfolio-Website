@@ -5,20 +5,13 @@ import RecentWorkItem, { Tech } from "./RecentWorkItem";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import TLPTheme from "../themes/TLPTheme/TLPTheme";
 import LegoTheme from "../themes/LegoTheme/LegoTheme";
-import Picture from "../components/basic/Pictures/Picture";
-import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import UnoTheme from "../themes/UnoTheme/UnoTheme";
+import Section from "../components/Section";
 
 interface StyledRecentWorkSectionProps {}
 
-const StyledRecentWorkSection = styled.section<StyledRecentWorkSectionProps>`
-   position: relative;
-
-   h2.section-header {
-      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
-   }
-`;
+const StyledRecentWorkSection = styled(Section)<StyledRecentWorkSectionProps>``;
 
 interface RecentWorkSectionProps extends ComponentBaseProps {}
 
@@ -27,7 +20,6 @@ const RecentWorkSectionDefaultProps: RecentWorkSectionProps = {};
 const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
    return (
       <StyledRecentWorkSection>
-         {/* <h2 className="section-header">Recent Work</h2> */}
          <RecentWorkItem
             href="/tlp"
             year="2020"

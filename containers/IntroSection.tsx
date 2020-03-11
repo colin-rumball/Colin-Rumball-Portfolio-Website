@@ -7,20 +7,14 @@ import SocialLinks from "./SocialLinks";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import { FaRegEnvelope } from "react-icons/fa";
 import Picture from "../components/basic/Pictures/Picture";
-import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
-import LinkButton from "../components/basic/Buttons/LinkButton";
+import Section from "../components/Section";
 
 interface StyledIntroSectionProps {}
 
-const StyledIntroSection = styled.section<StyledIntroSectionProps>`
-   position: relative;
+const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
    display: flex;
    flex-direction: column;
    align-items: center;
-
-   width: 100%;
-
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       flex-direction: row;
@@ -34,7 +28,6 @@ const StyledIntroSection = styled.section<StyledIntroSectionProps>`
    article.introduction {
       display: flex;
       flex-direction: column;
-      /* justify-content: space-between; */
       flex-basis: 43%;
       order: 2;
 

@@ -4,10 +4,11 @@ import { MaxScreenConstraints } from "../../../styles/BaseStyles";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
+import Section from "../../Section";
 
 interface StyledFullWidthSectionProps {}
 
-const StyledFullWidthSection = styled.section<StyledFullWidthSectionProps>`
+const StyledFullWidthSection = styled(Section)<StyledFullWidthSectionProps>`
    position: relative;
    width: 100vw;
 

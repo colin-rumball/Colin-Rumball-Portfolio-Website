@@ -1,17 +1,15 @@
 import React, { Props, useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
-import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import Theme, { ThemeContainer } from "../themes/definitions/Theme";
-import { MaxScreenConstraints } from "../styles/BaseStyles";
-import List from "../components/basic/List";
+import withDefaultProps from "../../helpers/withDefaultProps";
+import FullWidthSection from "../../components/basic/Sections/FullWidthSection";
+import Theme, { ThemeContainer } from "../../themes/definitions/Theme";
+import { MaxScreenConstraints } from "../../styles/BaseStyles";
+import List from "../../components/basic/List";
+import Section from "../../components/Section";
 
 interface StyledSkillsSectionProps {}
 
-const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
-   width: 100%;
-   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
-
+const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       display: flex;
       justify-content: space-between;

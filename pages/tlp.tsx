@@ -1,21 +1,19 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
-import Picture from "../components/basic/Pictures/Picture";
-import FeaturedVideo from "../components/content/FeaturedVideo";
-import ResposiveSection from "../components/basic/Sections/ResposiveSection";
-import PageMainContent from "../containers/PageMainContent";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
-import { FiLink, FiGithub } from "react-icons/fi";
-import List from "../components/basic/List";
-import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import useModalSystemHelper from "../hooks/useModalSystemHelper";
-import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
+import { FiGithub, FiLink } from "react-icons/fi";
+import styled from "styled-components";
 import { ButtonSize } from "../components/basic/Buttons/Button";
-import TLPTheme from "../themes/TLPTheme/TLPTheme";
+import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
+import List from "../components/basic/List";
+import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
+import Picture from "../components/basic/Pictures/Picture";
+import FullWidthSection from "../components/basic/Sections/FullWidthSection";
+import ResposiveSection from "../components/basic/Sections/ResposiveSection";
+import FeaturedVideo from "../components/content/FeaturedVideo";
+import PageMainContent from "../containers/PageMainContent";
 import asPage from "../helpers/asPage";
 import { MaxScreenConstraints, PageStyling } from "../styles/BaseStyles";
-import PictureCarousel from "../components/PictureCarousel";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import TLPTheme from "../themes/TLPTheme/TLPTheme";
 
 interface StyledtlpProps {}
 
@@ -53,7 +51,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    }
 
    section.lightbox-images {
-      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+      justify-content: space-between;
 
       picture {
          @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
@@ -65,6 +63,8 @@ const Styledtlp = styled.div<StyledtlpProps>`
    section.feature-section {
       background-color: ${({ theme }: ThemeContainer) =>
          `${theme.VARIABLES.COLORS.SECONDARY.DARK}C0`};
+      margin-bottom: 0;
+      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
 
       section.lower-info {
          ${MaxScreenConstraints}
@@ -122,6 +122,10 @@ const Styledtlp = styled.div<StyledtlpProps>`
             .dev-features {
                padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
                flex-grow: 1;
+
+               .dev-feature {
+                  padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
+               }
             }
          }
       }
@@ -172,10 +176,7 @@ const tlp: React.FC = ({}) => {
                </article>
             </ResposiveSection>
 
-            <ResposiveSection
-               className="lightbox-images"
-               style={{ justifyContent: "space-between" }}
-            >
+            <ResposiveSection className="lightbox-images">
                <EnhancedPicture
                   opensLightbox
                   showBorder
@@ -234,7 +235,7 @@ const tlp: React.FC = ({}) => {
                         src={require("public/tech.png")}
                         webp={require("public/tech.png?webp")}
                      />
-                     <List className="dev-features">
+                     <List className="dev-features" itemsClassName="dev-feature">
                         <>Written in modern React, using only functional components with hooks.</>
                         <>Server-side rendering using Next.js.</>
                         <>Custom webpack setup, without create-react-app or similar.</>
