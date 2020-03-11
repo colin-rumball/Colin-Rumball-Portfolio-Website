@@ -10,9 +10,15 @@ import Section from "../../components/Section";
 interface StyledSkillsSectionProps {}
 
 const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
+   margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       display: flex;
       justify-content: space-between;
+      width: 71%;
+   }
+
+   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
       width: 75%;
    }
 
@@ -20,6 +26,10 @@ const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
       width: 100%;
 
       section.title-wrapper {
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            margin: 0;
+         }
+
          h3.title {
             ${MaxScreenConstraints};
             color: #fff;
@@ -59,6 +69,7 @@ const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
 
          .skill-list-item {
             flex-basis: 50%;
+            font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
 
             @media (min-width: ${({ theme }: ThemeContainer) =>
                   theme.VARIABLES.BREAK_POINTS.MEDIUM}) {

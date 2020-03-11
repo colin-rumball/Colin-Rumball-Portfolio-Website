@@ -26,7 +26,7 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
 
    section.about-image {
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         flex-basis: 75%;
+         flex-basis: 71%;
          position: relative;
          width: auto;
 
@@ -34,11 +34,17 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
          right: auto;
          margin-left: 0;
          margin-right: 0;
+         margin-top: 0;
+         margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
 
          .inner-image {
             min-height: 495px;
             object-fit: cover;
          }
+      }
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
+         flex-basis: 75%;
       }
    }
 
