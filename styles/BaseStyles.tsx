@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ThemeContainer } from "../themes/definitions/Theme";
+import BorderedContentStyle from "./BorderedContentStyle";
 
 export const MaxScreenConstraints = css`
    margin: 0 auto;
@@ -24,4 +25,20 @@ export const MaxScreenConstraints = css`
 export const PageStyling = css`
    position: relative;
    min-height: calc(100vh - 120px);
+`;
+
+export const VideoContent = css`
+   position: relative;
+   padding-bottom: 56.25%; /* 16:9 */
+   padding-top: 25px;
+   height: 0;
+
+   .trailer {
+      ${BorderedContentStyle};
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
 `;

@@ -234,16 +234,13 @@ const tlp: React.FC = ({}) => {
                         src={require("public/tech.png")}
                         webp={require("public/tech.png?webp")}
                      />
-                     <List
-                        className="dev-features"
-                        items={[
-                           "Written in modern React, using only functional components with hooks.",
-                           "Server-side rendering using Next.js.",
-                           "Custom webpack setup, without create-react-app or similar.",
-                           "Authentication with JWTs to secure private routes and api endpoints.",
-                           "GraphQL backend built and managed using Prisma."
-                        ]}
-                     />
+                     <List className="dev-features">
+                        <>Written in modern React, using only functional components with hooks.</>
+                        <>Server-side rendering using Next.js.</>
+                        <>Custom webpack setup, without create-react-app or similar.</>
+                        <>Authentication with JWTs to secure private routes and api endpoints.</>
+                        <>GraphQL backend built and managed using Prisma.</>
+                     </List>
                   </article>
                </ResposiveSection>
             </FullWidthSection>

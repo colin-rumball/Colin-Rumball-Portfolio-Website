@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Picture from "../components/basic/Pictures/Picture";
-import FeaturedVideo from "../components/content/FeaturedVideo";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PageMainContent from "../containers/PageMainContent";
 import { ThemeContainer } from "../themes/definitions/Theme";
@@ -18,12 +17,12 @@ import { FaGooglePlay } from "react-icons/fa";
 import LegoTheme from "../themes/LegoTheme/LegoTheme";
 import asPage from "../helpers/asPage";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
-import { PageStyling } from "../styles/BaseStyles";
+import { PageStyling, VideoContent, MaxScreenConstraints } from "../styles/BaseStyles";
 import PictureCarousel from "../components/PictureCarousel";
 
 interface StyledtlpProps {}
 
-const Styledtlp = styled.div<StyledtlpProps>`
+const Styledtlp = styled.main<StyledtlpProps>`
    ${PageStyling};
    padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
@@ -39,19 +38,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    }
 
    .trailer-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      padding-top: 25px;
-      height: 0;
-
-      .trailer {
-         ${BorderedContentStyle};
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-      }
+      ${VideoContent};
    }
 
    section.middle-elements {
@@ -78,6 +65,10 @@ const Styledtlp = styled.div<StyledtlpProps>`
 
       article.duties {
          flex-basis: 46%;
+
+         .duty {
+            padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         }
       }
    }
 `;
@@ -112,32 +103,46 @@ const lego: React.FC = ({}) => {
                      <ExternalLinkButton
                         href="https://apps.apple.com/ca/app/lego-legacy-heroes-unboxed/id1393157487"
                         buttonProps={{
+                           icon: <AiOutlineApple />,
                            buttonSize: ButtonSize.MEDIUM,
                            style: { whiteSpace: "nowrap" }
                         }}
                      >
-                        <AiOutlineApple /> APP STORE
+                        APP STORE
                      </ExternalLinkButton>
                      <ExternalLinkButton
                         href="https://play.google.com/store/apps/details?id=com.gameloft.anmp.lego.heroes"
                         buttonProps={{
+                           icon: <FaGooglePlay />,
                            buttonSize: ButtonSize.MEDIUM,
                            style: { whiteSpace: "nowrap" }
                         }}
                      >
-                        <FaGooglePlay /> GOOGLE PLAY
+                        GOOGLE PLAY
                      </ExternalLinkButton>
                   </article>
                </article>
                <article className="duties">
-                  <List
-                     items={[
-                        "Worked closely with game designers and UI & UX designers to bring wireframes, flows & mockups to fully functional interactivity, responsive for multiple device resolutions, and localization-ready for over 9 languages.",
-                        "Created sequencing and scripting tools to allow non-developers to customize game parameters and independently modify game subsystems.",
-                        "Contributed to systems architecture planning meetings for complex gameplay problems with colleagues.",
-                        "Worked on developing Lego Legacy: Heroes Unboxed from inception to launch, over a period of 3 years."
-                     ]}
-                  ></List>
+                  <List title="DEVELOPMENT RESPONSIBILITIES" itemsClassName="duty">
+                     <>
+                        Worked closely with game designers and UI & UX designers to bring
+                        wireframes, flows & mockups to fully functional interactivity, responsive
+                        for multiple device resolutions, and localization-ready for over 9
+                        languages.
+                     </>
+                     <>
+                        Created sequencing and scripting tools to allow non-developers to customize
+                        game parameters and independently modify game subsystems.
+                     </>
+                     <>
+                        Contributed to systems architecture planning meetings for complex gameplay
+                        problems with colleagues.
+                     </>
+                     <>
+                        Worked on developing Lego Legacy: Heroes Unboxed from inception to launch,
+                        over a period of 3 years.
+                     </>
+                  </List>
                </article>
             </ResposiveSection>
             <FullWidthSection>

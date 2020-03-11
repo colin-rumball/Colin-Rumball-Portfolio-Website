@@ -15,33 +15,36 @@ const StyledList = styled.ul<StyledListProps>`
    h4.list-title {
       letter-spacing: 2px;
       font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+      padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
    }
 
    li.list-item {
-      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-      padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-      padding-left: 1em;
       text-indent: -1em;
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         padding-left: 1em;
+      }
    }
 `;
 
 interface ListProps extends ComponentBaseProps {
    title?: string;
-   items?: string[];
+   itemsClassName?: string;
 }
 
-const ListDefaultProps: ListProps = {};
+const ListDefaultProps: ListProps = {
+   itemsClassName: ""
+};
 
-const List: React.FC<ListProps> = ({ title, items, className, style }) => {
+const List: React.FC<ListProps> = ({ title, itemsClassName, children, className, style }) => {
    return (
       <StyledList className={className} style={style}>
          {title && <h4 className="list-title">{title}</h4>}
-         {items &&
-            items.map(i => (
-               <li key={i} className="list-item">
-                  <MdKeyboardArrowRight style={{ marginBottom: "-2px" }} /> {i}
-               </li>
-            ))}
+         {React.Children.map(children, child => (
+            <li className={`list-item ${itemsClassName}`}>
+               <MdKeyboardArrowRight style={{ marginBottom: "-2px" }} /> {child}
+            </li>
+         ))}
       </StyledList>
    );
 };

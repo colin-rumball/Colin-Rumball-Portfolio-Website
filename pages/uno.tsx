@@ -20,7 +20,7 @@ import asPage from "../helpers/asPage";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
 import UnoTheme from "../themes/UnoTheme/UnoTheme";
 import PictureCarousel from "../components/PictureCarousel";
-import { PageStyling } from "../styles/BaseStyles";
+import { PageStyling, VideoContent } from "../styles/BaseStyles";
 
 interface StyledtlpProps {}
 
@@ -39,9 +39,8 @@ const Styledtlp = styled.div<StyledtlpProps>`
       position: relative;
       z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
 
-      .uno-image {
-         display: flex;
-         justify-content: center;
+      .trailer-wrapper {
+         ${VideoContent};
       }
 
       article.description {
@@ -53,6 +52,10 @@ const Styledtlp = styled.div<StyledtlpProps>`
 
       .duties {
          flex-basis: 55%;
+
+         .duty {
+            padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         }
       }
    }
 `;
@@ -62,14 +65,14 @@ const lego: React.FC = ({}) => {
       <Styledtlp>
          <div className="overlayed-background" />
          <PageMainContent className="page-main">
-            <EnhancedPicture
-               showBorder
-               className="uno-image"
-               pictureProps={{
-                  src: require("public/images/uno/uno-large.png"),
-                  webp: require("public/images/uno/uno-large.png?")
-               }}
-            />
+            <div className="trailer-wrapper">
+               <iframe
+                  className="trailer"
+                  src="https://www.youtube.com/embed/IszDOA1lt6Q"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+               ></iframe>
+            </div>
             <ResposiveSection>
                <article className="description">
                   <p className="description-text">
@@ -84,15 +87,25 @@ const lego: React.FC = ({}) => {
                      of 2019.
                   </p>
                </article>
-               <List
-                  className="duties"
-                  items={[
-                     "Worked closely with game designers and UI & UX designers to bring wireframes, flows & mockups to fully functional interactivity, responsive for multiple device resolutions, and localization-ready for over 12 languages.",
-                     "Created sequencing and scripting tools to allow non-developers to customize game parameters and independently modify game subsystems.",
-                     "Contributed to systems architecture planning meetings for complex gameplay problems with colleagues.",
-                     "Routinely updated the UNO & Friends game server with new gameplay mechanics and performance improvements on a 6 week update cycle for 18 months."
-                  ]}
-               ></List>
+               <List className="duties" title="DEVELOPMENT RESPONSIBILITIES" itemsClassName="duty">
+                  <>
+                     Worked closely with game designers and UI & UX designers to bring wireframes,
+                     flows & mockups to fully functional interactivity, responsive for multiple
+                     device resolutions, and localization-ready for over 12 languages.
+                  </>
+                  <>
+                     Created sequencing and scripting tools to allow non-developers to customize
+                     game parameters and independently modify game subsystems.
+                  </>
+                  <>
+                     Contributed to systems architecture planning meetings for complex gameplay
+                     problems with colleagues.
+                  </>
+                  <>
+                     Routinely updated the UNO & Friends game server with new gameplay mechanics and
+                     performance improvements on a 6 week update cycle for 18 months.
+                  </>
+               </List>
             </ResposiveSection>
          </PageMainContent>
       </Styledtlp>

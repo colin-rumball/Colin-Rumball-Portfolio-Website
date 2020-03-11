@@ -4,6 +4,7 @@ import withDefaultProps from "../helpers/withDefaultProps";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import Theme, { ThemeContainer } from "../themes/definitions/Theme";
 import { MaxScreenConstraints } from "../styles/BaseStyles";
+import List from "../components/basic/List";
 
 interface StyledSkillsSectionProps {}
 
@@ -31,12 +32,13 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
          }
       }
 
-      ul {
+      .skill-list {
          display: flex;
          flex-direction: row;
          justify-content: space-evenly;
          flex-wrap: wrap;
-         padding-left: 25px;
+         padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
 
          width: 100%;
 
@@ -57,7 +59,7 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
             color: #ed2235;
          }
 
-         li {
+         .skill-list-item {
             flex-basis: 50%;
 
             @media (min-width: ${({ theme }: ThemeContainer) =>
@@ -80,7 +82,7 @@ const StyledSkillsSection = styled.section<StyledSkillsSectionProps>`
             margin-right: 0;
 
             h3.title {
-               padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+               padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
             }
          }
       }
@@ -106,14 +108,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                   <h3 className="title">FRONT END</h3>
                </article>
             </FullWidthSection>
-            <ul className="front-end">
-               <li>HTML5</li>
-               <li>CSS (SASS)</li>
-               <li>Javascript</li>
-               <li>Typescript</li>
-               <li>React.js</li>
-               <li>Styled-Components</li>
-            </ul>
+            <List className="skill-list front-end" itemsClassName="skill-list-item">
+               <>HTML5</>
+               <>CSS (SASS)</>
+               <>Javascript</>
+               <>Typescript</>
+               <>React.js</>
+               <>Styled-Components</>
+            </List>
          </article>
          <article className="tech-list">
             <FullWidthSection className="title-wrapper">
@@ -126,14 +128,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                   <h3 className="title">BACK END</h3>
                </article>
             </FullWidthSection>
-            <ul className="back-end">
-               <li>Node.js</li>
-               <li>Express.js</li>
-               <li>GraphQL</li>
-               <li>Next.js</li>
-               <li>Prisma</li>
-               <li>PostgreSQL</li>
-            </ul>
+            <List className="skill-list back-end" itemsClassName="skill-list-item">
+               <>Node.js</>
+               <>Express.js</>
+               <>GraphQL</>
+               <>Next.js</>
+               <>Prisma</>
+               <>PostgreSQL</>
+            </List>
          </article>
          <article className="tech-list">
             <FullWidthSection className="title-wrapper">
@@ -146,14 +148,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                   <h3 className="title">OTHER</h3>
                </article>
             </FullWidthSection>
-            <ul className="other">
-               <li>C#</li>
-               <li>C++</li>
-               <li>API Integrations</li>
-               <li>Dev Ops</li>
-               <li>Agile Methodologies</li>
-               <li>Continuous Integration</li>
-            </ul>
+            <List className="skill-list other" itemsClassName="skill-list-item">
+               <>C#</>
+               <>C++</>
+               <>API Integrations</>
+               <>Dev Ops</>
+               <>Agile Methodologies</>
+               <>Continuous Integration</>
+            </List>
          </article>
       </StyledSkillsSection>
    );
