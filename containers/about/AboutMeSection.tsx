@@ -80,6 +80,7 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
       article.description {
          p {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
          }
 
          @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {

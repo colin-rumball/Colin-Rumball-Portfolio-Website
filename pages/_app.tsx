@@ -1,9 +1,9 @@
 import App from "next/app";
 import Head from "next/head";
 import React from "react";
+import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../components/GlobalStyles";
 import { ModalSystemProvider } from "../contexts/ModalContext/ModalSystem";
-import { ThemeProvider } from "styled-components";
 import BaseTheme from "../themes/BaseTheme/BaseTheme";
 
 class MyApp extends App {

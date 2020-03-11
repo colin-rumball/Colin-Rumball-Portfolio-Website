@@ -1,26 +1,16 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
-import Picture from "../components/basic/Pictures/Picture";
-import FeaturedVideo from "../components/content/FeaturedVideo";
-import ResposiveSection from "../components/basic/Sections/ResposiveSection";
-import PageMainContent from "../containers/PageMainContent";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
-import { FiLink, FiGithub } from "react-icons/fi";
+import styled from "styled-components";
 import List from "../components/basic/List";
+import Picture from "../components/basic/Pictures/Picture";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
-import useModalSystemHelper from "../hooks/useModalSystemHelper";
-import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
-import { ButtonSize } from "../components/basic/Buttons/Button";
-import BorderedContentStyle from "../styles/BorderedContentStyle";
-import { AiOutlineApple, AiOutlineAppstore } from "react-icons/ai";
-import { FaGooglePlay } from "react-icons/fa";
-import LegoTheme from "../themes/LegoTheme/LegoTheme";
-import asPage from "../helpers/asPage";
-import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
-import UnoTheme from "../themes/UnoTheme/UnoTheme";
+import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PictureCarousel from "../components/PictureCarousel";
+import PageMainContent from "../containers/PageMainContent";
+import asPage from "../helpers/asPage";
 import { PageStyling, VideoContent } from "../styles/BaseStyles";
+import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import UnoTheme from "../themes/UnoTheme/UnoTheme";
 
 interface StyledtlpProps {}
 
@@ -48,6 +38,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
       flex-basis: 40%;
       p.description-text {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
       }
    }
 

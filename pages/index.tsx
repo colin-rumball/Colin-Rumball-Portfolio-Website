@@ -3,10 +3,10 @@ import styled from "styled-components";
 import IntroSection from "../containers/IntroSection";
 import PageMainContent from "../containers/PageMainContent";
 import RecentWorkSection from "../containers/RecentWorkSection";
-import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
-import { ThemeContainer } from "../themes/definitions/Theme";
 import asPage from "../helpers/asPage";
 import { PageStyling } from "../styles/BaseStyles";
+import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
+import { ThemeContainer } from "../themes/definitions/Theme";
 
 const StyledHomePage = styled.div`
    ${PageStyling};

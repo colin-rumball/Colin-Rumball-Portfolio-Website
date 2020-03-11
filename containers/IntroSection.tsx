@@ -56,6 +56,7 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
          p {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
             color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
+            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
 
             strong {
                font-weight: 600;
