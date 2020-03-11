@@ -10,7 +10,7 @@ const StyledSection = styled.section<StyledSectionProps>`
    position: relative;
    width: 100%;
 
-   margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+   margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
 `;
 
 interface SectionProps extends ComponentBaseProps {}

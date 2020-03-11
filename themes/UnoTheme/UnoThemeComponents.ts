@@ -5,9 +5,10 @@ export default (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
-      BACKGROUND: `url("public/images/uno/uno-background.png")`,
-      OVERLAYED_BACKGROUND: `linear-gradient(180deg, #BE0245 0%, #F03E17 100%)`
+      BACKGROUND: `linear-gradient(180deg, #BE0245 0%, #F03E17 100%)`,
+      OVERLAYED_BACKGROUND: ``
    };
+   //url("public/images/uno/uno-background.png")
 
    const BUTTON: Button = {
       FONT_COLOR: { DEFAULT: COLORS.SECONDARY.BASE, ALTERNATE: COLORS.SECONDARY.BASE },

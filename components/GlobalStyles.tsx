@@ -44,7 +44,6 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	p {
-		font-size: 18px;
 		margin: 0;
 	}
 

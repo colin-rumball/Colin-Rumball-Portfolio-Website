@@ -20,6 +20,7 @@ const StyledList = styled.ul<StyledListProps>`
 
    li.list-item {
       text-indent: -1em;
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
 
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
          padding-left: 1em;

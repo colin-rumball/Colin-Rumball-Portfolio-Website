@@ -7,8 +7,9 @@ const OverlayedBackgroundStyle = css`
    right: 0;
    bottom: 0;
    left: 0;
-   opacity: 0.7;
+   opacity: 1;
    pointer-events: none;
+   mix-blend-mode: multiply;
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.OVERLAYED_BACKGROUND};
    z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.BACKGROUND};
 `;

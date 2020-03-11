@@ -5,8 +5,8 @@ export default (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
-      BACKGROUND: `url("public/images/lego/lego-background.png")`,
-      OVERLAYED_BACKGROUND: `linear-gradient(180deg, #481180 0%, #680A60 100%)`
+      BACKGROUND: `linear-gradient(180deg, #481180 0%, #680A60 100%)`,
+      OVERLAYED_BACKGROUND: `url("public/images/lego/lego-background.png")`
    };
 
    const BUTTON: Button = {

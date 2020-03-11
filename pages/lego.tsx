@@ -26,7 +26,6 @@ const Styledtlp = styled.main<StyledtlpProps>`
 
    .overlayed-background {
       ${OverlayedBackgroundStyle}
-      mix-blend-mode: multiply;
    }
 
    .page-main {

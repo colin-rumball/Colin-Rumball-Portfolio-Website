@@ -25,7 +25,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
 
    section.upper-section {
-      p.description {
+      .description {
          flex-basis: 33%;
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
       }
@@ -64,7 +64,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
       background-color: ${({ theme }: ThemeContainer) =>
          `${theme.VARIABLES.COLORS.SECONDARY.DARK}C0`};
       margin-bottom: 0;
-      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
 
       section.lower-info {
          ${MaxScreenConstraints}
@@ -149,8 +149,8 @@ const tlp: React.FC = ({}) => {
                   Korda. It began small and found fast success receiving thousands of stories and
                   counting. Marissa wished to move the site to have more control over its
                   development and to fix several quality of life issues. The original site was built
-                  using plain old HTML, JS, and CSS so I took on the task of rebuilding the original
-                  site from the ground up using modern technologies.
+                  using plain old HTML, JS, and CSS so I took on the task of rebuilding the site
+                  from the ground up using modern technologies.
                </p>
                <article className="external-links">
                   <ExternalLinkButton
