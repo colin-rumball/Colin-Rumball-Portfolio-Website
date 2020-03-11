@@ -38,25 +38,31 @@ const Styledtlp = styled.div<StyledtlpProps>`
    .page-main {
       position: relative;
       z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.FOREGROUND};
+   }
 
-      .trailer-wrapper {
-         ${VideoContent};
+   .trailer-wrapper {
+      ${VideoContent};
+   }
+
+   article.description {
+      flex-basis: 40%;
+      p.description-text {
+         font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
       }
+   }
 
-      article.description {
-         flex-basis: 40%;
-         p.description-text {
-            font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-         }
+   .duties {
+      flex-basis: 55%;
+
+      .duty {
+         padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
       }
+   }
 
-      .duties {
-         flex-basis: 55%;
-
-         .duty {
-            padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
-         }
-      }
+   section.carousel {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
    }
 `;
 
@@ -107,6 +113,22 @@ const lego: React.FC = ({}) => {
                   </>
                </List>
             </ResposiveSection>
+            <FullWidthSection className="carousel">
+               <PictureCarousel>
+                  <Picture
+                     src={require("public/images/uno/uno_appstore1.png")}
+                     webp={require("public/images/uno/uno_appstore1.png?webp")}
+                  />
+                  <Picture
+                     src={require("public/images/uno/uno_appstore2.png")}
+                     webp={require("public/images/uno/uno_appstore2.png?webp")}
+                  />
+                  <Picture
+                     src={require("public/images/uno/uno_appstore3.png")}
+                     webp={require("public/images/uno/uno_appstore3.png?webp")}
+                  />
+               </PictureCarousel>
+            </FullWidthSection>
          </PageMainContent>
       </Styledtlp>
    );

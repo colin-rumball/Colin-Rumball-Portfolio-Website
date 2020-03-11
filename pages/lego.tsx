@@ -154,16 +154,20 @@ const lego: React.FC = ({}) => {
             <FullWidthSection className="carousel">
                <PictureCarousel>
                   <Picture
-                     src={require("public/images/lego/lego.png")}
-                     webp={require("public/images/lego/lego.png?webp")}
+                     src={require("public/images/lego/Lego_phonemock_iphoneX_1.png")}
+                     webp={require("public/images/lego/Lego_phonemock_iphoneX_1.png?webp")}
                   />
                   <Picture
-                     src={require("public/images/lego/lego.png")}
-                     webp={require("public/images/lego/lego.png?webp")}
+                     src={require("public/images/lego/Lego_phonemock_iphoneX_2.png")}
+                     webp={require("public/images/lego/Lego_phonemock_iphoneX_2.png?webp")}
                   />
                   <Picture
-                     src={require("public/images/lego/lego.png")}
-                     webp={require("public/images/lego/lego.png?webp")}
+                     src={require("public/images/lego/Lego_phonemock_iphoneX_3.png")}
+                     webp={require("public/images/lego/Lego_phonemock_iphoneX_3.png?webp")}
+                  />
+                  <Picture
+                     src={require("public/images/lego/Lego_phonemock_iphoneX_4.png")}
+                     webp={require("public/images/lego/Lego_phonemock_iphoneX_4.png?webp")}
                   />
                </PictureCarousel>
             </FullWidthSection>
