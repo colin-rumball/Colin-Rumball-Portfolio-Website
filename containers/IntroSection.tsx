@@ -16,13 +16,25 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
    flex-direction: column;
    align-items: center;
 
-   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+   @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+      margin: 0;
+   }
+
+   @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
       flex-direction: row;
       justify-content: space-between;
    }
 
    picture.desk-image {
       flex-basis: 45%;
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         display: none;
+      }
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
+         display: block;
+      }
    }
 
    article.introduction {
