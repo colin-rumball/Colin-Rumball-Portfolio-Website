@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, ReactElement } from "react";
 import styled, { css } from "styled-components";
 import Picture, { PictureProps, PictureDefaultProps } from "./Picture";
 import BorderedContentStyle from "../../../styles/BorderedContentStyle";
@@ -58,6 +58,7 @@ interface EnhancedPictureProps extends ComponentBaseProps {
    showInMobile?: boolean;
    mobileOrientation?: "horizontal" | "vertical";
    opensLightbox?: boolean;
+   caption?: ReactElement;
 }
 
 const EnhancedPictureDefaultProps: EnhancedPictureProps = {
@@ -74,7 +75,8 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
       showInMobile,
       mobileOrientation,
       opensLightbox,
-      pictureProps
+      pictureProps,
+      caption
    } = props;
    const { pushModal } = useModalSystemHelper();
 
@@ -84,7 +86,11 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
             pushModal(
                <EnhancedPicture
                   {...props}
-                  pictureProps={{ ...pictureProps, onClick: null }}
+                  pictureProps={{
+                     ...pictureProps,
+                     onClick: null,
+                     imgStyle: { maxHeight: "90vh" }
+                  }}
                   opensLightbox={false}
                />
             );
@@ -119,6 +125,7 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
                )}
             </div>
          )}
+         {caption && <figcaption>{caption}</figcaption>}
       </StyledEnhancedPicture>
    );
 };

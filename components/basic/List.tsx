@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement, ReactNode } from "react";
 import styled from "styled-components";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { ThemeContainer } from "../../themes/definitions/Theme";
@@ -31,19 +31,32 @@ const StyledList = styled.ul<StyledListProps>`
 interface ListProps extends ComponentBaseProps {
    title?: string;
    itemsClassName?: string;
+   customBullet?: any;
 }
 
 const ListDefaultProps: ListProps = {
    itemsClassName: ""
 };
 
-const List: React.FC<ListProps> = ({ title, itemsClassName, children, className, style }) => {
+const List: React.FC<ListProps> = ({
+   title,
+   customBullet,
+   itemsClassName,
+   children,
+   className,
+   style
+}) => {
    return (
       <StyledList className={className} style={style}>
          {title && <h4 className="list-title">{title}</h4>}
          {React.Children.map(children, child => (
             <li className={`list-item ${itemsClassName}`}>
-               <MdKeyboardArrowRight style={{ marginBottom: "-2px" }} /> {child}
+               {customBullet ? (
+                  customBullet
+               ) : (
+                  <MdKeyboardArrowRight style={{ marginBottom: "-3px" }} />
+               )}
+               {child}
             </li>
          ))}
       </StyledList>
