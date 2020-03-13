@@ -2,9 +2,9 @@ import React, { Props } from "react";
 import styled from "styled-components";
 import withDefaultProps from "../helpers/withDefaultProps";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
-import { useRouter } from "next/dist/client/router";
 
 interface StyledNavLinkProps {
    isCurrentPage: boolean;
@@ -40,7 +40,7 @@ const NavLinkDefaultProps: NavLinkProps = {
 
 const NavLink: React.FC<NavLinkProps> = ({ className, href, children }) => {
    const router = useRouter();
-   const currentPath = router ? router.pathname : "";
+   const currentPath = router.pathname;
    return (
       <StyledNavLink isCurrentPage={currentPath === href}>
          <Link href={href}>
