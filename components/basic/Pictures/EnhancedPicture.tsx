@@ -1,10 +1,10 @@
-import React, { useCallback, ReactElement } from "react";
-import styled, { css } from "styled-components";
-import Picture, { PictureProps, PictureDefaultProps } from "./Picture";
-import BorderedContentStyle from "../../../styles/BorderedContentStyle";
-import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
+import React, { ReactElement, useCallback } from "react";
+import styled from "styled-components";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
+import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
+import BorderedContentStyle from "../../../styles/BorderedContentStyle";
+import Picture, { PictureDefaultProps, PictureProps } from "./Picture";
 
 interface StyledEnhancedPictureProps {
    showBorder?: boolean;

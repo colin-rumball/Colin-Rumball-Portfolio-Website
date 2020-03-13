@@ -1,4 +1,4 @@
-import React, { useMemo, MouseEventHandler, CSSProperties } from "react";
+import React, { CSSProperties, MouseEventHandler, useMemo } from "react";
 import styled from "styled-components";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";

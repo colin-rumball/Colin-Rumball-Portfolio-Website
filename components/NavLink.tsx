@@ -1,10 +1,10 @@
-import React, { Props } from "react";
-import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ThemeContainer } from "../themes/definitions/Theme";
+import React from "react";
+import styled from "styled-components";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../helpers/withDefaultProps";
+import { ThemeContainer } from "../themes/definitions/Theme";
 
 interface StyledNavLinkProps {
    isCurrentPage: boolean;

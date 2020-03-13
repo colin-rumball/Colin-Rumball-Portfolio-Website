@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import BlogPostLink, { BlogPost } from "../components/BlogPostLink";
 import PageMainContent from "../containers/PageMainContent";
 import asPage from "../helpers/asPage";
 import { PageStyling } from "../styles/BaseStyles";
 import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
-import Link from "next/link";
-import BlogPostLink, { BlogPost } from "../components/BlogPostLink";
 import { ThemeContainer } from "../themes/definitions/Theme";
 
 interface StyledBlogPageProps {}

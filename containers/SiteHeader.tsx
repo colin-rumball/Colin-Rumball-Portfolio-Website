@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
-import SiteNav from "./SiteNav";
 import SiteLogo from "../components/SiteLogo";
-import { ThemeContainer } from "../themes/definitions/Theme";
+import withDefaultProps from "../helpers/withDefaultProps";
 import { MaxScreenConstraints } from "../styles/BaseStyles";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import SiteNav from "./SiteNav";
 
 interface StyledSiteHeaderProps {}
 

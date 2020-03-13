@@ -1,13 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import Button, { ButtonSize } from "../components/basic/Buttons/Button";
-import SocialLinks from "./SocialLinks";
-import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import { FaRegEnvelope } from "react-icons/fa";
+import styled from "styled-components";
+import Button, { ButtonSize } from "../components/basic/Buttons/Button";
 import Picture from "../components/basic/Pictures/Picture";
 import Section from "../components/Section";
+import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../helpers/withDefaultProps";
+import { ThemeContainer } from "../themes/definitions/Theme";
+import SocialLinks from "./SocialLinks";
 
 interface StyledIntroSectionProps {}
 

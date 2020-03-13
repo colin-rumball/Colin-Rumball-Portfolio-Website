@@ -1,13 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import { GiPlainCircle } from "react-icons/gi";
-import { PageStyling } from "../../styles/BaseStyles";
-import PageMainContent from "../PageMainContent";
-import { ThemeContainer } from "../../themes/definitions/Theme";
+import styled from "styled-components";
+import List from "../../components/basic/List";
 import EnhancedPicture from "../../components/basic/Pictures/EnhancedPicture";
 import asPage from "../../helpers/asPage";
+import { PageStyling } from "../../styles/BaseStyles";
 import DefaultTheme from "../../themes/DefaultTheme/DefaultTheme";
-import List from "../../components/basic/List";
+import { ThemeContainer } from "../../themes/definitions/Theme";
+import PageMainContent from "../PageMainContent";
 
 interface StyledImportanceOfComponentDesignProps {}
 

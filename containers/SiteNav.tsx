@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
 import NavLink from "../components/NavLink";
-import SocialLinks from "./SocialLinks";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
+import SocialLinks from "./SocialLinks";
 
 interface StyledSiteNavProps {}
 

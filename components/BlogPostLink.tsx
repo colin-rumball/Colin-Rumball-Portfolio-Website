@@ -1,8 +1,8 @@
+import Link from "next/link";
 import React, { useMemo } from "react";
 import styled from "styled-components";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
-import Link from "next/link";
 import { ThemeContainer } from "../themes/definitions/Theme";
 
 export enum BlogPost {

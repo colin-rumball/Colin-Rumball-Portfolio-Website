@@ -1,9 +1,9 @@
-import React, { ReactElement, ReactNode } from "react";
-import styled from "styled-components";
+import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { ThemeContainer } from "../../themes/definitions/Theme";
+import styled from "styled-components";
 import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../helpers/withDefaultProps";
+import { ThemeContainer } from "../../themes/definitions/Theme";
 
 interface StyledListProps {}
 
