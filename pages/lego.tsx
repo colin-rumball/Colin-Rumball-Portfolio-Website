@@ -45,7 +45,7 @@ const Styledtlp = styled.main<StyledtlpProps>`
 
          p.description-text {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+            margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
 
          article.external-links {
