@@ -28,6 +28,10 @@ const Styledtlp = styled.div<StyledtlpProps>`
       .description {
          flex-basis: 33%;
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+
+         p {
+            margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         }
       }
 
       article.external-links {
@@ -139,18 +143,25 @@ const tlp: React.FC = ({}) => {
             <FeaturedVideo src="public/videos/tlp-main.mp4" />
             <ResposiveSection className="upper-section">
                <p className="description">
-                  At The Loneliness Project, we believe that stories have power—the power to heal
-                  both listener and teller, and to show us that we aren’t ever truly alone. Stories
-                  are powerful tools for building empathy and growing kindness. Those shared on the
-                  site are deeply personal yet profoundly universal.
+                  <p>
+                     The Loneliness Project is a passion project started by my dear friend Marissa
+                     Korda. It began small and found fast success receiving press coverage and
+                     thousands of stories.
+                  </p>
+                  <p>
+                     “At The Loneliness Project, we believe that stories have power—the power to
+                     heal both listener and teller, and to show us that we aren’t ever truly alone.
+                     Stories are powerful tools for building empathy and growing kindness. Those
+                     shared on the site are deeply personal yet profoundly universal.”
+                  </p>
                </p>
                <p className="description">
-                  The Loneliness Project is a passion project started by my dear friend Marissa
-                  Korda. It began small and found fast success receiving thousands of stories and
-                  counting. Marissa wished to move the site to have more control over its
-                  development and to fix several quality of life issues. The original site was built
-                  using plain old HTML, JS, and CSS so I took on the task of rebuilding the site
-                  from the ground up using modern technologies.
+                  Marissa wished to move the site off of its exiting hosting that wasn’t under her
+                  ownership, to have more control over its development and its future. The original
+                  site was built using vanilla HTML, JS, and CSS, but access to the source code was
+                  limited, so I took on the task of rebuilding the site from the ground up using
+                  modern technologies, as well as making several quality o life improvements to the
+                  experience."
                </p>
                <article className="external-links">
                   <ExternalLinkButton
@@ -205,6 +216,15 @@ const tlp: React.FC = ({}) => {
                         showBorder
                         className="inner-image"
                         pictureProps={{
+                           src: require("public/images/the-loneliness-project/tlp-main.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-main.png?webp")
+                        }}
+                     />
+                     <EnhancedPicture
+                        opensLightbox
+                        showBorder
+                        className="inner-image"
+                        pictureProps={{
                            src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
                            webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
                         }}
@@ -216,15 +236,6 @@ const tlp: React.FC = ({}) => {
                         pictureProps={{
                            src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
                            webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
-                        }}
-                     />
-                     <EnhancedPicture
-                        opensLightbox
-                        showBorder
-                        className="inner-image"
-                        pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-login.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-login.png?webp")
                         }}
                      />
                   </article>

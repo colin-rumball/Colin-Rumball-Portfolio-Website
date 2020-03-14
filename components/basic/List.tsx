@@ -16,6 +16,7 @@ const StyledList = styled.ul<StyledListProps>`
       letter-spacing: 2px;
       font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
       padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+      margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
    }
 
    li.list-item {

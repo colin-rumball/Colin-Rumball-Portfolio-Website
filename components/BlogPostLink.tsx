@@ -13,22 +13,27 @@ export enum BlogPost {
 interface StyledBlogPostLinkProps {}
 
 const StyledBlogPostLink = styled.li<StyledBlogPostLinkProps>`
-   flex-basis: 30%;
+   max-width: 768px;
+   margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
 
    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
       font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
       color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
       transition: color 0.25s ease-in-out;
 
       &:hover {
-         color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.LIGHT};
+         color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.DARK};
       }
-   }
 
-   p {
-      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
-      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.LIGHT};
+      p {
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+         font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+         color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.LIGHT};
+      }
    }
 `;
 
@@ -47,9 +52,11 @@ const BlogPostLink: React.FC<BlogPostLinkProps> = ({ post, sample }) => {
    return (
       <StyledBlogPostLink>
          <Link href={`/posts/[pid]`} as={`/posts/${post}`}>
-            <a>{title}</a>
+            <a>
+               {title}
+               <p>{sample}</p>
+            </a>
          </Link>
-         <p>{sample}</p>
       </StyledBlogPostLink>
    );
 };
