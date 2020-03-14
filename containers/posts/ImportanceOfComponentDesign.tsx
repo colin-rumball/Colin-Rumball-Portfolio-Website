@@ -18,6 +18,7 @@ const StyledImportanceOfComponentDesign = styled.div<StyledImportanceOfComponent
 
 	.main-content {
 		max-width: 820px;
+		font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
 	}
 
    h1 {
@@ -26,22 +27,25 @@ const StyledImportanceOfComponentDesign = styled.div<StyledImportanceOfComponent
 
    h2 {
 		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+		margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 		font-weight: 500;
    }
 
    h3 {
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+		margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 		color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
 		font-weight: 500;
    }
 
 	p {
 		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+		font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
 	}
 
 	.point-list {
 		li {
-			font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.M};
+			font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
 			padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
 
 			.circle-bullet {
@@ -49,6 +53,10 @@ const StyledImportanceOfComponentDesign = styled.div<StyledImportanceOfComponent
 				margin-bottom: 2px;
 			}
 		}
+	}
+
+	.illustration {
+		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
 	}
 
 	figcaption {
@@ -86,6 +94,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
             <EnhancedPicture
                opensLightbox
                pictureProps={{
+                  className: "illustration",
                   src: require("public/images/posts/image4.png"),
                   webp: require("public/images/posts/image4.png?webp")
                }}
@@ -293,6 +302,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
             <EnhancedPicture
                opensLightbox
                pictureProps={{
+                  className: "illustration",
                   src: require("public/images/posts/image2.png"),
                   webp: require("public/images/posts/image2.png?webp")
                }}
@@ -317,6 +327,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
             <EnhancedPicture
                opensLightbox
                pictureProps={{
+                  className: "illustration",
                   src: require("public/images/posts/image1.png"),
                   webp: require("public/images/posts/image1.png?webp")
                }}
@@ -341,6 +352,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
             <EnhancedPicture
                opensLightbox
                pictureProps={{
+                  className: "illustration",
                   src: require("public/images/posts/image3.png"),
                   webp: require("public/images/posts/image3.png?webp")
                }}
