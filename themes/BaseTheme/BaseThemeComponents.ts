@@ -2,7 +2,8 @@ import Components, { Page, Button, SiteHeader } from "../definitions/Components"
 import { COLORS } from "./BaseThemeVariables";
 
 export const PAGE: Page = {
-   BACKGROUND: "#fff"
+   BACKGROUND: "#fff",
+   OVERLAYED_BG_BLEND: "normal"
 };
 
 export const BUTTON: Button = {
