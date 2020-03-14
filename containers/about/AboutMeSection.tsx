@@ -25,6 +25,8 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
    }
 
    section.about-image {
+      margin-top: 0;
+
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
          flex-basis: 71%;
          position: relative;
@@ -110,19 +112,21 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
          justify-content: space-evenly;
          width: 100%;
          margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
+         flex-wrap: wrap;
 
          .social-links {
             display: none;
+         }
+
+         .about-button {
+            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
          }
 
          @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-
-            .about-button {
-               margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
-            }
+            flex-wrap: nowrap;
          }
       }
 
