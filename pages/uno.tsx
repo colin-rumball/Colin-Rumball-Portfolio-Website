@@ -34,7 +34,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    }
 
    article.description {
-      flex-basis: 40%;
+      flex-basis: 48%;
       p.description-text {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
          margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
@@ -42,7 +42,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    }
 
    .duties {
-      flex-basis: 55%;
+      flex-basis: 48%;
 
       .duty {
          padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
