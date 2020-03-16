@@ -10,6 +10,7 @@ import Section from "../../components/Section";
 import withDefaultProps from "../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import SocialLinks from "../SocialLinks";
+import ElementGroup from "../ElementGroup";
 
 interface StyledAboutMeSectionProps {}
 
@@ -53,6 +54,15 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
    section.info {
       position: relative;
       margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+      margin: 0;
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         flex-basis: 25%;
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+      }
 
       h1.title {
          color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
@@ -108,15 +118,10 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
 
       article.buttons {
          position: relative;
-         display: flex;
          justify-content: space-evenly;
          width: 100%;
-         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
          flex-wrap: wrap;
-
-         .social-links {
-            display: none;
-         }
+         margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 
          .about-button {
             margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
@@ -128,14 +133,6 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
             align-items: center;
             flex-wrap: nowrap;
          }
-      }
-
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         flex-basis: 25%;
-         display: flex;
-         justify-content: space-between;
-         flex-direction: column;
-         margin: 0;
       }
    }
 `;
@@ -176,7 +173,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   camping, and travelling with my wife.
                </p>
             </article>
-            <article className="buttons">
+            <ElementGroup className="buttons">
                <a href="mailto:colin.rumball@gmail.com">
                   <Button
                      icon={<FaRegEnvelope />}
@@ -197,7 +194,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                >
                   RESUME
                </LinkButton>
-            </article>
+            </ElementGroup>
          </section>
       </StyledAboutMeSection>
    );

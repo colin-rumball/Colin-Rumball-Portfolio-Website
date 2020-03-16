@@ -46,7 +46,6 @@ const Styledtlp = styled.div<StyledtlpProps>`
          flex-wrap: wrap;
 
          height: 100%;
-         min-height: 0;
 
          margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
 

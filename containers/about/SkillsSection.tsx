@@ -10,12 +10,13 @@ import Section from "../../components/Section";
 interface StyledSkillsSectionProps {}
 
 const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
-   margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+   margin: 0;
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       display: flex;
       justify-content: space-between;
       width: 71%;
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
    }
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
