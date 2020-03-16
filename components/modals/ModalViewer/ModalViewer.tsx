@@ -3,10 +3,10 @@ import styled, { keyframes, css } from "styled-components";
 import { ThemeContainer } from "../../../themes/definitions/Theme";
 import useModalSystemHelper from "../../../hooks/useModalSystemHelper";
 import ModalOverlay from "./ModalOverlay";
-import CloseIcon from "./CloseIcon";
 import { ModalSystemState } from "../../../contexts/ModalContext/actions/common";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
+import { AiOutlineClose } from "react-icons/ai";
 
 const PopIn = keyframes`
 	0% {
@@ -61,6 +61,31 @@ const StyledModalViewer = styled.div<StyledModalViewerProps>`
    }
 `;
 
+const StyledCloseButton = styled.button`
+   position: fixed;
+   top: 50px;
+   right: 50px;
+
+   font-size: 30px;
+   opacity: 0.9;
+   color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.WHITE};
+   transition: opacity 0.4s ease-out, transform 0.1s ease-in, color 0.4s ease-in-out;
+
+   background: none;
+
+   z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.MODAL + 10};
+
+   &:hover {
+      color: #fff;
+      opacity: 1;
+      transform: scale(1.1);
+      cursor: pointer;
+   }
+
+   &:active {
+      transform: scale(0.9);
+   }
+`;
 interface ModalViewerProps extends ComponentBaseProps {}
 
 const ModalViewerDefaultProps: ModalViewerProps = {};
@@ -72,11 +97,13 @@ const ModalViewer: React.FC<ModalViewerProps> = ({}) => {
       <>
          <ModalOverlay onClick={popModal} />
          <StyledModalViewer systemState={system.state}>
-            <div className="internal-modal-container">
+            <div role="dialog" className="internal-modal-container">
                {currentModal.node}
-               <CloseIcon onClick={popModal} />
             </div>
          </StyledModalViewer>
+         <StyledCloseButton>
+            <AiOutlineClose onClick={popModal} />
+         </StyledCloseButton>
       </>
    );
 };
