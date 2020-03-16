@@ -12,6 +12,7 @@ interface StyledNavLinkProps {
 
 const StyledNavLink = styled.li<StyledNavLinkProps>`
    margin-left: 4vw;
+   text-align: center;
 
    a.inner-navlink {
       color: ${({ theme, isCurrentPage }: ThemeContainer) =>

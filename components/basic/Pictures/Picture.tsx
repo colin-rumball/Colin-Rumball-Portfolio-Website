@@ -7,6 +7,7 @@ interface StyledPictureProps {}
 
 const StyledPicture = styled.img<StyledPictureProps>`
    max-width: 100%;
+   vertical-align: top;
 
    &:hover {
       cursor: ${props => (props.onClick ? "pointer" : "auto")};

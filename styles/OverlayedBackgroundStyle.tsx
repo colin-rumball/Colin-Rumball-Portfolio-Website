@@ -9,7 +9,7 @@ const OverlayedBackgroundStyle = css`
    left: 0;
    opacity: 1;
    pointer-events: none;
-   mix-blend-mode: multiply;
+   mix-blend-mode: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.OVERLAYED_BG_BLEND};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.OVERLAYED_BACKGROUND};
    z-index: ${({ theme }: ThemeContainer) => theme.VARIABLES.LAYERS.BACKGROUND};
 `;

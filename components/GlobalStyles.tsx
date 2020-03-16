@@ -32,7 +32,13 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	*::-webkit-scrollbar-thumb {
-		background-color: #777;
+		background-color: #888;
+		border-radius: 5px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background-color: #fff;
+		opacity: 0.3;
 	}
 
 	h1,

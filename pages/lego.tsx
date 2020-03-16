@@ -45,7 +45,7 @@ const Styledtlp = styled.main<StyledtlpProps>`
 
          p.description-text {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+            margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
 
          article.external-links {
@@ -53,10 +53,20 @@ const Styledtlp = styled.main<StyledtlpProps>`
             flex-direction: row;
             justify-content: space-evenly;
             align-items: center;
+            flex-wrap: wrap;
 
             min-height: 80px;
             max-height: 180px;
             flex-basis: 20%;
+
+            .link {
+               margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS} 0;
+
+               @media (min-width: ${({ theme }: ThemeContainer) =>
+                     theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+                  /* margin: 0; */
+               }
+            }
          }
       }
 
@@ -108,6 +118,7 @@ const lego: React.FC = ({}) => {
                         buttonProps={{
                            icon: <AiOutlineApple />,
                            buttonSize: ButtonSize.MEDIUM,
+                           className: "link",
                            style: { whiteSpace: "nowrap" }
                         }}
                      >
@@ -118,6 +129,7 @@ const lego: React.FC = ({}) => {
                         buttonProps={{
                            icon: <FaGooglePlay />,
                            buttonSize: ButtonSize.MEDIUM,
+                           className: "link",
                            style: { whiteSpace: "nowrap" }
                         }}
                      >

@@ -5,10 +5,10 @@ import BorderedContentStyle from "./BorderedContentStyle";
 export const MaxScreenConstraints = css`
    margin: 0 auto;
 
-   width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.SMALL};
    max-width: 91vw;
 
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.SMALL}) {
+      width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.SMALL};
       width: 95vw;
    }
 

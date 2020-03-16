@@ -3,6 +3,7 @@ import { ComponentStateColor } from "./common";
 export interface Page {
    BACKGROUND?: string;
    OVERLAYED_BACKGROUND?: string;
+   OVERLAYED_BG_BLEND?: string;
 }
 
 export interface Button {

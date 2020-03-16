@@ -18,7 +18,6 @@ const Styledtlp = styled.div<StyledtlpProps>`
    ${PageStyling};
    padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
    background: ${({ theme }: ThemeContainer) => theme.COMPONENTS.PAGE.BACKGROUND};
-   background-size: cover;
    color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.PRIMARY.BASE};
 
    .overlayed-background {
@@ -35,15 +34,15 @@ const Styledtlp = styled.div<StyledtlpProps>`
    }
 
    article.description {
-      flex-basis: 40%;
+      flex-basis: 48%;
       p.description-text {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+         margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
       }
    }
 
    .duties {
-      flex-basis: 55%;
+      flex-basis: 48%;
 
       .duty {
          padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
@@ -74,7 +73,7 @@ const lego: React.FC = ({}) => {
                <article className="description">
                   <p className="description-text">
                      I worked on the UNO & Friends mobile game development team for 2 years. During
-                     my time on the game team I worked on several different system, such as UI
+                     my time on the game team I worked on several different systems, such as UI
                      scripting, gameplay programming, game server development, and project
                      architecture & building.
                   </p>

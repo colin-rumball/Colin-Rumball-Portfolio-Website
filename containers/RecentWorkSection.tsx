@@ -42,6 +42,7 @@ const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
             title="LEGO Legacy: Heroes Unboxed"
             quote="Immerse yourself in a vibrant LEGO® universe full of action, battles, sets and heroes! Your favourite minifigures and sets are busting out of the box in the most vibrant turn-based RPG ever assembled."
             innerPictureProps={{
+               style: { border: "1px solid #fff" },
                src: require("public/images/lego/lego.png"),
                webp: require("public/images/lego/lego.png?webp")
             }}
@@ -55,6 +56,7 @@ const RecentWorkSection: React.FC<RecentWorkSectionProps> = ({}) => {
             title="UNO & Friends"
             quote="UNO™ & Friends brings an entirely new social dimension to the classic, fast-paced, and competitive gameplay of UNO™. With engaging multiplatform play, which promises fast fun for everyone."
             innerPictureProps={{
+               style: { border: "1px solid #fff" },
                src: require("public/images/uno/uno-small.png"),
                webp: require("public/images/uno/uno-small.png?webp")
             }}

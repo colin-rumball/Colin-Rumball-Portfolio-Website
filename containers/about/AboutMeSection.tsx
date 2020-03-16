@@ -10,6 +10,7 @@ import Section from "../../components/Section";
 import withDefaultProps from "../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import SocialLinks from "../SocialLinks";
+import ElementGroup from "../ElementGroup";
 
 interface StyledAboutMeSectionProps {}
 
@@ -25,6 +26,8 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
    }
 
    section.about-image {
+      margin-top: 0;
+
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
          flex-basis: 71%;
          position: relative;
@@ -51,6 +54,15 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
    section.info {
       position: relative;
       margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+      margin: 0;
+
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         flex-basis: 25%;
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+      }
 
       h1.title {
          color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.DARK};
@@ -106,32 +118,21 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
 
       article.buttons {
          position: relative;
-         display: flex;
          justify-content: space-evenly;
          width: 100%;
-         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
+         flex-wrap: wrap;
+         margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
 
-         .social-links {
-            display: none;
+         .about-button {
+            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
          }
 
          @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
-
-            .about-button {
-               margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
-            }
+            flex-wrap: nowrap;
          }
-      }
-
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         flex-basis: 25%;
-         display: flex;
-         justify-content: space-between;
-         flex-direction: column;
-         margin: 0;
       }
    }
 `;
@@ -172,7 +173,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   camping, and travelling with my wife.
                </p>
             </article>
-            <article className="buttons">
+            <ElementGroup className="buttons">
                <a href="mailto:colin.rumball@gmail.com">
                   <Button
                      icon={<FaRegEnvelope />}
@@ -183,7 +184,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   </Button>
                </a>
                <LinkButton
-                  href="public/ColinRumball_Resume2018.pdf"
+                  href="public/ColinRumball_Resume_2020.pdf"
                   linkProps={{ target: "_blank" }}
                   buttonProps={{
                      icon: <FiFileText />,
@@ -193,7 +194,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                >
                   RESUME
                </LinkButton>
-            </article>
+            </ElementGroup>
          </section>
       </StyledAboutMeSection>
    );

@@ -72,6 +72,8 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
          // grabCursor: true,
          centeredSlides: true,
          slidesPerView: 1,
+         slideToClickedSlide: true,
+         loop: true,
          breakpoints: {
             768: {
                slidesPerView: 3

@@ -33,10 +33,13 @@ const StyledBlogPage = styled.div<StyledBlogPageProps>`
 	}
 
    .blog-posts {
-		width: 100%;
       display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
       list-style-type: none;
+		padding: 0;
+
+		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
    }
 `;
 
