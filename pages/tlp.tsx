@@ -29,7 +29,11 @@ const Styledtlp = styled.div<StyledtlpProps>`
          flex-basis: 33%;
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
 
-         p {
+         &:last-child {
+            margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
+         }
+
+         p.text {
             margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
       }
@@ -39,17 +43,27 @@ const Styledtlp = styled.div<StyledtlpProps>`
          flex-direction: row;
          justify-content: space-evenly;
          align-items: center;
+         flex-wrap: wrap;
 
          height: 100%;
          min-height: 0;
 
-         padding: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
+         margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
 
          @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             flex-direction: column;
             min-height: 130px;
             max-height: 180px;
             flex-basis: 25%;
+         }
+
+         .link {
+            margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+
+            @media (min-width: ${({ theme }: ThemeContainer) =>
+                  theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+               margin: 0;
+            }
          }
       }
    }
@@ -116,11 +130,12 @@ const Styledtlp = styled.div<StyledtlpProps>`
             .title {
                letter-spacing: 2px;
                font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+               padding-left: 6px;
             }
 
             .tech-stack {
-               padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
                width: 100%;
+               opacity: 0.7;
             }
 
             .dev-features {
@@ -142,19 +157,19 @@ const tlp: React.FC = ({}) => {
          <PageMainContent>
             <FeaturedVideo src="public/videos/tlp-main.mp4" />
             <ResposiveSection className="upper-section">
-               <p className="description">
-                  <p>
+               <article className="description">
+                  <p className="text">
                      The Loneliness Project is a passion project started by my dear friend Marissa
                      Korda. It began small and found fast success receiving press coverage and
                      thousands of stories.
                   </p>
-                  <p>
+                  <p className="text">
                      “At The Loneliness Project, we believe that stories have power—the power to
                      heal both listener and teller, and to show us that we aren’t ever truly alone.
                      Stories are powerful tools for building empathy and growing kindness. Those
                      shared on the site are deeply personal yet profoundly universal.”
                   </p>
-               </p>
+               </article>
                <p className="description">
                   Marissa wished to move the site off of its exiting hosting that wasn’t under her
                   ownership, to have more control over its development and its future. The original
@@ -170,6 +185,7 @@ const tlp: React.FC = ({}) => {
                         buttonSize: ButtonSize.LARGE,
                         style: { whiteSpace: "nowrap" }
                      }}
+                     className="link"
                      href="https://thelonelinessproject.org"
                   >
                      VISIT WEBSITE
@@ -178,8 +194,10 @@ const tlp: React.FC = ({}) => {
                      buttonProps={{
                         icon: <FiGithub />,
                         buttonSize: ButtonSize.LARGE,
+
                         style: { whiteSpace: "nowrap" }
                      }}
+                     className="link"
                      href="https://github.com/colin-rumball/The-Loneliness-Project"
                   >
                      SEE ON GITHUB
@@ -213,38 +231,35 @@ const tlp: React.FC = ({}) => {
                   <article className="mobile-images">
                      <EnhancedPicture
                         opensLightbox
-                        showBorder
                         className="inner-image"
                         pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-main.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-main.png?webp")
+                           src: require("public/images/the-loneliness-project/tlp-main_phone.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-main_phone.png?webp")
                         }}
                      />
                      <EnhancedPicture
                         opensLightbox
-                        showBorder
                         className="inner-image"
                         pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-dashboard.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-dashboard.png?webp")
+                           src: require("public/images/the-loneliness-project/tlp-dashboard_phone.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-dashboard_phone.png?webp")
                         }}
                      />
                      <EnhancedPicture
                         opensLightbox
-                        showBorder
                         className="inner-image"
                         pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-edit-apartment.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-edit-apartment.png?webp")
+                           src: require("public/images/the-loneliness-project/tlp-edit-apartment_phone.png"),
+                           webp: require("public/images/the-loneliness-project/tlp-edit-apartment_phone.png?webp")
                         }}
                      />
                   </article>
                   <article className="tech-and-features">
                      <h4 className="title">DEVELOPMENT FEATURES</h4>
                      <Picture
-                        className="tech-stack"
-                        src={require("public/tech.png")}
-                        webp={require("public/tech.png?webp")}
+                        imgClassName="tech-stack"
+                        src={require("public/images/the-loneliness-project/tech_stack.png")}
+                        webp={require("public/images/the-loneliness-project/tech_stack.png?webp")}
                      />
                      <List className="dev-features" itemsClassName="dev-feature">
                         <>Written in modern React, using only functional components with hooks.</>
