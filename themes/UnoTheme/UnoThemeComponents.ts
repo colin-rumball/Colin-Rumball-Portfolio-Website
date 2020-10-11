@@ -1,7 +1,7 @@
 import Components, { Page, Button, SiteHeader } from "../definitions/Components";
 import Variables from "../definitions/Variables";
 
-export default (VARIABLES: Variables): Components => {
+const UnoThemeComponents = (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
@@ -27,3 +27,5 @@ export default (VARIABLES: Variables): Components => {
       SITE_HEADER
    };
 };
+
+export default UnoThemeComponents;

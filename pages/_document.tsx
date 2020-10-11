@@ -10,7 +10,7 @@ class MyDocument extends Document {
       try {
          ctx.renderPage = () =>
             originalRenderPage({
-               enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+               enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
             });
          const initialProps = await Document.getInitialProps(ctx);
 
@@ -21,7 +21,7 @@ class MyDocument extends Document {
                   {initialProps.styles}
                   {sheet.getStyleElement()}
                </>
-            )
+            ),
          };
       } finally {
          sheet.seal();
@@ -43,8 +43,6 @@ class MyDocument extends Document {
                   href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
                   rel="stylesheet"
                ></link>
-               <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css" />
-               <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
                <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
             </Head>
             <body>

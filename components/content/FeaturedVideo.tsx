@@ -2,7 +2,6 @@ import React, { Props } from "react";
 import styled from "styled-components";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import BorderedContentStyle from "../../styles/BorderedContentStyle";
-import { string } from "yargs";
 import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../helpers/withDefaultProps";
 
@@ -19,7 +18,7 @@ interface FeaturedVideoProps extends ComponentBaseProps {
 
 const FeaturedVideoDefaultProps: FeaturedVideoProps = {
    src: "#",
-   srcType: "video/mp4"
+   srcType: "video/mp4",
 };
 
 const FeaturedVideo: React.FC<FeaturedVideoProps> = ({ src, srcType }) => {
