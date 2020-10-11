@@ -13,57 +13,57 @@ interface StyledImportanceOfComponentDesignProps {}
 
 const StyledImportanceOfComponentDesign = styled.div<StyledImportanceOfComponentDesignProps>`
    ${PageStyling}
-	padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-	padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
+   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+   padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL};
 
-	.main-content {
-		max-width: 820px;
-		font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-	}
+   .main-content {
+      max-width: 820px;
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+   }
 
    h1 {
       margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L} 0;
    }
 
    h2 {
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
-		margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
-		font-weight: 500;
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+      margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+      font-weight: 500;
    }
 
    h3 {
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
-		margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
-		color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
-		font-weight: 500;
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+      margin-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
+      font-weight: 500;
    }
 
-	p {
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
-		font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-	}
+   p {
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M} 0;
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+   }
 
-	.point-list {
-		li {
-			font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-			padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
+   .point-list {
+      li {
+         font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
+         padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS};
 
-			.circle-bullet {
-				height: 0.5em;
-				margin-bottom: 2px;
-			}
-		}
-	}
+         .circle-bullet {
+            height: 0.5em;
+            margin-bottom: 2px;
+         }
+      }
+   }
 
-	.illustration {
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
-	}
+   .illustration {
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XL} 0;
+   }
 
-	figcaption {
-		font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.XS};
-		color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
-		margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS} 0;
-	}
+   figcaption {
+      font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.XS};
+      color: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
+      margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XS} 0;
+   }
 `;
 
 const ImportanceOfComponentDesign: React.FC = ({}) => {
@@ -96,7 +96,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
                pictureProps={{
                   className: "illustration",
                   src: require("public/images/posts/image4.png"),
-                  webp: require("public/images/posts/image4.png?webp")
+                  webp: require("public/images/posts/image4.png?webp"),
                }}
             />
             <p>Our process of UI implementation in my experience has notably poor practices:</p>
@@ -304,19 +304,16 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
                pictureProps={{
                   className: "illustration",
                   src: require("public/images/posts/image2.png"),
-                  webp: require("public/images/posts/image2.png?webp")
+                  webp: require("public/images/posts/image2.png?webp"),
                }}
-               caption={
-                  <a
-                     rel="noopener noreferrer"
-                     target="_blank"
-                     href="https://mytictalk.blog/2018/06/06/design-system-the-holy-grail-of-things/"
-                  >
-                     Credit: mytictalk.blog, Design system - the 'holy grail' of things.
-                  </a>
-               }
             />
-
+            {/* <a
+               rel="noopener noreferrer"
+               target="_blank"
+               href="https://mytictalk.blog/2018/06/06/design-system-the-holy-grail-of-things/"
+            >
+               Credit: mytictalk.blog, Design system - the 'holy grail' of things.
+            </a> */}
             <p>
                An Atomic Design system enompasses all that goes into creating and maintaining robust
                design systems, allowing for the capability to roll out higher quality, more
@@ -329,19 +326,17 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
                pictureProps={{
                   className: "illustration",
                   src: require("public/images/posts/image1.png"),
-                  webp: require("public/images/posts/image1.png?webp")
+                  webp: require("public/images/posts/image1.png?webp"),
                }}
-               caption={
-                  <a
-                     rel="noopener noreferrer"
-                     target="_blank"
-                     href="https://www.gdcvault.com/play/1026400/Building-a-Unified-Cross-Project"
-                  >
-                     Credit: Sybo games 2019, Building a unified cross-project UI framework (Unity)
-                     gdcvault.com/play/1026400/Building-a-Unified-Cross-Project.
-                  </a>
-               }
             />
+            {/* <a
+               rel="noopener noreferrer"
+               target="_blank"
+               href="https://www.gdcvault.com/play/1026400/Building-a-Unified-Cross-Project"
+            >
+               Credit: Sybo games 2019, Building a unified cross-project UI framework (Unity)
+               gdcvault.com/play/1026400/Building-a-Unified-Cross-Project.
+            </a> */}
             <p>
                By taking the time to set up your foundational reusable UI pieces as modular
                components, you can combine them into larger and more layered containers that can be
@@ -354,7 +349,7 @@ const ImportanceOfComponentDesign: React.FC = ({}) => {
                pictureProps={{
                   className: "illustration",
                   src: require("public/images/posts/image3.png"),
-                  webp: require("public/images/posts/image3.png?webp")
+                  webp: require("public/images/posts/image3.png?webp"),
                }}
             />
 
