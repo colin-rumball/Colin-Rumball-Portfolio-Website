@@ -6,11 +6,10 @@ import RecentWorkSection from "../containers/RecentWorkSection";
 import asPage from "../helpers/asPage";
 import { PageStyling } from "../styles/BaseStyles";
 import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";
-import { ThemeContainer } from "../themes/definitions/Theme";
 
-const StyledHomePage = styled.div`
+const StyledHomePage = styled.main`
    ${PageStyling};
-   padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+   padding-top: 50px;
 `;
 
 const HomePage = () => {
