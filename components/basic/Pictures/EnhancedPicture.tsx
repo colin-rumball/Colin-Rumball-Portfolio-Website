@@ -15,7 +15,7 @@ const StyledEnhancedPicture = styled.div<StyledEnhancedPictureProps>`
    margin: 0;
 
    &:hover {
-      cursor: ${props => (props.onClick ? "pointer" : "auto")};
+      cursor: ${(props) => (props.onClick ? "pointer" : "auto")};
    }
 
    .enhanced-picture-container {
@@ -23,7 +23,7 @@ const StyledEnhancedPicture = styled.div<StyledEnhancedPictureProps>`
       justify-content: center;
 
       img.enhanced-picture-inner {
-         ${props => (props.showBorder ? BorderedContentStyle : null)};
+         ${(props) => (props.showBorder ? BorderedContentStyle : null)};
       }
    }
 `;
@@ -35,15 +35,15 @@ interface EnhancedPictureProps extends ComponentBaseProps {
 }
 
 const EnhancedPictureDefaultProps: EnhancedPictureProps = {
-   pictureProps: { ...PictureDefaultProps }
+   pictureProps: { ...PictureDefaultProps },
 };
 
-const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
-   const { debug, className, style, showBorder, opensLightbox, pictureProps, caption } = props;
+const EnhancedPicture: React.FC<EnhancedPictureProps> = (props) => {
+   const { debug, className, style, showBorder, opensLightbox, pictureProps } = props;
    const { pushModal } = useModalSystemHelper();
 
    const onClickHandler = useCallback(
-      e => {
+      (e) => {
          if (opensLightbox)
             pushModal(
                <EnhancedPicture
@@ -51,7 +51,7 @@ const EnhancedPicture: React.FC<EnhancedPictureProps> = props => {
                   pictureProps={{
                      ...pictureProps,
                      onClick: null,
-                     imgStyle: { maxHeight: "90vh" }
+                     imgStyle: { maxHeight: "90vh" },
                   }}
                   opensLightbox={false}
                />
