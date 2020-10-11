@@ -1,6 +1,6 @@
 {
 	"name": "Colin-Rumball-Portfolio-Website",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "The web development portfolio website for Colin Rumball.",
 	"engines": {
 		"node": "12.x"
