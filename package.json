@@ -18,6 +18,7 @@
 		"globalTeardown": "./scripts/scriptUtils/jestTeardown.ts"
 	},
 	"dependencies": {
+		"@zeit/next-sass": "^1.0.1",
 		"babel-plugin-css-modules-transform": "^1.6.2",
 		"cors": "^2.8.5",
 		"cross-fetch": "^3.0.4",
@@ -30,11 +31,11 @@
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-icons": "^3.9.0",
-		"react-id-swiper": "^3.0.0",
+		"react-id-swiper": "^4.0.0",
 		"request": "^2.88.2",
 		"styled-components": "^4.4.1",
 		"styled-theming": "^2.2.0",
-		"swiper": "^5.3.6",
+		"swiper": "^6.3.3",
 		"yup": "^0.27.0"
 	},
 	"devDependencies": {
@@ -58,7 +59,7 @@
 		"babel-cli": "^6.26.0",
 		"babel-jest": "^24.9.0",
 		"babel-plugin-styled-components": "^1.10.7",
-		"caniuse-lite": "^1.0.30001028",
+		"caniuse-lite": "^1.0.30001146",
 		"chokidar": "^2.1.8",
 		"classnames": "^2.2.6",
 		"colors": "^1.4.0",
@@ -75,10 +76,10 @@
 		"jest": "^24.9.0",
 		"ncp": "^2.0.0",
 		"next-optimized-images": "^2.5.5",
-		"node-sass": "^4.13.1",
+		"node-sass": "^4.14.1",
 		"node-static": "^0.7.11",
 		"normalize.css": "^8.0.1",
-		"now": "^17.0.4",
+		"now": "^20.1.2",
 		"prompt-list": "^3.2.0",
 		"recursive-readdir": "^2.2.2",
 		"tinify": "^1.6.0-beta.2",

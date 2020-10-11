@@ -12,7 +12,7 @@ const getElementFlexProps = props => {
 
 interface StyledElementGroupProps extends ElementGroupProps {}
 
-const StyledElementGroup = styled.article<StyledElementGroupProps>`
+const StyledElementGroup = styled.div<StyledElementGroupProps>`
    position: relative;
    display: flex;
    margin-top: -${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};

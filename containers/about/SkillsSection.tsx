@@ -5,7 +5,7 @@ import FullWidthSection from "../../components/basic/Sections/FullWidthSection";
 import Theme, { ThemeContainer } from "../../themes/definitions/Theme";
 import { MaxScreenConstraints } from "../../styles/BaseStyles";
 import List from "../../components/basic/List";
-import Section from "../../components/Section";
+import Section from "../../components/basic/Sections/Section";
 
 interface StyledSkillsSectionProps {}
 
@@ -23,7 +23,7 @@ const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
       width: 75%;
    }
 
-   article.tech-list {
+   div.tech-list {
       width: 100%;
 
       section.title-wrapper {
@@ -107,16 +107,16 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
    const themeContext: Theme = useContext(ThemeContext);
    return (
       <StyledSkillsSection>
-         <article className="tech-list">
+         <div className="tech-list">
             <FullWidthSection className="title-wrapper">
-               <article
+               <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
                      background: themeContext.VARIABLES.COLORS.GRADIENTS[0]
                   }}
                >
                   <h3 className="title">FRONT END</h3>
-               </article>
+               </div>
             </FullWidthSection>
             <List className="skill-list front-end" itemsClassName="skill-list-item">
                <>HTML5</>
@@ -126,17 +126,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <>React.js</>
                <>Styled-Components</>
             </List>
-         </article>
-         <article className="tech-list">
+         </div>
+         <div className="tech-list">
             <FullWidthSection className="title-wrapper">
-               <article
+               <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
                      background: themeContext.VARIABLES.COLORS.GRADIENTS[1]
                   }}
                >
                   <h3 className="title">BACK END</h3>
-               </article>
+               </div>
             </FullWidthSection>
             <List className="skill-list back-end" itemsClassName="skill-list-item">
                <>Node.js</>
@@ -146,17 +146,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <>Prisma</>
                <>PostgreSQL</>
             </List>
-         </article>
-         <article className="tech-list">
+         </div>
+         <div className="tech-list">
             <FullWidthSection className="title-wrapper">
-               <article
+               <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
                      background: themeContext.VARIABLES.COLORS.GRADIENTS[2]
                   }}
                >
                   <h3 className="title">OTHER</h3>
-               </article>
+               </div>
             </FullWidthSection>
             <List className="skill-list other" itemsClassName="skill-list-item">
                <>C#</>
@@ -166,7 +166,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <>Agile Methodologies</>
                <>Continuous Integration</>
             </List>
-         </article>
+         </div>
       </StyledSkillsSection>
    );
 };

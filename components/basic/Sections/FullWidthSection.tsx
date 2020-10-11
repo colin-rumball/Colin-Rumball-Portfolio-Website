@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { MaxScreenConstraints } from "../../../styles/BaseStyles";
-import { ThemeContainer } from "../../../themes/definitions/Theme";
 import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../../../helpers/withDefaultProps";
-import Section from "../../Section";
+import Section from "./Section";
 
 interface StyledFullWidthSectionProps {}
 

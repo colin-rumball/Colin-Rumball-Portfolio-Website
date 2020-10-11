@@ -7,7 +7,7 @@ import TLPTheme from "../themes/TLPTheme/TLPTheme";
 import LegoTheme from "../themes/LegoTheme/LegoTheme";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import UnoTheme from "../themes/UnoTheme/UnoTheme";
-import Section from "../components/Section";
+import Section from "../components/basic/Sections/Section";
 
 interface StyledRecentWorkSectionProps {}
 
