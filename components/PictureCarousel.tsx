@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
-import Swiper from "react-id-swiper";
-import "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.scss";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { Pagination } from "swiper";
+import Picture from "./basic/Pictures/Picture";
 
 interface StyledPictureCarouselProps {}
 
@@ -61,31 +63,20 @@ interface PictureCarouselProps extends ComponentBaseProps {}
 const PictureCarouselDefaultProps: PictureCarouselProps = {};
 
 const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, children }) => {
-   const params = useMemo(
-      () => ({
-         pagination: {
-            el: ".swiper-pagination",
-            type: "bullets",
-
-            clickable: true
-         },
-         // grabCursor: true,
-         centeredSlides: true,
-         slidesPerView: 1,
-         slideToClickedSlide: true,
-         loop: true,
-         breakpoints: {
-            768: {
-               slidesPerView: 3
-            }
-         }
-      }),
-      []
-   );
-
    return (
       <StyledPictureCarousel className={className} style={style}>
-         <Swiper {...params}>{children as any}</Swiper>
+         <Swiper
+            pagination={{ el: ".swiper-pagination", type: "bullets", clickable: true }}
+            centeredSlides={true}
+            slidesPerView={1}
+            slideToClickedSlide={true}
+            loop={true}
+            breakpoints={{ 768: { slidesPerView: 3 } }}
+         >
+            {React.Children.map(children, (child) => (
+               <SwiperSlide>{child}</SwiperSlide>
+            ))}
+         </Swiper>
       </StyledPictureCarousel>
    );
 };

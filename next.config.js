@@ -1,9 +1,10 @@
 const withSourceMaps = require("@zeit/next-source-maps");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-   enabled: process.env.ANALYZE_BUNDLE === "true"
+   enabled: process.env.ANALYZE_BUNDLE === "true",
 });
 const optimizedImages = require("next-optimized-images");
 const withPlugins = require("next-compose-plugins");
+const withSass = require("@zeit/next-sass");
 const path = require("path");
 
 // Create Next JS config
@@ -13,11 +14,12 @@ const config = {
       config.resolve.alias["public"] = path.join(__dirname, "public");
       return config;
    },
-   env: {}
+   env: {},
 };
 
 module.exports = withPlugins(
    [
+      [withSass],
       [withSourceMaps],
       [withBundleAnalyzer],
       [
@@ -25,10 +27,10 @@ module.exports = withPlugins(
          {
             optimizeImagesInDev: true,
             webp: {
-               lossless: true
-            }
-         }
-      ]
+               lossless: true,
+            },
+         },
+      ],
    ],
    config
 );

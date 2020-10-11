@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
-import withDefaultProps from "../helpers/withDefaultProps";
-import { ThemeContainer } from "../themes/definitions/Theme";
+import { ThemeContainer } from "../../../themes/definitions/Theme";
+import { ComponentBaseProps } from "../../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../../helpers/withDefaultProps";
 
 interface StyledSectionProps {}
 

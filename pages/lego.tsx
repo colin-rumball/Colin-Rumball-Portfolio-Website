@@ -10,6 +10,7 @@ import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PictureCarousel from "../components/PictureCarousel";
 import PageMainContent from "../containers/PageMainContent";
+import {SwiperSlide} from "swiper/react";
 import asPage from "../helpers/asPage";
 import { PageStyling, VideoContent } from "../styles/BaseStyles";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
@@ -119,7 +120,7 @@ const lego: React.FC = ({}) => {
                            icon: <AiOutlineApple />,
                            buttonSize: ButtonSize.MEDIUM,
                            className: "link",
-                           style: { whiteSpace: "nowrap" }
+                           style: { whiteSpace: "nowrap" },
                         }}
                      >
                         APP STORE
@@ -130,7 +131,7 @@ const lego: React.FC = ({}) => {
                            icon: <FaGooglePlay />,
                            buttonSize: ButtonSize.MEDIUM,
                            className: "link",
-                           style: { whiteSpace: "nowrap" }
+                           style: { whiteSpace: "nowrap" },
                         }}
                      >
                         GOOGLE PLAY

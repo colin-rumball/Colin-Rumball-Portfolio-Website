@@ -3,7 +3,7 @@ import { FaRegEnvelope } from "react-icons/fa";
 import styled from "styled-components";
 import Button, { ButtonSize } from "../components/basic/Buttons/Button";
 import Picture from "../components/basic/Pictures/Picture";
-import Section from "../components/Section";
+import Section from "../components/basic/Sections/Section";
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
@@ -37,7 +37,7 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
       }
    }
 
-   article.introduction {
+   div.introduction {
       display: flex;
       flex-direction: column;
       flex-basis: 43%;
@@ -57,7 +57,7 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
          font-weight: 500;
       }
 
-      article.information {
+      div.information {
          display: flex;
          flex-direction: column;
          justify-content: flex-end;
@@ -105,12 +105,12 @@ const IntroSectionDefaultProps: IntroSectionProps = {};
 const IntroSection: React.FC<IntroSectionProps> = ({}) => {
    return (
       <StyledIntroSection>
-         <article className="introduction">
+         <div className="introduction">
             <h1 className="welcome-message">Hey, I'm Colin</h1>
             <h3 className="job-title">
                Full Stack Web Developer & Developer Experience Enthusiast
             </h3>
-            <article className="information">
+            <div className="information">
                <p>
                   I'm a Toronto-based developer with 5 years experience in the mobile games industry
                   working for the major toy brands Mattel & LEGO, looking forward to new
@@ -121,7 +121,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                   <strong>CSS3</strong> using modern libraries <strong>React</strong>,{" "}
                   <strong>Next.js</strong>, <strong>GraphQL</strong>, and <strong>Node.js</strong>.
                </p>
-            </article>
+            </div>
             <div className="footer">
                <a href="mailto:colin.rumball@gmail.com">
                   <Button
@@ -133,7 +133,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                </a>
                <SocialLinks className="social-links" />
             </div>
-         </article>
+         </div>
          <Picture
             className="desk-image"
             src={require("public/images/desk.png")}

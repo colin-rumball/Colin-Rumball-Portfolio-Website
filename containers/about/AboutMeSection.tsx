@@ -6,7 +6,7 @@ import Button, { ButtonSize } from "../../components/basic/Buttons/Button";
 import LinkButton from "../../components/basic/Buttons/LinkButton";
 import Picture from "../../components/basic/Pictures/Picture";
 import FullWidthSection from "../../components/basic/Sections/FullWidthSection";
-import Section from "../../components/Section";
+import Section from "../../components/basic/Sections/Section";
 import withDefaultProps from "../../helpers/withDefaultProps";
 import { ThemeContainer } from "../../themes/definitions/Theme";
 import SocialLinks from "../SocialLinks";
@@ -95,7 +95,7 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
          }
       }
 
-      article.description {
+      div.description {
          p {
             font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
             margin: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S} 0;
@@ -116,7 +116,7 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
          }
       }
 
-      article.buttons {
+      div.buttons {
          position: relative;
          justify-content: space-evenly;
          width: 100%;
@@ -151,10 +151,10 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                webp={require("public/images/about/van.png?webp")}
             />
          </FullWidthSection>
-         <section className="info">
+         <Section className="info">
             <h1 className="title">ABOUT COLIN</h1>
             <SocialLinks className="social-links" linksClassName="social-link" />
-            <article className="description">
+            <div className="description">
                <p>
                   I've been passionate about software development since high school, and being a
                   lifelong gamer, I originally sought an outlet for my interest in the games
@@ -172,7 +172,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   Besides web and games I enjoy climbing mountains, doing yoga, tinkering with tech,
                   camping, and travelling with my wife.
                </p>
-            </article>
+            </div>
             <ElementGroup className="buttons">
                <a href="mailto:colin.rumball@gmail.com">
                   <Button
@@ -195,7 +195,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   RESUME
                </LinkButton>
             </ElementGroup>
-         </section>
+         </Section>
       </StyledAboutMeSection>
    );
 };
