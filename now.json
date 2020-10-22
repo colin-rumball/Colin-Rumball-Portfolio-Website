@@ -1,23 +1,3 @@
 {
-	"version": 2,
-	"env": {},
-	"build": {
-		"env": {}
-	},
-	"builds": [
-		{
-			"src": "/public/**",
-			"use": "@now/static"
-		},
-		{
-			"src": "package.json",
-			"use": "@now/next"
-		}
-	],
-	"routes": [
-		{
-			"src": "/public/(.*)",
-			"dest": "/public/$1"
-		}
-	]
+	"version": 2
 }
