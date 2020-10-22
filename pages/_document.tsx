@@ -2,7 +2,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
-class MyDocument extends Document {
+export default class AppDocument extends Document {
    static async getInitialProps(ctx) {
       const sheet = new ServerStyleSheet();
 
@@ -53,5 +53,3 @@ class MyDocument extends Document {
       );
    }
 }
-
-export default MyDocument;
