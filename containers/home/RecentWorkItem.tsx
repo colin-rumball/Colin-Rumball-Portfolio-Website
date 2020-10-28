@@ -1,21 +1,16 @@
-import React, { Props, MouseEventHandler, FC } from "react";
+import Image from "next/image";
+import React, { Props } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import withDefaultProps from "../helpers/withDefaultProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
 import { DiReact, DiNodejsSmall } from "react-icons/di";
-import Theme, { ThemeContainer } from "../themes/definitions/Theme";
-import NextJSIcon from "../components/icons/NextJSIcon";
-import GraphqlIcon from "../components/icons/GraphqlIcon";
+import Theme, { ThemeContainer } from "../../themes/definitions/Theme";
+import NextJSIcon from "../../components/icons/NextJSIcon";
+import GraphqlIcon from "../../components/icons/GraphqlIcon";
 import Link from "next/link";
-import BaseTheme from "../themes/BaseTheme/BaseTheme";
-import Picture, { PictureProps } from "../components/basic/Pictures/Picture";
-import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
-import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
+import BaseTheme from "../../themes/BaseTheme/BaseTheme";
+import OverlayedBackgroundStyle from "../../styles/OverlayedBackgroundStyle";
 
-interface StyledRecentWorkProps {} /* background-image: ${props => `url(${props.imageSrc})`};
-background-attachment: fixed;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center; */
+interface StyledRecentWorkProps {}
 
 const StyledRecentWork = styled.a<StyledRecentWorkProps>`
    position: relative;
@@ -39,7 +34,7 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
    .overlayed-background {
       ${OverlayedBackgroundStyle}
-		border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.WEAK};
+      border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.WEAK};
    }
 
    .info {
@@ -56,18 +51,18 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
       z-index: 33;
 
-		@media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-			padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-			padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
-			padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-			padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
-		}
+      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+         padding-top: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+         padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
+         padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+         padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.XXL};
+      }
 
       .year {
          font-size: ${({ theme }: ThemeContainer) => theme.VARIABLES.FONT_SIZES.S};
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
-			opacity: 0.65;
+         letter-spacing: 0.1em;
+         text-transform: uppercase;
+         opacity: 0.65;
       }
 
       .title {
@@ -98,7 +93,6 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
 
       flex: 1;
       padding: ${({ theme }: ThemeContainer) => `${theme.VARIABLES.SPACING.XXL} 0`};
-      /* padding-right: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S}; */
 
       display: none;
       pointer-events: none;
@@ -111,10 +105,10 @@ const StyledRecentWork = styled.a<StyledRecentWorkProps>`
       }
 
       .work-image {
-         /* border-radius: ${({ theme }: ThemeContainer) => theme.VARIABLES.BORDER_RADIUS.WEAK}; */
          box-shadow: 0px 3.5px 21px rgba(0, 0, 0, 0.2);
          margin: 0;
          vertical-align: middle;
+         border: 1px solid white;
       }
    }
 `;
@@ -123,14 +117,14 @@ export enum Tech {
    REACT,
    NEXTJS,
    GRAPHQL,
-   NODEJS
+   NODEJS,
 }
 
 const techMap = {
    [Tech.REACT]: <DiReact />,
    [Tech.NEXTJS]: <NextJSIcon />,
    [Tech.GRAPHQL]: <GraphqlIcon />,
-   [Tech.NODEJS]: <DiNodejsSmall />
+   [Tech.NODEJS]: <DiNodejsSmall />,
 };
 
 interface RecentWorkProps extends Props<any> {
@@ -140,7 +134,7 @@ interface RecentWorkProps extends Props<any> {
    quote?: string;
    techList: Tech[];
    href: string;
-   innerPictureProps: PictureProps;
+   imageSrc: string;
    theme: (theme: Theme) => Theme;
 }
 
@@ -151,8 +145,8 @@ const RecentWorkDefaultProps: RecentWorkProps = {
    quote: "Web Developer",
    techList: [],
    href: "#",
-   innerPictureProps: { src: "/#", className: "" },
-   theme: () => BaseTheme
+   imageSrc: "",
+   theme: () => BaseTheme,
 };
 
 const RecentWorkItem: React.FC<RecentWorkProps> = ({
@@ -162,8 +156,8 @@ const RecentWorkItem: React.FC<RecentWorkProps> = ({
    quote,
    href,
    techList,
-   innerPictureProps,
-   theme
+   imageSrc,
+   theme,
 }) => {
    return (
       <ThemeProvider theme={theme}>
@@ -177,7 +171,7 @@ const RecentWorkItem: React.FC<RecentWorkProps> = ({
                   <h1 className="title">{title}</h1>
                   <p className="quote">"{quote}"</p>
                   <div className="tech-list">
-                     {techList.map(t => (
+                     {techList.map((t) => (
                         <div className="tech-item" key={t}>
                            {techMap[t]}
                         </div>
@@ -185,11 +179,7 @@ const RecentWorkItem: React.FC<RecentWorkProps> = ({
                   </div>
                </section>
                <div className="work-image-container">
-                  <Picture
-                     {...innerPictureProps}
-                     style={innerPictureProps.style}
-                     className={`${innerPictureProps.className} work-image`}
-                  />
+                  <Image src={imageSrc} className={`work-image`} width="513" height="320" />
                </div>
             </StyledRecentWork>
          </Link>

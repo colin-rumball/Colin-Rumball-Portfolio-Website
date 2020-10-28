@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
+
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { Pagination } from "swiper";
-import Picture from "./basic/Pictures/Picture";
 
 interface StyledPictureCarouselProps {}
 

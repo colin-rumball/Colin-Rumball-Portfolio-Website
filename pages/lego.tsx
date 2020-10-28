@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { AiOutlineApple } from "react-icons/ai";
 import { FaGooglePlay } from "react-icons/fa";
@@ -5,12 +6,10 @@ import styled from "styled-components";
 import { ButtonSize } from "../components/basic/Buttons/Button";
 import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import List from "../components/basic/List";
-import Picture from "../components/basic/Pictures/Picture";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PictureCarousel from "../components/PictureCarousel";
 import PageMainContent from "../containers/PageMainContent";
-import {SwiperSlide} from "swiper/react";
 import asPage from "../helpers/asPage";
 import { PageStyling, VideoContent } from "../styles/BaseStyles";
 import OverlayedBackgroundStyle from "../styles/OverlayedBackgroundStyle";
@@ -163,22 +162,10 @@ const lego: React.FC = ({}) => {
             </ResposiveSection>
             <FullWidthSection className="carousel">
                <PictureCarousel>
-                  <Picture
-                     src={require("public/images/lego/Lego_phonemock_iphoneX_1.png")}
-                     webp={require("public/images/lego/Lego_phonemock_iphoneX_1.png?webp")}
-                  />
-                  <Picture
-                     src={require("public/images/lego/Lego_phonemock_iphoneX_2.png")}
-                     webp={require("public/images/lego/Lego_phonemock_iphoneX_2.png?webp")}
-                  />
-                  <Picture
-                     src={require("public/images/lego/Lego_phonemock_iphoneX_3.png")}
-                     webp={require("public/images/lego/Lego_phonemock_iphoneX_3.png?webp")}
-                  />
-                  <Picture
-                     src={require("public/images/lego/Lego_phonemock_iphoneX_4.png")}
-                     webp={require("public/images/lego/Lego_phonemock_iphoneX_4.png?webp")}
-                  />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_1.png" width="640" height="308" />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_2.png" width="640" height="308" />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_3.png" width="640" height="308" />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_4.png" width="640" height="308" />
                </PictureCarousel>
             </FullWidthSection>
          </PageMainContent>

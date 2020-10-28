@@ -1,13 +1,13 @@
+import Image from "next/image";
 import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import styled from "styled-components";
-import Button, { ButtonSize } from "../components/basic/Buttons/Button";
-import Picture from "../components/basic/Pictures/Picture";
-import Section from "../components/basic/Sections/Section";
-import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
-import withDefaultProps from "../helpers/withDefaultProps";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import SocialLinks from "./SocialLinks";
+import Button, { ButtonSize } from "../../components/basic/Buttons/Button";
+import Section from "../../components/basic/Sections/Section";
+import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
+import { ThemeContainer } from "../../themes/definitions/Theme";
+import SocialLinks from "../SocialLinks";
 
 interface StyledIntroSectionProps {}
 
@@ -134,11 +134,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                <SocialLinks className="social-links" />
             </div>
          </div>
-         <Picture
-            className="desk-image"
-            src={require("public/images/desk.png")}
-            webp={require("public/images/desk.png?webp")}
-         />
+         <Image className="desk-image" src="/images/desk.png" width="441" height="375" />
       </StyledIntroSection>
    );
 };

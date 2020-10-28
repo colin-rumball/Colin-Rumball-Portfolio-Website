@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import IntroSection from "../containers/IntroSection";
+import IntroSection from "../containers/home/IntroSection";
 import PageMainContent from "../containers/PageMainContent";
-import RecentWorkSection from "../containers/RecentWorkSection";
+import RecentWorkSection from "../containers/home/RecentWorkSection";
 import asPage from "../helpers/asPage";
 import { PageStyling } from "../styles/BaseStyles";
 import DefaultTheme from "../themes/DefaultTheme/DefaultTheme";

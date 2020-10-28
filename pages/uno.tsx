@@ -1,7 +1,7 @@
+import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 import List from "../components/basic/List";
-import Picture from "../components/basic/Pictures/Picture";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import PictureCarousel from "../components/PictureCarousel";
@@ -105,18 +105,9 @@ const lego: React.FC = ({}) => {
             </ResposiveSection>
             <FullWidthSection className="carousel">
                <PictureCarousel>
-                  <Picture
-                     src={require("public/images/uno/uno_appstore1.png")}
-                     webp={require("public/images/uno/uno_appstore1.png?webp")}
-                  />
-                  <Picture
-                     src={require("public/images/uno/uno_appstore2.png")}
-                     webp={require("public/images/uno/uno_appstore2.png?webp")}
-                  />
-                  <Picture
-                     src={require("public/images/uno/uno_appstore3.png")}
-                     webp={require("public/images/uno/uno_appstore3.png?webp")}
-                  />
+                  <Image src="/images/uno/uno_appstore1.png" width="640" height="308" />
+                  <Image src="/images/uno/uno_appstore2.png" width="640" height="308" />
+                  <Image src="/images/uno/uno_appstore3.png" width="640" height="308" />
                </PictureCarousel>
             </FullWidthSection>
          </PageMainContent>

@@ -6,7 +6,7 @@ const UnoThemeComponents = (VARIABLES: Variables): Components => {
 
    const PAGE: Page = {
       BACKGROUND: `linear-gradient(180deg, #BE0245 0%, #F03E17 100%)`,
-      OVERLAYED_BACKGROUND: `url("public/images/uno/uno_background.png")`,
+      OVERLAYED_BACKGROUND: `url("/images/uno/uno_background.png")`,
       OVERLAYED_BG_BLEND: "overlay"
    };
    //url("public/images/uno/uno-background.png")

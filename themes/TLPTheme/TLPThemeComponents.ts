@@ -5,7 +5,7 @@ const TLPThemeComponents = (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
-      BACKGROUND: 'url("public/images/the-loneliness-project/stars.png")'
+      BACKGROUND: 'url("/images/the-loneliness-project/stars.png")'
    };
 
    const BUTTON: Button = {

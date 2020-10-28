@@ -6,7 +6,6 @@
          { "ssr": true, "displayName": false, "preprocess": false },
          "styled-components"
       ],
-      ["@babel/plugin-proposal-class-properties", {}, "class-properties"],
       ["@babel/plugin-proposal-object-rest-spread", {}, "object-rest-spread"],
       ["@babel/plugin-transform-runtime", {}, "transform-runtime"]
    ]

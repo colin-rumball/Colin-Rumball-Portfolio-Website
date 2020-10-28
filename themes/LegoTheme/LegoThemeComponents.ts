@@ -6,7 +6,7 @@ const LegoThemeComponents = (VARIABLES: Variables): Components => {
 
    const PAGE: Page = {
       BACKGROUND: `linear-gradient(180deg, #481180 0%, #680A60 100%)`,
-      OVERLAYED_BACKGROUND: `url("public/images/lego/lego-background.png")`,
+      OVERLAYED_BACKGROUND: `url("/images/lego/lego-background.png")`,
       OVERLAYED_BG_BLEND: "multiply"
    };
 
