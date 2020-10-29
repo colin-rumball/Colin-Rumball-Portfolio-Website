@@ -154,9 +154,9 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
             <Image
                src="/images/about/van.png"
                className="inner-image"
-               width="735"
-               height="495"
-               sizes="(max-width: 768px) 495px, 735px"
+               width="768"
+               height="510"
+               sizes="(max-width: 768px) 495px, 768px"
             />
          </FullWidthSection>
          <Section className="info">

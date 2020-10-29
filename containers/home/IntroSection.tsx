@@ -25,15 +25,18 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
       justify-content: space-between;
    }
 
-   picture.desk-image {
+   .desk-image-container {
       flex-basis: 45%;
 
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         display: none;
-      }
+      .desk-image {
+         max-width: 100%;
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            display: none;
+         }
 
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
-         display: block;
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
+            display: block;
+         }
       }
    }
 
@@ -134,7 +137,9 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                <SocialLinks className="social-links" />
             </div>
          </div>
-         <Image className="desk-image" src="/images/desk.png" width="441" height="375" />
+         <div className="desk-image-container">
+            <Image className="desk-image" src="/images/desk.png" unsized={true} />
+         </div>
       </StyledIntroSection>
    );
 };

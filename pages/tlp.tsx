@@ -70,7 +70,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    section.lightbox-images {
       justify-content: space-between;
 
-      picture {
+      & > * {
          @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
@@ -212,8 +212,7 @@ const tlp: React.FC = ({}) => {
                   image={
                      <Image
                         src="/images/the-loneliness-project/tlp-about-horizontal.png"
-                        width="470"
-                        height="250"
+                        unsized={true}
                      />
                   }
                />
@@ -224,8 +223,7 @@ const tlp: React.FC = ({}) => {
                   image={
                      <Image
                         src="/images/the-loneliness-project/tlp-story-horizontal.png"
-                        width="470"
-                        height="250"
+                        unsized={true}
                      />
                   }
                />
@@ -273,8 +271,7 @@ const tlp: React.FC = ({}) => {
                      <Image
                         className="tech-stack"
                         src="/images/the-loneliness-project/tech_stack.png"
-                        width="336"
-                        height="80"
+                        unsized={true}
                      />
                      <List className="dev-features" itemsClassName="dev-feature">
                         <>Written in modern React, using only functional components with hooks.</>
