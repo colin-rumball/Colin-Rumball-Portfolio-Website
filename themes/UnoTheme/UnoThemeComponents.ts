@@ -9,7 +9,6 @@ const UnoThemeComponents = (VARIABLES: Variables): Components => {
       OVERLAYED_BACKGROUND: `url("/images/uno/uno_background.png")`,
       OVERLAYED_BG_BLEND: "overlay"
    };
-   //url("public/images/uno/uno-background.png")
 
    const BUTTON: Button = {
       FONT_COLOR: { DEFAULT: COLORS.SECONDARY.BASE, ALTERNATE: COLORS.SECONDARY.BASE },
