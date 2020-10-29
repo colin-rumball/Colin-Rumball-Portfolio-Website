@@ -105,9 +105,9 @@ const lego: React.FC = ({}) => {
             </ResposiveSection>
             <FullWidthSection className="carousel">
                <PictureCarousel>
-                  <Image src="/images/uno/uno_appstore1.png" width="640" height="308" />
-                  <Image src="/images/uno/uno_appstore2.png" width="640" height="308" />
-                  <Image src="/images/uno/uno_appstore3.png" width="640" height="308" />
+                  <Image src="/images/uno/uno_appstore1.png" unsized={true} />
+                  <Image src="/images/uno/uno_appstore2.png" unsized={true} />
+                  <Image src="/images/uno/uno_appstore3.png" unsized={true} />
                </PictureCarousel>
             </FullWidthSection>
          </PageMainContent>

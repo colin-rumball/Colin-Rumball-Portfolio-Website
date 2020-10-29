@@ -162,10 +162,10 @@ const lego: React.FC = ({}) => {
             </ResposiveSection>
             <FullWidthSection className="carousel">
                <PictureCarousel>
-                  <Image src="/images/lego/Lego_phonemock_iphoneX_1.png" width="640" height="308" />
-                  <Image src="/images/lego/Lego_phonemock_iphoneX_2.png" width="640" height="308" />
-                  <Image src="/images/lego/Lego_phonemock_iphoneX_3.png" width="640" height="308" />
-                  <Image src="/images/lego/Lego_phonemock_iphoneX_4.png" width="640" height="308" />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_1.png" unsized={true} />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_2.png" unsized={true} />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_3.png" unsized={true} />
+                  <Image src="/images/lego/Lego_phonemock_iphoneX_4.png" unsized={true} />
                </PictureCarousel>
             </FullWidthSection>
          </PageMainContent>

@@ -17,6 +17,10 @@ const StyledPictureCarousel = styled.div<StyledPictureCarouselProps>`
       opacity: 0.8;
       filter: blur(2px);
 
+      .slide-inner-image {
+         max-width: 100%;
+      }
+
       &.swiper-slide-active {
          opacity: 1;
          filter: blur(0px);
@@ -73,7 +77,9 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
             breakpoints={{ 768: { slidesPerView: 3 } }}
          >
             {React.Children.map(children, (child) => (
-               <SwiperSlide>{child}</SwiperSlide>
+               <SwiperSlide>
+                  {React.cloneElement(child as any, { className: "slide-inner-image" })}
+               </SwiperSlide>
             ))}
          </Swiper>
       </StyledPictureCarousel>
