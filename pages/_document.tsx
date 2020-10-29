@@ -43,7 +43,7 @@ export default class AppDocument extends Document {
                   href="https://fonts.googleapis.com/css?family=Raleway:600&display=swap"
                   rel="stylesheet"
                ></link>
-               <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
+               <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
             </Head>
             <body>
                <Main />
