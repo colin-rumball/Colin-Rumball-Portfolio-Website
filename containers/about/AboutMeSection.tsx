@@ -192,7 +192,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   </Button>
                </a>
                <LinkButton
-                  href="public/ColinRumball_Resume_2020.pdf"
+                  href="/ColinRumball_Resume_2020.pdf"
                   linkProps={{ target: "_blank" }}
                   buttonProps={{
                      icon: <FiFileText />,
