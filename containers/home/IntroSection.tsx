@@ -1,13 +1,13 @@
+import Image from "next/image";
 import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import styled from "styled-components";
-import Button, { ButtonSize } from "../components/basic/Buttons/Button";
-import Picture from "../components/basic/Pictures/Picture";
-import Section from "../components/basic/Sections/Section";
-import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
-import withDefaultProps from "../helpers/withDefaultProps";
-import { ThemeContainer } from "../themes/definitions/Theme";
-import SocialLinks from "./SocialLinks";
+import Button, { ButtonSize } from "../../components/basic/Buttons/Button";
+import Section from "../../components/basic/Sections/Section";
+import { ComponentBaseProps } from "../../helpers/utils/ComponentBaseProps";
+import withDefaultProps from "../../helpers/withDefaultProps";
+import { ThemeContainer } from "../../themes/definitions/Theme";
+import SocialLinks from "../SocialLinks";
 
 interface StyledIntroSectionProps {}
 
@@ -25,15 +25,18 @@ const StyledIntroSection = styled(Section)<StyledIntroSectionProps>`
       justify-content: space-between;
    }
 
-   picture.desk-image {
+   .desk-image-container {
       flex-basis: 45%;
 
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
-         display: none;
-      }
+      .desk-image {
+         max-width: 100%;
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
+            display: none;
+         }
 
-      @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
-         display: block;
+         @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
+            display: block;
+         }
       }
    }
 
@@ -134,11 +137,9 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
                <SocialLinks className="social-links" />
             </div>
          </div>
-         <Picture
-            className="desk-image"
-            src={require("public/images/desk.png")}
-            webp={require("public/images/desk.png?webp")}
-         />
+         <div className="desk-image-container">
+            <Image className="desk-image" src="/images/desk.png" unsized={true} />
+         </div>
       </StyledIntroSection>
    );
 };

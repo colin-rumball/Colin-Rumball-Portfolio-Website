@@ -49,7 +49,7 @@ const StyledModalViewer = styled.div<StyledModalViewerProps>`
       min-width: 40vw;
       max-width: 95vw;
 
-      ${props => (props.systemState == ModalSystemState.OPEN ? ModalOpeningAnimation : null)};
+      ${(props) => (props.systemState == ModalSystemState.OPEN ? ModalOpeningAnimation : null)};
 
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
          max-width: 80vw;
@@ -57,6 +57,10 @@ const StyledModalViewer = styled.div<StyledModalViewerProps>`
 
       @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
          max-width: 85vw;
+      }
+
+      .image-light-box {
+         max-height: 90vh;
       }
    }
 `;

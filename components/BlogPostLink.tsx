@@ -5,11 +5,6 @@ import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 
-export enum BlogPost {
-   IMPORTANCE_OF_COMPONENT_DESIGN = "The-Importance-of-Component-Based-UI-Design",
-   ERROR = "error"
-}
-
 interface StyledBlogPostLinkProps {}
 
 const StyledBlogPostLink = styled.li<StyledBlogPostLinkProps>`
@@ -38,21 +33,22 @@ const StyledBlogPostLink = styled.li<StyledBlogPostLinkProps>`
 `;
 
 interface BlogPostLinkProps extends ComponentBaseProps {
-   post: BlogPost;
+   title: string;
    sample: string;
+   link: string;
 }
 
 const BlogPostLinkDefaultProps: BlogPostLinkProps = {
-   post: BlogPost.ERROR,
-   sample: ""
+   title: "",
+   sample: "",
+   link: "",
 };
 
-const BlogPostLink: React.FC<BlogPostLinkProps> = ({ post, sample }) => {
-   const title = useMemo(() => post.split("-").join(" "), [post]);
+const BlogPostLink: React.FC<BlogPostLinkProps> = ({ title, sample, link }) => {
    return (
       <StyledBlogPostLink>
-         <Link href={`/posts/[pid]`} as={`/posts/${post}`}>
-            <a>
+         <Link href={link}>
+            <a target="_blank">
                {title}
                <p>{sample}</p>
             </a>

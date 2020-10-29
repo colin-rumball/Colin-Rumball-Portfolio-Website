@@ -1,10 +1,10 @@
+import Image from "next/image";
 import React, { Props } from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { FiFileText } from "react-icons/fi";
 import styled from "styled-components";
 import Button, { ButtonSize } from "../../components/basic/Buttons/Button";
 import LinkButton from "../../components/basic/Buttons/LinkButton";
-import Picture from "../../components/basic/Pictures/Picture";
 import FullWidthSection from "../../components/basic/Sections/FullWidthSection";
 import Section from "../../components/basic/Sections/Section";
 import withDefaultProps from "../../helpers/withDefaultProps";
@@ -40,8 +40,14 @@ const StyledAboutMeSection = styled(Section)<StyledAboutMeSectionProps>`
          margin-top: 0;
          margin-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.M};
 
+         min-height: 495px;
+         overflow: hidden;
+
+         div {
+            position: static !important;
+         }
+
          .inner-image {
-            min-height: 495px;
             object-fit: cover;
          }
       }
@@ -145,10 +151,12 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
    return (
       <StyledAboutMeSection>
          <FullWidthSection className="about-image">
-            <Picture
-               imgClassName="inner-image"
-               src={require("public/images/about/van.png")}
-               webp={require("public/images/about/van.png?webp")}
+            <Image
+               src="/images/about/van.png"
+               className="inner-image"
+               width="768"
+               height="510"
+               sizes="(max-width: 768px) 495px, 768px"
             />
          </FullWidthSection>
          <Section className="info">
@@ -184,12 +192,12 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
                   </Button>
                </a>
                <LinkButton
-                  href="public/ColinRumball_Resume_2020.pdf"
+                  href="/ColinRumball_Resume_2020.pdf"
                   linkProps={{ target: "_blank" }}
                   buttonProps={{
                      icon: <FiFileText />,
                      buttonSize: ButtonSize.MEDIUM,
-                     className: "about-button"
+                     className: "about-button",
                   }}
                >
                   RESUME

@@ -1,3 +1,4 @@
+import React from "react";
 import GetComponentDisplayName from "./utils/GetComponentDisplayName";
 import Theme, { ThemeContainer } from "../themes/definitions/Theme";
 import SiteHeader from "../containers/SiteHeader";

@@ -1,15 +1,14 @@
 import Components, { Page, Button, SiteHeader } from "../definitions/Components";
 import Variables from "../definitions/Variables";
 
-export default (VARIABLES: Variables): Components => {
+const UnoThemeComponents = (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
       BACKGROUND: `linear-gradient(180deg, #BE0245 0%, #F03E17 100%)`,
-      OVERLAYED_BACKGROUND: `url("public/images/uno/uno_background.png")`,
+      OVERLAYED_BACKGROUND: `url("/images/uno/uno_background.png")`,
       OVERLAYED_BG_BLEND: "overlay"
    };
-   //url("public/images/uno/uno-background.png")
 
    const BUTTON: Button = {
       FONT_COLOR: { DEFAULT: COLORS.SECONDARY.BASE, ALTERNATE: COLORS.SECONDARY.BASE },
@@ -27,3 +26,5 @@ export default (VARIABLES: Variables): Components => {
       SITE_HEADER
    };
 };
+
+export default UnoThemeComponents;

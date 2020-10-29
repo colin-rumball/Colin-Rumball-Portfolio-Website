@@ -11,7 +11,6 @@ interface StyledSkillsSectionProps {}
 
 const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
    margin: 0;
-
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
       display: flex;
       justify-content: space-between;
@@ -22,7 +21,6 @@ const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
    @media (min-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.LARGE}) {
       width: 75%;
    }
-
    div.tech-list {
       width: 100%;
 
@@ -93,6 +91,7 @@ const StyledSkillsSection = styled(Section)<StyledSkillsSectionProps>`
 
             h3.title {
                padding-left: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.L};
+               width: auto;
             }
          }
       }
@@ -112,7 +111,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
-                     background: themeContext.VARIABLES.COLORS.GRADIENTS[0]
+                     background: themeContext.VARIABLES.COLORS.GRADIENTS[0],
                   }}
                >
                   <h3 className="title">FRONT END</h3>
@@ -132,7 +131,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
-                     background: themeContext.VARIABLES.COLORS.GRADIENTS[1]
+                     background: themeContext.VARIABLES.COLORS.GRADIENTS[1],
                   }}
                >
                   <h3 className="title">BACK END</h3>
@@ -152,7 +151,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                <div
                   style={{
                      boxShadow: "0px 0px 10px rgba(150, 203, 184, 0.5)",
-                     background: themeContext.VARIABLES.COLORS.GRADIENTS[2]
+                     background: themeContext.VARIABLES.COLORS.GRADIENTS[2],
                   }}
                >
                   <h3 className="title">OTHER</h3>

@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
+
 import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { Pagination } from "swiper";
-import Picture from "./basic/Pictures/Picture";
 
 interface StyledPictureCarouselProps {}
 
@@ -17,6 +16,10 @@ const StyledPictureCarousel = styled.div<StyledPictureCarouselProps>`
       transform: scale(0.95);
       opacity: 0.8;
       filter: blur(2px);
+
+      .slide-inner-image {
+         max-width: 100%;
+      }
 
       &.swiper-slide-active {
          opacity: 1;
@@ -74,7 +77,9 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
             breakpoints={{ 768: { slidesPerView: 3 } }}
          >
             {React.Children.map(children, (child) => (
-               <SwiperSlide>{child}</SwiperSlide>
+               <SwiperSlide>
+                  {React.cloneElement(child as any, { className: "slide-inner-image" })}
+               </SwiperSlide>
             ))}
          </Swiper>
       </StyledPictureCarousel>

@@ -1,11 +1,11 @@
 import Components, { Page, Button, SiteHeader } from "../definitions/Components";
 import Variables from "../definitions/Variables";
 
-export default (VARIABLES: Variables): Components => {
+const TLPThemeComponents = (VARIABLES: Variables): Components => {
    const { COLORS } = VARIABLES;
 
    const PAGE: Page = {
-      BACKGROUND: 'url("public/images/the-loneliness-project/stars.png")'
+      BACKGROUND: 'url("/images/the-loneliness-project/stars.png")'
    };
 
    const BUTTON: Button = {
@@ -24,3 +24,5 @@ export default (VARIABLES: Variables): Components => {
       SITE_HEADER
    };
 };
+
+export default TLPThemeComponents;

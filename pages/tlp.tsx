@@ -1,11 +1,11 @@
+import Image from "next/image";
 import React from "react";
 import { FiGithub, FiLink } from "react-icons/fi";
 import styled from "styled-components";
 import { ButtonSize } from "../components/basic/Buttons/Button";
 import ExternalLinkButton from "../components/basic/Buttons/ExternalLinkButton";
 import List from "../components/basic/List";
-import EnhancedPicture from "../components/basic/Pictures/EnhancedPicture";
-import Picture from "../components/basic/Pictures/Picture";
+import EnhancedImage from "../components/basic/EnhancedImage";
 import FullWidthSection from "../components/basic/Sections/FullWidthSection";
 import ResposiveSection from "../components/basic/Sections/ResposiveSection";
 import FeaturedVideo from "../components/content/FeaturedVideo";
@@ -70,7 +70,7 @@ const Styledtlp = styled.div<StyledtlpProps>`
    section.lightbox-images {
       justify-content: space-between;
 
-      picture {
+      & > * {
          @media (max-width: ${({ theme }: ThemeContainer) => theme.VARIABLES.BREAK_POINTS.MEDIUM}) {
             padding-bottom: ${({ theme }: ThemeContainer) => theme.VARIABLES.SPACING.S};
          }
@@ -154,7 +154,7 @@ const tlp: React.FC = ({}) => {
    return (
       <Styledtlp>
          <PageMainContent>
-            <FeaturedVideo src="public/videos/tlp-main.mp4" />
+            <FeaturedVideo src="/videos/tlp-main.mp4" />
             <ResposiveSection className="upper-section">
                <article className="description">
                   <p className="text">
@@ -182,7 +182,7 @@ const tlp: React.FC = ({}) => {
                      buttonProps={{
                         icon: <FiLink />,
                         buttonSize: ButtonSize.LARGE,
-                        style: { whiteSpace: "nowrap" }
+                        style: { whiteSpace: "nowrap" },
                      }}
                      className="link"
                      href="https://thelonelinessproject.org"
@@ -194,7 +194,7 @@ const tlp: React.FC = ({}) => {
                         icon: <FiGithub />,
                         buttonSize: ButtonSize.LARGE,
 
-                        style: { whiteSpace: "nowrap" }
+                        style: { whiteSpace: "nowrap" },
                      }}
                      className="link"
                      href="https://github.com/colin-rumball/The-Loneliness-Project"
@@ -205,60 +205,73 @@ const tlp: React.FC = ({}) => {
             </ResposiveSection>
 
             <ResposiveSection className="lightbox-images">
-               <EnhancedPicture
+               <EnhancedImage
                   opensLightbox
                   showBorder
                   style={{ flexBasis: "48%" }}
-                  pictureProps={{
-                     src: require("public/images/the-loneliness-project/tlp-about-horizontal.png"),
-                     webp: require("public/images/the-loneliness-project/tlp-about-horizontal.png?webp")
-                  }}
+                  image={
+                     <Image
+                        src="/images/the-loneliness-project/tlp-about-horizontal.png"
+                        unsized={true}
+                     />
+                  }
                />
-               <EnhancedPicture
+               <EnhancedImage
                   opensLightbox
                   showBorder
                   style={{ flexBasis: "48%" }}
-                  pictureProps={{
-                     src: require("public/images/the-loneliness-project/tlp-story-horizontal.png"),
-                     webp: require("public/images/the-loneliness-project/tlp-story-horizontal.png?webp")
-                  }}
+                  image={
+                     <Image
+                        src="/images/the-loneliness-project/tlp-story-horizontal.png"
+                        unsized={true}
+                     />
+                  }
                />
             </ResposiveSection>
 
             <FullWidthSection className="feature-section">
                <ResposiveSection className="lower-info" style={{ justifyContent: "space-between" }}>
                   <article className="mobile-images">
-                     <EnhancedPicture
+                     <EnhancedImage
                         opensLightbox
                         className="inner-image"
-                        pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-main_phone.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-main_phone.png?webp")
-                        }}
+                        image={
+                           <Image
+                              src="/images/the-loneliness-project/tlp-main_phone.png"
+                              width="188"
+                              height="342"
+                           />
+                        }
                      />
-                     <EnhancedPicture
+                     <EnhancedImage
                         opensLightbox
                         className="inner-image"
-                        pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-dashboard_phone.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-dashboard_phone.png?webp")
-                        }}
+                        image={
+                           <Image
+                              src="/images/the-loneliness-project/tlp-dashboard_phone.png"
+                              width="188"
+                              height="342"
+                           />
+                        }
                      />
-                     <EnhancedPicture
+                     <EnhancedImage
                         opensLightbox
                         className="inner-image"
-                        pictureProps={{
-                           src: require("public/images/the-loneliness-project/tlp-edit-apartment_phone.png"),
-                           webp: require("public/images/the-loneliness-project/tlp-edit-apartment_phone.png?webp")
-                        }}
+                        image={
+                           <Image
+                              src="/images/the-loneliness-project/tlp-edit-apartment_phone.png"
+                              width="188"
+                              height="342"
+                           />
+                        }
                      />
                   </article>
                   <article className="tech-and-features">
                      <h4 className="title">DEVELOPMENT FEATURES</h4>
-                     <Picture
-                        imgClassName="tech-stack"
-                        src={require("public/images/the-loneliness-project/tech_stack.png")}
-                        webp={require("public/images/the-loneliness-project/tech_stack.png?webp")}
+                     <Image
+                        className="tech-stack"
+                        src="/images/the-loneliness-project/tech_stack.png"
+                        unsized={true}
                      />
                      <List className="dev-features" itemsClassName="dev-feature">
                         <>Written in modern React, using only functional components with hooks.</>
