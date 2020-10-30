@@ -6,7 +6,9 @@ import { ComponentBaseProps } from "../helpers/utils/ComponentBaseProps";
 import withDefaultProps from "../helpers/withDefaultProps";
 import { ThemeContainer } from "../themes/definitions/Theme";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { Pagination } from "swiper";
+import SwiperCore, { Pagination } from "swiper";
+
+SwiperCore.use([Pagination]);
 
 interface StyledPictureCarouselProps {}
 
@@ -42,6 +44,7 @@ const StyledPictureCarousel = styled.div<StyledPictureCarouselProps>`
    .swiper-pagination {
       position: relative;
       bottom: 0;
+      margin-bottom: 10px;
 
       span.swiper-pagination-bullet {
          background: ${({ theme }: ThemeContainer) => theme.VARIABLES.COLORS.NEUTRALS.BASE};
@@ -69,11 +72,11 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
    return (
       <StyledPictureCarousel className={className} style={style}>
          <Swiper
-            pagination={{ el: ".swiper-pagination", type: "bullets", clickable: true }}
+            pagination={{ type: "bullets", clickable: true }}
             centeredSlides={true}
             slidesPerView={1}
             slideToClickedSlide={true}
-            loop={true}
+            loop={false}
             breakpoints={{ 768: { slidesPerView: 3 } }}
          >
             {React.Children.map(children, (child) => (

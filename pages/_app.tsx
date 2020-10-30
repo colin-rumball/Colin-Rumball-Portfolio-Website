@@ -6,6 +6,7 @@ import GlobalStyles from "../components/GlobalStyles";
 import { ModalSystemProvider } from "../contexts/ModalContext/ModalSystem";
 import BaseTheme from "../themes/BaseTheme/BaseTheme";
 import "swiper/swiper.scss";
+import "swiper/components/pagination/pagination.scss";
 
 class MyApp extends App {
    render() {
