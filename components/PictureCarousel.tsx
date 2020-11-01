@@ -76,7 +76,7 @@ const PictureCarousel: React.FC<PictureCarouselProps> = ({ className, style, chi
             centeredSlides={true}
             slidesPerView={1}
             slideToClickedSlide={true}
-            loop={false}
+            loop={true}
             breakpoints={{ 768: { slidesPerView: 3 } }}
          >
             {React.Children.map(children, (child) => (
