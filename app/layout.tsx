@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { cn } from "@/libs/utils";
+import { TailwindIndicator } from "@/components/TailwindIndicator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className)}>
-        <div>
+        <div className="mx-auto container max-w-screen-xl px-4 flex flex-col md:flex-row md:px-12">
           <Header />
           {children}
         </div>
+        <TailwindIndicator />
       </body>
     </html>
   );
