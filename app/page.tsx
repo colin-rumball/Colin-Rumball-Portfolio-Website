@@ -1,18 +1,41 @@
 export default function Home() {
   return (
-    <main className="md:flex-1 min-h-screen">
-      <div className="h-80">
-        <h3 className="sticky top-0">ABOUT</h3>
-      </div>
-      <div className="min-h-screen">
-        <h3 className="sticky top-0 ">EXPERIENCE</h3>
-      </div>
-      <div className="min-h-screen">
-        <h3 className="sticky top-0">PROJECTS</h3>
-      </div>
-      <div className="h-40">
-        <h3>POSTS</h3>
-      </div>
+    <main className="min-h-screen md:flex-1">
+      <section id="about" className="scroll-mt-16" aria-label="About me">
+        <div>About</div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+      </section>
+      <section
+        id="experience"
+        className="scroll-mt-16"
+        aria-label="My experience"
+      >
+        <div>Experience</div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+      </section>
+      <section
+        id="projects"
+        className="scroll-mt-16"
+        aria-label="Things I've built"
+      >
+        <div>Projects</div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+      </section>
+      <section id="posts" className="scroll-mt-16" aria-label="Posts">
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+      </section>
     </main>
   );
 }
