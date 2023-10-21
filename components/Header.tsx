@@ -5,7 +5,7 @@ import { cn } from "@/libs/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { UrlObject } from "url";
 
-const NavItem = (label: string, href: UrlObject) => {
+const NavItem = (label: string, href: string) => {
   return (
     <li
       className={cn(
@@ -38,9 +38,9 @@ const Header = (props: Props) => {
       <BusinessCard />
       <nav className="text-md my-16 hidden md:block">
         <ul className="group/list relative space-y-4 py-8 font-bold">
-          {NavItem("About", { href: "#about" })}
-          {NavItem("Experience", { href: "#experience" })}
-          {NavItem("Projects", { href: "#projects" })}
+          {NavItem("About", "#about")}
+          {NavItem("Experience", "#experience")}
+          {NavItem("Projects", "#projects")}
         </ul>
       </nav>
       <div className="mb-16 flex flex-1 flex-col justify-end">
