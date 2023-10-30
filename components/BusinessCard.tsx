@@ -1,6 +1,9 @@
+"use client";
+
 import { cn } from "@/libs/utils";
 import Link from "next/link";
 import { FiLinkedin, FiGithub, FiCompass } from "react-icons/fi";
+import TypeIt from "typeit-react";
 
 interface Props extends React.ComponentPropsWithoutRef<"div"> {}
 
@@ -9,7 +12,7 @@ const BusinessCard = ({ className, ...props }: Props) => {
     <article
       className={cn(
         className,
-        "relative m-3 rounded-md bg-slate-700 p-6 text-slate-200",
+        "relative m-3 rounded-md bg-slate-800 p-6 text-slate-200",
       )}
     >
       <div className="absolute left-4 top-4 h-1/2 w-1/2 rounded-md bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[6px]" />
@@ -17,7 +20,28 @@ const BusinessCard = ({ className, ...props }: Props) => {
       <div className="relative z-10 rounded-md bg-slate-800 p-4">
         <div className="mb-6">
           <h1 className="text-4xl">Colin Rumball</h1>
-          <h2 className="text-md">UI Engineer</h2>
+          <span className="text-xl">
+            <TypeIt
+              options={{
+                strings: [
+                  "Software Engineer",
+                  "UI Engineer",
+                  "Mushroom Farmer",
+                  "Entrepreneur",
+                  "Problem Solver",
+                ],
+                html: true,
+                speed: 85,
+                loopDelay: 1750,
+                nextStringDelay: 1750,
+                cursor: false,
+                waitUntilVisible: true,
+                loop: true,
+                breakLines: false,
+                lifeLike: true,
+              }}
+            />
+          </span>
         </div>
         <div className="flex items-end justify-between">
           <div className="flex space-x-3">
