@@ -33,7 +33,7 @@ const Header = (props: Props) => {
   return (
     <header
       {...props}
-      className="mb-12 md:sticky md:top-0 md:mb-auto md:mr-3 md:flex md:h-screen md:w-1/2 md:flex-1 md:flex-col md:justify-between"
+      className="mb-12 md:sticky md:top-20 md:mb-auto md:mr-3 md:flex md:h-screen md:w-1/2 md:flex-1 md:flex-col md:justify-between"
     >
       <BusinessCard />
       <nav className="text-md my-16 hidden md:block">
