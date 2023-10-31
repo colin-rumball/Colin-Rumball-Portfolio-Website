@@ -8,16 +8,23 @@ import { LiaGraduationCapSolid } from "react-icons/lia";
 import { PiRocket } from "react-icons/pi";
 import { TbMushroom } from "react-icons/tb";
 import { GrReactjs } from "react-icons/gr";
+import TLPImage from "@/../public/images/tlp.png";
+import LEGOImage from "@/../public/images/lego.png";
+import UNOImage from "@/../public/images/uno.png";
+import Image from "next/image";
+import Link from "next/link";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
+import Project from "@/components/Project";
 
 export default function Home() {
   return (
-    <main className="min-h-screen md:flex-1 md:pt-20">
+    <main className="min-h-screen lg:flex-1 lg:pt-20">
       <section
         id="about"
         className="relative scroll-mt-16 p-4"
         aria-label="About me"
       >
-        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:sr-only md:relative md:top-auto md:mx-auto md:w-full md:px-12 md:py-0 md:opacity-0">
+        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
           <strong>About</strong>
         </h3>
         <p className="mb-4">
@@ -44,18 +51,18 @@ export default function Home() {
         className="mb-20 scroll-mt-16"
         aria-label="My experience"
       >
-        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:sr-only md:relative md:top-auto md:mx-auto md:w-full md:px-12 md:py-0 md:opacity-0">
+        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
           <strong>Experience</strong>
         </h3>
         <div className="relative flex flex-col py-6">
           {/* GEORGE BROWN */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute bottom-0 left-1/2 top-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
-            <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
+            <div className="bg-ff-navy-blue absolute bottom-0 left-1/2 top-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
+            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
               <LiaGraduationCapSolid />
             </span>
-            <div className="relative rounded-lg border-2 border-slate-700 px-6 py-4">
+            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
@@ -73,14 +80,14 @@ export default function Home() {
           {/* UI Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
-            <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
+            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
+            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
               <BsBriefcase />
             </span>
             <div className="flex flex-col items-end justify-center">
               <span className="">2015</span>
             </div>
-            <div className="relative rounded-lg border-2 border-slate-700 px-6 py-4">
+            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
               <div className="absolute -left-4 top-1/2 -translate-y-1/2">
                 <BsCaretLeftFill />
               </div>
@@ -95,11 +102,11 @@ export default function Home() {
           {/* Gameplay Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
-            <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
+            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
+            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
               <PiRocket />
             </span>
-            <div className="relative rounded-lg border-2 border-slate-700 px-6 py-4">
+            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
@@ -119,14 +126,14 @@ export default function Home() {
           {/* Mushrooms */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
-            <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
+            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
+            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
               <TbMushroom />
             </span>
             <div className="flex flex-col items-end justify-center">
               <span className="">2020</span>
             </div>
-            <div className="relative rounded-lg border-2 border-slate-700 px-6 py-4">
+            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
               <div className="absolute -left-4 top-1/2 -translate-y-1/2">
                 <BsCaretLeftFill />
               </div>
@@ -144,11 +151,11 @@ export default function Home() {
           {/* React */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
-            <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
+            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-opacity-70" />
+            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
               <GrReactjs />
             </span>
-            <div className="relative rounded-lg border-2 border-slate-700 px-6 py-4">
+            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
@@ -162,7 +169,7 @@ export default function Home() {
             <div className="flex flex-col justify-center">
               <span className="">2023</span>
             </div>
-            <div className="absolute inset-x-0 -bottom-3 flex justify-center text-center text-slate-800 opacity-50">
+            <div className="absolute inset-x-0 -bottom-3 flex justify-center text-center opacity-50">
               <BsCaretDownFill />
             </div>
           </div>
@@ -173,19 +180,46 @@ export default function Home() {
         className="scroll-mt-16"
         aria-label="Things I've built"
       >
-        <div>Projects</div>
-        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
-        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
-        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
-        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
-        <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
+        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
+          <strong>Projects</strong>
+        </h3>
+        <Project
+          title="THE LONELINESS PROJECT"
+          technologies={[
+            "TYPESCRIPT",
+            "REACT",
+            "STYLE-COMPONENTS",
+            "PRISMA",
+            "GRAPHQL",
+            "NEXTJS",
+          ]}
+          image={{ src: TLPImage, alt: "The Loneliness Project" }}
+          links={[
+            {
+              label: (
+                <>
+                  VIEW WEBSITE <FiExternalLink />
+                </>
+              ),
+              href: "https://www.thelonelinessproject.org/",
+            },
+            {
+              label: (
+                <>
+                  VIEW INFO <FiGithub />
+                </>
+              ),
+              href: "https://github.com/colin-rumball/The-Loneliness-Project",
+            },
+          ]}
+        />
       </section>
-      <section id="posts" className="scroll-mt-16" aria-label="Posts">
+      {/* <section id="posts" className="scroll-mt-16" aria-label="Posts">
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
-      </section>
+      </section> */}
     </main>
   );
 }
