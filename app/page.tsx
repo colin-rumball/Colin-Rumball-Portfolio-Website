@@ -1,4 +1,9 @@
-import { BsCaretRightFill, BsCaretLeftFill, BsBriefcase } from "react-icons/bs";
+import {
+  BsCaretRightFill,
+  BsCaretLeftFill,
+  BsBriefcase,
+  BsCaretDownFill,
+} from "react-icons/bs";
 import { LiaGraduationCapSolid } from "react-icons/lia";
 import { PiRocket } from "react-icons/pi";
 import { TbMushroom } from "react-icons/tb";
@@ -7,7 +12,11 @@ import { GrReactjs } from "react-icons/gr";
 export default function Home() {
   return (
     <main className="min-h-screen md:flex-1 md:pt-20">
-      <section id="about" className="scroll-mt-16" aria-label="About me">
+      <section
+        id="about"
+        className="relative scroll-mt-16 p-4"
+        aria-label="About me"
+      >
         <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:sr-only md:relative md:top-auto md:mx-auto md:w-full md:px-12 md:py-0 md:opacity-0">
           <strong>About</strong>
         </h3>
@@ -39,10 +48,10 @@ export default function Home() {
           <strong>Experience</strong>
         </h3>
         <div className="relative flex flex-col py-6">
-          {/* Vertical line */}
-          <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
           {/* GEORGE BROWN */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute bottom-0 left-1/2 top-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
             <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
               <LiaGraduationCapSolid />
             </span>
@@ -63,6 +72,8 @@ export default function Home() {
 
           {/* UI Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
             <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
               <BsBriefcase />
             </span>
@@ -83,6 +94,8 @@ export default function Home() {
 
           {/* Gameplay Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
             <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
               <PiRocket />
             </span>
@@ -105,6 +118,8 @@ export default function Home() {
 
           {/* Mushrooms */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
             <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
               <TbMushroom />
             </span>
@@ -128,6 +143,8 @@ export default function Home() {
 
           {/* React */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-slate-800 bg-opacity-50" />
             <span className="background-site-background absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-slate-800 p-4 text-3xl">
               <GrReactjs />
             </span>
@@ -144,6 +161,9 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center">
               <span className="">2023</span>
+            </div>
+            <div className="absolute inset-x-0 -bottom-3 flex justify-center text-center text-slate-800 opacity-50">
+              <BsCaretDownFill />
             </div>
           </div>
         </div>
