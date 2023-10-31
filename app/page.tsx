@@ -8,11 +8,9 @@ import { LiaGraduationCapSolid } from "react-icons/lia";
 import { PiRocket } from "react-icons/pi";
 import { TbMushroom } from "react-icons/tb";
 import { GrReactjs } from "react-icons/gr";
-import TLPImage from "@/../public/images/tlp.png";
-import LEGOImage from "@/../public/images/lego.png";
-import UNOImage from "@/../public/images/uno.png";
-import Image from "next/image";
-import Link from "next/link";
+import TLPImage from "@/../public/images/TLP.png";
+// import LEGOImage from "@/../public/images/lego.png";
+// import UNOImage from "@/../public/images/uno.png";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import Project from "@/components/Project";
 
@@ -58,11 +56,11 @@ export default function Home() {
           {/* GEORGE BROWN */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="bg-ff-navy-blue absolute bottom-0 left-1/2 top-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
-            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
+            <div className="absolute bottom-0 left-1/2 top-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
               <LiaGraduationCapSolid />
             </span>
-            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
@@ -80,14 +78,14 @@ export default function Home() {
           {/* UI Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
-            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
+            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
               <BsBriefcase />
             </span>
             <div className="flex flex-col items-end justify-center">
               <span className="">2015</span>
             </div>
-            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -left-4 top-1/2 -translate-y-1/2">
                 <BsCaretLeftFill />
               </div>
@@ -102,11 +100,11 @@ export default function Home() {
           {/* Gameplay Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
-            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
+            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
               <PiRocket />
             </span>
-            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
@@ -126,14 +124,14 @@ export default function Home() {
           {/* Mushrooms */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-opacity-70" />
-            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
+            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
               <TbMushroom />
             </span>
             <div className="flex flex-col items-end justify-center">
               <span className="">2020</span>
             </div>
-            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -left-4 top-1/2 -translate-y-1/2">
                 <BsCaretLeftFill />
               </div>
@@ -151,11 +149,11 @@ export default function Home() {
           {/* React */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="bg-ff-navy-blue absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-opacity-70" />
-            <span className="bg-ff-cream border-ff-navy-blue absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 p-4 text-3xl">
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
               <GrReactjs />
             </span>
-            <div className="border-ff-navy-blue relative rounded-lg border-2 px-6 py-4">
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
