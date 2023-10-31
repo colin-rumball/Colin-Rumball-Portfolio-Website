@@ -12,12 +12,12 @@ const BusinessCard = ({ className, ...props }: Props) => {
     <article
       className={cn(
         className,
-        "relative m-3 rounded-md bg-slate-800 p-6 text-slate-200",
+        "bg-ff-navy-blue text-ff-cream relative m-3 rounded-md p-6",
       )}
     >
       <div className="absolute left-4 top-4 h-1/2 w-1/2 rounded-md bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[6px]" />
       <div className="absolute bottom-4 right-4 h-1/2 w-1/2 rounded-md bg-gradient-to-r from-[#9333EA] via-[#3B82F6] to-[#6EE7B7] p-[6px]" />
-      <div className="relative z-10 rounded-md bg-slate-800 p-4">
+      <div className="bg-ff-navy-blue relative z-10 rounded-md p-4">
         <div className="mb-6">
           <h1 className="text-4xl">Colin Rumball</h1>
           <span className="text-xl">
@@ -34,11 +34,10 @@ const BusinessCard = ({ className, ...props }: Props) => {
                 speed: 85,
                 loopDelay: 1750,
                 nextStringDelay: 1750,
+                startDelete: true,
                 cursor: false,
-                waitUntilVisible: true,
                 loop: true,
                 breakLines: false,
-                lifeLike: true,
               }}
             />
           </span>
@@ -47,14 +46,14 @@ const BusinessCard = ({ className, ...props }: Props) => {
           <div className="flex space-x-3">
             <Link
               href="https://github.com/colin-rumball"
-              className="hover:text-pink-400"
+              className="hover:text-ff-pink active:text-ff-dark-pink"
               target="_blank"
             >
               <FiGithub />
             </Link>
             <Link
               href="https://www.linkedin.com/in/colinrumball/"
-              className="hover:text-pink-400"
+              className="hover:text-ff-pink active:text-ff-dark-pink"
               target="_blank"
             >
               <FiLinkedin />

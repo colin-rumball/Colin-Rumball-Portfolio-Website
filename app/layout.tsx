@@ -22,10 +22,10 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "scroll-smooth leading-relaxed antialiased selection:bg-pink-300 selection:text-pink-900",
+          "selection:bg-ff-light-pink selection:text-ff-dark-pink mb-12 scroll-smooth leading-snug antialiased",
         )}
       >
-        <div className="container mx-auto flex max-w-screen-xl flex-col px-4 md:flex-row md:px-12">
+        <div className="container mx-auto flex max-w-screen-xl flex-col px-4 lg:flex-row lg:px-12">
           <Header />
           {children}
         </div>
