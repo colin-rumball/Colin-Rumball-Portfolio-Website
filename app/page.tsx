@@ -26,6 +26,24 @@ export default function Home() {
         <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
           <strong>Experience</strong>
         </h3>
+        <ol className="group/list">
+          <Project
+            location="Growing Good Co"
+            title="founder"
+            date="2020-2023"
+            description="Sharing stories and starting a conversation about loneliness. Become
+            part of our community of people who are not as alone as they think."
+            image={{ src: TLPImage, alt: "" }}
+          />
+          <Project
+            location="Growing Good Co"
+            title="founder"
+            date="2020-2023"
+            description="Sharing stories and starting a conversation about loneliness. Become
+            part of our community of people who are not as alone as they think."
+            image={{ src: TLPImage, alt: "" }}
+          />
+        </ol>
         <div className="relative flex flex-col pb-6">
           {/* React */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
@@ -147,7 +165,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section
+      {/* <section
         id="projects"
         className="scroll-mt-16"
         aria-label="Things I've built"
@@ -185,7 +203,7 @@ export default function Home() {
             },
           ]}
         />
-      </section>
+      </section> */}
       {/* <section id="posts" className="scroll-mt-16" aria-label="Posts">
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>
         <div className="m-4 h-96 border-red-600 bg-slate-600"></div>

@@ -15,6 +15,7 @@ const config: Config = {
         "ff-pink": "#f582ae", // primary
         "ff-dark-pink": "#ff3d6a", // primary offset
         "ff-pale-cyan": "#8bd3dd", // secondary
+        "ff-green": "#006e8a",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
