@@ -9,11 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "ff-navy-blue": "#172c66",
-        "ff-cream": "#fef6e4",
-        "ff-light-pink": "#f3d2c1",
-        "ff-pink": "#f582ae",
-        "ff-dark-pink": "#ff3d6a",
+        "ff-navy-blue": "#172c66", // text
+        "ff-cream": "#fef6e4", // bg
+        "ff-light-pink": "#f3d2c1", // border
+        "ff-pink": "#f582ae", // primary
+        "ff-dark-pink": "#ff3d6a", // primary offset
+        "ff-pale-cyan": "#8bd3dd", // secondary
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

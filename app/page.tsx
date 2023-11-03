@@ -2,7 +2,8 @@ import {
   BsCaretRightFill,
   BsCaretLeftFill,
   BsBriefcase,
-  BsCaretDownFill,
+  BsCaretUpFill,
+  BsArrowRight,
 } from "react-icons/bs";
 import { LiaGraduationCapSolid } from "react-icons/lia";
 import { PiRocket } from "react-icons/pi";
@@ -18,33 +19,6 @@ export default function Home() {
   return (
     <main className="min-h-screen lg:flex-1 lg:pt-20">
       <section
-        id="about"
-        className="relative scroll-mt-16 p-4"
-        aria-label="About me"
-      >
-        <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
-          <strong>About</strong>
-        </h3>
-        <p className="mb-4">
-          I&apos;ve been passionate about software development since high
-          school, and being a lifelong gamer, I originally sought an outlet for
-          my interest in the games industry, studying game development at school
-          and then working in the mobile games industry.
-        </p>
-        <p className="mb-4">
-          In recent years, I became captivated by the creativity and challenge
-          of web development, and I&apos;ve found a new sense of enjoyment from
-          this different medium, a new canvas for my passion for problem
-          solving. In my spare time I find myself dabbling in side projects,
-          searching for a more streamlined development process, and finding that
-          perfect stack 🥞
-        </p>
-        <p className="mb-4">
-          Besides web and games I enjoy climbing mountains, doing yoga,
-          tinkering with tech, camping, and travelling with my wife.
-        </p>
-      </section>
-      <section
         id="experience"
         className="mb-20 scroll-mt-16"
         aria-label="My experience"
@@ -52,72 +26,30 @@ export default function Home() {
         <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
           <strong>Experience</strong>
         </h3>
-        <div className="relative flex flex-col py-6">
-          {/* GEORGE BROWN */}
+        <div className="relative flex flex-col pb-6">
+          {/* React */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute bottom-0 left-1/2 top-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
             <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
-              <LiaGraduationCapSolid />
+              <GrReactjs />
             </span>
             <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
-              <h3 className="font-semibold capitalize">
-                Graduated George Brown College
-              </h3>
-              <p className="">Toronto, ON</p>
-              <p className="">Graduated after 3 years of study.</p>
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="">2015</span>
-            </div>
-          </div>
-
-          {/* UI Dev */}
-          <div className="relative grid grid-cols-2 gap-28 py-4">
-            {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
-            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
-              <BsBriefcase />
-            </span>
-            <div className="flex flex-col items-end justify-center">
-              <span className="">2015</span>
-            </div>
-            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
-              <div className="absolute -left-4 top-1/2 -translate-y-1/2">
-                <BsCaretLeftFill />
-              </div>
-              <h3 className="font-semibold capitalize">Junior UI Developer</h3>
-              <p className="">Toronto, ON</p>
+              <h3 className="font-semibold capitalize">Frontend Engineer</h3>
+              <p className="">Roseneath, ON</p>
               <p className="">
-                Hired as a UI developer to work on the UNO game.
-              </p>
-            </div>
-          </div>
-
-          {/* Gameplay Dev */}
-          <div className="relative grid grid-cols-2 gap-28 py-4">
-            {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
-            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
-              <PiRocket />
-            </span>
-            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
-              <div className="absolute -right-4 top-1/2 -translate-y-1/2">
-                <BsCaretRightFill />
-              </div>
-              <h3 className="font-semibold capitalize">
-                Senior Gameplay Developer
-              </h3>
-              <p className="">Toronto, ON</p>
-              <p className="">
-                Promoted to senior gameplay programmer to work on the LEGO game.
+                Began working full-time as a frontend engineer, building
+                websites and web apps.
               </p>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="">2017</span>
+              <span className="">2023</span>
+            </div>
+            <div className="absolute inset-x-0 -top-3 flex justify-center text-center text-ff-navy-blue opacity-70">
+              <BsCaretUpFill />
             </div>
           </div>
 
@@ -146,29 +78,71 @@ export default function Home() {
             </div>
           </div>
 
-          {/* React */}
+          {/* Gameplay Dev */}
           <div className="relative grid grid-cols-2 gap-28 py-4">
             {/* Vertical line */}
-            <div className="absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
             <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
-              <GrReactjs />
+              <PiRocket />
             </span>
             <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
               <div className="absolute -right-4 top-1/2 -translate-y-1/2">
                 <BsCaretRightFill />
               </div>
-              <h3 className="font-semibold capitalize">Frontend Engineer</h3>
-              <p className="">Roseneath, ON</p>
+              <h3 className="font-semibold capitalize">
+                Senior Gameplay Developer
+              </h3>
+              <p className="">Toronto, ON</p>
               <p className="">
-                Began working full-time as a frontend engineer, building
-                websites and web apps.
+                Promoted to senior gameplay programmer to work on the LEGO game.
               </p>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="">2023</span>
+              <span className="">2017</span>
             </div>
-            <div className="absolute inset-x-0 -bottom-3 flex justify-center text-center opacity-50">
-              <BsCaretDownFill />
+          </div>
+
+          {/* UI Dev */}
+          <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute inset-y-0 left-1/2 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
+              <BsBriefcase />
+            </span>
+            <div className="flex flex-col items-end justify-center">
+              <span className="">2015</span>
+            </div>
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
+              <div className="absolute -left-4 top-1/2 -translate-y-1/2">
+                <BsCaretLeftFill />
+              </div>
+              <h3 className="font-semibold capitalize">Junior UI Developer</h3>
+              <p className="">Toronto, ON</p>
+              <p className="">
+                Hired as a UI developer to work on the UNO game.
+              </p>
+            </div>
+          </div>
+
+          {/* GEORGE BROWN */}
+          <div className="relative grid grid-cols-2 gap-28 py-4">
+            {/* Vertical line */}
+            <div className="absolute bottom-1/2 left-1/2 top-0 -z-30 w-1 -translate-x-1/2 bg-ff-navy-blue bg-opacity-70" />
+            <span className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ff-navy-blue bg-ff-cream p-4 text-3xl">
+              <LiaGraduationCapSolid />
+            </span>
+            <div className="relative rounded-lg border-2 border-ff-navy-blue px-6 py-4">
+              <div className="absolute -right-4 top-1/2 -translate-y-1/2">
+                <BsCaretRightFill />
+              </div>
+              <h3 className="font-semibold capitalize">
+                Graduated George Brown College
+              </h3>
+              <p className="">Toronto, ON</p>
+              <p className="">Graduated after 3 years of study.</p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="">2015</span>
             </div>
           </div>
         </div>

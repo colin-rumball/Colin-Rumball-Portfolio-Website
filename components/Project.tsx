@@ -21,11 +21,12 @@ const Project = ({
   return (
     <div className={cn("relative", className)} {...props}>
       <div className="group relative">
-        <div className="bg-ff-navy-blue absolute inset-0 flex flex-col items-center justify-center gap-8 opacity-0 transition-all duration-300 group-hover:opacity-80">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 bg-ff-navy-blue opacity-0 transition-all duration-300 group-hover:opacity-80">
           {links.map((link) => (
             <Link
+              target="_blank"
               key={link.href}
-              className="border-b-ff-pink hover:text-ff-pink flex items-baseline gap-2 border-b px-2 py-3 text-xl text-white transition-all hover:px-12"
+              className="flex items-baseline gap-2 border-b border-b-ff-pink px-2 py-3 text-xl text-white transition-all hover:px-12 hover:text-ff-pink"
               href={link.href}
             >
               {link.label}
