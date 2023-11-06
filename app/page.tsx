@@ -3,17 +3,13 @@ import {
   BsCaretLeftFill,
   BsBriefcase,
   BsCaretUpFill,
-  BsArrowRight,
 } from "react-icons/bs";
 import { LiaGraduationCapSolid } from "react-icons/lia";
 import { PiRocket } from "react-icons/pi";
 import { TbMushroom } from "react-icons/tb";
 import { GrReactjs } from "react-icons/gr";
-import TLPImage from "@/../public/images/TLP.png";
-// import LEGOImage from "@/../public/images/lego.png";
-// import UNOImage from "@/../public/images/uno.png";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
 import Project from "@/components/Project";
+import TLPModal from "@/components/modals/TLPModal";
 
 export default function Home() {
   return (
@@ -33,7 +29,8 @@ export default function Home() {
             date="2020-2023"
             description="Sharing stories and starting a conversation about loneliness. Become
             part of our community of people who are not as alone as they think."
-            image={{ src: TLPImage, alt: "" }}
+            image={{ src: "/images/TLP.png", alt: "" }}
+            video="/videos/tlp-main.mp4"
           />
           <Project
             location="Growing Good Co"
@@ -41,7 +38,9 @@ export default function Home() {
             date="2020-2023"
             description="Sharing stories and starting a conversation about loneliness. Become
             part of our community of people who are not as alone as they think."
-            image={{ src: TLPImage, alt: "" }}
+            image={{ src: "/images/TLP.png", alt: "" }}
+            video="/videos/tlp-main.mp4"
+            modalContent={<TLPModal />}
           />
         </ol>
         <div className="relative flex flex-col pb-6">

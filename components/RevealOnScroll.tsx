@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from "react";
 interface Props {
   children: React.ReactNode;
   duration?: "100ms" | "200ms" | "300ms" | "500ms" | "700ms" | "1s";
+  delay?: "100ms" | "200ms" | "300ms" | "500ms" | "700ms" | "1s";
 }
 
-const RevealOnScroll = ({ children, duration }: Props) => {
+const RevealOnScroll = ({ children, duration, delay }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -30,7 +31,10 @@ const RevealOnScroll = ({ children, duration }: Props) => {
   return (
     <div
       ref={ref}
-      style={{ transitionDuration: duration }}
+      style={{
+        transitionDuration: duration,
+        transitionDelay: delay ?? "100ms",
+      }}
       className={cn(
         "transition-all",
         isVisible ? "blur-0" : "blur-sm",
