@@ -44,7 +44,7 @@ const Header = (props: Props) => {
   return (
     <header
       {...props}
-      className="mb-12 lg:sticky lg:top-0 lg:mb-auto lg:mr-3 lg:h-screen lg:w-5/12 lg:pt-20"
+      className="mb-12 pr-2 lg:sticky lg:top-0 lg:mb-auto lg:mr-3 lg:h-screen lg:w-5/12 lg:pt-20"
     >
       <div className="mb-10">
         <RevealOnScroll duration="500ms">
@@ -100,7 +100,7 @@ const Header = (props: Props) => {
         <h3 className="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-12 lg:py-0 lg:opacity-0">
           <strong>Tech</strong>
         </h3>
-        <div className="flex flex-wrap gap-x-5 gap-y-3 text-4xl">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-3 text-4xl">
           <span className="flex items-end text-5xl">
             <TbBrandTypescript />
             <span className="text-xl">TypeScript</span>
