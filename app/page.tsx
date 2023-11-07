@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BsCaretRightFill,
   BsCaretLeftFill,
@@ -10,10 +12,18 @@ import { TbMushroom } from "react-icons/tb";
 import { GrReactjs } from "react-icons/gr";
 import Project from "@/components/Project";
 import TLPModal from "@/components/modals/TLPModal";
+import useModalSystemHelper from "@/lib/hooks/useModalSystemHelper";
+import { ModalSystemState } from "@/lib/contexts/ModalSystem/actions/common";
 
 export default function Home() {
+  const { system } = useModalSystemHelper();
+
   return (
-    <main className="min-h-screen lg:flex-1 lg:pt-20">
+    <main
+      className={`min-h-screen lg:flex-1 lg:pt-20 ${
+        system.state === ModalSystemState.OPENING ? "overflow-hidden" : ""
+      }`}
+    >
       <section
         id="experience"
         className="mb-20 scroll-mt-16"
@@ -40,7 +50,6 @@ export default function Home() {
             part of our community of people who are not as alone as they think."
             image={{ src: "/images/TLP.png", alt: "" }}
             video="/videos/tlp-main.mp4"
-            modalContent={<TLPModal />}
           />
         </ol>
         <div className="relative flex flex-col pb-6">

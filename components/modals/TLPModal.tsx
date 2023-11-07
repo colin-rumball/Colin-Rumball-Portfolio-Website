@@ -8,7 +8,7 @@ import Link from "../ui/link";
 
 const TLPModal = () => {
   return (
-    <div className="bg-tlp max-w-screen-xl rounded-lg border border-ff-cream">
+    <div className="max-w-screen-lg rounded-lg border border-ff-cream bg-tlp">
       <div className="p-10 text-ff-cream">
         <video
           autoPlay
@@ -19,7 +19,7 @@ const TLPModal = () => {
           <source src="/videos/tlp-main.mp4" type="video/mp4" />
         </video>
         <div className="my-16 grid grid-cols-8 gap-8 px-6 leading-5 tracking-tight">
-          <div className="col-span-3 flex max-w-prose flex-col">
+          <div className="col-span-8 flex max-w-prose flex-col lg:col-span-3">
             <p className="mb-4">
               The Loneliness Project is a passion project started by my dear
               friend Marissa Korda. It began small and found fast success
@@ -33,7 +33,7 @@ const TLPModal = () => {
               personal yet profoundly universal.”
             </p>
           </div>
-          <p className="col-span-3 max-w-prose">
+          <p className="col-span-8 max-w-prose lg:col-span-3">
             Marissa wished to move the site off of its exiting hosting that
             wasn’t under her ownership, to have more control over its
             development and its future. The original site was built using
@@ -42,7 +42,7 @@ const TLPModal = () => {
             ground up using modern technologies, as well as making several
             quality of life improvements to the experience.
           </p>
-          <div className="col-span-2 flex flex-col items-center gap-6 pt-10">
+          <div className="col-span-8 flex flex-col items-center gap-6 pt-10 lg:col-span-2">
             <Link href={"https://thelonelinessproject.org/"} externalLink>
               Visit Website
             </Link>

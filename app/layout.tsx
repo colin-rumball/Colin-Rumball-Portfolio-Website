@@ -4,7 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { cn } from "@/libs/utils";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
-// import Providers from "@/components/Providers";
+import Providers from "@/components/Providers";
+import ModalViewer from "@/components/ModalViewer/ModalViewer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,11 +27,14 @@ export default function RootLayout({
           "scroll-smooth text-lg leading-snug antialiased selection:bg-ff-light-pink selection:text-ff-dark-pink",
         )}
       >
-        <div className="container mx-auto flex max-w-screen-xl flex-col px-4 lg:flex-row lg:px-12">
-          <Header />
-          {children}
-        </div>
-        <TailwindIndicator />
+        <Providers>
+          <div className="container mx-auto flex max-w-screen-xl flex-col px-4 lg:flex-row lg:px-12">
+            <Header />
+            {children}
+          </div>
+          <TailwindIndicator />
+          <ModalViewer />
+        </Providers>
       </body>
     </html>
   );

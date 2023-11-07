@@ -99,6 +99,21 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         tlp: "url('/images/TLP_bg.png')",
       },
+      animation: {
+        "modal-open": "modal-open 0.3s ease-out",
+        "modal-close": "modal-close 0.3s ease-in-out",
+      },
+      keyframes: {
+        "modal-open": {
+          "0%": { transform: "scale(0.3)", opacity: "0" },
+          "50%": { transform: "scale(1.1)", opacity: "50" },
+          "100%": { transform: "scale(1.0)", opacity: "100" },
+        },
+        "modal-close": {
+          "0%": { transform: "scale(1.0)", opacity: "100" },
+          "100%": { transform: "scale(0.3)", opacity: "0" },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

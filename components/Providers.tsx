@@ -1,9 +1,9 @@
 "use client";
-import ModalContext from "@/lib/contexts/ModalContext";
+import { ModalSystemProvider } from "@/lib/contexts/ModalSystem/ModalSystem";
 import { ReactNode } from "react";
 
 const Providers = ({ children }: { children: ReactNode }) => {
-  return <ModalContext.Provider value={1}>{children}</ModalContext.Provider>;
+  return <ModalSystemProvider>{children}</ModalSystemProvider>;
 };
 
 export default Providers;
