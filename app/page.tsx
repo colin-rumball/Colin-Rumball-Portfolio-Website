@@ -14,10 +14,12 @@ import Project from "@/components/Project";
 import TLPModal from "@/components/modals/TLPModal";
 import useModalSystemHelper from "@/lib/hooks/useModalSystemHelper";
 import { ModalSystemState } from "@/lib/contexts/ModalSystem/actions/common";
+import GGImage from "@/public/images/Logo_Icon_Square.png";
+import ShineImage from "@/public/images/sun.png";
+import Image from "next/image";
 
 export default function Home() {
   const { system } = useModalSystemHelper();
-
   return (
     <main
       className={`min-h-screen lg:flex-1 lg:pt-20 ${
@@ -56,7 +58,7 @@ export default function Home() {
             description="Sharing stories and starting a conversation about loneliness. Become
             part of our community of people who are not as alone as they think."
             image={{ src: "/images/TLP.png", alt: "" }}
-            video="/videos/tlp-main.mp4"
+            video="/videos/ggco-main.mp4"
           />
           <Project
             location="The Loneliness Project"
