@@ -39,7 +39,7 @@ export default function Home() {
             location="MyRatings.monster"
             title="Creator"
             date="2023"
-            description="MyRatings.monster is a tool for viewing and analyzing your ratings on the popular movie rating site IMDB."
+            description="A tool for viewing and analyzing your ratings on the popular movie rating site IMDB."
             image={{ src: "/images/TLP.png", alt: "" }}
             video="/videos/tlp-main.mp4"
           />
@@ -47,7 +47,7 @@ export default function Home() {
             location="FaceCraft.me"
             title="Creator"
             date="2023"
-            description="FaceCraft.me is a platform for creating and sharing AI generated faces."
+            description="A platform for creating and sharing AI generated faces."
             image={{ src: "/images/TLP.png", alt: "" }}
             video="/videos/tlp-main.mp4"
           />
@@ -55,8 +55,7 @@ export default function Home() {
             location="Growing Good Co"
             title="founder"
             date="2020-2023"
-            description="Sharing stories and starting a conversation about loneliness. Become
-            part of our community of people who are not as alone as they think."
+            description="A homegrown indoor farming operation, growing culinary mushrooms for use in cooking, as well as functional mushrooms for medicinal uses."
             image={{ src: "/images/TLP.png", alt: "" }}
             video="/videos/ggco-main.mp4"
           />
