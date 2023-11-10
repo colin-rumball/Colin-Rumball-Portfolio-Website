@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "scroll-smooth text-lg leading-snug antialiased selection:bg-ff-light-pink selection:text-ff-dark-pink",
+          "scroll-smooth bg-ff-cream text-lg leading-snug text-ff-navy-blue antialiased selection:bg-ff-light-pink selection:text-ff-dark-pink",
         )}
       >
         <Providers>
