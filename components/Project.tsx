@@ -58,7 +58,9 @@ const Project = ({
             aria-label="Lead Engineer at Upstatement"
           > */}
           <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-          <h3 className="uppercase tracking-tighter">{location}</h3>
+          <h3 className="uppercase tracking-tight group-hover:text-ff-pink">
+            {location}
+          </h3>
           {/* </a> */}
           <h4 className="uppercase tracking-normal">{title}</h4>
           <h5 className="uppercase">{date}</h5>
