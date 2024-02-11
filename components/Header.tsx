@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { BsArrowRight, BsDownload, BsArrowRightShort } from "react-icons/bs";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { UrlObject } from "url";
 import { TypeAnimation } from "react-type-animation";
@@ -28,7 +28,7 @@ const NavItem = ({ label, href }: { label: string; href: string }) => {
       <Link className="relative p-1" href={href}>
         <div
           className={cn(
-            "absolute left-0 top-0 -z-10 h-full w-full origin-right scale-x-0 bg-ff-pink transition-transform duration-700",
+            "absolute left-0 top-0 -z-10 h-full w-full origin-right scale-x-0 bg-ff-pale-cyan transition-transform duration-700",
             "group-hover/item:origin-left group-hover/item:scale-x-100",
           )}
         />
@@ -38,13 +38,13 @@ const NavItem = ({ label, href }: { label: string; href: string }) => {
   );
 };
 
-interface Props extends React.ComponentPropsWithoutRef<"header"> {}
+interface HeaderProps extends React.ComponentPropsWithoutRef<"header"> {}
 
-const Header = (props: Props) => {
+const Header = (props: HeaderProps) => {
   return (
     <header
       {...props}
-      className="mb-12 pr-2 lg:sticky lg:top-0 lg:mb-auto lg:mr-3 lg:h-screen lg:w-5/12 lg:pt-20"
+      className="lg:sticky lg:top-0 lg:h-screen lg:w-5/12 lg:pl-12 lg:pr-6 lg:pt-12"
     >
       <div className="mb-10">
         <RevealOnScroll duration="500ms">
@@ -80,14 +80,14 @@ const Header = (props: Props) => {
           <div className="flex space-x-3 text-xl">
             <Link
               href="https://github.com/colin-rumball"
-              className="hover:text-ff-pink active:text-ff-dark-pink"
+              className="hover:text-ff-pale-cyan"
               target="_blank"
             >
               <FiGithub />
             </Link>
             <Link
               href="https://www.linkedin.com/in/colinrumball/"
-              className="hover:text-ff-pink active:text-ff-dark-pink"
+              className="hover:text-ff-pale-cyan"
               target="_blank"
             >
               <FiLinkedin />
@@ -163,7 +163,7 @@ const Header = (props: Props) => {
           className="group flex items-center justify-center font-semibold leading-tight"
           href={"mailto:hello@colinrumball.com"}
         >
-          <span className="border-b-2 border-transparent px-2 pb-1 transition-all group-hover:border-b-ff-dark-pink">
+          <span className="border-b-2 border-transparent px-2 pb-1 transition-all group-hover:border-b-ff-pale-cyan">
             Contact
           </span>
           <span className="pb-1 text-2xl transition-all duration-300 group-hover:translate-x-2">
@@ -174,7 +174,7 @@ const Header = (props: Props) => {
           className="group flex items-center justify-center font-semibold leading-tight"
           href={"/resume.pdf"}
         >
-          <span className="border-b-2 border-transparent px-2 pb-1 transition-all group-hover:border-b-ff-dark-pink">
+          <span className="border-b-2 border-transparent px-2 pb-1 transition-all group-hover:border-b-ff-pale-cyan">
             Download CV
           </span>
           <span className="pb-1 text-2xl transition-all duration-300 group-hover:translate-x-2">

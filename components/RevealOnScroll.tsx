@@ -1,4 +1,4 @@
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import { useState, useRef, useEffect } from "react";
 
 interface Props {
@@ -13,7 +13,7 @@ const RevealOnScroll = ({ children, duration, delay }: Props) => {
 
   useEffect(() => {
     const scrollObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry && entry.isIntersecting) {
         setIsVisible(true);
         scrollObserver.unobserve(entry.target);
       }
