@@ -5,8 +5,8 @@ import { Roboto } from "next/font/google";
 import { cn } from "@/lib/utils";
 import NextTopLoader from "nextjs-toploader";
 import { TailwindIndicator } from "@/components/dev/TailwindIndicator";
-import Header from "@/components/header";
 import Providers from "@/components/providers/providers";
+import Header from "@/components/header";
 
 const roboto = Roboto({
   subsets: ["latin"],

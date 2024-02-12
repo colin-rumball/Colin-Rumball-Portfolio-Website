@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { type ComponentPropsWithoutRef } from "react";
-import Project, { type ProjectProps } from "./project";
 import TLPDialog from "./dialogs/tlp-dialog";
 import PhocusDialog from "./dialogs/phocus-dialog";
 import UnoDialog from "./dialogs/uno-dialog";
 import LegoDialog from "./dialogs/lego-dialog";
 import GGCoDialog from "./dialogs/ggco-dialog";
 import EmptyDialog from "./dialogs/empty-dialog";
+import Project, { type ProjectProps } from "./project";
 
 const projects: ProjectProps[] = [
   {
