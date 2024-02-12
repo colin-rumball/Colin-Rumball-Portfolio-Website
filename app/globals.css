@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-ff-navy-blue;
+    @apply bg-ff-cream text-ff-navy-blue;
   }
   /* width */
   ::-webkit-scrollbar {

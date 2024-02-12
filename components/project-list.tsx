@@ -10,7 +10,7 @@ import Project, { type ProjectProps } from "./project";
 
 const projects: ProjectProps[] = [
   {
-    location: "phocus.studio",
+    location: "Phocus Form Builder",
     title: "Creator",
     date: "2024",
     description:
@@ -85,8 +85,8 @@ type ProjectListProps = ComponentPropsWithoutRef<"div">;
 
 const ProjectList = ({ className }: ProjectListProps) => {
   return (
-    <ol className="group/list">
-      {projects.map((projectProps, index) => (
+    <ol className="group/list lg:mt-[6.2rem]">
+      {projects.map((projectProps) => (
         <Project key={projectProps.title} {...projectProps} />
       ))}
     </ol>

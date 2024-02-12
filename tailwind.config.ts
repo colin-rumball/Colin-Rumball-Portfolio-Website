@@ -23,7 +23,7 @@ const config = {
       },
       colors: {
         "ff-navy-blue": "#172c66", // text
-        "ff-cream": "#fef6e4", // bg
+        "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border
         "ff-pink": "#f582ae", // primary
         "ff-dark-pink": "#ff3d6a", // primary offset

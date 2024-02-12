@@ -31,12 +31,10 @@ export default function RootLayout({
       <body
         className={cn(
           roboto.className,
-          " no-scrollbar",
-          "relative flex h-full min-h-screen overflow-x-hidden scroll-smooth bg-ff-cream antialiased",
-          // "bg-ff-cream text-ff-navy-blue selection:bg-ff-light-pink selection:text-ff-dark-pink text-lg leading-snug",
+          "relative flex h-full min-h-screen scroll-smooth antialiased",
         )}
       >
-        <div className="container flex flex-grow">
+        <div className="relative flex flex-grow flex-col gap-8 lg:container lg:flex-row">
           <NextTopLoader />
           <Providers>
             <Header />
