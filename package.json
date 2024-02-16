@@ -13,9 +13,11 @@
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@vercel/analytics": "^1.1.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "^8.0.0-rc22",
+    "framer-motion": "^11.0.5",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.323.0",
     "next": "13.5.5",
@@ -27,7 +29,8 @@
     "react-type-animation": "^3.2.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
-    "tailwindcss-animated": "^1.0.1"
+    "tailwindcss-animated": "^1.0.1",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.0",

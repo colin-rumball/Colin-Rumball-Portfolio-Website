@@ -2,6 +2,7 @@ import Page from "@/components/ui/page";
 import { cn } from "@/lib/utils";
 import ProjectList from "@/components/project-list";
 import StickyHeadline from "@/components/sticky-headline";
+import BlurredBackground from "@/components/blurred-background";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           <ProjectList />
         </div>
       </section>
+      <BlurredBackground />
     </Page>
   );
 }

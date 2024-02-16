@@ -27,16 +27,6 @@ const LegoDialog = () => {
       className={`relative z-10 flex flex-col gap-6 ${glegoo.className} rounded-lg border-ff-cream bg-gradient-to-b from-[#481180] to-[#680a60] p-10 tracking-wide text-[#f9c835]`}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[url(/images/lego/lego-background.png)] bg-repeat mix-blend-multiply" />
-      <div className="flex aspect-video w-full justify-center overflow-clip rounded-lg border">
-        <iframe
-          width={"100%"}
-          height={"100%"}
-          src="https://www.youtube.com/embed/b3QhqOA0_j8?si=m9Eqi8Lz3KkYt9-8"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
-      </div>
       <div className="mx-auto flex flex-col gap-3">
         <h2 className="font-bold">DEVELOPMENT RESPONSIBILITIES</h2>
         <Separator className="my-2 bg-current" />
@@ -74,38 +64,17 @@ const LegoDialog = () => {
             HERE
           </Link>
         </p>
+        <Separator className="my-2 bg-current" />
       </div>
-      <div className="">
-        <Carousel className="">
-          <CarouselContent>
-            <CarouselItem>
-              <Image
-                src={LegoPhoneMock1}
-                alt="Lego Legacy: Heroes Unboxed Promo Image 1"
-              />
-            </CarouselItem>
-            <CarouselItem>
-              <Image
-                src={LegoPhoneMock2}
-                alt="Lego Legacy: Heroes Unboxed Promo Image 2"
-              />
-            </CarouselItem>
-            <CarouselItem>
-              <Image
-                src={LegoPhoneMock3}
-                alt="Lego Legacy: Heroes Unboxed Promo Image 3"
-              />
-            </CarouselItem>
-            <CarouselItem>
-              <Image
-                src={LegoPhoneMock4}
-                alt="Lego Legacy: Heroes Unboxed Promo Image 4"
-              />
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious className="translate-x-16" />
-          <CarouselNext className="-translate-x-16" />
-        </Carousel>
+      <div className="flex aspect-video w-full justify-center overflow-clip rounded-lg border">
+        <iframe
+          width={"100%"}
+          height={"100%"}
+          src="https://www.youtube.com/embed/b3QhqOA0_j8?si=m9Eqi8Lz3KkYt9-8"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
       </div>
     </div>
   );

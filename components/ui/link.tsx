@@ -2,6 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import NextLink, { type LinkProps as NextLinkProps } from "next/link";
 import { cn } from "@/lib/utils";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const linkVariants = cva(
   cn(
@@ -28,6 +29,25 @@ const linkVariants = cva(
     },
   },
 );
+
+export const ArrowLink = ({ className, children, ...rest }: LinkProps) => {
+  return (
+    <Link
+      className={cn(
+        "group flex items-center font-semibold leading-tight",
+        className,
+      )}
+      {...rest}
+    >
+      <span className="border-b-2 border-transparent group-hover:border-b-ff-pale-cyan">
+        {children}
+      </span>
+      <span className="text-2xl duration-300 group-hover:translate-x-2">
+        <BsArrowRightShort />
+      </span>
+    </Link>
+  );
+};
 
 export type LinkProps = NextLinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement> &

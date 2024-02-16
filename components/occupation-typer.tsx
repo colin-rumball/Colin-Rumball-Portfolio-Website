@@ -7,15 +7,15 @@ const OccupationTyper = () => {
     <TypeAnimation
       sequence={[
         400,
-        "I'm a UI Engineer",
+        "UI Engineer",
         1000,
-        "I'm a Game Programmer",
+        "Game Programmer",
         1000,
-        "I'm a Mushroom Farmer",
+        "Mushroom Farmer",
         1000,
-        "I'm a Web Developer",
+        "Web Developer",
         1000,
-        "I'm a Problem Solver",
+        "Problem Solver",
         1000,
       ]}
       speed={40}

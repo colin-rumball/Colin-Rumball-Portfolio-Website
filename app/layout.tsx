@@ -1,12 +1,14 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, IBM_Plex_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import NextTopLoader from "nextjs-toploader";
 import { TailwindIndicator } from "@/components/dev/TailwindIndicator";
 import Providers from "@/components/providers/providers";
 import Header from "@/components/header";
+import { Analytics } from "@vercel/analytics/react";
+import BlurredBackground from "@/components/blurred-background";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -34,16 +36,16 @@ export default function RootLayout({
           "relative flex h-full min-h-screen scroll-smooth antialiased",
         )}
       >
-        <div className="relative flex flex-grow flex-col gap-8 lg:container lg:flex-row">
-          <NextTopLoader />
-          <Providers>
+        <Providers>
+          <div className="relative flex flex-grow flex-col gap-8 lg:container lg:flex-row">
+            <NextTopLoader />
             <Header />
             {children}
-          </Providers>
-          {/* TODO: enable analytics */}
-          {/* <Analytics /> */}
-          <TailwindIndicator />
-        </div>
+            <Analytics />
+            <TailwindIndicator />
+          </div>
+          <BlurredBackground />
+        </Providers>
       </body>
     </html>
   );

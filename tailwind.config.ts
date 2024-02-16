@@ -18,6 +18,12 @@ const config = {
       },
     },
     extend: {
+      zIndex: {
+        header: "49",
+        "blurred-background": "39",
+        "selected-project": "40",
+        "project-list": "19",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },

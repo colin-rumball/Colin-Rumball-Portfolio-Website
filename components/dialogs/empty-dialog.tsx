@@ -24,7 +24,7 @@ const roboto = Roboto({
 const EmptyDialog = () => {
   return (
     <div
-      className={`flex flex-col gap-6 rounded-lg border border-ff-cream bg-[#9cc6c9] p-10 tracking-wide text-[#181b1b] ${roboto.className}`}
+      className={`flex flex-col gap-6 rounded-lg border border-ff-cream bg-[#9cc6c9] p-10 tracking-wide text-[#181b1b]`}
     ></div>
   );
 };

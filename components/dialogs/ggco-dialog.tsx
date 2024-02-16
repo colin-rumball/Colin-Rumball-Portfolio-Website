@@ -16,7 +16,7 @@ const catamaran = Catamaran({
 const GGCoDialog = () => {
   return (
     <div
-      className={`flex flex-col rounded-lg border border-[#36553f] bg-ff-cream text-[#36553f] ${catamaran.variable}`}
+      className={`flex flex-col rounded-lg border border-[#36553f] bg-ff-cream text-[#36553f]`}
     >
       <div className="flex items-center justify-center">
         <Image

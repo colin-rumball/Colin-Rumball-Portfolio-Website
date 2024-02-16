@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import { BsArrowRightShort } from "react-icons/bs";
 import { cn } from "@/lib/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -11,15 +12,183 @@ import {
 } from "react-icons/tb";
 import StickyHeadline from "./sticky-headline";
 import OccupationTyper from "./occupation-typer";
+import useProjectSelector from "@/lib/hooks/useProjectSelector";
+import { type ProjectID, Projects } from "@/lib/projects-data";
+import { Separator } from "./ui/separator";
+import { AnimatePresence, motion } from "framer-motion";
+import Link, { ArrowLink } from "./ui/link";
+import { slideInVariants } from "@/lib/motion";
 
-interface HeaderProps extends React.ComponentPropsWithoutRef<"header"> {}
+const HeaderAboutMe = () => {
+  const { selectedProject } = useProjectSelector((state) => ({
+    selectedProject: state.selectedProject,
+  }));
 
-const Header = (props: HeaderProps) => {
+  if (selectedProject === null) {
+    return (
+      <section id="about" className="" aria-label="About me">
+        <StickyHeadline as="h3">About</StickyHeadline>
+        <div className="px-4 lg:px-0">
+          <p className="mb-4">
+            I have a strong passion for software development that has evolved
+            over time. Initially drawn to the gaming industry, I pursued game
+            development and worked in mobile gaming. In recent years, I&apos;ve
+            shifted my focus to web development, embracing its creative
+            challenges and innovative approach to problem-solving. I am excited
+            to bring this unique blend of skills and experiences to every
+            project I undertake.
+          </p>
+          <p className="mb-4">
+            When not coding, I enjoy practicing yoga, camping, and traveling the
+            world with my wife. Recently, I embarked on a different kind of
+            challenge away from the desk: founding a small local culinary
+            mushroom farm, allowing me to explore sustainable agriculture and
+            connect with my local community.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  const projectOpts = Projects[selectedProject];
+  const ProjectDescription = projectOpts.longDescription;
   return (
-    <header
-      {...props}
-      className="flex flex-col gap-5 pt-12 lg:sticky lg:top-0 lg:h-screen lg:w-4/12 lg:pl-12 lg:pr-6"
+    <motion.section
+      variants={{
+        project: {
+          transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.2,
+          },
+        },
+        default: {
+          transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+        },
+      }}
+      id="about"
+      className="flex flex-col gap-2"
+      aria-label="Project details"
     >
+      <Separator className="my-2 bg-current" />
+      <div className="flex flex-col text-left text-xs font-semibold tracking-wide">
+        <motion.h2
+          variants={slideInVariants}
+          className="mb-1 align-top text-xl font-medium leading-5 tracking-tight"
+        >
+          {projectOpts.name}
+        </motion.h2>
+        <motion.h4
+          variants={slideInVariants}
+          className="uppercase tracking-normal"
+        >
+          {projectOpts.jobTitle}
+        </motion.h4>
+        <motion.h5 variants={slideInVariants} className="uppercase">
+          {projectOpts.date}
+        </motion.h5>
+      </div>
+      <div className="px-4 lg:px-0">
+        <ProjectDescription />
+      </div>
+      <Separator className="my-2 bg-current" />
+    </motion.section>
+  );
+};
+
+const HeaderFooter = () => {
+  const { selectedProject } = useProjectSelector((state) => ({
+    selectedProject: state.selectedProject,
+  }));
+  if (
+    selectedProject === null ||
+    Projects[selectedProject].footer === undefined
+  ) {
+    return (
+      <section id="contact" className="">
+        <div className="flex flex-col gap-0 px-4 lg:px-0">
+          <div className="my-1 flex space-x-3 text-xl">
+            <Link
+              href="https://github.com/colin-rumball"
+              className="hover:text-ff-pale-cyan"
+              target="_blank"
+            >
+              <FiGithub />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/colinrumball/"
+              className="hover:text-ff-pale-cyan"
+              target="_blank"
+            >
+              <FiLinkedin />
+            </Link>
+          </div>
+          <ArrowLink href={"mailto:hello@colinrumball.com"} target="_blank">
+            Contact
+          </ArrowLink>
+          <ArrowLink href={"/resume.pdf"} target="_blank">
+            Download CV
+          </ArrowLink>
+        </div>
+      </section>
+    );
+  }
+
+  const Footer = Projects[selectedProject].footer!;
+  return <Footer />;
+};
+
+const Header = () => {
+  const { selectedProject } = useProjectSelector((state) => ({
+    selectedProject: state.selectedProject,
+  }));
+
+  return (
+    <motion.header
+      initial="default"
+      animate={selectedProject === null ? "default" : "project"}
+      className={cn(
+        "z-header flex flex-col gap-5 pt-12 transition-colors lg:sticky lg:top-0 lg:-mb-28 lg:h-screen lg:w-4/12 lg:pl-12 lg:pr-6",
+        selectedProject && Projects[selectedProject].foreground,
+      )}
+    >
+      <AnimatePresence>
+        {selectedProject !== null && (
+          <motion.div
+            key={selectedProject}
+            variants={{
+              default: {
+                clipPath: "circle(0 at 100% 20%)",
+                transition: {
+                  delay: 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                },
+              },
+              project: {
+                clipPath: `circle(100% at 100% 20%)`,
+                transition: {
+                  type: "spring",
+                  stiffness: 20,
+                  restDelta: 2,
+                },
+              },
+            }}
+            exit={{
+              clipPath: "circle(0 at 100% 20%)",
+              transition: {
+                delay: 0,
+                type: "spring",
+                duration: 0.2,
+              },
+            }}
+            className="absolute inset-y-0 right-0 -z-30 w-screen overflow-hidden"
+          >
+            {Projects[selectedProject].background}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <section id="info" className="px-4 lg:px-0">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           Colin Rumball
@@ -65,74 +234,10 @@ const Header = (props: HeaderProps) => {
         </div>
       </section>
 
-      <section id="about" className="" aria-label="About me">
-        <StickyHeadline as="h3">About</StickyHeadline>
-        <div className="px-4 lg:px-0">
-          <p className="mb-4">
-            I have a strong passion for software development that has evolved
-            over time. Initially drawn to the gaming industry, I pursued game
-            development and worked in mobile gaming. In recent years, I&apos;ve
-            shifted my focus to web development, embracing its creative
-            challenges and innovative approach to problem-solving. I am excited
-            to bring this unique blend of skills and experiences to every
-            project I undertake.
-          </p>
-          <p className="mb-4">
-            When not immersed in my work, I enjoy refining my tech skills,
-            partaking in personal interests like hiking, yoga, tech tinkering,
-            camping, and globe-trotting with my wife. Notably, I embarked on a
-            journey as the founder and operator of a gourmet culinary mushroom
-            farm, a venture that spanned three years and deepened my
-            understanding of entrepreneurship and sustainable agriculture.
-          </p>
-        </div>
-      </section>
+      <HeaderAboutMe />
 
-      <section id="contact" className="">
-        <div className="flex flex-col gap-3 px-4 lg:px-0">
-          <div className="flex space-x-3 text-xl">
-            <Link
-              href="https://github.com/colin-rumball"
-              className="hover:text-ff-pale-cyan"
-              target="_blank"
-            >
-              <FiGithub />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/colinrumball/"
-              className="hover:text-ff-pale-cyan"
-              target="_blank"
-            >
-              <FiLinkedin />
-            </Link>
-          </div>
-          <div className="flex flex-col gap-0">
-            <Link
-              className="group flex items-center font-semibold leading-tight"
-              href={"mailto:hello@colinrumball.com"}
-            >
-              <span className="border-b-2 border-transparent transition-all group-hover:border-b-ff-pale-cyan">
-                Contact
-              </span>
-              <span className="text-2xl transition-all duration-300 group-hover:translate-x-2">
-                <BsArrowRightShort />
-              </span>
-            </Link>
-            <Link
-              className="group flex items-center font-semibold leading-tight"
-              href={"/resume.pdf"}
-            >
-              <span className="border-b-2 border-transparent transition-all group-hover:border-b-ff-pale-cyan">
-                Download CV
-              </span>
-              <span className="text-2xl transition-all duration-300 group-hover:translate-x-2">
-                <BsArrowRightShort />
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </header>
+      <HeaderFooter />
+    </motion.header>
   );
 };
 export default Header;
