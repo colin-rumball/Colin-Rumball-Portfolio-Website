@@ -1,20 +1,19 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
-import { Roboto, IBM_Plex_Sans } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import NextTopLoader from "nextjs-toploader";
 import { TailwindIndicator } from "@/components/dev/TailwindIndicator";
 import Providers from "@/components/providers/providers";
 import Header from "@/components/header";
 import { Analytics } from "@vercel/analytics/react";
-import BlurredBackground from "@/components/blurred-background";
 
-const roboto = Roboto({
+const roboto = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-family-body",
   fallback: ["Arial", "sans-serif"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +43,6 @@ export default function RootLayout({
             <Analytics />
             <TailwindIndicator />
           </div>
-          <BlurredBackground />
         </Providers>
       </body>
     </html>
