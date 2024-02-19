@@ -13,7 +13,7 @@ import { slideInVariants } from "@/lib/motion";
 const Background = () => {
   return (
     <div
-      className={`absolute inset-y-0 z-10 w-screen bg-gradient-to-b from-[#481180] to-[#680a60]`}
+      className={`absolute inset-y-0 z-10 w-screen bg-gradient-to-b from-[#481180] to-[#680a60] brightness-90`}
     >
       <div className="pointer-events-none absolute inset-y-0 -z-30 w-screen bg-[url(/images/lego/lego-background.png)] bg-repeat mix-blend-multiply" />
     </div>
@@ -112,9 +112,11 @@ export const LegoDetails: ProjectOpts = {
   date: "2017-2020",
   video: "/videos/lego-logo.mp4",
   foreground: "text-[#f9c835]",
+  foregroundAlt: "text-[#FF9950]",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["c#", "c++", "flash", "actionscript"],
   footer: Footer,
   slides: Slides,
 };

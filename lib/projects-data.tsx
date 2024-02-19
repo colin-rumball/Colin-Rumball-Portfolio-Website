@@ -18,6 +18,19 @@ export type ProjectID =
   | "lego"
   | "uno";
 
+export type ProjectTech =
+  | "typescript"
+  | "react"
+  | "nextjs"
+  | "prisma"
+  | "tailwindcss"
+  | "convex"
+  | "c#"
+  | "c++"
+  | "flash"
+  | "actionscript"
+  | "threejs";
+
 export type ProjectOpts = {
   id: ProjectID;
   name: string;
@@ -25,9 +38,11 @@ export type ProjectOpts = {
   date: string;
   video: string;
   foreground: string;
+  foregroundAlt: string;
   background: ReactNode;
   shortDescription: FC;
   longDescription: FC;
+  tech: ProjectTech[];
   footer?: FC;
   slides?: ReactNode[];
 };

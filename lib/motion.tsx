@@ -1,16 +1,20 @@
+export const slideInInitial = {
+  x: -50,
+  opacity: 0,
+  transition: {
+    x: { stiffness: 1000 },
+  },
+};
+
+export const slideInFinish = {
+  x: 0,
+  opacity: 1,
+  transition: {
+    x: { stiffness: 1000, velocity: -100 },
+  },
+};
+
 export const slideInVariants = {
-  project: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      x: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  default: {
-    x: -50,
-    opacity: 0,
-    transition: {
-      x: { stiffness: 1000 },
-    },
-  },
+  default: slideInInitial,
+  project: slideInFinish,
 };

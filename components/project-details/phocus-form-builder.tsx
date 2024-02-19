@@ -87,9 +87,11 @@ export const PhocusFormBuilderDetails: ProjectOpts = {
   date: "2024",
   video: "/videos/phocus-logo.mp4",
   foreground: "text-[#181b1b]",
+  foregroundAlt: "text-[#1d5358]",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["typescript", "react", "nextjs", "convex", "tailwindcss"],
   footer: Footer,
   slides: Slides,
 };

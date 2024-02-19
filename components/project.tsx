@@ -125,7 +125,7 @@ const ProjectVideoCarousel = ({
     <motion.div
       variants={{
         thisProjectSelected: { width: "100%", marginBottom: "2rem" },
-        closed: { marginBottom: "0" },
+        closed: { width: "66.666%", marginBottom: "0" },
       }}
       initial="closed"
       animate={thisProjectSelected ? "thisProjectSelected" : "closed"}
@@ -228,38 +228,39 @@ const Project = ({ opts }: ProjectProps) => {
 
   // useClickOutside(ref, clickOutsideCallback);
 
-  useEffect(() => {
-    const divElement = ref.current;
+  // useEffect(() => {
+  //   const divElement = ref.current;
 
-    if (divElement && thisProjectSelected) {
-      // Function that scrolls the div into view
-      const scrollIntoView = () => {
-        divElement.scrollIntoView({ behavior: "smooth" });
-      };
+  //   if (divElement && thisProjectSelected) {
+  //     // Function that scrolls the div into view
+  //     const scrollIntoView = () => {
+  //       divElement.scrollIntoView({ behavior: "smooth" });
+  //     };
 
-      // Create a MutationObserver to observe changes in the div
-      const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          if (mutation.type === "childList" || mutation.type === "attributes") {
-            scrollIntoView();
-          }
-        }
-      });
+  //     // Create a MutationObserver to observe changes in the div
+  //     const observer = new MutationObserver((mutations) => {
+  //       for (const mutation of mutations) {
+  //         if (mutation.type === "childList" || mutation.type === "attributes") {
+  //           scrollIntoView();
+  //         }
+  //       }
+  //     });
 
-      // Start observing the div for configured mutations
-      observer.observe(divElement, {
-        childList: true, // Observe direct children changes
-        attributes: true, // Observe attribute changes
-        subtree: true, // Observe all descendant elements as well
-      });
+  //     // Start observing the div for configured mutations
+  //     observer.observe(divElement, {
+  //       childList: true, // Observe direct children changes
+  //       attributes: true, // Observe attribute changes
+  //       subtree: true, // Observe all descendant elements as well
+  //     });
 
-      return () => observer.disconnect();
-    }
-  }, [thisProjectSelected]);
+  //     return () => observer.disconnect();
+  //   }
+  // }, [thisProjectSelected]);
 
   return (
     <li
       ref={ref}
+      id={opts.id}
       className={cn(
         "group relative w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
@@ -270,6 +271,7 @@ const Project = ({ opts }: ProjectProps) => {
       )}
       onClick={() => {
         if (selectedProject !== opts.id) {
+          ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
           setSelectedProject(opts.id);
         }
       }}
@@ -286,7 +288,7 @@ const Project = ({ opts }: ProjectProps) => {
           transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
           onAnimationComplete={(definition) => {
             if (definition === "open") {
-              // ref.current?.scrollIntoView({ behavior: "smooth" });
+              // ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
             }
           }}
           className={cn("flex")}

@@ -103,10 +103,12 @@ export const TLPDetails: ProjectOpts = {
   jobTitle: "Web Developer",
   date: "2020",
   video: "/videos/tlp-logo.mp4",
-  foreground: "text-ff-cream",
+  foreground: "text-[#E8D8B6]",
+  foregroundAlt: "text-ff-cream",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["typescript", "react", "nextjs", "prisma", "tailwindcss"],
   footer: Footer,
   slides: Slides,
 };

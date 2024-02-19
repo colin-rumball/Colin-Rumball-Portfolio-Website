@@ -32,9 +32,10 @@ const LongDescription = () => {
     <>
       <div className="mx-auto flex flex-col gap-3">
         <motion.p variants={slideInVariants}>
-          I worked on this game for 2 years of my time at Gameloft in various
-          capacities across multiple systems, including UI scripting, gameplay
-          programming, game server development, and project architecture.
+          I worked on this game for 2 years while working for Gameloft in
+          various capacities across multiple systems, including UI scripting,
+          gameplay programming, game server development, and project
+          architecture.
         </motion.p>
       </div>
     </>
@@ -66,8 +67,10 @@ export const UnoDetails: ProjectOpts = {
   date: "2015-2017",
   video: "/videos/uno-logo.mp4",
   foreground: "text-ff-cream",
+  foregroundAlt: "text-uno-yellow",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["flash", "actionscript", "c++"],
   slides: Slides,
 };

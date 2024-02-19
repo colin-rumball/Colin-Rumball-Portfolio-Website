@@ -28,6 +28,7 @@ const config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
       colors: {
+        "uno-yellow": "#FDEF5C",
         "ff-navy-blue": "#172c66", // text
         "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border

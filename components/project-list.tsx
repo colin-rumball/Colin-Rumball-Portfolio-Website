@@ -10,7 +10,10 @@ type ProjectListProps = ComponentPropsWithoutRef<"div">;
 const ProjectList = ({ className }: ProjectListProps) => {
   return (
     <ol
-      className={cn(className, "group/list flex flex-col gap-9 lg:mt-[6.2rem]")}
+      className={cn(
+        className,
+        "group/list mb-20 flex flex-col gap-9 lg:mt-[6.2rem]",
+      )}
     >
       {Object.values(Projects).map((projectOpts) => (
         <Project key={projectOpts.id} opts={projectOpts} />

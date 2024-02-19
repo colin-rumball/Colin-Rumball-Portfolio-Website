@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
-  return <div className={`absolute inset-y-0 w-screen bg-[#1b2334]`}></div>;
+  return <div className={`absolute inset-y-0 w-screen bg-[#0E0C20]`}></div>;
 };
 
 const ShortDescription = () => {
@@ -102,9 +102,11 @@ export const AiNavigatorDetails: ProjectOpts = {
   date: "2023",
   video: "/videos/dn-logo.mp4",
   foreground: "text-ff-cream",
+  foregroundAlt: "text-[#66CFFF]",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["typescript", "react", "threejs", "nextjs", "prisma", "tailwindcss"],
   footer: Footer,
   slides: Slides,
 };

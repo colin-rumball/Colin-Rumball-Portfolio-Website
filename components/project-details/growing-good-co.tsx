@@ -86,9 +86,10 @@ export const GGCoDetails: ProjectOpts = {
   date: "2020-2023",
   video: "/videos/ggco-logo.mp4",
   foreground: "text-ff-cream",
+  foregroundAlt: "text-[#FBC53B]",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  tech: ["typescript", "react", "nextjs", "tailwindcss"],
   footer: Footer,
-  slides: Slides,
 };

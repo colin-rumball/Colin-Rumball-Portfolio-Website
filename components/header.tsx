@@ -1,6 +1,5 @@
 "use client";
 
-import { BsArrowRightShort } from "react-icons/bs";
 import { cn } from "@/lib/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import {
@@ -13,11 +12,13 @@ import {
 import StickyHeadline from "./sticky-headline";
 import OccupationTyper from "./occupation-typer";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
-import { type ProjectID, Projects } from "@/lib/projects-data";
+import { Projects } from "@/lib/projects-data";
 import { Separator } from "./ui/separator";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, clamp, motion } from "framer-motion";
 import Link, { ArrowLink } from "./ui/link";
-import { slideInVariants } from "@/lib/motion";
+import { slideInFinish, slideInInitial, slideInVariants } from "@/lib/motion";
+import TechDisplay from "./tech-display";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const HeaderAboutMe = () => {
   const { selectedProject } = useProjectSelector((state) => ({
@@ -141,6 +142,41 @@ const Header = () => {
   const { selectedProject } = useProjectSelector((state) => ({
     selectedProject: state.selectedProject,
   }));
+  const [exitY, setExitY] = useState(50);
+
+  const getAnimYExit = useCallback(() => {
+    if (selectedProject !== null) {
+      const currentProjNode = document.querySelector(`#${selectedProject}`);
+      const rect = currentProjNode?.getBoundingClientRect();
+      if (rect) {
+        return clamp(
+          1,
+          99,
+          ((rect.top + rect.height / 2) / window.innerHeight) * 100,
+        );
+      }
+    }
+
+    return 50;
+  }, [selectedProject]);
+
+  const animYEnter = useMemo(() => {
+    return getAnimYExit();
+  }, [selectedProject]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setExitY(getAnimYExit());
+    };
+
+    if (selectedProject !== null) {
+      setExitY(getAnimYExit());
+      window.addEventListener("scroll", onScroll);
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+      };
+    }
+  }, [selectedProject]);
 
   return (
     <motion.header
@@ -151,13 +187,13 @@ const Header = () => {
         selectedProject && Projects[selectedProject].foreground,
       )}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedProject !== null && (
           <motion.div
             key={selectedProject}
             variants={{
               default: {
-                clipPath: "circle(0 at 100% 20%)",
+                clipPath: `circle(0 at 100% ${animYEnter}%)`,
                 transition: {
                   delay: 0.5,
                   type: "spring",
@@ -166,7 +202,7 @@ const Header = () => {
                 },
               },
               project: {
-                clipPath: `circle(100% at 100% 20%)`,
+                clipPath: `circle(110% at 100% ${animYEnter}%)`,
                 transition: {
                   type: "spring",
                   stiffness: 20,
@@ -175,12 +211,15 @@ const Header = () => {
               },
             }}
             exit={{
-              clipPath: "circle(0 at 100% 20%)",
+              clipPath: `circle(0 at 100% ${exitY}%)`,
               transition: {
                 delay: 0,
                 type: "spring",
                 duration: 0.2,
               },
+            }}
+            onAnimationComplete={() => {
+              setExitY(getAnimYExit());
             }}
             className="absolute inset-y-0 right-0 -z-30 w-screen overflow-hidden"
           >
@@ -189,50 +228,17 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <section id="info" className="px-4 lg:px-0">
+      <motion.section id="info" className="px-4 lg:px-0">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           Colin Rumball
         </h1>
         <div className="h-[28px] text-lg font-medium tracking-tight sm:text-xl">
-          <OccupationTyper />
+          {!selectedProject && <>Web Developer</>}
+          {!!selectedProject && <>{Projects[selectedProject].jobTitle}</>}
         </div>
-      </section>
+      </motion.section>
 
-      <section id="tech" className="">
-        <StickyHeadline as="h3">Tech</StickyHeadline>
-        <div className="flex flex-col gap-2 px-4 text-4xl text-ff-green lg:px-0">
-          <div className="flex gap-4">
-            <span className="flex items-end gap-2 text-3xl">
-              <TbBrandTypescript />
-              <span className="text-lg font-medium tracking-tight">
-                TypeScript
-              </span>
-            </span>
-            <span className="flex items-end gap-2 text-3xl">
-              <TbBrandReact />
-              <span className="text-lg font-medium tracking-tight">React</span>
-            </span>
-            <span className="flex items-end gap-2 text-3xl">
-              <TbBrandNextjs />
-              <span className="text-lg font-medium tracking-tight">
-                Next<span className="text-xs">.js</span>
-              </span>
-            </span>
-          </div>
-          <div className="flex gap-4">
-            <span className="flex items-end gap-2 text-3xl">
-              <TbBrandPrisma />
-              <span className="text-lg font-medium tracking-tight">Prisma</span>
-            </span>
-            <span className="flex items-end gap-2 text-3xl">
-              <TbBrandTailwind />
-              <span className="text-lg font-medium tracking-tight">
-                Tailwind<span className="text-xs">css</span>
-              </span>
-            </span>
-          </div>
-        </div>
-      </section>
+      <TechDisplay />
 
       <HeaderAboutMe />
 
