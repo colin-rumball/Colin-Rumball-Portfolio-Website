@@ -8,6 +8,7 @@ import { TailwindIndicator } from "@/components/dev/TailwindIndicator";
 import Providers from "@/components/providers/providers";
 import Header from "@/components/header";
 import { Analytics } from "@vercel/analytics/react";
+import BlurredBackground from "@/components/blurred-background";
 
 const roboto = Nunito_Sans({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Analytics />
             <TailwindIndicator />
           </div>
+          <BlurredBackground />
         </Providers>
       </body>
     </html>
