@@ -80,7 +80,7 @@ const AnimatedProjectBackground = () => {
           exit={{
             clipPath: `circle(0 at 100% ${exitY}%)`,
             transition: {
-              delay: 0,
+              delay: 0.1,
               type: "spring",
               duration: 0.25,
             },
@@ -124,7 +124,7 @@ const NameAndOccupation = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: 20, opacity: 0 }}
           transition={{ duration: 0.2, delay: 0.1, ease: "easeInOut" }}
-          className="h-[28px] text-lg font-medium tracking-tight sm:text-xl"
+          className="h-[28px] text-lg tracking-tight sm:text-xl"
         >
           {!selectedProject && <span key="Web Developer">Web Developer</span>}
           {!!selectedProject && (
@@ -228,21 +228,21 @@ const BodyContent = () => {
                   <motion.h2
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1, transition: { delay: 0.1 } }}
-                    className="mb-1 align-top text-xl font-medium leading-5 tracking-tight"
+                    className="mb-1 align-top text-xl font-bold leading-5 tracking-tight"
                   >
                     {projectOpts.name}
                   </motion.h2>
                   <motion.h4
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1, transition: { delay: 0.15 } }}
-                    className="uppercase tracking-normal"
+                    className="font-bold uppercase tracking-normal"
                   >
                     {projectOpts.jobTitle}
                   </motion.h4>
                   <motion.h5
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
-                    className="uppercase"
+                    className="font-bold uppercase"
                   >
                     {projectOpts.date}
                   </motion.h5>
