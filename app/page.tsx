@@ -9,11 +9,9 @@ export default function Home() {
     <Page className="lg:w-7/12">
       <section id="experience" className="" aria-label="My experience">
         <StickyHeadline as="h3">Experience</StickyHeadline>
-        <div className="lg:pl-6 lg:pr-12 lg:pt-12">
-          <ProjectList />
-        </div>
+        <ProjectList />
+        <BlurredBackground />
       </section>
-      <BlurredBackground />
     </Page>
   );
 }
