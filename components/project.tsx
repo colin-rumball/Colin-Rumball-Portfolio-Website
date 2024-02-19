@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
   useCallback,
-  FC,
+  type FC,
 } from "react";
 import { motion } from "framer-motion";
 import {
@@ -16,11 +16,9 @@ import {
   CarouselContent,
   CarouselItem,
 } from "./ui/carousel";
-import { EmblaCarouselType, EmblaEventType } from "embla-carousel";
-import useClickOutside from "@/lib/hooks/useClickOutside";
-import { ProjectOpts } from "@/lib/projects-data";
+import { type EmblaCarouselType, type EmblaEventType } from "embla-carousel";
+import { type ProjectOpts } from "@/lib/projects-data";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
-import { stat } from "fs";
 
 const ProjectHoveredBackground = ({
   thisProjectSelected,
@@ -37,9 +35,13 @@ const ProjectHoveredBackground = ({
   );
 };
 
-type AsideContentProps = { opts: ProjectOpts; thisProjectSelected: boolean };
-
-const AsideContent = ({ opts, thisProjectSelected }: AsideContentProps) => {
+const AsideContent = ({
+  opts,
+  thisProjectSelected,
+}: {
+  opts: ProjectOpts;
+  thisProjectSelected: boolean;
+}) => {
   const ShortDescription = opts.shortDescription;
   return (
     <aside
@@ -64,14 +66,16 @@ const AsideContent = ({ opts, thisProjectSelected }: AsideContentProps) => {
           <>
             <h3
               className={cn(
-                "mb-2 align-top text-lg font-medium leading-5 tracking-tight group-hover:text-ff-green",
+                "align-top text-lg font-bold leading-5 tracking-tight group-hover:text-ff-green",
               )}
             >
               {opts.name}
             </h3>
-            <h4 className="uppercase tracking-normal">{opts.jobTitle}</h4>
-            <h5 className="uppercase">{opts.date}</h5>
-            <div className="my-2 max-h-[250px] min-w-full text-sm font-medium leading-snug">
+            <h4 className="font-bold uppercase tracking-normal">
+              {opts.jobTitle}
+            </h4>
+            <h5 className="font-bold uppercase">{opts.date}</h5>
+            <div className="my-2 max-h-[250px] min-w-full text-sm leading-snug">
               <ShortDescription />
             </div>
           </>
@@ -208,11 +212,7 @@ const ProjectExtendedContent = ({
   );
 };
 
-export type ProjectProps = {
-  opts: ProjectOpts;
-};
-
-const Project = ({ opts }: ProjectProps) => {
+const Project = ({ opts }: { opts: ProjectOpts }) => {
   const { selectedProject, setSelectedProject } = useProjectSelector(
     (state) => state,
   );
@@ -220,91 +220,94 @@ const Project = ({ opts }: ProjectProps) => {
   const thisProjectSelected = selectedProject === opts.id;
   const ref = useRef<HTMLLIElement>(null);
 
-  const clickOutsideCallback = useCallback(() => {
-    if (selectedProject === opts.id) {
-      setSelectedProject(null);
+  const [top, setTop] = useState(0);
+  const setPosition = useCallback(() => {
+    if (!ref.current) return;
+    const liTop = ref.current.getBoundingClientRect().top;
+    setTop(-liTop + 147);
+  }, [ref.current]);
+
+  useEffect(() => {
+    const removeListeners = () => {
+      window.removeEventListener("scroll", setPosition);
+      window.removeEventListener("resize", setPosition);
+    };
+
+    if (!selectedProject || !ref.current) {
+      removeListeners();
+      return;
     }
-  }, [selectedProject, opts.name, setSelectedProject]);
 
-  // useClickOutside(ref, clickOutsideCallback);
-
-  // useEffect(() => {
-  //   const divElement = ref.current;
-
-  //   if (divElement && thisProjectSelected) {
-  //     // Function that scrolls the div into view
-  //     const scrollIntoView = () => {
-  //       divElement.scrollIntoView({ behavior: "smooth" });
-  //     };
-
-  //     // Create a MutationObserver to observe changes in the div
-  //     const observer = new MutationObserver((mutations) => {
-  //       for (const mutation of mutations) {
-  //         if (mutation.type === "childList" || mutation.type === "attributes") {
-  //           scrollIntoView();
-  //         }
-  //       }
-  //     });
-
-  //     // Start observing the div for configured mutations
-  //     observer.observe(divElement, {
-  //       childList: true, // Observe direct children changes
-  //       attributes: true, // Observe attribute changes
-  //       subtree: true, // Observe all descendant elements as well
-  //     });
-
-  //     return () => observer.disconnect();
-  //   }
-  // }, [thisProjectSelected]);
+    window.addEventListener("scroll", setPosition);
+    window.addEventListener("resize", setPosition);
+    return removeListeners;
+  }, [selectedProject, ref.current]);
 
   return (
     <li
       ref={ref}
       id={opts.id}
       className={cn(
-        "group relative w-full scroll-m-36 transition-all duration-300",
+        "group relative h-[255px] w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
-        thisProjectSelected && "z-selected-project -translate-y-4 blur-0",
+        thisProjectSelected &&
+          "pointer-events-none z-selected-project h-[393px] -translate-y-4 blur-0",
         !thisProjectSelected &&
           "cursor-pointer hover:-translate-y-4 lg:group-hover/list:opacity-50 lg:group-hover/list:blur-sm",
         !noProjectSelected && !thisProjectSelected && "opacity-50 blur-sm",
       )}
       onClick={() => {
         if (selectedProject !== opts.id) {
-          ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+          // ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
           setSelectedProject(opts.id);
+          setPosition();
         }
       }}
     >
-      <ProjectHoveredBackground thisProjectSelected={thisProjectSelected} />
-      <div className="flex w-full flex-col">
-        <motion.div
-          variants={{
-            open: { gap: "0" },
-            closed: { gap: "1.5rem" },
-          }}
-          initial="closed"
-          animate={thisProjectSelected ? "open" : "closed"}
-          transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
-          onAnimationComplete={(definition) => {
-            if (definition === "open") {
-              // ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
-            }
-          }}
-          className={cn("flex")}
-        >
-          <ProjectVideoCarousel
+      <motion.div
+        initial={{ top: 0 }}
+        animate={{
+          top: thisProjectSelected ? `${top}px` : "0",
+        }}
+        transition={{
+          duration: thisProjectSelected ? 0.5 : 0.25,
+          type: "linear",
+          ease: "easeOut",
+          delay: 0,
+        }}
+        className={cn(
+          "pointer-events-auto absolute",
+          thisProjectSelected && "z-selected-project",
+        )}
+      >
+        <ProjectHoveredBackground thisProjectSelected={thisProjectSelected} />
+        <div className="flex w-full flex-col">
+          <motion.div
+            variants={{
+              open: { gap: "0" },
+              closed: { gap: "1.5rem" },
+            }}
+            initial="closed"
+            animate={thisProjectSelected ? "open" : "closed"}
+            transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
+            className={cn("flex")}
+          >
+            <ProjectVideoCarousel
+              thisProjectSelected={thisProjectSelected}
+              video={opts.video}
+              slides={opts.slides}
+            />
+            <AsideContent
+              opts={opts}
+              thisProjectSelected={thisProjectSelected}
+            />
+          </motion.div>
+          {/* <ProjectExtendedContent
+            ExpandedDescription={opts.longDescription}
             thisProjectSelected={thisProjectSelected}
-            video={opts.video}
-            slides={opts.slides}
-          />
-          <AsideContent opts={opts} thisProjectSelected={thisProjectSelected} />
-        </motion.div>
-        {/* <ProjectExtendedContent
-          ExpandedDescription={opts.longDescription}
-          thisProjectSelected={thisProjectSelected}
-        /> */}
-      </div>
+          /> */}
+        </div>
+      </motion.div>
     </li>
   );
 };

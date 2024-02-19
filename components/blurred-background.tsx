@@ -12,7 +12,7 @@ const BlurredBackground = () => {
       {selectedProject !== null && (
         <div
           onClick={() => setSelectedProject(null)}
-          className="z-blurred-background absolute inset-0 overflow-hidden blur-sm"
+          className="absolute inset-0 z-blurred-background overflow-hidden blur-sm"
         />
       )}
     </>
