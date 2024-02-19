@@ -117,6 +117,6 @@ export const LegoDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["c#", "c++", "flash", "actionscript"],
-  footer: Footer,
+  externalLinks: Footer,
   slides: Slides,
 };

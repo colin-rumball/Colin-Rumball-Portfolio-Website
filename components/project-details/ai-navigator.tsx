@@ -23,29 +23,7 @@ const LongDescription = () => {
   return (
     <>
       <div className="mx-auto flex flex-col gap-3">
-        <motion.p variants={slideInVariants}>
-          The Loneliness Project is a passion project started by my dear friend
-          Marissa Korda. It began small and found fast success receiving press
-          coverage and thousands of story submissions.
-        </motion.p>
-        <motion.p
-          variants={slideInVariants}
-          className="rounded-lg bg-ff-cream p-6 text-[#1b2334]"
-        >
-          At The Loneliness Project, we believe that stories have power—the
-          power to heal both listener and teller, and to show us that we aren't
-          ever truly alone. Stories are powerful tools for building empathy and
-          growing kindness. Those shared on the site are deeply personal yet
-          profoundly universal.
-        </motion.p>
-        <motion.p variants={slideInVariants} className="">
-          Marissa expressed her wish to move the site off of its exiting hosting
-          to have more control over its development and its future. The original
-          site was built using vanilla HTML, CSS, and Javascript, but access to
-          the source code was limited, so I took on the task of rebuilding the
-          site from the ground up using modern technologies, as well as making
-          several quality of life improvements to the experience.
-        </motion.p>
+        <motion.p variants={slideInVariants}>TEMP TEMP TEMP</motion.p>
       </div>
     </>
   );
@@ -85,12 +63,12 @@ const Footer = () => {
       >
         Visit The AI Navigator
       </ArrowLink>
-      <ArrowLink
+      {/* <ArrowLink
         href={"https://github.com/colin-rumball/The-Loneliness-Project"}
         target="_blank"
       >
         See project on Github TEMP
-      </ArrowLink>
+      </ArrowLink> */}
     </motion.div>
   );
 };
@@ -106,7 +84,7 @@ export const AiNavigatorDetails: ProjectOpts = {
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
-  tech: ["typescript", "react", "threejs", "nextjs", "prisma", "tailwindcss"],
-  footer: Footer,
+  tech: ["typescript", "react", "nextjs", "prisma", "tailwindcss", "threejs"],
+  externalLinks: Footer,
   slides: Slides,
 };

@@ -109,6 +109,6 @@ export const TLPDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "prisma", "tailwindcss"],
-  footer: Footer,
+  externalLinks: Footer,
   slides: Slides,
 };

@@ -70,12 +70,12 @@ const Footer = () => {
       <ArrowLink href={"https://phocus.studio/"} target="_blank">
         Visit Phocus Form Builder
       </ArrowLink>
-      <ArrowLink
+      {/* <ArrowLink
         href={"https://github.com/colin-rumball/The-Loneliness-Project"}
         target="_blank"
       >
         See project on Github TEMP
-      </ArrowLink>
+      </ArrowLink> */}
     </motion.div>
   );
 };
@@ -92,6 +92,6 @@ export const PhocusFormBuilderDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "convex", "tailwindcss"],
-  footer: Footer,
+  externalLinks: Footer,
   slides: Slides,
 };

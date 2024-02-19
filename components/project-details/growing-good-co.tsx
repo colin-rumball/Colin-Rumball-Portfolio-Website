@@ -82,7 +82,7 @@ const Footer = () => {
 export const GGCoDetails: ProjectOpts = {
   id: "ggco",
   name: "Growing Good Co.",
-  jobTitle: "Founder",
+  jobTitle: "Mushroom Cultivator",
   date: "2020-2023",
   video: "/videos/ggco-logo.mp4",
   foreground: "text-ff-cream",
@@ -91,5 +91,5 @@ export const GGCoDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "tailwindcss"],
-  footer: Footer,
+  externalLinks: Footer,
 };

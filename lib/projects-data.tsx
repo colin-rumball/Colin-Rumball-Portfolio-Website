@@ -43,7 +43,7 @@ export type ProjectOpts = {
   shortDescription: FC;
   longDescription: FC;
   tech: ProjectTech[];
-  footer?: FC;
+  externalLinks?: FC;
   slides?: ReactNode[];
 };
 

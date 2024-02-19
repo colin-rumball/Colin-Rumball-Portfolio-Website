@@ -27,7 +27,7 @@ const ShortDescription = () => {
 const LongDescription = () => {
   return (
     <>
-      <div className="mx-auto flex flex-col gap-3">
+      {/* <div className="mx-auto flex flex-col gap-3">
         <motion.p variants={slideInVariants}>
           The Loneliness Project is a passion project started by my dear friend
           Marissa Korda. It began small and found fast success receiving press
@@ -51,7 +51,7 @@ const LongDescription = () => {
           site from the ground up using modern technologies, as well as making
           several quality of life improvements to the experience.
         </motion.p>
-      </div>
+      </div> */}
     </>
   );
 };
@@ -84,7 +84,7 @@ const Slides = [
 const Footer = () => {
   return (
     <motion.div className="flex flex-col">
-      <ArrowLink href={"https://thelonelinessproject.org/"} target="_blank">
+      {/* <ArrowLink href={"https://thelonelinessproject.org/"} target="_blank">
         Visit The Loneliness Project
       </ArrowLink>
       <ArrowLink
@@ -92,7 +92,7 @@ const Footer = () => {
         target="_blank"
       >
         See project on Github TEMP
-      </ArrowLink>
+      </ArrowLink> */}
     </motion.div>
   );
 };
@@ -107,6 +107,8 @@ export const MyRatingsDetails: ProjectOpts = {
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
-  footer: Footer,
+  foregroundAlt: "text-[#66CFFF]",
+  tech: ["typescript", "react", "nextjs", "prisma", "tailwindcss"],
+  // footer: Footer,
   slides: Slides,
 };

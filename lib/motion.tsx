@@ -15,6 +15,6 @@ export const slideInFinish = {
 };
 
 export const slideInVariants = {
-  default: slideInInitial,
+  noProject: slideInInitial,
   project: slideInFinish,
 };
