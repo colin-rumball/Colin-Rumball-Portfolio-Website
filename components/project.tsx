@@ -212,7 +212,7 @@ const ProjectExtendedContent = ({
   );
 };
 
-const Project = ({ opts }: { opts: ProjectOpts }) => {
+const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
   const { selectedProject, setSelectedProject } = useProjectSelector(
     (state) => state,
   );
@@ -244,9 +244,17 @@ const Project = ({ opts }: { opts: ProjectOpts }) => {
   }, [selectedProject, ref.current]);
 
   return (
-    <li
+    <motion.li
       ref={ref}
       id={opts.id}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: "linear",
+        duration: 1.5,
+        ease: "easeInOut",
+        delay: 0.8 + 0.3 * index,
+      }}
       className={cn(
         "group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
@@ -308,7 +316,7 @@ const Project = ({ opts }: { opts: ProjectOpts }) => {
           /> */}
         </div>
       </motion.div>
-    </li>
+    </motion.li>
   );
 };
 
