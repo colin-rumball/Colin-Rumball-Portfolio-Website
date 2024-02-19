@@ -248,7 +248,7 @@ const Project = ({ opts }: { opts: ProjectOpts }) => {
       ref={ref}
       id={opts.id}
       className={cn(
-        "group relative h-[255px] w-full scroll-m-36 transition-all duration-300",
+        "group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
         thisProjectSelected &&
           "pointer-events-none z-selected-project h-[393px] -translate-y-4 blur-0",
