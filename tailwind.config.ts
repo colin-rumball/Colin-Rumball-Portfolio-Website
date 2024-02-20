@@ -33,6 +33,8 @@ const config = {
         "tlp-light": "#E8D8B6",
         "ggco-green": "#36553f",
         "ggco-yellow": "#FBC53B",
+        "dn-dark": "#0E0C20",
+        "dn-light-blue": "#66CFFF",
         "ff-navy-blue": "#172c66", // text
         "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border

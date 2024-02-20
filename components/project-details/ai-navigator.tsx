@@ -1,18 +1,16 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import TLPAbout from "@/public/images/tlp/tlp-about.png";
-import TLPStory from "@/public/images/tlp/tlp-story.png";
-import TLPHome from "@/public/images/tlp/tlp-main-phone.png";
-import TLPEdit from "@/public/images/tlp/tlp-edit-phone.png";
-import TLPDash from "@/public/images/tlp/tlp-dashboard-phone.png";
-import { Separator } from "../ui/separator";
+import DNHomeImg from "@/public/images/ai-navigator/dn-home.jpg";
+import DNLensImg from "@/public/images/ai-navigator/dn-lens.jpg";
+import DNFormImg from "@/public/images/ai-navigator/dn-form.jpg";
 import Link, { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
-import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
-  return <div className={`absolute inset-y-0 w-screen bg-[#0E0C20]`}></div>;
+  return (
+    <div
+      className={`from-dn-dark/60 to-dn-dark absolute inset-y-0 w-screen bg-gradient-radial`}
+    />
+  );
 };
 
 const ShortDescription = () => {
@@ -21,55 +19,66 @@ const ShortDescription = () => {
 
 const LongDescription = () => {
   return (
-    <>
-      <div className="mx-auto flex flex-col gap-3">
-        <motion.p variants={slideInVariants}>TEMP TEMP TEMP</motion.p>
-      </div>
-    </>
+    <div className="mx-auto flex flex-col gap-3">
+      <p>
+        A marketing website developed for{" "}
+        <Link
+          target="_blank"
+          href={"https://www.dieboldnixdorf.com/"}
+          className="text-dn-light-blue"
+        >
+          Diebold Nixdorf
+        </Link>{" "}
+        aimed at showcasing the intersection of AI and the retail industry. The
+        website was crafted with 3D elements using Three.js and offered visitors
+        a unique experience rather than just a conventional informational
+        website.
+      </p>
+      <p>
+        Its primary objective was to captivate users' interest in the evolving
+        role of AI in retail, while also serving as a platform to gather user
+        information for future outreach.
+      </p>
+    </div>
   );
 };
 
 const Slides = [
   <Image
-    src={TLPAbout}
-    alt="screenshot of about page on the loneliness project"
-    className="rounded-lg border border-ff-cream"
+    placeholder="blur"
+    src={DNHomeImg}
+    className="rounded-lg"
+    alt="screenshot of the homepage of the AI Navigator website"
+  />,
+  <div className="flex aspect-video justify-center">
+    <video autoPlay muted loop playsInline className="w-full rounded-lg">
+      <source src={"/videos/dn-sun.mp4"} type="video/mp4" />
+    </video>
+  </div>,
+  <Image
+    placeholder="blur"
+    src={DNLensImg}
+    className="rounded-lg"
+    alt="screenshot of the lens of the AI Navigator website"
   />,
   <Image
-    src={TLPStory}
-    alt="screenshot of about page on the loneliness project"
-    className="object-contain"
+    placeholder="blur"
+    src={DNFormImg}
+    className="rounded-lg"
+    alt="screenshot of the form of the AI Navigator website"
   />,
-  // <Image
-  //   src={TLPHome}
-  //   alt="a screenshot of the homepage on the loneliness project on a phone"
-  // />,
-  // <Image
-  //   src={TLPDash}
-  //   alt="a screenshot of the of the dashboard on the loneliness project on a phone"
-  // />,
-  // <Image
-  //   src={TLPEdit}
-  //   alt="a screenshot of the of apartment details edit modal on the loneliness project on a phone"
-  // />,
 ];
 
-const Footer = () => {
+const externalLinks = () => {
   return (
-    <motion.div className="flex flex-col">
+    <div className="flex flex-col">
       <ArrowLink
         href={"https://ainavigator.dieboldnixdorf.com/"}
         target="_blank"
       >
         Visit The AI Navigator
       </ArrowLink>
-      {/* <ArrowLink
-        href={"https://github.com/colin-rumball/The-Loneliness-Project"}
-        target="_blank"
-      >
-        See project on Github TEMP
-      </ArrowLink> */}
-    </motion.div>
+    </div>
   );
 };
 
@@ -80,11 +89,11 @@ export const AiNavigatorDetails: ProjectOpts = {
   date: "2023",
   video: "/videos/dn-logo.mp4",
   foreground: "text-ff-cream",
-  foregroundAlt: "text-[#66CFFF]",
+  foregroundAlt: "text-dn-light-blue",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "prisma", "tailwindcss", "threejs"],
-  externalLinks: Footer,
+  externalLinks: externalLinks,
   slides: Slides,
 };
