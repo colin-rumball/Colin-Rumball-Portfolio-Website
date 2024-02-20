@@ -19,6 +19,40 @@ import {
 import { type EmblaCarouselType, type EmblaEventType } from "embla-carousel";
 import { type ProjectOpts } from "@/lib/projects-data";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
+import { Button } from "./ui/button";
+import { MdOutlineClose } from "react-icons/md";
+
+const CloseButton = ({
+  thisProjectSelected,
+}: {
+  thisProjectSelected: boolean;
+}) => {
+  const { setSelectedProject } = useProjectSelector((state) => ({
+    setSelectedProject: state.setSelectedProject,
+  }));
+  if (!thisProjectSelected) return null;
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { ease: "easeInOut", duration: 0.7, delay: 0.3 },
+      }}
+      className="absolute -right-6 -top-16 z-40"
+    >
+      <Button
+        variant={"ghost"}
+        className="text-3xl"
+        onClick={() => {
+          document.body.style.overflow = "";
+          setSelectedProject(null);
+        }}
+      >
+        <MdOutlineClose />
+      </Button>
+    </motion.div>
+  );
+};
 
 const ProjectHoveredBackground = ({
   thisProjectSelected,
@@ -28,8 +62,11 @@ const ProjectHoveredBackground = ({
   return (
     <div
       className={cn(
-        "absolute -inset-4 -z-10 hidden rounded-lg transition-all duration-300 motion-reduce:transition-none lg:block lg:group-hover:bg-ff-green/10 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg",
-        thisProjectSelected && "bg-ff-green/10",
+        "absolute -inset-4 -z-10 hidden rounded-lg transition-all duration-500 motion-reduce:transition-none lg:block",
+        !thisProjectSelected &&
+          "lg:group-hover:bg-ff-green/10 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg",
+        thisProjectSelected &&
+          "bg-slate-800/40 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg duration-1000",
       )}
     />
   );
@@ -165,7 +202,7 @@ const ProjectVideoCarousel = ({
               api.scrollTo(0, true);
             }}
             className={cn(
-              `h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-green transition-all hover:scale-105 hover:border-solid`,
+              `h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-cream transition-all hover:scale-105 hover:border-solid`,
               currentSlide === 0 && "scale-110 border-2 border-solid",
             )}
           />
@@ -177,7 +214,7 @@ const ProjectVideoCarousel = ({
                 api.scrollTo(i + 1, true);
               }}
               className={cn(
-                "h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-green transition-all hover:scale-105 hover:border-solid",
+                "h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-cream transition-all hover:scale-105 hover:border-solid",
                 currentSlide === i + 1 && "scale-110 border-2 border-solid",
               )}
             />
@@ -259,7 +296,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
         "group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
         thisProjectSelected &&
-          "pointer-events-none z-selected-project h-[393px] -translate-y-4 blur-0",
+          "pointer-events-none z-selected-project -translate-y-4 blur-0",
         !thisProjectSelected &&
           "cursor-pointer hover:-translate-y-4 lg:group-hover/list:opacity-50 lg:group-hover/list:blur-sm",
         !noProjectSelected && !thisProjectSelected && "opacity-50 blur-sm",
@@ -267,6 +304,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
       onClick={() => {
         if (selectedProject !== opts.id) {
           // ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+          document.body.style.overflow = "hidden";
           setSelectedProject(opts.id);
           setPosition();
         }
@@ -315,6 +353,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
             thisProjectSelected={thisProjectSelected}
           /> */}
         </div>
+        <CloseButton thisProjectSelected={thisProjectSelected} />
       </motion.div>
     </motion.li>
   );
