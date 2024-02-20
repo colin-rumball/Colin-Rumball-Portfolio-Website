@@ -88,18 +88,22 @@ const Footer = () => {
 
 const Slides = [
   <Image
+    placeholder="blur"
     src={LegoPhoneMock1Img}
     alt="Lego Legacy: Heroes Unboxed Promo Image 1"
   />,
   <Image
+    placeholder="blur"
     src={LegoPhoneMock2Img}
     alt="Lego Legacy: Heroes Unboxed Promo Image 2"
   />,
   <Image
+    placeholder="blur"
     src={LegoPhoneMock3Img}
     alt="Lego Legacy: Heroes Unboxed Promo Image 3"
   />,
   <Image
+    placeholder="blur"
     src={LegoPhoneMock4Img}
     alt="Lego Legacy: Heroes Unboxed Promo Image 4"
   />,
