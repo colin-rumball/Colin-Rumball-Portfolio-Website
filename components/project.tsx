@@ -298,7 +298,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
         type: "linear",
         duration: 1.5,
         ease: "easeInOut",
-        delay: 0.8 + 0.3 * index,
+        delay: 0.7 + 0.25 * index,
       }}
       className={cn(
         "group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
