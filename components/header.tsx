@@ -295,7 +295,7 @@ const ExternalLinks = () => {
           {ProjectLinks ? (
             <ProjectLinks />
           ) : (
-            <div className="flex flex-col gap-0 px-4 lg:px-0">
+            <div className="flex flex-col gap-1 px-4 lg:px-0">
               <div className="my-1 flex space-x-3 text-xl">
                 <Link
                   href="https://github.com/colin-rumball"
@@ -313,7 +313,7 @@ const ExternalLinks = () => {
                 </Link>
               </div>
               <ArrowLink href={"mailto:hello@colinrumball.com"} target="_blank">
-                Contact
+                hello@colinrumball.com
               </ArrowLink>
               <ArrowLink href={"/resume.pdf"} target="_blank">
                 Download CV
