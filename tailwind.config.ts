@@ -31,6 +31,8 @@ const config = {
         "uno-yellow": "#FDEF5C",
         "tlp-dark": "#1b2334",
         "tlp-light": "#E8D8B6",
+        "ggco-green": "#36553f",
+        "ggco-yellow": "#FBC53B",
         "ff-navy-blue": "#172c66", // text
         "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border

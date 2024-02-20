@@ -1,16 +1,14 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import GGCoHeaderLogo from "@/../public/images/ggco/header-logo.png";
-import GGCoVerticalLogo from "@/../public/images/ggco/Logo_icon_vertical.png";
-import GGCoBackyard from "@/../public/images/ggco/backyard.png";
-import { Separator } from "../ui/separator";
-import Link, { ArrowLink } from "../ui/link";
+import GGCoBackyard from "@/../public/images/ggco/backyard-720p.png";
+import GGCoGrowKit from "@/../public/images/ggco/grow-kit.png";
+import GGCoGolden from "@/../public/images/ggco/golden-oyster.jpg";
+import GGCoPink from "@/../public/images/ggco/pink-oyster.jpg";
+import GGCoChestnut from "@/../public/images/ggco/chestnut-mushrooms.png";
+import { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
-import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
-  return <div className={`absolute inset-y-0 w-screen bg-[#36553f]`}></div>;
+  return <div className={`bg-ggco-green absolute inset-y-0 w-screen`} />;
 };
 
 const ShortDescription = () => {
@@ -24,58 +22,72 @@ const ShortDescription = () => {
 
 const LongDescription = () => {
   return (
-    <>
-      <div className="mx-auto flex flex-col gap-3">
-        <motion.p variants={slideInVariants} className="font-bold">
-          Growing Good Co. was founded in 2021 by Colin & Nora, two tech
-          veterans looking to get away from the desk and get their hands dirty
-          with something that brought more fulfillment to their life.
-        </motion.p>
-        <motion.div
-          variants={slideInVariants}
-          className="flex items-center justify-center"
-        >
-          <Image
-            src={GGCoVerticalLogo}
-            alt="Growing Good Co logo"
-            className="w-full rounded-lg bg-ff-cream"
-          />
-        </motion.div>
-        <motion.p variants={slideInVariants}>
-          In the midst of the pandemic, we found ourselves leaving the hustle &
-          bustle of Toronto city life to return to our childhood home,
-          Northumberland County, looking to start a business in the local
-          community that could help us achieve our dream of working for
-          ourselves & being full time entrepreneurs.
-        </motion.p>
-      </div>
-    </>
+    <div className="mx-auto flex flex-col gap-3">
+      <p>
+        During our 3 years of fresh mushroom production my wife and I supplied
+        local restaurants and grocers with high quality specialty mushrooms and
+        grow-at-home kits, attended local farmers markets, and supplied our
+        community with fresh, local, and sustainable food.
+      </p>
+      <p>
+        Our journey has been immensely rewarding, not just in terms of the
+        business successes we had, but also in the personal growth and learning
+        that comes with starting a business from the ground up.
+      </p>
+      <p>
+        Though the business is on the back burner the website (made by my hand)
+        still stands as a testament to all the things we achieved.
+      </p>
+    </div>
   );
 };
 
 const Slides = [
-  <></>,
-  // <Image
-  //   src={TLPHome}
-  //   alt="a screenshot of the homepage on the loneliness project on a phone"
-  // />,
-  // <Image
-  //   src={TLPDash}
-  //   alt="a screenshot of the of the dashboard on the loneliness project on a phone"
-  // />,
-  // <Image
-  //   src={TLPEdit}
-  //   alt="a screenshot of the of apartment details edit modal on the loneliness project on a phone"
-  // />,
+  <Image
+    placeholder="blur"
+    src={GGCoBackyard}
+    className="rounded-lg"
+    alt="picture of Colin and his wife Nora is the backyard of their home in Northumberland County, Ontario"
+  />,
+  <div className="flex aspect-video justify-center">
+    <Image
+      src={GGCoGrowKit}
+      placeholder="blur"
+      alt="picture of a blue oyster grow kit on a shelf"
+      className="w-auto rounded-lg"
+    />
+  </div>,
+  <div className="flex aspect-video justify-center">
+    <Image
+      src={GGCoChestnut}
+      placeholder="blur"
+      alt="picture of a cluster of chestnut mushrooms"
+      className="w-auto rounded-lg"
+    />
+  </div>,
+  <div className="flex aspect-video justify-center">
+    <Image
+      src={GGCoPink}
+      placeholder="blur"
+      alt="picture of a pink oyster mushroom"
+      className="w-auto rounded-lg"
+    />
+  </div>,
+  <div className="flex aspect-video justify-center">
+    <Image
+      src={GGCoGolden}
+      placeholder="blur"
+      alt="picture of a golden oyster mushroom"
+      className="w-auto rounded-lg"
+    />
+  </div>,
 ];
 
 const Footer = () => {
   return (
-    <motion.div className="flex flex-col">
-      <ArrowLink href={"https://growinggood.ca/"} target="_blank">
-        Visit Growing Good Co.
-      </ArrowLink>
-    </motion.div>
+    <ArrowLink href={"https://growinggood.ca/"} target="_blank">
+      Visit Growing Good Co.
+    </ArrowLink>
   );
 };
 
@@ -86,10 +98,11 @@ export const GGCoDetails: ProjectOpts = {
   date: "2020-2023",
   video: "/videos/ggco-logo.mp4",
   foreground: "text-ff-cream",
-  foregroundAlt: "text-[#FBC53B]",
+  foregroundAlt: "text-ggco-yellow",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
+  slides: Slides,
   tech: ["typescript", "react", "nextjs", "tailwindcss"],
   externalLinks: Footer,
 };
