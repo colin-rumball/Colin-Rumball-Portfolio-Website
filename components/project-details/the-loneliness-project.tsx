@@ -12,7 +12,11 @@ import { motion } from "framer-motion";
 import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
-  return <div className={`absolute inset-y-0 w-screen bg-[#1b2334]`}></div>;
+  return (
+    <div
+      className={`absolute inset-y-0 w-screen bg-[url(/images/tlp/tlp-bg.png)]`}
+    ></div>
+  );
 };
 
 const ShortDescription = () => {
