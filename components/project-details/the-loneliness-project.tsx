@@ -64,12 +64,12 @@ const Slides = [
   <Image
     src={TLPAbout}
     alt="screenshot of about page on the loneliness project"
-    className="rounded-lg border border-ff-cream"
+    className="rounded-lg"
   />,
   <Image
     src={TLPStory}
     alt="screenshot of about page on the loneliness project"
-    className="object-contain"
+    className="rounded-lg"
   />,
   // <Image
   //   src={TLPHome}
