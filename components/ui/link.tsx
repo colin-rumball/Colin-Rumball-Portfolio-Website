@@ -34,7 +34,7 @@ export const ArrowLink = ({ className, children, ...rest }: LinkProps) => {
   return (
     <Link
       className={cn(
-        "group flex items-center font-semibold leading-tight",
+        "group flex w-fit items-center font-semibold leading-tight",
         className,
       )}
       {...rest}
