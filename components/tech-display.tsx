@@ -90,7 +90,7 @@ const techMap: { [key in ProjectTech]: { icon: ReactNode; label: ReactNode } } =
     },
     actionscript: {
       icon: (
-        <span className="w-[30px] fill-current">
+        <span className="w-[26px] fill-current">
           <ActionScriptIcon />
         </span>
       ),
@@ -155,7 +155,7 @@ const TechDisplay = ({ className }: TechDisplayProps) => {
                   transition: { duration: 0.1, delay: 0 },
                 }}
                 transition={{ type: "spring", duration: 1, delay: 0 }}
-                className="inline-flex items-end gap-1 text-3xl"
+                className="inline-flex gap-1 text-3xl"
               >
                 {techMap[tech].icon}
                 <span className="text-lg font-medium tracking-tight">

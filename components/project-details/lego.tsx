@@ -1,14 +1,10 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import LegoPhoneMock1Img from "@/public/images/lego/Lego_phonemock_iphoneX_1.png";
 import LegoPhoneMock2Img from "@/public/images/lego/Lego_phonemock_iphoneX_2.png";
 import LegoPhoneMock3Img from "@/public/images/lego/Lego_phonemock_iphoneX_3.png";
 import LegoPhoneMock4Img from "@/public/images/lego/Lego_phonemock_iphoneX_4.png";
-import { Separator } from "../ui/separator";
-import Link, { ArrowLink } from "../ui/link";
+import { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
-import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
   return (
@@ -32,46 +28,32 @@ const ShortDescription = () => {
 
 const LongDescription = () => {
   return (
-    <>
-      <div className="mx-auto flex flex-col gap-3">
-        {/* <div className="flex aspect-video w-full justify-center overflow-clip rounded-lg border">
-          <iframe
-            width={"100%"}
-            height={"100%"}
-            src="https://www.youtube.com/embed/b3QhqOA0_j8?si=m9Eqi8Lz3KkYt9-8"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </div> */}
-        <ul className="flex max-w-prose list-disc flex-col gap-2">
-          <motion.li variants={slideInVariants}>
-            Worked closely with game designers and UI & UX designers to bring
-            wireframes & mockups to fully functional interactivity, responsive
-            for multiple device resolutions, and localization-ready for over 9
-            languages.
-          </motion.li>
-          <motion.li variants={slideInVariants}>
-            Created sequencing and scripting tools to allow non-developers to
-            customize game parameters and independently modify game subsystems.
-          </motion.li>
-          <motion.li variants={slideInVariants}>
-            Contributed to systems architecture planning meetings for complex
-            gameplay problems with colleagues.
-          </motion.li>
-          <motion.li variants={slideInVariants}>
-            Worked on developing Lego Legacy: Heroes Unboxed from inception to
-            launch, over a period of 3 years.
-          </motion.li>
-        </ul>
-      </div>
-    </>
+    <ul className="flex max-w-prose list-inside list-disc flex-col gap-4">
+      <li>
+        Worked closely with game designers and UI & UX designers to bring
+        wireframes & mockups to fully functional interactivity, responsive for
+        multiple device resolutions, and localization-ready for over 9
+        languages.
+      </li>
+      <li>
+        Created sequencing and scripting tools to allow non-developers to
+        customize game parameters and independently modify game subsystems.
+      </li>
+      <li>
+        Contributed to systems architecture planning meetings for complex
+        gameplay problems with colleagues.
+      </li>
+      <li>
+        Worked on developing Lego Legacy: Heroes Unboxed from inception to
+        launch, over a period of 3 years.
+      </li>
+    </ul>
   );
 };
 
 const Footer = () => {
   return (
-    <motion.p variants={slideInVariants} className="max-w-prose">
+    <p className="max-w-prose">
       I wrote about my experience working on this project{" "}
       <ArrowLink
         href={
@@ -82,7 +64,7 @@ const Footer = () => {
       >
         on Medium
       </ArrowLink>
-    </motion.p>
+    </p>
   );
 };
 
@@ -90,22 +72,22 @@ const Slides = [
   <Image
     placeholder="blur"
     src={LegoPhoneMock1Img}
-    alt="Lego Legacy: Heroes Unboxed Promo Image 1"
+    alt="Lego Legacy: Heroes Unboxed - fight scene"
   />,
   <Image
     placeholder="blur"
     src={LegoPhoneMock2Img}
-    alt="Lego Legacy: Heroes Unboxed Promo Image 2"
+    alt="Lego Legacy: Heroes Unboxed - hero collection screen"
   />,
   <Image
     placeholder="blur"
     src={LegoPhoneMock3Img}
-    alt="Lego Legacy: Heroes Unboxed Promo Image 3"
+    alt="Lego Legacy: Heroes Unboxed - lego diorama screen"
   />,
   <Image
     placeholder="blur"
     src={LegoPhoneMock4Img}
-    alt="Lego Legacy: Heroes Unboxed Promo Image 4"
+    alt="Lego Legacy: Heroes Unboxed - promo image"
   />,
 ];
 
