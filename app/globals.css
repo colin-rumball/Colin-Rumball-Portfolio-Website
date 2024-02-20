@@ -72,6 +72,18 @@
   }
   body {
     @apply bg-ff-cream text-ff-navy-blue;
+    background-image: linear-gradient(
+      to right bottom,
+      #f9f1f1,
+      #e2e8f0,
+      #f9f1f1,
+      #e2e8f0,
+      #f7f7f8
+    );
+    /* background: url("/svgs/blurry-gradient.svg"); */
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: left;
   }
   /* width */
   ::-webkit-scrollbar {
