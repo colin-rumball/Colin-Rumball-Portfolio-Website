@@ -82,7 +82,7 @@ const Footer = () => {
 export const GGCoDetails: ProjectOpts = {
   id: "ggco",
   name: "Growing Good Co.",
-  jobTitle: "Mushroom Cultivator",
+  jobTitle: "Co-Founder",
   date: "2020-2023",
   video: "/videos/ggco-logo.mp4",
   foreground: "text-ff-cream",
