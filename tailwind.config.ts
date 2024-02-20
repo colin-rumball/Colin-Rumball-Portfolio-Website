@@ -35,6 +35,9 @@ const config = {
         "ggco-yellow": "#FBC53B",
         "dn-dark": "#0E0C20",
         "dn-light-blue": "#66CFFF",
+        "phocus-dark": "#071214",
+        "phocus-light": "#e4e7e7",
+        "phocus-alt": "#9cc6c9",
         "ff-navy-blue": "#172c66", // text
         "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border
