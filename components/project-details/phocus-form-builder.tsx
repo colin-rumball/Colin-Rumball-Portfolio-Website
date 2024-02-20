@@ -1,17 +1,20 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import PhocusLogo from "@/public/images/phocus-logo-dark.png";
-import PhocusNew from "@/public/images/phocus-new.png";
-import PhocusCreated from "@/public/images/phocus-created.png";
-import PhocusSubmit from "@/public/images/phocus-submit.png";
-import { Separator } from "../ui/separator";
-import Link, { ArrowLink } from "../ui/link";
+import PhocusNew from "@/public/images/phocus/phocus-new.png";
+import PhocusCreated from "@/public/images/phocus/phocus-created.png";
+import PhocusSubmit from "@/public/images/phocus/phocus-submit.png";
+import PhocusDashboardImg from "@/public/images/phocus/phocus-dashboard.jpg";
+import PhocusDrawerImg from "@/public/images/phocus/phocus-drawer.jpg";
+import PhocusSidebarImg from "@/public/images/phocus/phocus-sidebar.jpg";
+import { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
 import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
-  return <div className={`absolute inset-y-0 w-screen bg-[#9cc6c9]`}></div>;
+  return (
+    <div className="bg-phocus-dark absolute inset-y-0 w-full bg-[url(/svgs/dot-grid-dark.svg)]">
+      <div className="to-phocus-dark/70 from-phocus-dark/90 via-phocus-dark/80 -z-20 h-full w-full bg-gradient-to-b from-15% to-85%" />
+    </div>
+  );
 };
 
 const ShortDescription = () => {
@@ -25,57 +28,76 @@ const ShortDescription = () => {
 
 const LongDescription = () => {
   return (
-    <>
-      <div className="mx-auto flex flex-col gap-3">
-        <div className="relative mx-auto max-w-[180px]">
-          <Image src={PhocusLogo} alt="Phocus Logo" className="" />
-        </div>
-        <p className="">
-          An AI form builder that uses a drag and drop interface to build simple
-          forms for gathering data.
-        </p>
-        <p className="">
-          Features a user friendly interface with customizable fields allowing
-          easy form creation, or just describe what you need to the AI and it
-          will build the perfect form for you. Whether you're organizing an
-          event, conducting a survey, or just collecting feedback, this tool
-          adapts to your unique needs with minimal fuss.
-        </p>
-      </div>
-    </>
+    <div className="flex flex-col gap-3">
+      <p>
+        An AI form builder that uses a drag and drop interface to build simple
+        forms for gathering data.
+      </p>
+      <p>
+        Features a user friendly interface with customizable fields allowing
+        easy form creation, or just describe what you need to the AI and it will
+        build the perfect form for you.
+      </p>
+      <p>
+        Whether you're organizing an event, conducting a survey, or just
+        collecting feedback, this tool adapts to your unique needs with minimal
+        fuss.
+      </p>
+    </div>
   );
 };
 
 const Slides = [
   <Image
+    placeholder="blur"
     src={PhocusNew}
-    alt="screenshot of about page on the loneliness project"
-    className="rounded-lg border border-ff-cream"
+    className="rounded-lg"
+    alt="screenshot of the user creating a new form"
   />,
   <Image
+    placeholder="blur"
     src={PhocusCreated}
-    alt="screenshot of about page on the loneliness project"
-    className="object-contain"
+    className="rounded-lg"
+    alt="screenshot of the user's newly created form"
   />,
   <Image
+    placeholder="blur"
+    src={PhocusDrawerImg}
+    className="rounded-lg"
+    alt="screenshot of the user's newly created form"
+  />,
+  <Image
+    placeholder="blur"
+    src={PhocusSidebarImg}
+    className="rounded-lg"
+    alt="screenshot of the user's newly created form"
+  />,
+  <Image
+    placeholder="blur"
     src={PhocusSubmit}
-    alt="screenshot of about page on the loneliness project"
-    className="object-contain"
+    className="rounded-lg"
+    alt="screenshot of the user submitting the form"
+  />,
+  <Image
+    placeholder="blur"
+    src={PhocusDashboardImg}
+    className="rounded-lg"
+    alt="screenshot of the form dashboard showing 2 forms"
   />,
 ];
 
-const Footer = () => {
+const externalLinks = () => {
   return (
     <motion.div className="flex flex-col">
       <ArrowLink href={"https://phocus.studio/"} target="_blank">
         Visit Phocus Form Builder
       </ArrowLink>
-      {/* <ArrowLink
-        href={"https://github.com/colin-rumball/The-Loneliness-Project"}
+      <ArrowLink
+        href={"https://github.com/colin-rumball/phocus-form-builder"}
         target="_blank"
       >
-        See project on Github TEMP
-      </ArrowLink> */}
+        See project on Github
+      </ArrowLink>
     </motion.div>
   );
 };
@@ -86,12 +108,12 @@ export const PhocusFormBuilderDetails: ProjectOpts = {
   jobTitle: "Web Developer",
   date: "2024",
   video: "/videos/phocus-logo.mp4",
-  foreground: "text-[#181b1b]",
-  foregroundAlt: "text-[#1d5358]",
+  foreground: "text-phocus-light",
+  foregroundAlt: "text-phocus-alt",
   background: <Background />,
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "convex", "tailwindcss"],
-  externalLinks: Footer,
+  externalLinks: externalLinks,
   slides: Slides,
 };
