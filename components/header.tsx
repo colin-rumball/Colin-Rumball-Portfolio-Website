@@ -88,7 +88,7 @@ const AnimatedProjectBackground = () => {
           onAnimationComplete={() => {
             setExitY(getAnimYExit());
           }}
-          className="absolute inset-y-0 right-0 -z-30 w-screen overflow-hidden"
+          className="absolute inset-y-0 right-0 -z-30 w-screen overflow-hidden bg-slate-500"
         >
           {Projects[selectedProject].background}
         </motion.div>
