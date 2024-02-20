@@ -112,7 +112,7 @@ const AsideContent = ({
               {opts.jobTitle}
             </h4>
             <h5 className="font-bold uppercase">{opts.date}</h5>
-            <div className="my-2 max-h-[250px] min-w-full text-sm leading-snug">
+            <div className="my-2 max-h-[250px] min-w-full text-base font-medium leading-5">
               <ShortDescription />
             </div>
           </>
@@ -178,13 +178,21 @@ const ProjectVideoCarousel = ({
       <Carousel setApi={setApi} opts={{ active: carouselActive }}>
         <CarouselContent className="items-center">
           <CarouselItem key={video}>
-            <video autoPlay muted loop playsInline className="w-full">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-lg"
+            >
               <source src={video} type="video/mp4" />
             </video>
           </CarouselItem>
           {!!slides &&
             slides.map((slide, i) => (
-              <CarouselItem key={i}>{slide}</CarouselItem>
+              <CarouselItem key={i} className="">
+                {slide}
+              </CarouselItem>
             ))}
         </CarouselContent>
       </Carousel>
