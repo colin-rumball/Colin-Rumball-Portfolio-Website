@@ -51,23 +51,6 @@ const LongDescription = () => {
   );
 };
 
-const Footer = () => {
-  return (
-    <p className="max-w-prose">
-      I wrote about my experience working on this project{" "}
-      <ArrowLink
-        href={
-          "https://medium.com/swlh/the-importance-of-component-based-ui-design-666e5dfc7c1a"
-        }
-        target="_blank"
-        className="inline-flex"
-      >
-        on Medium
-      </ArrowLink>
-    </p>
-  );
-};
-
 const Slides = [
   <Image
     placeholder="blur"
@@ -91,6 +74,23 @@ const Slides = [
   />,
 ];
 
+const externalLinks = () => {
+  return (
+    <p className="max-w-prose">
+      I wrote about my experience working on this project{" "}
+      <ArrowLink
+        href={
+          "https://medium.com/swlh/the-importance-of-component-based-ui-design-666e5dfc7c1a"
+        }
+        target="_blank"
+        className="inline-flex"
+      >
+        on Medium
+      </ArrowLink>
+    </p>
+  );
+};
+
 export const LegoDetails: ProjectOpts = {
   id: "lego",
   name: "LEGO Legacy: Heroes Unboxed",
@@ -103,6 +103,6 @@ export const LegoDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["c#", "c++", "flash", "actionscript"],
-  externalLinks: Footer,
+  externalLinks: externalLinks,
   slides: Slides,
 };

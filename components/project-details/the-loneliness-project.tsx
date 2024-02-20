@@ -10,7 +10,7 @@ import { type ProjectOpts } from "@/lib/projects-data";
 const Background = () => {
   return (
     <div
-      className={`bg-tlp-dark absolute inset-y-0 w-screen bg-[url(/images/tlp/tlp-bg.png)]`}
+      className={`absolute inset-y-0 w-screen bg-tlp-dark bg-[url(/images/tlp/tlp-bg.png)]`}
     />
   );
 };
@@ -32,7 +32,7 @@ const LongDescription = () => {
         Marissa Korda. It began small and found fast success receiving press
         coverage and thousands of story submissions.
       </p>
-      <p className="text-tlp-dark rounded-lg bg-ff-cream p-6">
+      <p className="rounded-lg bg-ff-cream p-6 text-tlp-dark">
         At The Loneliness Project, we believe that stories have power—the power
         to heal both listener and teller, and to show us that we aren't ever
         truly alone. Stories are powerful tools for building empathy and growing
@@ -89,7 +89,7 @@ const Slides = [
   </div>,
 ];
 
-const Footer = () => {
+const externalLinks = () => {
   return (
     <div className="flex flex-col gap-1">
       <ArrowLink href={"https://thelonelinessproject.org/"} target="_blank">
@@ -117,6 +117,6 @@ export const TLPDetails: ProjectOpts = {
   shortDescription: ShortDescription,
   longDescription: LongDescription,
   tech: ["typescript", "react", "nextjs", "prisma"],
-  externalLinks: Footer,
+  externalLinks: externalLinks,
   slides: Slides,
 };

@@ -8,7 +8,7 @@ import { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
 
 const Background = () => {
-  return <div className={`bg-ggco-green absolute inset-y-0 w-screen`} />;
+  return <div className={`absolute inset-y-0 w-screen bg-ggco-green`} />;
 };
 
 const ShortDescription = () => {
@@ -83,7 +83,7 @@ const Slides = [
   </div>,
 ];
 
-const Footer = () => {
+const externalLinks = () => {
   return (
     <ArrowLink href={"https://growinggood.ca/"} target="_blank">
       Visit Growing Good Co.
@@ -104,5 +104,5 @@ export const GGCoDetails: ProjectOpts = {
   longDescription: LongDescription,
   slides: Slides,
   tech: ["typescript", "react", "nextjs", "tailwindcss"],
-  externalLinks: Footer,
+  externalLinks: externalLinks,
 };
