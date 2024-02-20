@@ -11,7 +11,7 @@ const ProjectList = ({ className }: ProjectListProps) => {
     <ul
       className={cn(
         className,
-        "group/list mb-20 flex flex-col gap-9 lg:mt-[6.2rem] lg:pl-6 lg:pr-12 lg:pt-12",
+        "group/list pointer-events-none mb-20 flex flex-col gap-9 lg:mt-[6.2rem] lg:pl-6 lg:pr-12 lg:pt-12",
       )}
     >
       {Object.values(Projects).map((projectOpts, i) => (

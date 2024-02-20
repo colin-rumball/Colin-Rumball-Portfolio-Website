@@ -306,8 +306,11 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
         thisProjectSelected &&
           "pointer-events-none z-selected-project -translate-y-4 blur-0",
         !thisProjectSelected &&
-          "cursor-pointer hover:-translate-y-4 lg:group-hover/list:opacity-50 lg:group-hover/list:blur-sm",
-        !noProjectSelected && !thisProjectSelected && "opacity-50 blur-sm",
+          "cursor-pointer hover:-translate-y-4 lg:group-hover/list:opacity-50",
+        noProjectSelected &&
+          !thisProjectSelected &&
+          "lg:group-hover/list:blur-sm",
+        !noProjectSelected && !thisProjectSelected && "opacity-50 blur-xl",
       )}
       onClick={() => {
         if (selectedProject !== opts.id) {

@@ -21,7 +21,7 @@ const BlurredBackground = () => {
           document.body.style.overflow = "";
           setSelectedProject(null);
         }}
-        className="absolute inset-0 z-blurred-background overflow-hidden bg-slate-800 blur-sm"
+        className="absolute inset-0 z-blurred-background overflow-hidden bg-slate-800 blur-xl"
       />
     </AnimatePresence>
   );
