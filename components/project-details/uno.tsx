@@ -1,19 +1,14 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import UnoAppStore1 from "@/public/images/uno/uno_appstore1.png";
 import UnoAppStore2 from "@/public/images/uno/uno_appstore2.png";
 import UnoAppStore3 from "@/public/images/uno/uno_appstore3.png";
-import { Separator } from "../ui/separator";
-import Link, { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
-import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
   return (
     <div
-      className={`absolute inset-y-0 w-screen bg-[url("/images/uno/uno-bg.png")] bg-cover bg-right brightness-[0.6]`}
-    ></div>
+      className={`absolute h-full w-full bg-red-600 bg-[url("/images/uno/uno-bg.png")] bg-cover bg-right brightness-[0.6]`}
+    />
   );
 };
 
@@ -29,34 +24,32 @@ const ShortDescription = () => {
 
 const LongDescription = () => {
   return (
-    <>
-      <div className="mx-auto flex flex-col gap-3">
-        <motion.p variants={slideInVariants}>
-          I worked on this game for 2 years while working for Gameloft in
-          various capacities across multiple systems, including UI scripting,
-          gameplay programming, game server development, and project
-          architecture.
-        </motion.p>
-      </div>
-    </>
+    <p className="">
+      I worked on this game for 2 years while working for Gameloft in various
+      capacities across multiple systems, including UI scripting, gameplay
+      programming, game server development, and project architecture.
+    </p>
   );
 };
 
 const Slides = [
   <Image
+    placeholder="blur"
     src={UnoAppStore1}
     alt="Marketing image for the game Uno & friends"
-    className="rounded-lg border border-ff-cream"
+    className="rounded-lg"
   />,
   <Image
+    placeholder="blur"
     src={UnoAppStore2}
     alt="Marketing image for the game Uno & friends"
-    className="object-contain"
+    className="rounded-lg"
   />,
   <Image
+    placeholder="blur"
     src={UnoAppStore3}
     alt="Marketing image for the game Uno & friends"
-    className="object-contain"
+    className="rounded-lg"
   />,
 ];
 
