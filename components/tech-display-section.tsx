@@ -42,7 +42,7 @@ const TechDisplaySection = ({ className }: TechDisplaySectionProps) => {
         className,
       )}
     >
-      <Headline as="h3">Tech</Headline>
+      {/* <Headline as="h3">Tech</Headline> */}
       <div className="px-4 md:px-0">
         <TechDisplay techList={techList} />
       </div>

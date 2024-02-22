@@ -141,7 +141,7 @@ const NameAndOccupation = () => {
 const AboutMe = () => {
   return (
     <div className="">
-      <Headline as="h3">About</Headline>
+      {/* <Headline as="h3">About</Headline> */}
       <div className="flex flex-col gap-4 px-4 md:px-0">
         <p className="">
           I have a strong passion for software development that has evolved over

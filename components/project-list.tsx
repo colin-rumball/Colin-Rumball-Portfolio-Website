@@ -21,7 +21,7 @@ const ProjectList = ({ className }: ProjectListProps) => {
         ease: "easeInOut",
       }}
     >
-      <Headline as="h3">Experience</Headline>
+      {/* <Headline as="h3">Experience</Headline> */}
       <ul
         className={cn(
           className,
