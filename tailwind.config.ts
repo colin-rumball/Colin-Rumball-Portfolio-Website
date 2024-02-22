@@ -38,6 +38,10 @@ const config = {
         "phocus-dark": "#071214",
         "phocus-light": "#e4e7e7",
         "phocus-alt": "#9cc6c9",
+        "peak-dark": "#20202C",
+        "peak-accent": "#4F5888",
+        "peak-yellow": "#FBC018",
+        "peak-rose": "#BF2D4D",
         "ff-navy-blue": "#172c66", // text
         "ff-cream": "#f7f7f8", // bg
         "ff-light-pink": "#f3d2c1", // border
