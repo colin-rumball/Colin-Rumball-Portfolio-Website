@@ -8,8 +8,8 @@ import { type ProjectOpts } from "@/lib/projects-data";
 
 const Background = () => {
   return (
-    <div className="bg-peak-dark absolute inset-y-0 w-full bg-[url(/images/peak-ratings/grain.png)]">
-      <div className="from-peak-dark/10 to-peak-accent/20 -z-20 h-full w-full bg-gradient-to-b" />
+    <div className="absolute inset-y-0 -z-20 w-full bg-[url(/images/peak-ratings/grain.png)]">
+      <div className="z-10 h-full w-full bg-gradient-to-b from-peak-dark/10 to-peak-accent/20" />
     </div>
   );
 };
