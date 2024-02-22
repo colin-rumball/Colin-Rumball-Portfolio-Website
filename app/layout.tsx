@@ -29,7 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="scroll-smooth text-[95%] lg:text-[100%]"
+      suppressHydrationWarning
+    >
       <body
         className={cn(
           roboto.className,
@@ -38,7 +42,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <div className="relative flex flex-grow flex-col gap-8 lg:container lg:flex-row">
+          <div className="relative flex flex-grow flex-col gap-0 md:container md:flex-row md:gap-8 lg:px-16">
             <NextTopLoader />
             <Header />
             {children}

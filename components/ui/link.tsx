@@ -37,6 +37,7 @@ export const ArrowLink = ({ className, children, ...rest }: LinkProps) => {
         "group flex w-fit items-center font-semibold leading-tight",
         className,
       )}
+      onClick={(e) => e.stopPropagation()}
       {...rest}
     >
       <span className="border-b-2 border-transparent group-hover:border-b-ff-pale-cyan">

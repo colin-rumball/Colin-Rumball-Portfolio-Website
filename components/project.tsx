@@ -9,7 +9,7 @@ import {
   useCallback,
   type FC,
 } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Carousel,
   type CarouselApi,
@@ -21,6 +21,9 @@ import { type ProjectOpts } from "@/lib/projects-data";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
 import { Button } from "./ui/button";
 import { MdOutlineClose } from "react-icons/md";
+import useWindowDimensions from "@/lib/hooks/useWindowDimensions";
+import { Separator } from "./ui/separator";
+import TechDisplay from "./tech-display";
 
 const CloseButton = ({
   thisProjectSelected,
@@ -38,7 +41,7 @@ const CloseButton = ({
         opacity: 1,
         transition: { ease: "easeInOut", duration: 0.7, delay: 0.3 },
       }}
-      className="absolute -right-6 -top-16 z-40"
+      className="absolute -right-6 -top-16 z-40 hidden md:block"
     >
       <Button
         variant={"ghost"}
@@ -62,13 +65,33 @@ const ProjectHoveredBackground = ({
   return (
     <div
       className={cn(
-        "absolute -inset-4 -z-10 hidden rounded-lg transition-all duration-500 motion-reduce:transition-none lg:block",
+        "absolute -inset-4 -z-10 hidden rounded-lg transition-all duration-500 motion-reduce:transition-none md:block",
         !thisProjectSelected &&
-          "lg:group-hover:bg-ff-green/10 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg",
+          "md:group-hover:bg-ff-green/10 md:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] md:group-hover:drop-shadow-lg",
         thisProjectSelected &&
-          "bg-slate-800/40 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg duration-1000",
+          "shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg duration-1000 md:bg-slate-800/40",
       )}
     />
+  );
+};
+
+const ProjectSummary = ({ opts }: { opts: ProjectOpts }) => {
+  const ShortDescription = opts.shortDescription;
+  return (
+    <div className="flex flex-col text-left text-xs font-semibold tracking-wide">
+      <h3
+        className={cn(
+          "align-top text-lg font-bold leading-5 tracking-tight group-hover:text-ff-green",
+        )}
+      >
+        {opts.name}
+      </h3>
+      <h4 className="font-bold uppercase tracking-normal">{opts.jobTitle}</h4>
+      <h5 className="font-bold uppercase">{opts.date}</h5>
+      <div className="my-2 hidden max-h-[250px] min-w-full text-base font-medium leading-5 sm:block md:overflow-y-auto lg:overflow-y-visible">
+        <ShortDescription />
+      </div>
+    </div>
   );
 };
 
@@ -79,13 +102,12 @@ const AsideContent = ({
   opts: ProjectOpts;
   thisProjectSelected: boolean;
 }) => {
-  const ShortDescription = opts.shortDescription;
   return (
     <aside
       className={cn(
         "z-10 transition-all",
-        !thisProjectSelected && "duration-300 lg:w-1/3",
-        thisProjectSelected && "w-0 overflow-hidden duration-300",
+        !thisProjectSelected && "duration-300 md:w-1/3",
+        thisProjectSelected && "w-0 overflow-visible duration-300",
       )}
       aria-label={opts?.name}
     >
@@ -97,26 +119,9 @@ const AsideContent = ({
         initial="closed"
         animate={thisProjectSelected ? "thisProjectSelected" : "closed"}
         transition={{ duration: 0.1, ease: "easeInOut", delay: 0 }}
-        className="absolute inset-y-0 left-2/3 right-0 flex overflow-hidden text-left text-xs font-semibold tracking-wide lg:flex-col"
+        className="absolute inset-y-0 left-2/3 right-0 flex flex-col overflow-visible pl-2 pt-2 md:p-0"
       >
-        {opts && (
-          <>
-            <h3
-              className={cn(
-                "align-top text-lg font-bold leading-5 tracking-tight group-hover:text-ff-green",
-              )}
-            >
-              {opts.name}
-            </h3>
-            <h4 className="font-bold uppercase tracking-normal">
-              {opts.jobTitle}
-            </h4>
-            <h5 className="font-bold uppercase">{opts.date}</h5>
-            <div className="my-2 max-h-[250px] min-w-full text-base font-medium leading-5">
-              <ShortDescription />
-            </div>
-          </>
-        )}
+        {opts && <ProjectSummary opts={opts} />}
       </motion.div>
     </aside>
   );
@@ -183,14 +188,23 @@ const ProjectVideoCarousel = ({
               muted
               loop
               playsInline
-              className="w-full rounded-lg"
+              className={cn(
+                "w-full rounded-lg",
+                thisProjectSelected && "cursor-grab active:cursor-grabbing",
+              )}
             >
               <source src={video} type="video/mp4" />
             </video>
           </CarouselItem>
           {!!slides &&
             slides.map((slide, i) => (
-              <CarouselItem key={i} className="">
+              <CarouselItem
+                key={i}
+                className={cn(
+                  "",
+                  thisProjectSelected && "cursor-grab active:cursor-grabbing",
+                )}
+              >
                 {slide}
               </CarouselItem>
             ))}
@@ -210,7 +224,7 @@ const ProjectVideoCarousel = ({
               api.scrollTo(0, true);
             }}
             className={cn(
-              `h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-cream transition-all hover:scale-105 hover:border-solid`,
+              `h-4 w-4 cursor-pointer rounded-full border border-dashed border-foreground transition-all hover:scale-105 hover:border-solid md:border-ff-cream`,
               currentSlide === 0 && "scale-110 border-2 border-solid",
             )}
           />
@@ -222,7 +236,7 @@ const ProjectVideoCarousel = ({
                 api.scrollTo(i + 1, true);
               }}
               className={cn(
-                "h-4 w-4 cursor-pointer rounded-full border border-dashed border-ff-cream transition-all hover:scale-105 hover:border-solid",
+                "h-4 w-4 cursor-pointer rounded-full border border-dashed border-foreground transition-all hover:scale-105 hover:border-solid md:border-ff-cream",
                 currentSlide === i + 1 && "scale-110 border-2 border-solid",
               )}
             />
@@ -233,26 +247,24 @@ const ProjectVideoCarousel = ({
   );
 };
 
-const ProjectExtendedContent = ({
-  ExpandedDescription,
-  thisProjectSelected,
-}: {
-  ExpandedDescription: FC;
-  thisProjectSelected: boolean;
-}) => {
-  if (!thisProjectSelected) return null;
+const ProjectExtendedContent = ({ projOpts }: { projOpts: ProjectOpts }) => {
+  const ExpandedDescription = projOpts.longDescription;
+  const ExternalLinks = projOpts.externalLinks;
   return (
     <motion.div
-      variants={{
-        thisProjectSelected: { height: "auto" },
-        closed: { height: "0" },
-      }}
-      initial="closed"
-      animate={thisProjectSelected ? "thisProjectSelected" : "closed"}
+      initial={{ height: "0" }}
+      animate={{ height: "auto" }}
+      exit={{ height: "0" }}
       transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
-      className={cn("w-full overflow-hidden")}
+      className={cn(
+        "flex h-auto w-full flex-col gap-4 overflow-hidden px-1 md:hidden",
+      )}
     >
+      <ProjectSummary opts={projOpts} />
+      <TechDisplay techList={projOpts.tech} />
       <ExpandedDescription />
+      {ExternalLinks && <ExternalLinks />}
+      <Separator className="bg-current" />
     </motion.div>
   );
 };
@@ -261,6 +273,8 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
   const { selectedProject, setSelectedProject } = useProjectSelector(
     (state) => state,
   );
+  const [showExtendedContent, setShowExtendedContent] = useState(false);
+  const windowDimensions = useWindowDimensions();
   const noProjectSelected = selectedProject === null;
   const thisProjectSelected = selectedProject === opts.id;
   const ref = useRef<HTMLLIElement>(null);
@@ -288,6 +302,28 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
     return removeListeners;
   }, [selectedProject, ref.current]);
 
+  useEffect(() => {
+    if (showExtendedContent) {
+      const top = ref.current?.offsetTop;
+      if (!top) {
+        console.error("No top value found");
+        return;
+      }
+      window.scrollTo({
+        top: top - 106,
+      });
+    }
+  }, [showExtendedContent]);
+
+  useEffect(() => {
+    if (windowDimensions.width && windowDimensions.width > 768) {
+      setShowExtendedContent(false);
+    } else if (windowDimensions.width && windowDimensions.width < 768) {
+      document.body.style.overflow = "";
+      setSelectedProject(null);
+    }
+  }, [windowDimensions.width]);
+
   return (
     <motion.li
       ref={ref}
@@ -301,23 +337,27 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
         delay: 0.7 + 0.25 * index,
       }}
       className={cn(
-        "group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
+        "md:group relative aspect-[16/6] w-full scroll-m-36 transition-all duration-300",
         "group-hover/list:hover:opacity-100 group-hover/list:hover:blur-0",
         thisProjectSelected &&
-          "pointer-events-none z-selected-project -translate-y-4 blur-0",
+          "pointer-events-none z-selected-project blur-0 md:-translate-y-4",
         !thisProjectSelected &&
-          "cursor-pointer hover:-translate-y-4 lg:group-hover/list:opacity-50",
+          "cursor-pointer md:hover:-translate-y-4 md:group-hover/list:opacity-50",
         noProjectSelected &&
           !thisProjectSelected &&
-          "lg:group-hover/list:blur-sm",
+          "md:group-hover/list:blur-sm",
         !noProjectSelected && !thisProjectSelected && "opacity-50 blur-xl",
       )}
       onClick={() => {
-        if (selectedProject !== opts.id) {
-          // ref.current?.scrollIntoView({ block: "start", behavior: "smooth" });
-          document.body.style.overflow = "hidden";
-          setSelectedProject(opts.id);
-          setPosition();
+        // if small screen, scroll to top of the project, expand project and video
+        if (windowDimensions.width && windowDimensions.width < 768) {
+          setShowExtendedContent((prev) => !prev);
+        } else {
+          if (selectedProject !== opts.id) {
+            document.body.style.overflow = "hidden";
+            setSelectedProject(opts.id);
+            setPosition();
+          }
         }
       }}
     >
@@ -333,7 +373,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           delay: 0,
         }}
         className={cn(
-          "pointer-events-auto absolute",
+          "pointer-events-auto md:absolute",
           thisProjectSelected && "z-selected-project",
         )}
       >
@@ -345,24 +385,25 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
               closed: { gap: "1.5rem" },
             }}
             initial="closed"
-            animate={thisProjectSelected ? "open" : "closed"}
+            animate={
+              thisProjectSelected || showExtendedContent ? "open" : "closed"
+            }
             transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 }}
-            className={cn("flex")}
+            className={cn("flex flex-col md:flex-row")}
           >
             <ProjectVideoCarousel
-              thisProjectSelected={thisProjectSelected}
+              thisProjectSelected={thisProjectSelected || showExtendedContent}
               video={opts.video}
               slides={opts.slides}
             />
             <AsideContent
               opts={opts}
-              thisProjectSelected={thisProjectSelected}
+              thisProjectSelected={thisProjectSelected || showExtendedContent}
             />
           </motion.div>
-          {/* <ProjectExtendedContent
-            ExpandedDescription={opts.longDescription}
-            thisProjectSelected={thisProjectSelected}
-          /> */}
+          <AnimatePresence mode="wait">
+            {showExtendedContent && <ProjectExtendedContent projOpts={opts} />}
+          </AnimatePresence>
         </div>
         <CloseButton thisProjectSelected={thisProjectSelected} />
       </motion.div>

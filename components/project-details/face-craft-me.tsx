@@ -93,7 +93,7 @@ const Footer = () => {
 };
 
 export const FaceCraftDetails: ProjectOpts = {
-  id: "facecraft",
+  id: "ainavigator", // TODO: change to face-craft-me
   name: "FaceCraft.me",
   jobTitle: "Web Developer",
   date: "2023",

@@ -2,14 +2,14 @@
 
 import { cn } from "@/lib/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
-import StickyHeadline from "./sticky-headline";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
 import { Projects } from "@/lib/projects-data";
 import { Separator } from "./ui/separator";
 import { AnimatePresence, clamp, motion } from "framer-motion";
 import Link, { ArrowLink } from "./ui/link";
-import TechDisplay from "./tech-display";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Headline from "./headline";
+import TechDisplaySection from "./tech-display-section";
 
 const AnimatedProjectBackground = () => {
   const { selectedProject } = useProjectSelector((state) => ({
@@ -103,12 +103,12 @@ const NameAndOccupation = () => {
   }));
 
   return (
-    <section id="info" className="px-4 lg:px-0">
+    <section id="info" className="px-4 md:px-0">
       <motion.h1
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1, transition: { delay: 0 } }}
         transition={{ duration: 0.2 }}
-        className="text-4xl font-bold tracking-tight sm:text-5xl"
+        className="overflow-visible whitespace-nowrap text-4xl font-bold tracking-tight lg:text-5xl"
       >
         Colin Rumball
       </motion.h1>
@@ -140,9 +140,9 @@ const NameAndOccupation = () => {
 
 const AboutMe = () => {
   return (
-    <>
-      <StickyHeadline as="h3">About</StickyHeadline>
-      <div className="flex flex-col gap-4">
+    <div className="">
+      <Headline as="h3">About</Headline>
+      <div className="flex flex-col gap-4 px-4 md:px-0">
         <p className="">
           I have a strong passion for software development that has evolved over
           time. Initially drawn to the gaming industry, I pursued game
@@ -158,7 +158,7 @@ const AboutMe = () => {
           my local community.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -195,9 +195,8 @@ const BodyContent = () => {
         opacity: 1,
         transition: { duration: 0.4, delay: 0.7, ease: "easeInOut" },
       }}
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-4"
     >
-      <Separator className="my-2 bg-current" />
       <motion.div
         animate={{ height }}
         transition={{ duration: 0.3 }}
@@ -255,7 +254,6 @@ const BodyContent = () => {
           </motion.div>
         </AnimatePresence>
       </motion.div>
-      <Separator className="my-2 bg-current" />
     </motion.section>
   );
 };
@@ -294,7 +292,7 @@ const ExternalLinks = () => {
           {ProjectLinks ? (
             <ProjectLinks />
           ) : (
-            <div className="flex flex-col gap-1 px-4 lg:px-0">
+            <div className="flex flex-col gap-1 px-4 md:px-0">
               <div className="my-1 flex space-x-3 text-xl">
                 <Link
                   href="https://github.com/colin-rumball"
@@ -333,15 +331,38 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "z-header flex flex-col gap-4 pt-12 transition-colors lg:sticky lg:top-0 lg:-mb-28 lg:h-screen lg:w-4/12 lg:pl-12 lg:pr-6",
+        "relative z-header flex flex-col gap-4 pt-[3.25rem] transition-colors md:sticky md:top-0 md:h-screen md:w-4/12 lg:pr-8",
         selectedProject && Projects[selectedProject].foreground,
       )}
     >
       <AnimatedProjectBackground />
       <NameAndOccupation />
-      <TechDisplay />
-      <div className="flex flex-col gap-2">
+      <TechDisplaySection />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { duration: 0.4, delay: 0.65, ease: "easeInOut" },
+        }}
+      >
+        <Separator className="hidden bg-current md:block" />
+      </motion.div>
+      <div
+        className="flex flex-col gap-4 overflow-y-auto md:mr-2 md:pr-2 lg:mr-0 lg:pb-0 lg:pr-0"
+        style={{ scrollbarGutter: "stable" }}
+      >
         <BodyContent />
+      </div>
+      <div className="flex flex-grow flex-col gap-4 pb-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { duration: 0.4, delay: 0.75, ease: "easeInOut" },
+          }}
+        >
+          <Separator className="hidden bg-current md:block" />
+        </motion.div>
         <ExternalLinks />
       </div>
     </header>
