@@ -4,7 +4,7 @@ import TLPStory from "@/public/images/tlp/tlp-story.png";
 import TLPHome from "@/public/images/tlp/tlp-main-phone.png";
 import TLPEdit from "@/public/images/tlp/tlp-edit-phone.png";
 import TLPDash from "@/public/images/tlp/tlp-dashboard-phone.png";
-import { ArrowLink } from "../ui/link";
+import Link, { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
 
 const Background = () => {
@@ -16,21 +16,23 @@ const Background = () => {
 };
 
 const ShortDescription = () => {
-  return (
-    <p>
-      Sharing stories and starting a conversation about loneliness. Become part
-      of our community of people who are not as alone as they think.
-    </p>
-  );
+  return <p>Sharing stories and starting a conversation about loneliness.</p>;
 };
 
 const LongDescription = () => {
   return (
     <div className="mx-auto flex flex-col gap-3">
       <p>
-        The Loneliness Project is a passion project started by my dear friend
-        Marissa Korda. It began small and found fast success receiving press
-        coverage and thousands of story submissions.
+        The Loneliness Project is a passion project started by my dear friend{" "}
+        <Link
+          className="text-dn-light-blue hover:underline"
+          href={"https://marissakorda.com/"}
+          target="_blank"
+        >
+          Marissa Korda
+        </Link>
+        . It began small and found fast success receiving press coverage and
+        thousands of story submissions.
       </p>
       <p className="rounded-lg bg-ff-cream p-6 text-tlp-dark">
         At The Loneliness Project, we believe that stories have power—the power

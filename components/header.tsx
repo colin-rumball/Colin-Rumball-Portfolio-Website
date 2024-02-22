@@ -148,8 +148,7 @@ const AboutMe = () => {
           time. Initially drawn to the gaming industry, I pursued game
           development and worked in mobile gaming. In recent years, I&apos;ve
           shifted my focus to web development, embracing its creative challenges
-          and innovative approach to problem-solving. I am excited to bring this
-          unique blend of skills and experiences to every project I undertake.
+          and innovative approach to problem-solving.
         </p>
         <p className="">
           When not coding, I enjoy practicing yoga, camping, and traveling the

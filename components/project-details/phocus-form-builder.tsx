@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 
 const Background = () => {
   return (
-    <div className="bg-phocus-dark absolute inset-y-0 w-full bg-[url(/svgs/dot-grid-dark.svg)]">
-      <div className="to-phocus-dark/70 from-phocus-dark/90 via-phocus-dark/80 -z-20 h-full w-full bg-gradient-to-b from-15% to-85%" />
+    <div className="absolute inset-y-0 w-full bg-phocus-dark bg-[url(/svgs/dot-grid-dark.svg)]">
+      <div className="-z-20 h-full w-full bg-gradient-to-b from-phocus-dark/90 from-15% via-phocus-dark/80 to-phocus-dark/70 to-85%" />
     </div>
   );
 };

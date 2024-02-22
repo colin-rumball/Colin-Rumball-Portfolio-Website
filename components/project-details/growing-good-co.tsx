@@ -35,8 +35,8 @@ const LongDescription = () => {
         that comes with starting a business from the ground up.
       </p>
       <p>
-        Though the business is on the back burner the website (made by my hand)
-        still stands as a testament to all the things we achieved.
+        Though the business is on the back burner the website I crafted still
+        stands as a testament to all the things we achieved.
       </p>
     </div>
   );

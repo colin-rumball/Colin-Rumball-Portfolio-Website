@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { type ComponentPropsWithoutRef } from "react";
 import Project from "./project";
 import { Projects } from "@/lib/projects-data";
+
 type ProjectListProps = ComponentPropsWithoutRef<"div">;
 
 const ProjectList = ({ className }: ProjectListProps) => {

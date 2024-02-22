@@ -8,7 +8,7 @@ import { type ProjectOpts } from "@/lib/projects-data";
 const Background = () => {
   return (
     <div
-      className={`from-dn-dark/60 to-dn-dark absolute inset-y-0 w-screen bg-gradient-radial`}
+      className={`absolute inset-y-0 w-screen bg-gradient-radial from-dn-dark/60 to-dn-dark`}
     />
   );
 };
@@ -86,7 +86,7 @@ export const AiNavigatorDetails: ProjectOpts = {
   id: "ainavigator",
   name: "AI Navigator Web Experience",
   jobTitle: "Web Developer",
-  date: "2023",
+  date: "2023-2024",
   video: "/videos/dn-logo.mp4",
   foreground: "text-ff-cream",
   foregroundAlt: "text-dn-light-blue",
