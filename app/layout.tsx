@@ -19,7 +19,7 @@ const roboto = Nunito_Sans({
 
 export const metadata: Metadata = {
   title: "Colin Rumball",
-  description: "The portfolio of Colin Rumball",
+  description: "The web development portfolio of Colin Rumball",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -34,6 +34,7 @@ export default function RootLayout({
         className={cn(
           roboto.className,
           "relative flex h-full min-h-screen scroll-smooth antialiased",
+          "bg-gradient-to-r from-slate-300 via-ff-cream to-slate-300/60",
         )}
       >
         <Providers>
@@ -46,6 +47,7 @@ export default function RootLayout({
           </div>
           <BlurredBackground />
         </Providers>
+        <div className="absolute inset-0 -z-10 bg-[url(/images/paper.jpg)] opacity-30" />
       </body>
     </html>
   );
