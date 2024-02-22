@@ -12,7 +12,6 @@ export type ProjectID =
   | "phocus"
   | "ainavigator"
   | "peakratings"
-  | "facecraft"
   | "ggco"
   | "tlp"
   | "lego"
@@ -55,7 +54,6 @@ export const Projects: ProjectDetails = {
   phocus: PhocusFormBuilderDetails,
   ainavigator: AiNavigatorDetails,
   peakratings: MyRatingsDetails,
-  facecraft: FaceCraftDetails,
   ggco: GGCoDetails,
   tlp: TLPDetails,
   lego: LegoDetails,
