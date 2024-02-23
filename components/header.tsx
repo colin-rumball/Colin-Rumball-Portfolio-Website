@@ -312,7 +312,7 @@ const ExternalLinks = () => {
               <ArrowLink href={"mailto:hello@colinrumball.com"} target="_blank">
                 hello@colinrumball.com
               </ArrowLink>
-              <ArrowLink href={"/resume.pdf"} target="_blank">
+              <ArrowLink href={"/-colin-rumball-resume.pdf"} target="_blank">
                 Download CV
               </ArrowLink>
             </div>
