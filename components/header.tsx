@@ -144,11 +144,10 @@ const AboutMe = () => {
       {/* <Headline as="h3">About</Headline> */}
       <div className="flex flex-col gap-4 px-4 md:px-0">
         <p className="">
-          I have a strong passion for software development that has evolved over
-          time. Initially drawn to the gaming industry, I pursued game
-          development and worked in mobile gaming. In recent years, I&apos;ve
-          shifted my focus to web development, embracing its creative challenges
-          and innovative approach to problem-solving.
+          Initially drawn to the gaming industry, I pursued game development and
+          worked in mobile gaming. In recent years, I&apos;ve shifted my focus
+          to web development, embracing its creative challenges and innovative
+          approach to problem-solving.
         </p>
         <p className="">
           When not coding, I enjoy practicing yoga, camping, and traveling the
