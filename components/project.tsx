@@ -213,7 +213,7 @@ const ProjectVideoCarousel = ({
       {!!api && (
         <motion.div
           className={cn(
-            "absolute -bottom-6 left-1/2 flex -translate-x-1/2 gap-2 opacity-0 transition-opacity duration-100",
+            "absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 opacity-0 transition-opacity duration-100",
             thisProjectSelected && "opacity-100 duration-1000",
           )}
         >
@@ -224,8 +224,9 @@ const ProjectVideoCarousel = ({
               api.scrollTo(0, true);
             }}
             className={cn(
-              `h-4 w-4 cursor-pointer rounded-full border border-dashed border-foreground transition-all hover:scale-105 hover:border-solid md:border-ff-cream`,
-              currentSlide === 0 && "scale-110 border-2 border-solid",
+              `h-4 w-4 cursor-pointer rounded-full border border-foreground opacity-40 transition-all hover:scale-105 hover:border-solid hover:opacity-75 md:border-ff-cream`,
+              currentSlide === 0 &&
+                "scale-110 border-2 border-solid opacity-100",
             )}
           />
           {slides?.map((slide, i) => (
@@ -236,8 +237,9 @@ const ProjectVideoCarousel = ({
                 api.scrollTo(i + 1, true);
               }}
               className={cn(
-                "h-4 w-4 cursor-pointer rounded-full border border-dashed border-foreground transition-all hover:scale-105 hover:border-solid md:border-ff-cream",
-                currentSlide === i + 1 && "scale-110 border-2 border-solid",
+                "h-4 w-4 cursor-pointer rounded-full border border-foreground opacity-40 transition-all hover:scale-105 hover:border-solid hover:opacity-75 md:border-ff-cream",
+                currentSlide === i + 1 &&
+                  "scale-110 border-2 border-solid opacity-100",
               )}
             />
           ))}
