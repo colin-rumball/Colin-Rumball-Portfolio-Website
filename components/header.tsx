@@ -144,10 +144,12 @@ const AboutMe = () => {
       {/* <Headline as="h3">About</Headline> */}
       <div className="flex flex-col gap-4 px-4 md:px-0">
         <p className="">
-          Initially drawn to the gaming industry, I pursued game development and
-          worked in mobile gaming. In recent years, I&apos;ve shifted my focus
-          to web development, embracing its creative challenges and innovative
-          approach to problem-solving.
+          With a career working in both mobile game development and web
+          development, I've grown a diverse skillset spanning frontend and
+          backend technologies. Passionate about tackling creative challenges in
+          all stages of product development, from concept ideation to
+          implementation, I thrive while learning new technologies & employing
+          innovative approaches to problem-solving.
         </p>
         <p className="">
           When not coding, I enjoy practicing yoga, camping, and traveling the
@@ -311,7 +313,7 @@ const ExternalLinks = () => {
               <ArrowLink href={"mailto:hello@colinrumball.com"} target="_blank">
                 hello@colinrumball.com
               </ArrowLink>
-              <ArrowLink href={"/-colin-rumball-resume.pdf"} target="_blank">
+              <ArrowLink href={"/colin-rumball-resume.pdf"} target="_blank">
                 Download CV
               </ArrowLink>
             </div>
