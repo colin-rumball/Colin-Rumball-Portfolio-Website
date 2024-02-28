@@ -117,7 +117,7 @@ const NameAndOccupation = () => {
         <motion.h2
           key={
             !selectedProject
-              ? "Web Developer"
+              ? "Full-Stack Developer"
               : Projects[selectedProject].jobTitle
           }
           initial={{ x: -20, opacity: 0 }}
@@ -126,7 +126,9 @@ const NameAndOccupation = () => {
           transition={{ duration: 0.2, delay: 0.1, ease: "easeInOut" }}
           className="h-[28px] text-lg tracking-tight sm:text-xl"
         >
-          {!selectedProject && <span key="Web Developer">Web Developer</span>}
+          {!selectedProject && (
+            <span key="Full-Stack Developer">Full-Stack Developer</span>
+          )}
           {!!selectedProject && (
             <span key={Projects[selectedProject].jobTitle}>
               {Projects[selectedProject].jobTitle}

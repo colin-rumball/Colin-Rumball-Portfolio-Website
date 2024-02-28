@@ -350,20 +350,8 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           "md:group-hover/list:blur-sm",
         !noProjectSelected && !thisProjectSelected && "opacity-50 blur-xl",
       )}
-      onClick={() => {
-        // if small screen, scroll to top of the project, expand project and video
-        if (windowDimensions.width && windowDimensions.width < 768) {
-          setShowExtendedContent((prev) => !prev);
-        } else {
-          if (selectedProject !== opts.id) {
-            document.body.style.overflow = "hidden";
-            setSelectedProject(opts.id);
-            setPosition();
-          }
-        }
-      }}
     >
-      <motion.div
+      <motion.button
         initial={{ top: 0 }}
         animate={{
           top: thisProjectSelected ? `${top}px` : "0",
@@ -378,6 +366,18 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           "pointer-events-auto md:absolute",
           thisProjectSelected && "z-selected-project",
         )}
+        onClick={() => {
+          // if small screen, scroll to top of the project, expand project and video
+          if (windowDimensions.width && windowDimensions.width < 768) {
+            setShowExtendedContent((prev) => !prev);
+          } else {
+            if (selectedProject !== opts.id) {
+              document.body.style.overflow = "hidden";
+              setSelectedProject(opts.id);
+              setPosition();
+            }
+          }
+        }}
       >
         <ProjectHoveredBackground thisProjectSelected={thisProjectSelected} />
         <div className="flex w-full flex-col">
@@ -408,7 +408,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           </AnimatePresence>
         </div>
         <CloseButton thisProjectSelected={thisProjectSelected} />
-      </motion.div>
+      </motion.button>
     </motion.li>
   );
 };

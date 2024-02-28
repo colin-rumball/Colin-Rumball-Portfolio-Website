@@ -95,7 +95,7 @@ const Footer = () => {
 export const FaceCraftDetails: ProjectOpts = {
   id: "ainavigator", // TODO: change to face-craft-me
   name: "FaceCraft.me",
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Developer",
   date: "2023",
   video: "/videos/empty-logo.mp4",
   foreground: "text-ff-cream",

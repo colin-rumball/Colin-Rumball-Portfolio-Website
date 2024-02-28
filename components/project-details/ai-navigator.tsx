@@ -85,7 +85,7 @@ const externalLinks = () => {
 export const AiNavigatorDetails: ProjectOpts = {
   id: "ainavigator",
   name: "AI Navigator Web Experience",
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Developer",
   date: "2023-2024",
   video: "/videos/dn-logo.mp4",
   foreground: "text-ff-cream",

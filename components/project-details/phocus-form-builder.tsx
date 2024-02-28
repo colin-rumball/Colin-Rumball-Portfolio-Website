@@ -105,7 +105,7 @@ const externalLinks = () => {
 export const PhocusFormBuilderDetails: ProjectOpts = {
   id: "phocus",
   name: "Phocus Form Builder",
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Developer",
   date: "2024",
   video: "/videos/phocus-logo.mp4",
   foreground: "text-phocus-light",

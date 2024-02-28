@@ -110,7 +110,7 @@ const externalLinks = () => {
 export const TLPDetails: ProjectOpts = {
   id: "tlp",
   name: "The Loneliness Project",
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Developer",
   date: "2020",
   video: "/videos/tlp-logo.mp4",
   foreground: "text-tlp-light",

@@ -84,7 +84,7 @@ const externalLinks = () => {
 export const MyRatingsDetails: ProjectOpts = {
   id: "peakratings",
   name: "Peak Ratings",
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Developer",
   date: "2023",
   video: "/videos/peak-ratings-logo.mp4",
   foreground: "text-[#e6e6e6]",
