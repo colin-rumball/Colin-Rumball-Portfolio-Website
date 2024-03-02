@@ -1,7 +1,6 @@
 "use client";
 
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 
 const BlurredBackground = () => {

@@ -94,7 +94,7 @@ const techMap: { [key in ProjectTech]: { icon: ReactNode; label: ReactNode } } =
         </>
       ),
     },
-  };
+  } as const;
 
 type TechDisplayProps = ComponentPropsWithoutRef<"ul"> & {
   techList: ProjectTech[];

@@ -5,12 +5,11 @@ import { Nunito_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import NextTopLoader from "nextjs-toploader";
 import { TailwindIndicator } from "@/components/dev/TailwindIndicator";
-import Providers from "@/components/providers/providers";
 import Header from "@/components/header";
 import { Analytics } from "@vercel/analytics/react";
 import BlurredBackground from "@/components/blurred-background";
 
-const roboto = Nunito_Sans({
+const nunito_sans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-family-body",
   fallback: ["Arial", "sans-serif"],
@@ -29,28 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth text-[95%] lg:text-[100%]"
-      suppressHydrationWarning
-    >
+    <html lang="en" className="scroll-smooth text-[95%] lg:text-[100%]">
       <body
         className={cn(
-          roboto.className,
+          nunito_sans.className,
           "relative flex h-full min-h-screen scroll-smooth antialiased",
           "bg-gradient-to-r from-slate-300 via-ff-cream to-slate-300/60",
         )}
       >
-        <Providers>
-          <div className="relative flex flex-grow flex-col gap-0 md:container md:flex-row md:gap-8 lg:px-16">
-            <NextTopLoader />
-            <Header />
-            {children}
-            <Analytics />
-            <TailwindIndicator />
-          </div>
-          <BlurredBackground />
-        </Providers>
+        <div className="relative flex flex-grow flex-col gap-0 md:container md:flex-row md:gap-8 lg:px-16">
+          <NextTopLoader />
+          <Header />
+          {children}
+          <Analytics />
+          <TailwindIndicator />
+        </div>
+        <BlurredBackground />
         <div className="absolute inset-0 -z-10 bg-[url(/images/paper.jpg)] opacity-30" />
       </body>
     </html>

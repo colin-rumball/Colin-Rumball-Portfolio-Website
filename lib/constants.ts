@@ -57,4 +57,4 @@ export const Projects: ProjectDetails = {
   tlp: TLPDetails,
   lego: LegoDetails,
   uno: UnoDetails,
-};
+} as const;

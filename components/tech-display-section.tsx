@@ -2,21 +2,17 @@ import useProjectSelector from "@/lib/hooks/useProjectSelector";
 import { type ProjectTech, Projects } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { type ComponentPropsWithoutRef } from "react";
-import Headline from "./headline";
 import TechDisplay from "./tech-display";
 
-const defaultTech = [
+const defaultTech: ProjectTech[] = [
   "typescript",
   "react",
   "nextjs",
   "convex",
   "tailwindcss",
-] as ProjectTech[];
+];
 
-type TechDisplaySectionProps = ComponentPropsWithoutRef<"div">;
-
-const TechDisplaySection = ({ className }: TechDisplaySectionProps) => {
+const TechDisplaySection = ({ className }: { className?: string }) => {
   const { selectedProject } = useProjectSelector((state) => ({
     selectedProject: state.selectedProject,
   }));
@@ -42,7 +38,6 @@ const TechDisplaySection = ({ className }: TechDisplaySectionProps) => {
         className,
       )}
     >
-      {/* <Headline as="h3">Tech</Headline> */}
       <div className="px-4 md:px-0">
         <TechDisplay techList={techList} />
       </div>
