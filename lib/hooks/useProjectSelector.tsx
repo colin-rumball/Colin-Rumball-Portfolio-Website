@@ -1,7 +1,7 @@
 "use client";
 
 import { create } from "zustand";
-import { type ProjectID } from "../projects-data";
+import { type ProjectID } from "../constants";
 
 export type ProjectSelectorState = {
   selectedProject: ProjectID | null;

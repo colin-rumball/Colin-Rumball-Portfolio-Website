@@ -1,5 +1,5 @@
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
-import { type ProjectTech, Projects } from "@/lib/projects-data";
+import { type ProjectTech, Projects } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { type ComponentPropsWithoutRef } from "react";

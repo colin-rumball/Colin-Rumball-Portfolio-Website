@@ -6,7 +6,7 @@ import PhocusDashboardImg from "@/public/images/phocus/phocus-dashboard.jpg";
 import PhocusDrawerImg from "@/public/images/phocus/phocus-drawer.jpg";
 import PhocusSidebarImg from "@/public/images/phocus/phocus-sidebar.jpg";
 import { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 const Background = () => {

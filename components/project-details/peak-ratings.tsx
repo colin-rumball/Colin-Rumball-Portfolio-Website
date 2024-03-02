@@ -4,7 +4,7 @@ import ChartsImg from "@/public/images/peak-ratings/charts.jpg";
 import DashboardImg from "@/public/images/peak-ratings/dashboard.jpg";
 import ListsImg from "@/public/images/peak-ratings/lists.jpg";
 import { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return (

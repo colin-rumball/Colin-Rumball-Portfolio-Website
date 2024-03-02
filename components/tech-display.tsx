@@ -1,4 +1,4 @@
-import { type ProjectTech } from "@/lib/projects-data";
+import { type ProjectTech } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { type ReactNode, type ComponentPropsWithoutRef } from "react";

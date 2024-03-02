@@ -4,7 +4,7 @@ import LegoPhoneMock2Img from "@/public/images/lego/Lego_phonemock_iphoneX_2.png
 import LegoPhoneMock3Img from "@/public/images/lego/Lego_phonemock_iphoneX_3.png";
 import LegoPhoneMock4Img from "@/public/images/lego/Lego_phonemock_iphoneX_4.png";
 import { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return (

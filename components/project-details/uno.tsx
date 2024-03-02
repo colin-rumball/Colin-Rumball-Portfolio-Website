@@ -2,7 +2,7 @@ import Image from "next/image";
 import UnoAppStore1 from "@/public/images/uno/uno_appstore1.png";
 import UnoAppStore2 from "@/public/images/uno/uno_appstore2.png";
 import UnoAppStore3 from "@/public/images/uno/uno_appstore3.png";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return (

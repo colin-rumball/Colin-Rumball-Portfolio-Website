@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { type ComponentPropsWithoutRef } from "react";
 import Project from "./project";
-import { Projects } from "@/lib/projects-data";
+import { Projects } from "@/lib/constants";
 import StickyHeadline from "./sticky-headline";
 import { motion } from "framer-motion";
 import Headline from "./headline";

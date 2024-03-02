@@ -7,7 +7,7 @@ import TLPEdit from "@/public/images/tlp/tlp-edit-phone.png";
 import TLPDash from "@/public/images/tlp/tlp-dashboard-phone.png";
 import { Separator } from "../ui/separator";
 import Link, { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 const Background = () => {

@@ -3,12 +3,11 @@
 import { cn } from "@/lib/utils";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
-import { Projects } from "@/lib/projects-data";
+import { Projects } from "@/lib/constants";
 import { Separator } from "./ui/separator";
 import { AnimatePresence, clamp, motion } from "framer-motion";
 import Link, { ArrowLink } from "./ui/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Headline from "./headline";
 import TechDisplaySection from "./tech-display-section";
 
 const AnimatedProjectBackground = () => {

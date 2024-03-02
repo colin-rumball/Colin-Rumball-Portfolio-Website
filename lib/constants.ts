@@ -1,5 +1,4 @@
 import { AiNavigatorDetails } from "@/components/project-details/ai-navigator";
-import { FaceCraftDetails } from "@/components/project-details/face-craft-me";
 import { GGCoDetails } from "@/components/project-details/growing-good-co";
 import { LegoDetails } from "@/components/project-details/lego";
 import { PhocusFormBuilderDetails } from "@/components/project-details/phocus-form-builder";

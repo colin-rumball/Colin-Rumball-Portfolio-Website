@@ -3,7 +3,7 @@ import DNHomeImg from "@/public/images/ai-navigator/dn-home.jpg";
 import DNLensImg from "@/public/images/ai-navigator/dn-lens.jpg";
 import DNFormImg from "@/public/images/ai-navigator/dn-form.jpg";
 import Link, { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return (

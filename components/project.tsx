@@ -17,7 +17,7 @@ import {
   CarouselItem,
 } from "./ui/carousel";
 import { type EmblaCarouselType, type EmblaEventType } from "embla-carousel";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 import useProjectSelector from "@/lib/hooks/useProjectSelector";
 import { Button } from "./ui/button";
 import { MdOutlineClose } from "react-icons/md";

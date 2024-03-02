@@ -5,7 +5,7 @@ import GGCoGolden from "@/../public/images/ggco/golden-oyster.jpg";
 import GGCoPink from "@/../public/images/ggco/pink-oyster.jpg";
 import GGCoChestnut from "@/../public/images/ggco/chestnut-mushrooms.png";
 import { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return <div className={`absolute inset-y-0 w-screen bg-ggco-green`} />;

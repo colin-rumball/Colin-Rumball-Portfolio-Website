@@ -5,7 +5,7 @@ import TLPHome from "@/public/images/tlp/tlp-main-phone.png";
 import TLPEdit from "@/public/images/tlp/tlp-edit-phone.png";
 import TLPDash from "@/public/images/tlp/tlp-dashboard-phone.png";
 import Link, { ArrowLink } from "../ui/link";
-import { type ProjectOpts } from "@/lib/projects-data";
+import { type ProjectOpts } from "@/lib/constants";
 
 const Background = () => {
   return (
