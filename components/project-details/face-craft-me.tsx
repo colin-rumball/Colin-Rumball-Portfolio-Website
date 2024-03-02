@@ -9,7 +9,6 @@ import { Separator } from "../ui/separator";
 import Link, { ArrowLink } from "../ui/link";
 import { type ProjectOpts } from "@/lib/projects-data";
 import { motion } from "framer-motion";
-import { slideInVariants } from "@/lib/motion";
 
 const Background = () => {
   return <div className={`absolute inset-y-0 w-screen bg-[#1b2334]`}></div>;
