@@ -44,6 +44,7 @@ const CloseButton = ({
       className="absolute -right-6 -top-16 z-40 hidden md:block"
     >
       <Button
+        aria-label="Close project button"
         variant={"ghost"}
         className="text-3xl"
         onClick={() => {
@@ -351,7 +352,7 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
         !noProjectSelected && !thisProjectSelected && "opacity-50 blur-xl",
       )}
     >
-      <motion.button
+      <motion.div
         initial={{ top: 0 }}
         animate={{
           top: thisProjectSelected ? `${top}px` : "0",
@@ -366,21 +367,26 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           "pointer-events-auto md:absolute",
           thisProjectSelected && "z-selected-project",
         )}
-        onClick={() => {
-          // if small screen, scroll to top of the project, expand project and video
-          if (windowDimensions.width && windowDimensions.width < 768) {
-            setShowExtendedContent((prev) => !prev);
-          } else {
-            if (selectedProject !== opts.id) {
-              document.body.style.overflow = "hidden";
-              setSelectedProject(opts.id);
-              setPosition();
-            }
-          }
-        }}
       >
         <ProjectHoveredBackground thisProjectSelected={thisProjectSelected} />
-        <div className="flex w-full flex-col">
+        <button
+          className={cn(
+            "flex w-full flex-col",
+            thisProjectSelected && "cursor-auto",
+          )}
+          onClick={() => {
+            // if small screen, scroll to top of the project, expand project and video
+            if (windowDimensions.width && windowDimensions.width < 768) {
+              setShowExtendedContent((prev) => !prev);
+            } else {
+              if (selectedProject !== opts.id) {
+                document.body.style.overflow = "hidden";
+                setSelectedProject(opts.id);
+                setPosition();
+              }
+            }
+          }}
+        >
           <motion.div
             variants={{
               open: { gap: "0" },
@@ -406,9 +412,9 @@ const Project = ({ index, opts }: { index: number; opts: ProjectOpts }) => {
           <AnimatePresence mode="wait">
             {showExtendedContent && <ProjectExtendedContent projOpts={opts} />}
           </AnimatePresence>
-        </div>
+        </button>
         <CloseButton thisProjectSelected={thisProjectSelected} />
-      </motion.button>
+      </motion.div>
     </motion.li>
   );
 };
