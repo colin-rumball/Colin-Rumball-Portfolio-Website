@@ -34,10 +34,10 @@ const LongDescription = () => {
         business successes we had, but also in the personal growth and learning
         that comes with starting a business from the ground up.
       </p>
-      <p>
+      {/* <p>
         Though the business is on the back burner the website I crafted still
         stands as a testament to all the things we achieved.
-      </p>
+      </p> */}
     </div>
   );
 };
