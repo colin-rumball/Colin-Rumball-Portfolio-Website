@@ -152,13 +152,13 @@ const AboutMe = () => {
           implementation, I thrive while learning new technologies & employing
           innovative approaches to problem-solving.
         </p>
-        <p className="">
+        {/* <p className="">
           When not coding, I enjoy practicing yoga, camping, and traveling the
           world with my wife. Recently, I embarked on a different kind of
           challenge away from the desk: founding a small local culinary mushroom
           farm, allowing me to explore sustainable agriculture and connect with
           my local community.
-        </p>
+        </p> */}
       </div>
     </div>
   );
@@ -314,9 +314,9 @@ const ExternalLinks = () => {
               <ArrowLink href={"mailto:hello@colinrumball.com"} target="_blank">
                 hello@colinrumball.com
               </ArrowLink>
-              <ArrowLink href={"/colin-rumball-resume.pdf"} target="_blank">
+              {/* <ArrowLink href={"/colin-rumball-resume.pdf"} target="_blank">
                 Download CV
-              </ArrowLink>
+              </ArrowLink> */}
             </div>
           )}
         </motion.div>
