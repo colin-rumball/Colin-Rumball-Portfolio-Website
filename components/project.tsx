@@ -265,7 +265,10 @@ const ProjectExtendedContent = ({ projOpts }: { projOpts: ProjectOpts }) => {
     >
       <ProjectSummary opts={projOpts} />
       <TechDisplay techList={projOpts.tech} />
-      <ExpandedDescription />
+
+      <div className="text-left">
+        <ExpandedDescription />
+      </div>
       {ExternalLinks && <ExternalLinks />}
       <Separator className="bg-current" />
     </motion.div>
